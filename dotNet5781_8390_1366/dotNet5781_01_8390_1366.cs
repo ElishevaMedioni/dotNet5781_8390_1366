@@ -13,36 +13,29 @@ namespace dotNet5781_01_8390_1366
     {
         public enum MyEnum { addBus, programTravel, busSetting, display, exit };
 
-        //public bool SearchBus(List<Bus> buses, int myLicenseNum)
-        //{
-        //    foreach (licenseNum.buses)
-        //}
-
-
-        //static public ArrayList addLicenseNumToArray (ArrayList licenseNumArray, int licenseNum)
-        //{
-            
-        //    ArrayList licenseNumArray = new ArrayList();
-        //    licenseNumArray.Add(licenseNum);
-        //    return licenseNumArray;
-
-        //}
+        /// <summary>
+        /// A fonction to print the menu with the different options
+        /// </summary>
+        static public void printMenuOption()
+        {
+            Console.WriteLine("enter your choice/n");
+            Console.WriteLine("Enter 0 to add bus to the system/n");
+            Console.WriteLine("Enter 1 to program a travel/n");
+            Console.WriteLine("Enter 2 to fil up or carry out a technical check/n");
+            Console.WriteLine("Enter 3 to  display the km traveld/n");
+            Console.WriteLine("Enter 4 to exit, bye bye/n");
+        }
         
-        //static public bool findLicenseNum(ArrayList licenseNumArray, int licenseNum)
-        //{
-        //    int index = licenseNumArray.BinarySearch(licenseNum);
-        //    if (index == 0)
-        //    {
-        //        Console.WriteLine("This license number is already taken, sorry!!");
-        //        return false;
-        //    }
-        //    else
-        //    {
-        //        licenseNumArray.Add(licenseNum);
-        //        return true;
-        //    }
-                
-        //}
+        /// <summary>
+        /// fonction to check if the license number that the user enter isn't already use to an other bus in  the system
+        /// </summary>
+        /// <param name="buses"></param>
+        /// <param name="myLicenseNum"></param>
+        /// <returns>bool</returns>
+        static public bool ExistBus(List<Bus> buses, int myLicenseNum)
+        {
+           return buses.Exists(x => x.getLicenseNum() == myLicenseNum);
+        }
 
 
         /// <summary>
@@ -71,10 +64,12 @@ namespace dotNet5781_01_8390_1366
             DateTime date1 = new DateTime(yearInt, monthInt, dayInt);
 
             
-            Console.WriteLine("Enter your license number with 7 numbers: ");
+            Console.WriteLine("Enter your license number: ");
             string licenseNum = Console.ReadLine();
             int licenseNumInt;
             int.TryParse(licenseNum, out licenseNumInt);
+            if (ExistBus(buses, licenseNumInt)) ///trouver solution pour quil reconnaisse la list 
+                return null;
             if (yearInt < 2018 && licenseNum.Length == 7)
             {
                 Bus b1 = new Bus(licenseNumInt, date1);
@@ -86,17 +81,17 @@ namespace dotNet5781_01_8390_1366
                 Bus b1 = new Bus(licenseNumInt, date1);
                 return b1;
             }
-            else {
-                Console.WriteLine("ERROR");
-                Console.WriteLine();
+            else { //if the license number format is wrong
+                
                 return null;
             }
         }
             static void Main(string[] args)
             {
                 List<Bus> buses = new List<Bus>();
-            //ArrayList licenseNumArray = new ArrayList();
             int choice;
+            printMenuOption();
+
                 while (int.TryParse(Console.ReadLine(), out choice))
                     Console.Write("ERROR, entre un autre");
                 while (choice != 4)
@@ -104,24 +99,27 @@ namespace dotNet5781_01_8390_1366
                     switch ((MyEnum)choice)
                     {
                         case MyEnum.addBus: //add bus to the system
+                        if (funcAddBus()==null)
+                        {
+                            Console.WriteLine("ERROR the license number you entered is wrong/n");
+                        }
+                        else {
                             Bus b1 = funcAddBus();
-                       
-
-                        buses.Add(b1);
+                            buses.Add(b1);
+                        }
                             break;
-
                         case MyEnum.programTravel:
                             break;
                         case MyEnum.busSetting:
                             break;
                         case MyEnum.display:
                             break;
-                        default:
+                    default:
+                        Console.WriteLine("no such option");
                             break;
                     }
+                printMenuOption();
                 }
             }
-
-
         }
     }
