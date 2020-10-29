@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C390FF90-186A-4147-8879-C1DA32559C82}</ProjectGuid>
+    <ProjectGuid>{54E9DD6F-E6AA-417C-85F1-3F2AEF64F385}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>dotNet5781_01_8390_1366</RootNamespace>
     <AssemblyName>dotNet5781_01_8390_1366</AssemblyName>
@@ -41,11 +41,10 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\dotNet5781_01_8390_1366.cs" />
     <Compile Include="Bus.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
