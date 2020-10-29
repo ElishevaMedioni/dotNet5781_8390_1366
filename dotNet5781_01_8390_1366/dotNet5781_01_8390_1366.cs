@@ -13,8 +13,6 @@ namespace dotNet5781_01_8390_1366
     {
         //essaie1
         //essaie2
-        //essaie3
-        //essaie4
         public enum MyEnum { addBus, programTravel, busSetting, display, exit };
 
         /// <summary>
