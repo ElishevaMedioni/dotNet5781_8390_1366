@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Collections;
 
 namespace dotNet5781_01_8390_1366
 {
@@ -34,7 +28,7 @@ namespace dotNet5781_01_8390_1366
         /// <returns>bool</returns>
         static public bool ExistBus(List<Bus> buses, int myLicenseNum)
         {
-            return buses.Exists(x => x.getLicenseNum() == myLicenseNum);
+            return buses.Exists(x => x.getLicenseNum == myLicenseNum);
         }
 
 
@@ -87,6 +81,17 @@ namespace dotNet5781_01_8390_1366
                 return null;
             }
         }
+
+        // KEREN
+        //FONCTION QUI PERMER DE TROUVER LE NOMBRE DE KMS EN RANDOM 
+        static private int RandomNumber(int min, int max)
+        {
+            Random random = new Random();
+            return random.Next(min, max);
+        }
+
+
+
         static void Main(string[] args)
         {
             List<Bus> buses = new List<Bus>();
@@ -110,10 +115,39 @@ namespace dotNet5781_01_8390_1366
                             buses.Add(b1);
                         }
                         break;
+
+
+
+
                     case MyEnum.programTravel:
+
+
+                        // je demande a l'utilisateur son numero de licence :
+                        Console.WriteLine("Enter your license number: ");
+                        string licenseNum = Console.ReadLine();
+                        int licenseNumInt;
+                        int.TryParse(licenseNum, out licenseNumInt);
+
+
+
+                        //je random le numero de kms d'un trajet :
+                        int kilometres = RandomNumber(5, 1200);
+                        // fonction suivante verifier : si la license existe, si le taux oil n'est pas depasser, si le taux pour verification technique na pas ete depasser
+                        ShouldWeDoTechnicalVerification(buses, kilometres, licenseNumInt);
+
                         break;
+
+
                     case MyEnum.busSetting:
+
+
                         break;
+
+
+
+
+
+
                     case MyEnum.display:
                         break;
                     default:
@@ -122,6 +156,44 @@ namespace dotNet5781_01_8390_1366
                 }
                 printMenuOption();
             }
+        }
+
+        private static void ShouldWeDoTechnicalVerification(List<Bus> buses, int km, int licenseNumInt)
+        {
+            foreach (Bus element in buses)
+            {
+
+
+                if (element.getLicenseNum == licenseNumInt)
+                {
+
+
+
+
+                    if (element.getKmNumGas + km > 1200)
+                    {
+                        Console.WriteLine("ERROR YOU NEED TO PUT OIL");
+
+                    }
+                    if (element.getNumTechnicalControl + km > 20000)
+                    {
+                        Console.WriteLine("YOU NEED TO DO TECHNICAL VARIFICATION");
+
+                    }
+                    else
+                    {
+                        element.getNumTechnicalControl += km;
+                        element.getKmNumGas += km;
+                        Console.WriteLine("THE NEW TRIP OF BUS {1} HAS BEEN UPDATED SUCCESSFULLY", licenseNumInt);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("AUTOBUS NOT FOUND");
+                }
+
+            }
+
         }
     }
 }
