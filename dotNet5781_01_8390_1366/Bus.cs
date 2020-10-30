@@ -8,10 +8,12 @@ namespace dotNet5781_01_8390_1366
 {
     class Bus
     {
-        private int licenseNum;
-        private static int kmNumGas = 0;
-        private static int kmNumTechnicalControl = 0;
-        DateTime dateOfActivity;
+        int licenseNum;
+        static int kmNumGas = 0;
+        static int kmNumTechnicalControl = 0;
+        public DateTime dateOfActivity;
+        internal DateTime dateNow;
+      
 
         public Bus()
         { // default constructor, initialyse
@@ -29,6 +31,14 @@ namespace dotNet5781_01_8390_1366
         {
             return licenseNum;
         }
+        public int getKmNumGas()
+        {
+            return kmNumGas;
+        }
+        public int getNumTechnicalControl()
+        {
+            return kmNumTechnicalControl;
+        }
 
         public void printLicenseNum()
         {
@@ -40,5 +50,42 @@ namespace dotNet5781_01_8390_1366
             else //else the licenseNum is 8 digits
                 Console.WriteLine(licenseNum / 100000 + "-" + (licenseNum % 100000) / 1000 + "-" + licenseNum % 1000);
         }
+        // private static void ShouldWeDoTechnicalVerification(List<Bus> buses, int km, int licenseNumInt)
+        //{
+        //    foreach (Bus element in buses)
+        //    {
+
+
+        //        if (element.getLicenseNum() == licenseNumInt)
+        //        {
+                    
+
+
+
+        //            if (kmNumGas+km > 1200)
+        //            {
+        //                Console.WriteLine("ERROR YOU NEED TO PUT OIL");
+
+        //            }
+        //            if (kmNumTechnicalControl+km > 20000)
+        //            {
+        //                Console.WriteLine("YOU NEED TO DO TECHNICAL VARIFICATION");
+
+        //            }
+        //            else
+        //            {
+        //                kmNumTechnicalControl += km;
+        //                kmNumGas += km;
+        //                Console.WriteLine("THE NEW TRIP OF BUS {1} HAS BEEN UPDATED SUCCESSFULLY", licenseNumInt);
+        //            }
+        //        }
+        //        else
+        //        {
+        //            Console.WriteLine("AUTOBUS NOT FOUND");
+        //        }
+                
+        //    }
+          
+        //}
     }
 }
