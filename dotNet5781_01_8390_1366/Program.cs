@@ -5,6 +5,8 @@ namespace dotNet5781_01_8390_1366
 {
     class Program
     {
+        //change1
+        //change2
         public enum MyEnum { addBus, programTravel, busSetting, display, exit };
 
         /// <summary>
@@ -180,6 +182,7 @@ namespace dotNet5781_01_8390_1366
 
 
 
+                        break;
 
 
 
