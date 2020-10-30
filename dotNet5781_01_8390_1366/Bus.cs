@@ -13,7 +13,7 @@ namespace dotNet5781_01_8390_1366
         static int kmNumTechnicalControl = 0;
         public DateTime dateOfActivity;
         internal DateTime dateNow;
-      
+
 
         public Bus()
         { // default constructor, initialyse
@@ -44,7 +44,7 @@ namespace dotNet5781_01_8390_1366
         }
 
 
-       
+
 
         public void printLicenseNum()
         {
@@ -64,7 +64,7 @@ namespace dotNet5781_01_8390_1366
 
         //        if (element.getLicenseNum() == licenseNumInt)
         //        {
-                    
+
 
 
 
@@ -89,9 +89,9 @@ namespace dotNet5781_01_8390_1366
         //        {
         //            Console.WriteLine("AUTOBUS NOT FOUND");
         //        }
-                
+
         //    }
-          
+
         //}
     }
 }
