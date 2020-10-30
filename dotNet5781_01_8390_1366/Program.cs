@@ -182,8 +182,6 @@ namespace dotNet5781_01_8390_1366
 
 
 
-                        break;
-
 
 
 
@@ -202,8 +200,14 @@ namespace dotNet5781_01_8390_1366
 
         private static void ShouldWeDoTechnicalVerification(List<Bus> buses, int km, int licenseNumInt)
         {
+           
+
             foreach (Bus element in buses)
             {
+                DateTime date1 = DateTime.Now;
+                DateTime date2 =element.dateOfActivity;
+                TimeSpan t = date1 - date2;
+
 
 
                 if (element.getLicenseNum == licenseNumInt)
@@ -217,9 +221,18 @@ namespace dotNet5781_01_8390_1366
                         Console.WriteLine("ERROR YOU NEED TO PUT OIL");
 
                     }
+
+
                     if (element.getNumTechnicalControl + km > 20000)
                     {
                         Console.WriteLine("YOU NEED TO DO TECHNICAL VARIFICATION");
+                        if(t)
+                            {
+
+
+                             }
+
+)
 
                     }
                     else
