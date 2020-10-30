@@ -26,19 +26,25 @@ namespace dotNet5781_01_8390_1366
             licenseNum = myLicenseNum;
             dateOfActivity = mydateOfActivity;
         }
+        public int getLicenseNum
+        {
+            get { return licenseNum; }
+            set { licenseNum = value; }
+        }
+        public int getKmNumGas
+        {
+            get { return kmNumGas; }
+            set { kmNumGas = value; }
+        }
 
-        public int getLicenseNum()
+        public int getNumTechnicalControl
         {
-            return licenseNum;
+            get { return kmNumTechnicalControl; }
+            set { kmNumTechnicalControl = value; }
         }
-        public int getKmNumGas()
-        {
-            return kmNumGas;
-        }
-        public int getNumTechnicalControl()
-        {
-            return kmNumTechnicalControl;
-        }
+
+
+       
 
         public void printLicenseNum()
         {

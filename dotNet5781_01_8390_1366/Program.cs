@@ -28,7 +28,7 @@ namespace dotNet5781_01_8390_1366
         /// <returns>bool</returns>
         static public bool ExistBus(List<Bus> buses, int myLicenseNum)
         {
-            return buses.Exists(x => x.getLicenseNum() == myLicenseNum);
+            return buses.Exists(x => x.getLicenseNum == myLicenseNum);
         }
 
 
@@ -145,10 +145,6 @@ namespace dotNet5781_01_8390_1366
 
                               
 
-                                // if (ShouldWePutOil())
-
-                                //List<Bus> buses, int myLicenseNum
-
                             }
 
 
@@ -193,18 +189,18 @@ namespace dotNet5781_01_8390_1366
             {
 
 
-                if (element.getLicenseNum() == licenseNumInt)
+                if (element.getLicenseNum == licenseNumInt)
                 {
 
 
 
 
-                    if (element.getKmNumGas() + km > 1200)
+                    if (element.getKmNumGas + km > 1200)
                     {
                         Console.WriteLine("ERROR YOU NEED TO PUT OIL");
 
                     }
-                    if (element.getNumTechnicalControl() + km > 20000)
+                    if (element.getNumTechnicalControl + km > 20000)
                     {
                         Console.WriteLine("YOU NEED TO DO TECHNICAL VARIFICATION");
 
