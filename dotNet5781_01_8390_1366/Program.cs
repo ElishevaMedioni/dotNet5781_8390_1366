@@ -90,11 +90,12 @@ namespace dotNet5781_01_8390_1366
             return random.Next(min, max);
         }
 
-        //KEREN
-        //FONCTION QUI PERMET DE CALCULER ESSENCE QUI RESTE 
+        static private void FillTheBus(int license)
+        {
+            getKmNumGas = 0;
 
-     
-      
+        }
+
         static void Main(string[] args)
         {
             List<Bus> buses = new List<Bus>();
@@ -122,52 +123,70 @@ namespace dotNet5781_01_8390_1366
 
 
 
-
-
-
                     case MyEnum.programTravel:
 
-                        {
+                        
                             // je demande a l'utilisateur son numero de licence :
                             Console.WriteLine("Enter your license number: ");
                             string licenseNum = Console.ReadLine();
                             int licenseNumInt;
                             int.TryParse(licenseNum, out licenseNumInt);
 
-                            //Je verifie si le numero de license existe:
-                            // Si elle existe : 
-                            if (ExistBus(buses, licenseNumInt))
-                            {
+                           
+                            
                                 //je random le numero de kms d'un trajet :
-                                int kilometres = RandomNumber(5, 20);
-                                
+                                int kilometres = RandomNumber(5, 1200);
+                            // fonction suivante verifier : si la license existe, si le taux oil n'est pas depasser, si le taux pour verification technique na pas ete depasser
                                 ShouldWeDoTechnicalVerification(buses, kilometres, licenseNumInt);
 
-                              
+                        break;
+
+
+
+
+
+
+                    case MyEnum.busSetting:
+
+                        // je demande a l'utilisateur son numero de licence :
+                        Console.WriteLine("Enter your license number: ");
+                        string license = Console.ReadLine();
+                        int licenseInt;
+                        int.TryParse(license, out licenseInt);
+
+                        foreach (Bus element in buses)
+                        {
+
+
+                            if (element.getLicenseNum == licenseInt)
+                            {
+
+                               FillTheBus(licenseInt);
+
+
 
                             }
-
-
-
-
-
-
-
-                            // si le numero de licence n'existe pas:
-                            else Console.WriteLine("error ");
-
-
+                            else
+                                Console.WriteLine("AUTOBUS NOT FOUND");
                         }
 
 
 
 
+                            break;
 
 
 
-                        break;
-                    case MyEnum.busSetting:
-                        break;
+
+
+
+
+
+
+
+
+
+
                     case MyEnum.display:
                         break;
                     default:
@@ -178,11 +197,6 @@ namespace dotNet5781_01_8390_1366
             }
         }
 
-        /* private static void ShouldWeDoTechnicalVerification(List<Bus> buses, int kilometres, int licenseNumInt)
-         {
-             throw new NotImplementedException();
-         }
-        */
         private static void ShouldWeDoTechnicalVerification(List<Bus> buses, int km, int licenseNumInt)
         {
             foreach (Bus element in buses)
