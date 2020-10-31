@@ -43,7 +43,11 @@ namespace dotNet5781_01_8390_1366
             set { kmNumTechnicalControl = value; }
         }
 
-
+        public void print()
+        {
+            Console.WriteLine("Bus number: " + printLicenseNum() /n);
+            Console.WriteLine("Number of km traveled" + kmNumGas /n);
+        }
 
 
         public void printLicenseNum()
