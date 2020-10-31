@@ -14,39 +14,37 @@ namespace dotNet5781_01_8390_1366
         public DateTime dateOfActivity;
       
       
-
+        //CONSTRUCTOR
         public Bus()
         { // default constructor, initialyse
             licenseNum = 0;
             dateOfActivity = new DateTime(0, 0, 0);
         }
-
+        // TO USE VARIABLE 
         public Bus(int myLicenseNum, DateTime mydateOfActivity)
         {
             licenseNum = myLicenseNum;
             dateOfActivity = mydateOfActivity;
         }
-        public int getLicenseNum
+        public int GetLicenseNum
         {
             get { return licenseNum; }
             set { licenseNum = value; }
         }
-        public int getKmNumGas
+        public int GetKmNumGas
         {
             get { return kmNumGas; }
             set { kmNumGas = value; }
         }
 
-        public int getNumTechnicalControl
+        public int GetNumTechnicalControl
         {
             get { return kmNumTechnicalControl; }
             set { kmNumTechnicalControl = value; }
         }
 
-
-
-
-        public void printLicenseNum()
+        //PRINT LICENSE
+        public void PrintLicenseNum()
         {
             int numDigit = licenseNum.ToString().Length;
 
@@ -56,42 +54,6 @@ namespace dotNet5781_01_8390_1366
             else //else the licenseNum is 8 digits
                 Console.WriteLine(licenseNum / 100000 + "-" + (licenseNum % 100000) / 1000 + "-" + licenseNum % 1000);
         }
-        // private static void ShouldWeDoTechnicalVerification(List<Bus> buses, int km, int licenseNumInt)
-        //{
-        //    foreach (Bus element in buses)
-        //    {
-
-
-        //        if (element.getLicenseNum() == licenseNumInt)
-        //        {
-
-
-
-
-        //            if (kmNumGas+km > 1200)
-        //            {
-        //                Console.WriteLine("ERROR YOU NEED TO PUT OIL");
-
-        //            }
-        //            if (kmNumTechnicalControl+km > 20000)
-        //            {
-        //                Console.WriteLine("YOU NEED TO DO TECHNICAL VARIFICATION");
-
-        //            }
-        //            else
-        //            {
-        //                kmNumTechnicalControl += km;
-        //                kmNumGas += km;
-        //                Console.WriteLine("THE NEW TRIP OF BUS {1} HAS BEEN UPDATED SUCCESSFULLY", licenseNumInt);
-        //            }
-        //        }
-        //        else
-        //        {
-        //            Console.WriteLine("AUTOBUS NOT FOUND");
-        //        }
-
-        //    }
-
-        //}
+      
     }
 }

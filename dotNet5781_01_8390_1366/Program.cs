@@ -30,7 +30,7 @@ namespace dotNet5781_01_8390_1366
         /// <returns>bool</returns>
         static public bool ExistBus(List<Bus> buses, int myLicenseNum)
         {
-            return buses.Exists(x => x.getLicenseNum == myLicenseNum);
+            return buses.Exists(x => x.GetLicenseNum == myLicenseNum);
         }
 
 
@@ -39,7 +39,7 @@ namespace dotNet5781_01_8390_1366
         /// it receives the date and the license number
         /// </summary>
         /// <returns>Bus</returns>
-        static public Bus funcAddBus()
+        static public Bus FuncAddBus()
         {
             Console.WriteLine("Enter date of the beginning of your activity: /n " +
                 "Enter the day ");
@@ -92,10 +92,27 @@ namespace dotNet5781_01_8390_1366
             return random.Next(min, max);
         }
 
-        static private void FillTheBus(int license)
+        static private void DoTechnicalControl(List<Bus> buses, int license)
         {
-            getKmNumGas = 0;
-
+            foreach (Bus element in buses)
+            {
+                if (element.GetLicenseNum == license)
+                {
+                    element.GetNumTechnicalControl = 0;
+                    Console.WriteLine($"WAIT.....  TECHNICAL CONTROL DONE");
+                }
+            }
+        }
+        static private void FillTheBus(List<Bus> buses, int license)
+        {
+            foreach (Bus element in buses)
+            {
+                if (element.GetLicenseNum == license)
+                {
+                    element.GetKmNumGas = 0;
+                    Console.WriteLine($"WAIT.....  FULL");
+                }
+            }
         }
 
         static void Main(string[] args)
@@ -111,13 +128,13 @@ namespace dotNet5781_01_8390_1366
                 switch ((MyEnum)choice)
                 {
                     case MyEnum.addBus: //add bus to the system
-                        if (funcAddBus() == null)
+                        if (FuncAddBus() == null)
                         {
                             Console.WriteLine("ERROR the license number you entered is wrong/n");
                         }
                         else
                         {
-                            Bus b1 = funcAddBus();
+                            Bus b1 = FuncAddBus();
                             buses.Add(b1);
                         }
                         break;
@@ -127,19 +144,19 @@ namespace dotNet5781_01_8390_1366
 
                     case MyEnum.programTravel:
 
-                        
-                            // je demande a l'utilisateur son numero de licence :
-                            Console.WriteLine("Enter your license number: ");
-                            string licenseNum = Console.ReadLine();
-                            int licenseNumInt;
-                            int.TryParse(licenseNum, out licenseNumInt);
 
-                           
-                            
-                                //je random le numero de kms d'un trajet :
-                                int kilometres = RandomNumber(5, 1200);
-                            // fonction suivante verifier : si la license existe, si le taux oil n'est pas depasser, si le taux pour verification technique na pas ete depasser
-                                ShouldWeDoTechnicalVerification(buses, kilometres, licenseNumInt);
+                        // je demande a l'utilisateur son numero de licence :
+                        Console.WriteLine("Enter your license number: ");
+                        string licenseNum = Console.ReadLine();
+                        int licenseNumInt;
+                        int.TryParse(licenseNum, out licenseNumInt);
+
+
+
+                        //je random le numero de kms d'un trajet :
+                        int kilometres = RandomNumber(5, 1200);
+                        // fonction suivante verifier : si la license existe, si le taux oil n'est pas depasser, si le taux pour verification technique na pas ete depasser
+                        ShouldWeDoTechnicalVerification(buses, kilometres, licenseNumInt);
 
                         break;
 
@@ -149,33 +166,54 @@ namespace dotNet5781_01_8390_1366
 
 
                     case MyEnum.busSetting:
+                        Console.WriteLine("enter your choice/n");
+                        Console.WriteLine("Enter 0 to refuel/n");
+                        Console.WriteLine("Enter 1 to pass the technical examination/n");
+                        string choiice = Console.ReadLine();
+                        int choiiceInt;
+                        int.TryParse(choiice, out choiiceInt);
+
+
 
                         // je demande a l'utilisateur son numero de licence :
                         Console.WriteLine("Enter your license number: ");
                         string license = Console.ReadLine();
                         int licenseInt;
                         int.TryParse(license, out licenseInt);
-
-                        foreach (Bus element in buses)
+                      
+                        
+                        
+                        switch(choiiceInt)
                         {
+                            case 0:
+                                FillTheBus(buses, licenseInt);
+                                break;
+
+                            case 1:
+                                DoTechnicalControl(buses, licenseInt);
+                                break;
+
+                            default:
+                                break;
 
 
-                            if (element.getLicenseNum == licenseInt)
-                            {
-
-                               FillTheBus(licenseInt);
 
 
-
-                            }
-                            else
-                                Console.WriteLine("AUTOBUS NOT FOUND");
                         }
 
 
 
 
-                            break;
+                        
+                       
+
+
+
+
+
+
+
+                        break;
 
 
 
@@ -200,22 +238,16 @@ namespace dotNet5781_01_8390_1366
 
         private static void ShouldWeDoTechnicalVerification(List<Bus> buses, int km, int licenseNumInt)
         {
-           
-
             foreach (Bus element in buses)
             {
                 DateTime date1 = DateTime.Now;
-                DateTime date2 =element.dateOfActivity;
+                DateTime date2 = element.dateOfActivity;
                 TimeSpan t = date1 - date2;
 
 
 
-                if (element.getLicenseNum == licenseNumInt)
+                if (element.GetLicenseNum == licenseNumInt)
                 {
-
-
-
-
                     if (element.getKmNumGas + km > 1200)
                     {
                         Console.WriteLine("ERROR YOU NEED TO PUT OIL");
@@ -226,15 +258,14 @@ namespace dotNet5781_01_8390_1366
                     if (element.getNumTechnicalControl + km > 20000)
                     {
                         Console.WriteLine("YOU NEED TO DO TECHNICAL VARIFICATION");
-                        if(t)
-                            {
-
-
-                             }
-
-)
-
                     }
+
+                    if (Math.Round(t.TotalDays) > 375)
+                    {
+                        Console.WriteLine("YOU NEED TO DO TECHNICAL VARIFICATION");
+                    }
+
+
                     else
                     {
                         element.getNumTechnicalControl += km;
@@ -251,4 +282,6 @@ namespace dotNet5781_01_8390_1366
 
         }
     }
+    
+   
 }
