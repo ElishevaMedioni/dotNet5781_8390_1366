@@ -43,59 +43,7 @@ namespace dotNet5781_01_8390_1366
             set { kmNumTechnicalControl = value; }
         }
 
-        public void print()
-        {
-            Console.WriteLine("Bus number: " + printLicenseNum() /n);
-            Console.WriteLine("Number of km traveled" + kmNumGas /n);
-        }
-
-
-        public void printLicenseNum()
-        {
-            int numDigit = licenseNum.ToString().Length;
-
-            if (numDigit == 7) //if the beginning of the activity is before 2018 then the licenseNum is 7 digits
-                Console.WriteLine(licenseNum / 100000 + "-" + (licenseNum % 100000) / 100 + "-" + licenseNum % 100);
-
-            else //else the licenseNum is 8 digits
-                Console.WriteLine(licenseNum / 100000 + "-" + (licenseNum % 100000) / 1000 + "-" + licenseNum % 1000);
-        }
-        // private static void ShouldWeDoTechnicalVerification(List<Bus> buses, int km, int licenseNumInt)
-        //{
-        //    foreach (Bus element in buses)
-        //    {
-
-
-        //        if (element.getLicenseNum() == licenseNumInt)
-        //        {
-
-
-
-
-        //            if (kmNumGas+km > 1200)
-        //            {
-        //                Console.WriteLine("ERROR YOU NEED TO PUT OIL");
-
-        //            }
-        //            if (kmNumTechnicalControl+km > 20000)
-        //            {
-        //                Console.WriteLine("YOU NEED TO DO TECHNICAL VARIFICATION");
-
-        //            }
-        //            else
-        //            {
-        //                kmNumTechnicalControl += km;
-        //                kmNumGas += km;
-        //                Console.WriteLine("THE NEW TRIP OF BUS {1} HAS BEEN UPDATED SUCCESSFULLY", licenseNumInt);
-        //            }
-        //        }
-        //        else
-        //        {
-        //            Console.WriteLine("AUTOBUS NOT FOUND");
-        //        }
-
-        //    }
-
-        //}
+       
+       
     }
 }

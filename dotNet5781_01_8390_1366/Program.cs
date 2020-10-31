@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 
 namespace dotNet5781_01_8390_1366
 {
@@ -11,14 +12,14 @@ namespace dotNet5781_01_8390_1366
         /// <summary>
         /// A fonction to print the menu with the different options
         /// </summary>
-        static public void printMenuOption()
+        static public void PrintMenuOption()
         {
-            Console.WriteLine("enter your choice" / n);
-            Console.WriteLine("Enter 0 to add bus to the system" / n);
-            Console.WriteLine("Enter 1 to program a travel" / n);
-            Console.WriteLine("Enter 2 to fil up or carry out a technical check" / n);
-            Console.WriteLine("Enter 3 to  display the km traveld" / n);
-            Console.WriteLine("Enter 4 to exit, bye bye" / n);
+            Console.WriteLine("enter your choice/n");
+            Console.WriteLine("Enter 0 to add bus to the system/n");
+            Console.WriteLine("Enter 1 to program a travel/n" );
+            Console.WriteLine("Enter 2 to fil up or carry out a technical check/n");
+            Console.WriteLine("Enter 3 to  display the km traveld/n" );
+            Console.WriteLine("Enter 4 to exit, bye bye/n" );
         }
 
         
@@ -33,19 +34,41 @@ namespace dotNet5781_01_8390_1366
             return buses.Exists(x => x.GetLicenseNum == myLicenseNum);
         }
 
+        static public void Print(List<Bus> buses)
+        {
+            foreach (Bus element in buses)
+            {
+                Console.WriteLine("Bus number: ");
+                int numDigit = element.GetLicenseNum.ToString().Length;
+
+                if (numDigit == 7) //if the beginning of the activity is before 2018 then the licenseNum is 7 digits
+                    Console.WriteLine(element.GetLicenseNum / 100000 + "-" + (element.GetLicenseNum % 100000) / 100 + "-" + element.GetLicenseNum % 100);
+
+                else //else the licenseNum is 8 digits
+                    Console.WriteLine(element.GetLicenseNum / 100000 + "-" + (element.GetLicenseNum % 100000) / 1000 + "-" + element.GetLicenseNum % 1000);
+                PrintLicenseNum();
+                Console.WriteLine("/n Number of km traveled" + element.GetNumTechnicalControl + "/n");
+            }
+        }
+
+
+        static public void PrintLicenseNum()
+        {
+           
+        }
 
         /// <summary>
         /// function that adds buses to the system (to the list)
         /// it receives the date and the license number
         /// </summary>
         /// <returns>Bus</returns>
-        static public Bus FuncAddBus()
+        static public Bus FuncAddBus(List<Bus> buses)
         {
             Console.WriteLine("Enter date of the beginning of your activity: /n " +
                 "Enter the day ");
             string day = Console.ReadLine();
             int dayInt;
-            int.TryParse(day, out dayInt);
+            int.TryParse(day, out  dayInt);
 
             Console.WriteLine("/n Enter the month: ");
             string month = Console.ReadLine();
@@ -119,7 +142,7 @@ namespace dotNet5781_01_8390_1366
         {
             List<Bus> buses = new List<Bus>();
             int choice;
-            printMenuOption();
+            PrintMenuOption();
 
             while (int.TryParse(Console.ReadLine(), out choice))
                 Console.Write("ERROR, entre un autre");
@@ -128,13 +151,13 @@ namespace dotNet5781_01_8390_1366
                 switch ((MyEnum)choice)
                 {
                     case MyEnum.addBus: //add bus to the system
-                        if (FuncAddBus() == null)
+                        if (FuncAddBus(buses) == null)
                         {
                             Console.WriteLine("ERROR the license number you entered is wrong/n");
                         }
                         else
                         {
-                            Bus b1 = FuncAddBus();
+                            Bus b1 = FuncAddBus(buses);
                             buses.Add(b1);
                         }
                         break;
@@ -202,41 +225,19 @@ namespace dotNet5781_01_8390_1366
                         }
 
 
-
-
-                        
-                       
-
-
-
-
-
-
-
                         break;
-
-
-
-
-
-
-
-
-
-
 
 
                     case MyEnum.display:
-                        foreach (Bus element in buses)
-                        {
-                            print();
-                        }
+                        Print(buses);
                         break;
+                   
                     default:
                         Console.WriteLine("no such option");
                         break;
                 }
-                printMenuOption();
+                PrintMenuOption();
+                
             }
         }
 
@@ -252,14 +253,14 @@ namespace dotNet5781_01_8390_1366
 
                 if (element.GetLicenseNum == licenseNumInt)
                 {
-                    if (element.getKmNumGas + km > 1200)
+                    if (element.GetKmNumGas + km > 1200)
                     {
                         Console.WriteLine("ERROR YOU NEED TO PUT OIL");
 
                     }
 
 
-                    if (element.getNumTechnicalControl + km > 20000)
+                    if (element.GetNumTechnicalControl + km > 20000)
                     {
                         Console.WriteLine("YOU NEED TO DO TECHNICAL VARIFICATION");
                     }
@@ -272,8 +273,8 @@ namespace dotNet5781_01_8390_1366
 
                     else
                     {
-                        element.getNumTechnicalControl += km;
-                        element.getKmNumGas += km;
+                        element.GetNumTechnicalControl += km;
+                        element.GetKmNumGas += km;
                         Console.WriteLine("THE NEW TRIP OF BUS {1} HAS BEEN UPDATED SUCCESSFULLY", licenseNumInt);
                     }
                 }
@@ -283,8 +284,9 @@ namespace dotNet5781_01_8390_1366
                 }
 
             }
-
+            Console.ReadKey();
         }
+        
     }
     
    
