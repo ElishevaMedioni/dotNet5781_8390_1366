@@ -5,8 +5,7 @@ namespace dotNet5781_01_8390_1366
 {
     class Program
     {
-        //change1
-        //change2
+        
         public enum MyEnum { addBus, programTravel, busSetting, display, exit };
 
         /// <summary>
@@ -14,14 +13,15 @@ namespace dotNet5781_01_8390_1366
         /// </summary>
         static public void printMenuOption()
         {
-            Console.WriteLine("enter your choice/n");
-            Console.WriteLine("Enter 0 to add bus to the system/n");
-            Console.WriteLine("Enter 1 to program a travel/n");
-            Console.WriteLine("Enter 2 to fil up or carry out a technical check/n");
-            Console.WriteLine("Enter 3 to  display the km traveld/n");
-            Console.WriteLine("Enter 4 to exit, bye bye/n");
+            Console.WriteLine("enter your choice" / n);
+            Console.WriteLine("Enter 0 to add bus to the system" / n);
+            Console.WriteLine("Enter 1 to program a travel" / n);
+            Console.WriteLine("Enter 2 to fil up or carry out a technical check" / n);
+            Console.WriteLine("Enter 3 to  display the km traveld" / n);
+            Console.WriteLine("Enter 4 to exit, bye bye" / n);
         }
 
+        
         /// <summary>
         /// fonction to check if the license number that the user enter isn't already use to an other bus in  the system
         /// </summary>
@@ -227,6 +227,10 @@ namespace dotNet5781_01_8390_1366
 
 
                     case MyEnum.display:
+                        foreach (Bus element in buses)
+                        {
+                            print();
+                        }
                         break;
                     default:
                         Console.WriteLine("no such option");
