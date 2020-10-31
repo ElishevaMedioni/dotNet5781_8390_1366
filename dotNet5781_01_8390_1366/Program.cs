@@ -142,15 +142,24 @@ namespace dotNet5781_01_8390_1366
         {
             List<Bus> buses = new List<Bus>();
             int choice;
-            PrintMenuOption();
+            
 
-            while (int.TryParse(Console.ReadLine(), out choice))
-                Console.Write("ERROR, entre un autre");
-            while (choice != 4)
+            /*   while (int.TryParse(Console.ReadLine(), out choice))
+                   Console.Write("ERROR, entre un autre");*/
+            string str = Console.ReadLine();
+            int.TryParse(str, out choice);
+            do
             {
-                switch ((MyEnum)choice)
+                PrintMenuOption();
+                string str = Console.ReadLine();
+                int.TryParse(str, out choice);
+
+
+
+
+                switch (choice)
                 {
-                    case MyEnum.addBus: //add bus to the system
+                    case 0: //add bus to the system
                         if (FuncAddBus(buses) == null)
                         {
                             Console.WriteLine("ERROR the license number you entered is wrong/n");
@@ -165,7 +174,7 @@ namespace dotNet5781_01_8390_1366
 
 
 
-                    case MyEnum.programTravel:
+                    case 1:
 
 
                         // je demande a l'utilisateur son numero de licence :
@@ -188,7 +197,7 @@ namespace dotNet5781_01_8390_1366
 
 
 
-                    case MyEnum.busSetting:
+                    case 2:
                         Console.WriteLine("enter your choice/n");
                         Console.WriteLine("Enter 0 to refuel/n");
                         Console.WriteLine("Enter 1 to pass the technical examination/n");
@@ -203,10 +212,10 @@ namespace dotNet5781_01_8390_1366
                         string license = Console.ReadLine();
                         int licenseInt;
                         int.TryParse(license, out licenseInt);
-                      
-                        
-                        
-                        switch(choiiceInt)
+
+
+
+                        switch (choiiceInt)
                         {
                             case 0:
                                 FillTheBus(buses, licenseInt);
@@ -228,17 +237,19 @@ namespace dotNet5781_01_8390_1366
                         break;
 
 
-                    case MyEnum.display:
+                    case 3:
                         Print(buses);
                         break;
-                   
+
                     default:
                         Console.WriteLine("no such option");
                         break;
                 }
-                PrintMenuOption();
-                
+
+                //PrintMenuOption();
+
             }
+            while (choice != 4);
         }
 
         private static void ShouldWeDoTechnicalVerification(List<Bus> buses, int km, int licenseNumInt)
