@@ -92,7 +92,11 @@ namespace dotNet5781_01_8390_1366
             return random.Next(min, max);
         }
 
+        static private void FillTheBus(int license)
+        {
+            getKmNumGas = 0;
 
+        }
 
         static void Main(string[] args)
         {
@@ -123,27 +127,61 @@ namespace dotNet5781_01_8390_1366
 
                     case MyEnum.programTravel:
 
+                        
+                            // je demande a l'utilisateur son numero de licence :
+                            Console.WriteLine("Enter your license number: ");
+                            string licenseNum = Console.ReadLine();
+                            int licenseNumInt;
+                            int.TryParse(licenseNum, out licenseNumInt);
 
-                        // je demande a l'utilisateur son numero de licence :
-                        Console.WriteLine("Enter your license number: ");
-                        string licenseNum = Console.ReadLine();
-                        int licenseNumInt;
-                        int.TryParse(licenseNum, out licenseNumInt);
-
-
-
-                        //je random le numero de kms d'un trajet :
-                        int kilometres = RandomNumber(5, 1200);
-                        // fonction suivante verifier : si la license existe, si le taux oil n'est pas depasser, si le taux pour verification technique na pas ete depasser
-                        ShouldWeDoTechnicalVerification(buses, kilometres, licenseNumInt);
+                           
+                            
+                                //je random le numero de kms d'un trajet :
+                                int kilometres = RandomNumber(5, 1200);
+                            // fonction suivante verifier : si la license existe, si le taux oil n'est pas depasser, si le taux pour verification technique na pas ete depasser
+                                ShouldWeDoTechnicalVerification(buses, kilometres, licenseNumInt);
 
                         break;
+
+
+
+
 
 
                     case MyEnum.busSetting:
 
+                        // je demande a l'utilisateur son numero de licence :
+                        Console.WriteLine("Enter your license number: ");
+                        string license = Console.ReadLine();
+                        int licenseInt;
+                        int.TryParse(license, out licenseInt);
 
-                        break;
+                        foreach (Bus element in buses)
+                        {
+
+
+                            if (element.getLicenseNum == licenseInt)
+                            {
+
+                               FillTheBus(licenseInt);
+
+
+
+                            }
+                            else
+                                Console.WriteLine("AUTOBUS NOT FOUND");
+                        }
+
+
+
+
+                            break;
+
+
+
+
+
+
 
 
 
@@ -166,8 +204,14 @@ namespace dotNet5781_01_8390_1366
 
         private static void ShouldWeDoTechnicalVerification(List<Bus> buses, int km, int licenseNumInt)
         {
+           
+
             foreach (Bus element in buses)
             {
+                DateTime date1 = DateTime.Now;
+                DateTime date2 =element.dateOfActivity;
+                TimeSpan t = date1 - date2;
+
 
 
                 if (element.getLicenseNum == licenseNumInt)
@@ -181,9 +225,18 @@ namespace dotNet5781_01_8390_1366
                         Console.WriteLine("ERROR YOU NEED TO PUT OIL");
 
                     }
+
+
                     if (element.getNumTechnicalControl + km > 20000)
                     {
                         Console.WriteLine("YOU NEED TO DO TECHNICAL VARIFICATION");
+                        if(t)
+                            {
+
+
+                             }
+
+)
 
                     }
                     else

@@ -12,8 +12,8 @@ namespace dotNet5781_01_8390_1366
         static int kmNumGas = 0;
         static int kmNumTechnicalControl = 0;
         public DateTime dateOfActivity;
-        internal DateTime dateNow;
-
+      
+      
 
         public Bus()
         { // default constructor, initialyse
