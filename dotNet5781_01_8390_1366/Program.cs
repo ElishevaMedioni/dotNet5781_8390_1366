@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq.Expressions;
 
 namespace dotNet5781_01_8390_1366
 {
@@ -12,7 +11,7 @@ namespace dotNet5781_01_8390_1366
         /// <summary>
         /// A fonction to print the menu with the different options
         /// </summary>
-        static public void PrintMenuOption()
+        static public void printMenuOption()
         {
             Console.WriteLine("Enter your choice\n");
             Console.WriteLine("Enter 0 to add bus to the system\n");
@@ -33,7 +32,7 @@ namespace dotNet5781_01_8390_1366
       
         static public bool ExistBus(List<Bus> buses, int myLicenseNum)
         {
-            return buses.Exists(x => x.GetLicenseNum == myLicenseNum);
+            return buses.Exists(x => x.getLicenseNum == myLicenseNum);
         }
 
 
@@ -333,6 +332,8 @@ namespace dotNet5781_01_8390_1366
                             int.TryParse(choiice, out choiiceInt);
 
 
+                        foreach (Bus element in buses)
+                        {
 
 
                             switch (choiiceInt)
@@ -350,6 +351,10 @@ namespace dotNet5781_01_8390_1366
                                     break;
 
 
+                            }
+                            else
+                                Console.WriteLine("AUTOBUS NOT FOUND");
+                        }
 
 
                             }
@@ -358,13 +363,12 @@ namespace dotNet5781_01_8390_1366
                             Console.WriteLine("AUTOBUS NOT FOUND");
 
 
-                        break;
+                            break;
 
 
                     case 3: // Print 
                         Print(buses);
                         break;
-
                     default:
                         Console.WriteLine("\n SORRY, THERE IS NO SUCH OPTION \n");
                         break;
@@ -373,7 +377,6 @@ namespace dotNet5781_01_8390_1366
                 PrintMenuOption();
 
             }
-            while (choice != 4);
         }
 
 
