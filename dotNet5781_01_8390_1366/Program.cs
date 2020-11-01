@@ -39,6 +39,9 @@ namespace dotNet5781_01_8390_1366
         }
 
 
+
+
+
         /// <summary>
         /// a function that print all the list of the bus
         /// </summary>
@@ -59,8 +62,11 @@ namespace dotNet5781_01_8390_1366
                     Console.WriteLine(element.GetLicenseNum / 100000 + "-" + (element.GetLicenseNum % 100000) / 1000 + "-" + element.GetLicenseNum % 1000);
 
                 Console.WriteLine("\n Number of km traveled: " + element.GetNumTechnicalControl + "km\n");
+
             }
         }
+
+
 
 
 
@@ -69,6 +75,7 @@ namespace dotNet5781_01_8390_1366
         /// it receives the date and the license number
         /// </summary>
         /// <returns>Bus</returns>
+
 
         static public Bus FuncAddBus(List<Bus> buses)
         {
@@ -119,6 +126,8 @@ namespace dotNet5781_01_8390_1366
         }
 
 
+
+
         /// <summary>
         /// function to random a number
         /// </summary>
@@ -130,6 +139,8 @@ namespace dotNet5781_01_8390_1366
             Random random = new Random();
             return random.Next(min, max);
         }
+
+
 
 
 
@@ -246,6 +257,8 @@ namespace dotNet5781_01_8390_1366
 
 
 
+
+
         static void Main(string[] args)
         {
             List<Bus> buses = new List<Bus>(); //create a new object list 
@@ -260,6 +273,8 @@ namespace dotNet5781_01_8390_1366
                 int.TryParse(str, out choice);
 
 
+
+
                 switch (choice)
                 {
                     case 0: //add bus to the system
@@ -269,6 +284,8 @@ namespace dotNet5781_01_8390_1366
                         else
                             buses.Add(b1);
                         break;
+
+
 
 
                     case 1:// I ask the user the license number of the bus :
@@ -361,6 +378,12 @@ namespace dotNet5781_01_8390_1366
             }
             while (choice != 4);
         }
+
+
+
+
+
+
 
     }
 }
