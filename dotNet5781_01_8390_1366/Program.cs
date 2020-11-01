@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace dotNet5781_01_8390_1366
 {
@@ -11,7 +14,7 @@ namespace dotNet5781_01_8390_1366
         /// <summary>
         /// A fonction to print the menu with the different options
         /// </summary>
-        static public void printMenuOption()
+        static public void PrintMenuOption()
         {
             Console.WriteLine("Enter your choice\n");
             Console.WriteLine("Enter 0 to add bus to the system\n");
@@ -21,32 +24,32 @@ namespace dotNet5781_01_8390_1366
             Console.WriteLine("Enter 4 to exit\n");
         }
 
-        
-               
-     /// <summary>
-     /// function to check if the license number that the user enter isn't already use to an other bus in the system
-     /// </summary>
-     /// <param name="buses"></param>
-     /// <param name="myLicenseNum"></param>
-     /// <returns>bool</returns>
-      
+
+
+        /// <summary>
+        /// function to check if the license number that the user enter isn't already use to an other bus in the system
+        /// </summary>
+        /// <param name="buses"></param>
+        /// <param name="myLicenseNum"></param>
+        /// <returns>bool</returns>
+
         static public bool ExistBus(List<Bus> buses, int myLicenseNum)
         {
-            return buses.Exists(x => x.getLicenseNum == myLicenseNum);
+            return buses.Exists(x => x.GetLicenseNum == myLicenseNum);
         }
 
 
 
 
-        
-     /// <summary>
-     /// a function that print all the list of the bus
-     /// </summary>
-     /// <param name="buses"></param>
-        
-        static private void Print(List<Bus> buses)
+
+        /// <summary>
+        /// a function that print all the list of the bus
+        /// </summary>
+        /// <param name="buses"></param>
+
+        static public void Print(List<Bus> buses)
         {
-            
+
             foreach (Bus element in buses)
             {
                 Console.WriteLine("Bus number: ");
@@ -67,11 +70,11 @@ namespace dotNet5781_01_8390_1366
 
 
 
-     /// <summary>
-     /// function that adds buses to the system (to the list)
-     /// it receives the date and the license number
-     /// </summary>
-     /// <returns>Bus</returns>
+        /// <summary>
+        /// function that adds buses to the system (to the list)
+        /// it receives the date and the license number
+        /// </summary>
+        /// <returns>Bus</returns>
 
 
         static public Bus FuncAddBus(List<Bus> buses)
@@ -125,12 +128,12 @@ namespace dotNet5781_01_8390_1366
 
 
 
-     /// <summary>
-     /// function to random a number
-     /// </summary>
-     /// <param name="min"></param>
-     /// <param name="max"></param>
-     /// <returns></returns>
+        /// <summary>
+        /// function to random a number
+        /// </summary>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        /// <returns></returns>
         static private int RandomNumber(int min, int max)
         {
             Random random = new Random();
@@ -141,16 +144,17 @@ namespace dotNet5781_01_8390_1366
 
 
 
-     /// <summary>
-     /// function to do the technical control
-     /// </summary>
-     /// <param name="buses"></param>
-     /// <param name="license"></param>
-        static private void DoTechnicalControl(List<Bus> buses, int license)
+        /// <summary>
+        /// function to do the technical control
+        /// </summary>
+        /// <param name="buses"></param>
+        /// <param name="license"></param>
+        static public void DoTechnicalControl(List<Bus> buses, int license)
         {
             foreach (Bus element in buses)
             {
                 if (license == element.GetLicenseNum)
+                    
                 {
                     if (element.GetNumTechnicalControl > 20000)
                     {
@@ -171,11 +175,11 @@ namespace dotNet5781_01_8390_1366
 
 
 
-     /// <summary>
-     /// function to fill the bus
-     /// </summary>
-     /// <param name="buses"></param>
-     /// <param name="license"></param>
+        /// <summary>
+        /// function to fill the bus
+        /// </summary>
+        /// <param name="buses"></param>
+        /// <param name="license"></param>
         static private void FillTheBus(List<Bus> buses, int license)
         {
             foreach (Bus element in buses)
@@ -192,12 +196,12 @@ namespace dotNet5781_01_8390_1366
 
 
 
-     /// <summary>
-     /// function to check if we can program a new travel for the bus
-     /// </summary>
-     /// <param name="buses"></param>
-     /// <param name="km"></param>
-     /// <param name="licenseNumInt"></param>
+        /// <summary>
+        /// function to check if we can program a new travel for the bus
+        /// </summary>
+        /// <param name="buses"></param>
+        /// <param name="km"></param>
+        /// <param name="licenseNumInt"></param>
         private static void ShouldWeDoTechnicalVerification(List<Bus> buses, int km, int licenseNumInt)
         {
             foreach (Bus element in buses)
@@ -261,7 +265,7 @@ namespace dotNet5781_01_8390_1366
             int choice;
 
 
-            PrintMenuOption(); 
+            PrintMenuOption();
             do
             {
 
@@ -287,7 +291,7 @@ namespace dotNet5781_01_8390_1366
                     case 1:// I ask the user the license number of the bus :
 
 
-                        
+
                         Console.WriteLine("PLEASE, ENTER YOUR LICENSE NUMBER :\n ");
                         string licenseNum = Console.ReadLine();
                         int licenseNumInt;
@@ -318,7 +322,7 @@ namespace dotNet5781_01_8390_1366
                         string license = Console.ReadLine();
                         int licenseInt;
                         int.TryParse(license, out licenseInt);
-                       
+
 
 
                         if (ExistBus(buses, licenseInt))// I check if license exists 
@@ -332,8 +336,6 @@ namespace dotNet5781_01_8390_1366
                             int.TryParse(choiice, out choiiceInt);
 
 
-                        foreach (Bus element in buses)
-                        {
 
 
                             switch (choiiceInt)
@@ -351,10 +353,6 @@ namespace dotNet5781_01_8390_1366
                                     break;
 
 
-                            }
-                            else
-                                Console.WriteLine("AUTOBUS NOT FOUND");
-                        }
 
 
                             }
@@ -363,12 +361,13 @@ namespace dotNet5781_01_8390_1366
                             Console.WriteLine("AUTOBUS NOT FOUND");
 
 
-                            break;
+                        break;
 
 
                     case 3: // Print 
                         Print(buses);
                         break;
+
                     default:
                         Console.WriteLine("\n SORRY, THERE IS NO SUCH OPTION \n");
                         break;
@@ -377,6 +376,7 @@ namespace dotNet5781_01_8390_1366
                 PrintMenuOption();
 
             }
+            while (choice != 4);
         }
 
 
@@ -387,8 +387,6 @@ namespace dotNet5781_01_8390_1366
 
     }
 }
-
-
 
 
 
