@@ -49,7 +49,9 @@ namespace dotNet5781_01_8390_1366
 
         static public void Print(List<Bus> buses)
         {
-
+            if (buses.Count==0)
+                Console.WriteLine("THERE IS NO BUS IN THE SYSTEM... TAP 0 TO ADD BUSES \n");
+            else { 
             foreach (Bus element in buses)
             {
                 Console.WriteLine("Bus number: ");
@@ -63,6 +65,7 @@ namespace dotNet5781_01_8390_1366
 
                 Console.WriteLine("\n Number of km traveled: " + element.GetNumTechnicalControl + "km\n");
 
+            }
             }
         }
 
@@ -98,7 +101,7 @@ namespace dotNet5781_01_8390_1366
             DateTime date1 = new DateTime(yearInt, monthInt, dayInt);
 
 
-            Console.WriteLine("Enter the license number: ");
+            Console.WriteLine("\n Enter the license number: ");
             string licenseNum = Console.ReadLine();
             int licenseNumInt;
             int.TryParse(licenseNum, out licenseNumInt);
@@ -133,7 +136,7 @@ namespace dotNet5781_01_8390_1366
         /// </summary>
         /// <param name="min"></param>
         /// <param name="max"></param>
-        /// <returns></returns>
+        /// <returns>a random number</returns>
         static private int RandomNumber(int min, int max)
         {
             Random random = new Random();
@@ -241,7 +244,6 @@ namespace dotNet5781_01_8390_1366
                         element.GetKmNumGas += km;
                         Console.WriteLine($"THE NEW ITINERARY OF THE BUS HAS BEEN UPDATED SUCCESSFULLY FOR ");
                         Console.WriteLine(km + $" kms");
-                        Console.WriteLine(element.GetNumTechnicalControl);
 
                         break;
 
@@ -283,6 +285,7 @@ namespace dotNet5781_01_8390_1366
                             Console.WriteLine("ERROR THE LICENSE NUMBER YOU ENTERED IS WRONG\n");
                         else
                             buses.Add(b1);
+                        Console.WriteLine("\n");
                         break;
 
 
@@ -298,15 +301,19 @@ namespace dotNet5781_01_8390_1366
                         int.TryParse(licenseNum, out licenseNumInt);
 
 
+                        if (ExistBus(buses, licenseNumInt))// I check if license exists 
+
+                        {
+                            //I RANDOM THE NUM OF KMS:
+                            int kilometres = RandomNumber(5, 1200);
 
 
-                        //I RANDOM THE NUM OF KMS:
-                        int kilometres = RandomNumber(5, 1200);
-
-
-                        // this function checks if the license number exists, if the oil rate is
-                        //not exceeded and if the rate for technical verification has not been exceeded
-                        ShouldWeDoTechnicalVerification(buses, kilometres, licenseNumInt);
+                            // this function checks if the license number exists, if the oil rate is
+                            //not exceeded and if the rate for technical verification has not been exceeded
+                            ShouldWeDoTechnicalVerification(buses, kilometres, licenseNumInt);
+                        }
+                        else // if license doesn't exist
+                            Console.WriteLine("AUTOBUS NOT FOUND");
 
                         break;
 

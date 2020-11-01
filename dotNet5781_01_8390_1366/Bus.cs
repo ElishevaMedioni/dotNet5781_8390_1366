@@ -23,11 +23,14 @@ namespace dotNet5781_01_8390_1366
             dateOfActivity = new DateTime(0, 0, 0);
         }
 
+        //Parameterized Constructor
         public Bus(int myLicenseNum, DateTime mydateOfActivity)
         {
             licenseNum = myLicenseNum;
             dateOfActivity = mydateOfActivity;
         }
+
+        //Properties fields
         public int GetLicenseNum
         {
             get { return licenseNum; }
