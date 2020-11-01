@@ -9,15 +9,17 @@ namespace dotNet5781_01_8390_1366
     class Bus
     {
         int licenseNum;
-        static int kmNumGas = 0;
-        static int kmNumTechnicalControl = 0;
+        int kmNumGas = 0;
+        int kmNumTechnicalControl = 0;
         public DateTime dateOfActivity;
       
       
         //CONSTRUCTOR
         public Bus()
         { // default constructor, initialyse
-            licenseNum = 0;
+            licenseNum=0;
+            kmNumGas = 0;
+            kmNumTechnicalControl = 0;
             dateOfActivity = new DateTime(0, 0, 0);
         }
         // TO USE VARIABLE 
