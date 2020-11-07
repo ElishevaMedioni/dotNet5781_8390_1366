@@ -19,14 +19,14 @@ namespace dotNet5781_02_8390_1366
 
         BusStation()
         {
-            busStationKey = countForTheStationKey+=10;
+            busStationKey = countForTheStationKey += 10;
             Calculate(31, 34.3, 33.3, 35.5);
 
         }
 
         BusStation(string myAddress)
         {
-            
+
             address = myAddress;
         }
         public override string ToString()
@@ -45,9 +45,9 @@ namespace dotNet5781_02_8390_1366
             public double Latitude { set; get; }
             public double Longitude { set; get; }
         }
-       
-        
-       public Coordinate Calculate(double location1, double location2, double location3,
+
+
+        public static Coordinate Calculate(double location1, double location2, double location3,
         double location4)
         {
 
@@ -66,5 +66,30 @@ namespace dotNet5781_02_8390_1366
         }
 
 
+
+        public class DistanceAndTimeBetweenStation : BusStation
+        {
+
+            public double distanceBetweenStation;
+            public TimeSpan timeToTravel;
+
+            // public static DistanceAndTimeBetweenStation() { }
+            DistanceAndTimeBetweenStation(DistanceAndTimeBetweenStation myBusStation) : base()
+
+            {
+                var sCoord = new GeoCoordinate(latitude, longitude);
+                var eCoord = new GeoCoordinate(myBusStation.latitude, myBusStation.longitude);
+
+                var distanceBetweenStation = sCoord.GetDistanceTo(eCoord);
+
+
+                //the speed of a bus is about 60 km per hour
+                double time = 60 / distanceBetweenStation;
+                timeToTravel = TimeSpan.FromHours(time);
+
+            }
+
+
+        }
     }
 }

@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace dotNet5781_02_8390_1366
 {
-    public class BusLine : IEnumerable
+    public class BusLine : IComparable
     {
+      
         //fields
         protected int busLineNum;
         private BusStation firstStation;
@@ -58,7 +59,16 @@ namespace dotNet5781_02_8390_1366
             busStationLst.Add(myBusStation);
         }
 
+        public IEnumerator GetEnumerator()
+        {
+            return _items.Values.GetEnumerator();
+        }
 
+        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+        {
+            return _items.Values.GetEnumerator();
+        }
 
     }
+   
 }
