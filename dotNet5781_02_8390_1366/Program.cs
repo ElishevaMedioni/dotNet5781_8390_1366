@@ -107,12 +107,19 @@ namespace dotNet5781_02_8390_1366
                                 
                                 break;
 
+
+
                             default:
                                 Console.WriteLine("\n SORRY, THERE IS NO SUCH OPTION \n");
                                 break;
                         }
 
                                 break;
+
+
+
+
+
                     case 3:
 
                         Console.WriteLine("Enter 0 to to print all the bus lines\n");

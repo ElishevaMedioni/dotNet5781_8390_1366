@@ -7,15 +7,15 @@ using System.Device.Location;
 
 namespace dotNet5781_02_8390_1366
 {
-    class DistanceAndTimeBetweenStation : BusStation
+    public class DistanceAndTimeBetweenStation : BusStation 
     {
-        
+
         private double distanceBetweenStation;
         private TimeSpan timeToTravel;
 
-        
 
-        DistanceAndTimeBetweenStation (DistanceAndTimeBetweenStation myBusStation)
+        public DistanceAndTimeBetweenStation (DistanceAndTimeBetweenStation myBusStation)
+
         {
             var sCoord = new GeoCoordinate(latitude,longitude);
             var eCoord = new GeoCoordinate(myBusStation.latitude,myBusStation.longitude);

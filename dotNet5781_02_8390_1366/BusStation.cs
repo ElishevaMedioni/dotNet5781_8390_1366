@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Device.Location;
+
 
 namespace dotNet5781_02_8390_1366
 {
@@ -13,16 +15,18 @@ namespace dotNet5781_02_8390_1366
         protected double latitude;
         protected double longitude;
         private string address;
-        static int countForTheStationKey = 0;
+        static int countForTheStationKey = 100000;
 
         BusStation()
         {
-            busStationKey = countForTheStationKey++;
-            //faire un random pr latitude et longitude
+            busStationKey = countForTheStationKey+=10;
+            Calculate(31, 34.3, 33.3, 35.5);
+
         }
 
         BusStation(string myAddress)
         {
+            
             address = myAddress;
         }
         public override string ToString()
@@ -35,6 +39,32 @@ namespace dotNet5781_02_8390_1366
             get { return busStationKey; }
             set { busStationKey = value; }
         }
+
+        public class Coordinate    //sous classes pour trouver latitude longitude
+        {
+            public double Latitude { set; get; }
+            public double Longitude { set; get; }
+        }
+       
+        
+       public Coordinate Calculate(double location1, double location2, double location3,
+        double location4)
+        {
+
+            double minLat = location1;
+            double minLon = location2;
+            double maxLat = location3;
+            double maxLon = location4;
+
+            Random r = new Random();
+            Coordinate point = new Coordinate();
+            //           Calculate(31, 34.3, 33.3, 35.5);
+            point.Latitude = r.NextDouble() * (maxLat - minLat) + minLat;
+            point.Longitude = r.NextDouble() * (maxLon - minLon) + minLon;
+
+            return point;
+        }
+
 
     }
 }
