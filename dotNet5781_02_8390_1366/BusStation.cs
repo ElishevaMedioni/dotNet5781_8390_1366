@@ -38,7 +38,7 @@ namespace dotNet5781_02_8390_1366
             return base.ToString();
         }
 
-        public int BusStationKey
+        public int GetbusStationKey
         {
             get { return busStationKey; }
             set { busStationKey = value; }
@@ -56,12 +56,11 @@ namespace dotNet5781_02_8390_1366
 
 
             DistanceAndTimeBetweenStation() : base() { }
-            
           
 
 
-            DistanceAndTimeBetweenStation(DistanceAndTimeBetweenStation myBusStation )
-
+            DistanceAndTimeBetweenStation(BusStation myBusStation )
+                                                                                                                                
             {
                 var sCoord = new GeoCoordinate(latitude, longitude);
                 var eCoord = new GeoCoordinate(myBusStation.latitude, myBusStation.longitude);
