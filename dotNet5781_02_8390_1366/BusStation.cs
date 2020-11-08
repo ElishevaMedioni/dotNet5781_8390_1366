@@ -18,22 +18,21 @@ namespace dotNet5781_02_8390_1366
         private string address;
         static int countForTheStationKey = 100000;
 
-        BusStation()
-        {
-            busStationKey = countForTheStationKey += 10;
-           
-            Random r = new Random();
-            latitude = r.NextDouble() * (2.3) +31;
-            longitude = r.NextDouble() * (1.2) + 34.3;
-         
-
-        }
+        BusStation(){}
 
         BusStation(string myAddress)
         {
 
+            busStationKey = countForTheStationKey += 10;
+
+            Random r = new Random();
+            latitude = r.NextDouble() * (2.3) + 31;
+            longitude = r.NextDouble() * (1.2) + 34.3;
             address = myAddress;
         }
+
+
+
         public override string ToString()
         {
             return base.ToString();
@@ -45,29 +44,27 @@ namespace dotNet5781_02_8390_1366
             set { busStationKey = value; }
         }
 
-        public class Coordinate    //sous classes pour trouver latitude longitude
-        {
-            public double Latitude { set; get; }
-            public double Longitude { set; get; }
-        }
-
-
-   
-
 
         public class DistanceAndTimeBetweenStation : BusStation
         {
-
+            public string str;
             public double distanceBetweenStation;
             public TimeSpan timeToTravel;
 
             // public static DistanceAndTimeBetweenStation() { }
-            DistanceAndTimeBetweenStation(DistanceAndTimeBetweenStation myBusStation) : base()
+
+
+
+            DistanceAndTimeBetweenStation() : base() { }
+            
+          
+
+
+            DistanceAndTimeBetweenStation(DistanceAndTimeBetweenStation myBusStation )
 
             {
                 var sCoord = new GeoCoordinate(latitude, longitude);
                 var eCoord = new GeoCoordinate(myBusStation.latitude, myBusStation.longitude);
-
                 var distanceBetweenStation = sCoord.GetDistanceTo(eCoord);
 
 
@@ -76,6 +73,7 @@ namespace dotNet5781_02_8390_1366
                 timeToTravel = TimeSpan.FromHours(time);
 
             }
+
 
 
         }
