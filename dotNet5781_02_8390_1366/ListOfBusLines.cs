@@ -15,14 +15,14 @@ namespace dotNet5781_02_8390_1366
             return base.ToString();
         }
 
-        static public bool ExistBus(int myBusLineNum)
+        static public bool ExistBus(List<BusLine> myBusLineLst, int myBusLineNum)
         {
-            return lstBusLines.Exists(x => x.GetBusLineNum == myBusLineNum);
+            return myBusLineLst.Exists(x => x.GetBusLineNum == myBusLineNum);
         }
 
         public void addBusLineToTheList(BusLine myBusLine, int myBusLineNum)
         {
-            if (ExistBus())
+            if (ExistBus()
             lstBusLines.Add(myBusLine);
         }
 
