@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -20,7 +21,11 @@ namespace dotNet5781_02_8390_1366
         BusStation()
         {
             busStationKey = countForTheStationKey += 10;
-            Calculate(31, 34.3, 33.3, 35.5);
+           
+            Random r = new Random();
+            latitude = r.NextDouble() * (2.3) +31;
+            longitude = r.NextDouble() * (1.2) + 34.3;
+         
 
         }
 
@@ -47,24 +52,7 @@ namespace dotNet5781_02_8390_1366
         }
 
 
-        public static Coordinate Calculate(double location1, double location2, double location3,
-        double location4)
-        {
-
-            double minLat = location1;
-            double minLon = location2;
-            double maxLat = location3;
-            double maxLon = location4;
-
-            Random r = new Random();
-            Coordinate point = new Coordinate();
-            //           Calculate(31, 34.3, 33.3, 35.5);
-            point.Latitude = r.NextDouble() * (maxLat - minLat) + minLat;
-            point.Longitude = r.NextDouble() * (maxLon - minLon) + minLon;
-
-            return point;
-        }
-
+   
 
 
         public class DistanceAndTimeBetweenStation : BusStation

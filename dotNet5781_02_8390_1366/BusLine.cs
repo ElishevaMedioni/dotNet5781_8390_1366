@@ -23,7 +23,7 @@ namespace dotNet5781_02_8390_1366
         }
 
 
-
+         
 
         //properties fields
 
@@ -46,27 +46,33 @@ namespace dotNet5781_02_8390_1366
             set { lastStation = null; }
         }
 
-/*
-        public IEnumerator GetEnumerator()
-        {
-           // return 
-        }
-*/
+        /*
+                public IEnumerator GetEnumerator()
+                {
+                   // return 
+                }
+        */
 
         //methods
+
+
+        public BusLine()
+        {
+
+            List<BusStation> busStationLst = new List<BusStation>;
+
+
+
+        }
          public void addStationToTheTrip(BusStation myBusStation) //pb qd je la met en static (la func)
         {
             busStationLst.Add(myBusStation);
         }
 
-        public IEnumerator GetEnumerator()
+        int IComparable.CompareTo(object obj)   // ecrire foncion compare
         {
-            return _items.Values.GetEnumerator();
-        }
-
-        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
-        {
-            return _items.Values.GetEnumerator();
+            BusLine c = (BusLine)obj;
+            return String.Compare(this.make, c.make);
         }
 
     }
