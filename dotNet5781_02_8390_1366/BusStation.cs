@@ -38,14 +38,14 @@ namespace dotNet5781_02_8390_1366
             return base.ToString();
         }
 
-        public int BusStationKey
+        public int GetBusStationKey
         {
             get { return busStationKey; }
             set { busStationKey = value; }
         }
 
 
-        public class DistanceAndTimeBetweenStation : BusStation
+        public class DistanceAndTimeBetweenStation
         {
             public string str;
             public double distanceBetweenStation;
@@ -55,15 +55,13 @@ namespace dotNet5781_02_8390_1366
 
 
 
-            DistanceAndTimeBetweenStation() : base() { }
+           // DistanceAndTimeBetweenStation() { };
             
-          
 
-
-            DistanceAndTimeBetweenStation(BusStation myBusStation):base()
+            DistanceAndTimeBetweenStation(BusStation myBusStation, BusStation myBusStation2)
 
             {
-                var sCoord = new GeoCoordinate(latitude, longitude);
+                var sCoord = new GeoCoordinate(myBusStation2.latitude, myBusStation2.longitude);
                 var eCoord = new GeoCoordinate(myBusStation.latitude, myBusStation.longitude);
                 var distanceBetweenStation = sCoord.GetDistanceTo(eCoord);
 
@@ -73,8 +71,6 @@ namespace dotNet5781_02_8390_1366
                 timeToTravel = TimeSpan.FromHours(time);
 
             }
-
-
 
         }
     }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -20,10 +21,25 @@ namespace dotNet5781_02_8390_1366
             return myBusLineLst.Exists(x => x.GetBusLineNum == myBusLineNum);
         }
 
-        public void addBusLineToTheList(BusLine myBusLine, int myBusLineNum)
+
+        static public bool ExistBus(List<BusLine> myBusLineLst, BusLine myBusLine)
         {
-            if (ExistBus()
-            lstBusLines.Add(myBusLine);
+            bool flag = true;
+            foreach (BusLine element in myBusLineLst)
+            {
+                if (myBusLine == element) 
+                    flag = false;
+    
+            }
+            return flag;
+        }
+
+        public void addBusLineToTheList(BusLine myBusLine)
+        {
+            if (ExistBus(lstBusLines, myBusLine))
+               lstBusLines.Add(myBusLine);
+            else
+                Console.WriteLine();
         }
 
 

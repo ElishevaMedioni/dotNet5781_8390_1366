@@ -34,10 +34,6 @@ namespace dotNet5781_02_8390_1366
 
 
        
-
-
-
-
         static void Main(string[] args)
         {
             int choice;
@@ -50,17 +46,19 @@ namespace dotNet5781_02_8390_1366
                 {
                     case 0:
                         Console.WriteLine("Enter 0 to add bus\n");
-                        Console.WriteLine("Enter 1 to add bus station\n");
+                        Console.WriteLine("Enter 1 to add bus station to the trip\n");
                         int choice2 = returnChoice();
                         switch (choice2)
                         {
                             case 0:
-                                Console.WriteLine();
+                                BusLine bus = new BusLine();
+                                addBusLineToTheList(bus);
+
                                 //func add bus
                                 break;
 
                             case 1:
-                                //func add station
+                                //func add station to the trip
                                 break;
 
                             default:
