@@ -7,54 +7,74 @@ using System.Threading.Tasks;
 
 namespace dotNet5781_02_8390_1366
 {
-    class ListOfBusLines
+    public class ListOfBusLines
     {
-        private List<BusLine> lstBusLines;
+        private static List<BusLine> lstBusLines;
 
-        public override string ToString()
+
+        public ListOfBusLines()
         {
-            return base.ToString();
+            lstBusLines = new List<BusLine>();
         }
 
-        static public bool ExistBus(List<BusLine> myBusLineLst, int myBusLineNum)
+        public void printAllBuses()
         {
-            return myBusLineLst.Exists(x => x.GetBusLineNum == myBusLineNum);
+            foreach (BusLine element in lstBusLines)
+                Console.WriteLine(element.ToString());
+        }
+
+         public bool ExistBus(int myBusLineNum)
+        {
+            return lstBusLines.Exists(x => x.GetBusLineNum == myBusLineNum);
         }
 
 
-        static public bool ExistBus(List<BusLine> myBusLineLst, BusLine myBusLine)
+        public void initialyseStationInBus(ListOfBusStation myBusStationLst)
         {
-            bool flag = true;
-            foreach (BusLine element in myBusLineLst)
+            BusLine bus;
+
+            for (int i = 0; i < lstBusLines.Count; i++)
             {
-                if (myBusLine == element) 
-                    flag = false;
-    
+                bus = lstBusLines[i];
+
             }
-            return flag;
         }
+        // public bool ExistBus(List<BusLine> myBusLineLst, BusLine myBusLine)
+        //{
+        //    bool flag = true;
+        //    foreach (BusLine element in myBusLineLst)
+        //    {
+        //        if (myBusLine == element) 
+        //            flag = false;
+    
+        //    }
+        //    return flag;
+        //}
 
         public void addBusLineToTheList(BusLine myBusLine)
         {
-            if (ExistBus(lstBusLines, myBusLine))
-               lstBusLines.Add(myBusLine);
-            else
-                Console.WriteLine();
+           lstBusLines.Add(myBusLine);       
         }
 
-
+        public BusLine findABusInTheList(int myBusLineNum)
+        {
+            if (ExistBus(myBusLineNum))
+                return lstBusLines.Find(x => x.GetBusLineNum == myBusLineNum);
+            else
+                return null;
+        }
        
 
-        public void deleteBusLineFromTheList(int myBusLineNum)
-        {
-            if (ExistBus(lstBusLines, myBusLineNum))
-                lstBusLines.Remove(lstBusLines.Find(x => x.GetBusLineNum == myBusStationKey));
-            else
-                Console.WriteLine("This Bus Station Number doesn't exist in the system");
-            BusLine busLineToDelete;
-            busLineToDelete = lstBusLines.Find(x => x.BusLineNum == myBusLineNum);
-            lstBusLines.Remove(busLineToDelete);
-        }
+        //public void deleteBusLineFromTheList(int myBusLineNum)
+        //{
+        //    if (ExistBus(lstBusLines, myBusLineNum))
+        //        lstBusLines.Remove(lstBusLines.Find(x => x.GetBusLineNum == myBusStationKey));
+        //    else
+        //        Console.WriteLine("This Bus Station Number doesn't exist in the system");
+        //    BusLine busLineToDelete;
+        //    busLineToDelete = lstBusLines.Find(x => x.BusLineNum == myBusLineNum);
+        //    lstBusLines.Remove(busLineToDelete);
+        //}
 
     }
 }

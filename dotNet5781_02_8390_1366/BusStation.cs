@@ -12,7 +12,7 @@ namespace dotNet5781_02_8390_1366
 {
     public class BusStation
     {
-        protected int busStationKey;
+        private int busStationKey;
         protected double latitude;
         protected double longitude;
         private string address;
@@ -20,7 +20,7 @@ namespace dotNet5781_02_8390_1366
 
         BusStation(){}
 
-        BusStation(string myAddress)
+        public BusStation(string myAddress)
         {
 
             busStationKey = countForTheStationKey += 10;
@@ -35,6 +35,7 @@ namespace dotNet5781_02_8390_1366
 
         public override string ToString()
         {
+            string str = 
             return base.ToString();
         }
 

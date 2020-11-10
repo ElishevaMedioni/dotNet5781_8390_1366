@@ -7,28 +7,30 @@ using System.Threading.Tasks;
 
 namespace dotNet5781_02_8390_1366
 {
-    public class BusLine : IComparable
+    public class BusLine //: IComparable
     {
         public enum Area { North = 1, South, Center, Jerusalem };
 
         //fields
-        protected int busLineNum = 0;
+        protected int busLineNum;
         private BusStation firstStation;
         private BusStation lastStation;
-        private string area;
+        private string area = "";
         private List<BusStation> busStationLst;
+        private static int busNum = 0;
 
 
         public override string ToString()
         {
-            string s = "Bus number #" + busLineNum + " \n Area" + area;
+            string s = "Bus number #" + busLineNum + " \tArea: " + area + "\nFirst Station: " + FirstStation + "Last Station: " + LastStation;
             return s.ToString();
-            
+            //
         }
 
         public BusLine()
         {
-            busLineNum += 1;
+            busNum++;
+            busLineNum += busNum;
             Console.WriteLine("Please choose an area for your bus");
             Console.WriteLine("Tap 1 for the north, 2 for the south, 3 for the center, 4 for Jerusalem ");
             string s = Console.ReadLine();
@@ -85,6 +87,15 @@ namespace dotNet5781_02_8390_1366
                 }
         */
 
+
+        public void setTheRoute(BusStation b1, BusStation b2, BusStation b3, BusStation b4)
+        {
+            busStationLst.Add(b1);
+            busStationLst.Add(b2);
+            busStationLst.Add(b3);
+            busStationLst.Add(b4);
+        }
+
         //methods
         static public bool ExistStation(List<BusStation> myBusStationLst, int myBusStationKey)
         {
@@ -92,11 +103,23 @@ namespace dotNet5781_02_8390_1366
         }
 
         
-         public void addStationToTheTrip(BusStation myBusStation) //pb qd je la met en static (la func)
+         public void addStationToTheEndOfATrip(BusStation myBusStation) //pb qd je la met en static (la func)
         {
             busStationLst.Add(myBusStation);
         }
 
+
+        public void addStationToTheBeginningOfATrip(BusStation myBusStation)
+        {
+            busStationLst.Insert(0, myBusStation);
+        }
+
+        public void addStationInTheMiddleOfATrip(BusStation myBusStation, int index)
+        {
+            busStationLst.Insert(index, myBusStation);
+        }
+
+        
         public void deleteStationToTheTrip(int myBusStationKey)
         {
             if (ExistStation(busStationLst, myBusStationKey))
@@ -105,11 +128,23 @@ namespace dotNet5781_02_8390_1366
                 Console.WriteLine("This Bus Station Number doesn't exist in the system");
         }
 
-        int IComparable.CompareTo(object obj)   // ecrire foncion compare
+
+        public bool searchStationInATrip(int myBusStationKey)
         {
-            BusLine c = (BusLine)obj;
-            return String.Compare(this.make, c.make);
+            return busStationLst.Exists(x => x.GetBusStationKey == myBusStationKey);
+                
         }
+
+        public int FindIndexOfAStationInTheRoute(int myBusStationKey)
+        {
+            return busStationLst.FindIndex(x => x.GetBusStationKey == myBusStationKey);
+        }
+
+        //int IComparable.CompareTo(object obj)   // ecrire foncion compare
+        //{
+        //    BusLine c = (BusLine)obj;
+        //    return String.Compare(this.make, c.make);
+        //}
 
     }
    

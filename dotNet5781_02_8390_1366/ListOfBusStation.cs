@@ -7,9 +7,14 @@ using System.Threading.Tasks;
 
 namespace dotNet5781_02_8390_1366
 {
-    class ListOfBusStation: IEnumerable
+    public class ListOfBusStation //: IEnumerable
     {
         private List<BusStation> lstBusStation;
+
+        public ListOfBusStation()
+        {
+            lstBusStation = new List<BusStation>();
+        }
 
         public override string ToString()
         {
@@ -24,16 +29,29 @@ namespace dotNet5781_02_8390_1366
         public void deleteBusStationFromTheList(int myBusStationKey)
         {
             BusStation stationToDelete;
-            stationToDelete = lstBusStation.Find(x => x.BusStationKey == myBusStationKey);
+            stationToDelete = lstBusStation.Find(x => x.GetBusStationKey == myBusStationKey);
             lstBusStation.Remove(stationToDelete);
         }
-    }
 
-    public IEnumerator GetEnumerator()
-    {
-        return lstBusStation.GetEnumerator();
-        
+
+        public BusStation findAStationInTheList(int myStationNum)
+        {
+            if (ExistStation(myStationNum))
+                return lstBusStation.Find(x => x.GetBusStationKey == myStationNum);
+            else
+                return null;
+        }
+
+
+        public bool ExistStation(int myStationNum)
+        {
+            return lstBusStation.Exists(x => x.GetBusStationKey == myStationNum);
+        }
+
         
 
-    }
+
+
+
+    } 
 }
