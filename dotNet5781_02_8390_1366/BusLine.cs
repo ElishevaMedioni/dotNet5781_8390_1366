@@ -22,9 +22,9 @@ namespace dotNet5781_02_8390_1366
 
         public override string ToString()
         {
-            string s = "Bus number #" + busLineNum + " \tArea: " + area + "\nFirst Station: " + FirstStation + "Last Station: " + LastStation;
+            string s = "Bus number #" + busLineNum + " \tArea: " + area;
             return s.ToString();
-            //
+            //+ "\nFirst Station: " + FirstStation + "\nLast Station: " + LastStation
         }
 
         public BusLine()

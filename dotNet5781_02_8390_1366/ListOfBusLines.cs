@@ -4,13 +4,18 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections;
 
 namespace dotNet5781_02_8390_1366
 {
-    public class ListOfBusLines
+    public class ListOfBusLines:IEnumerable
     {
         private static List<BusLine> lstBusLines;
 
+        public IEnumerator GetEnumerator()
+        {
+            return lstBusLines.GetEnumerator();
+        }
 
         public ListOfBusLines()
         {
@@ -39,6 +44,18 @@ namespace dotNet5781_02_8390_1366
 
             }
         }
+
+
+
+        //public int searchAStationInTheList(int stationNum)
+        //{
+        //    foreach (BusLine element in lstBusLines)
+        //        if (element.searchStationInATrip(stationNum))
+        //            return searchAStationInTheList(stationNum) ;
+        //   // return element.GetBusLineNum;
+        //}
+
+
         // public bool ExistBus(List<BusLine> myBusLineLst, BusLine myBusLine)
         //{
         //    bool flag = true;

@@ -18,6 +18,7 @@ namespace dotNet5781_02_8390_1366
         private string address;
         static int countForTheStationKey = 100000;
 
+
         BusStation(){}
 
         public BusStation(string myAddress)
@@ -29,20 +30,33 @@ namespace dotNet5781_02_8390_1366
             latitude = r.NextDouble() * (2.3) + 31;
             longitude = r.NextDouble() * (1.2) + 34.3;
             address = myAddress;
+
+            //arrondir a 6 chiffres apres la virgule
+            latitude = Math.Round(latitude, 6);
+            longitude = Math.Round(longitude, 6);
+
         }
 
 
 
         public override string ToString()
         {
-            string str = 
-            return base.ToString();
+            string str = "Bus Station Code: " + busStationKey + "  ," + latitude + "°N  " + longitude + "°E";
+            return str.ToString();
         }
 
         public int GetBusStationKey
         {
             get { return busStationKey; }
             set { busStationKey = value; }
+        }
+
+
+
+        public bool ExistBusInThisStation(int myBusLine)
+        {
+          
+            return searchStationInATrip(myBusLine); //regler ce pb
         }
 
 

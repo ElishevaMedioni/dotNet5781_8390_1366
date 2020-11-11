@@ -50,7 +50,16 @@ namespace dotNet5781_02_8390_1366
 
         
 
+        public void printAll(ListOfBusLines lst)
+        {
+            foreach (BusStation element in lstBusStation)
+            {
+                Console.WriteLine(element.ToString() + "\n");
+                Console.WriteLine();
+                Console.WriteLine(lst.searchAStationInTheList(element.GetBusStationKey));
 
+            }
+        }
 
 
     } 
