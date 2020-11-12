@@ -33,6 +33,11 @@ namespace dotNet5781_02_8390_1366
             return lstBusLines.Exists(x => x.GetBusLineNum == myBusLineNum);
         }
 
+        public bool ExistBus2(List<BusLine> lstBus, int myBusLineNum)
+        {
+            return lstBusLines.Exists(x => x.GetBusLineNum == myBusLineNum);
+        }
+
 
         public void initialyseStationInBus(ListOfBusStation myBusStationLst)
         {
@@ -47,26 +52,6 @@ namespace dotNet5781_02_8390_1366
 
 
 
-        //public int searchAStationInTheList(int stationNum)
-        //{
-        //    foreach (BusLine element in lstBusLines)
-        //        if (element.searchStationInATrip(stationNum))
-        //            return searchAStationInTheList(stationNum) ;
-        //   // return element.GetBusLineNum;
-        //}
-
-
-        // public bool ExistBus(List<BusLine> myBusLineLst, BusLine myBusLine)
-        //{
-        //    bool flag = true;
-        //    foreach (BusLine element in myBusLineLst)
-        //    {
-        //        if (myBusLine == element) 
-        //            flag = false;
-    
-        //    }
-        //    return flag;
-        //}
 
         public void addBusLineToTheList(BusLine myBusLine)
         {
@@ -80,18 +65,17 @@ namespace dotNet5781_02_8390_1366
             else
                 return null;
         }
-       
 
-        //public void deleteBusLineFromTheList(int myBusLineNum)
-        //{
-        //    if (ExistBus(lstBusLines, myBusLineNum))
-        //        lstBusLines.Remove(lstBusLines.Find(x => x.GetBusLineNum == myBusStationKey));
-        //    else
-        //        Console.WriteLine("This Bus Station Number doesn't exist in the system");
-        //    BusLine busLineToDelete;
-        //    busLineToDelete = lstBusLines.Find(x => x.BusLineNum == myBusLineNum);
-        //    lstBusLines.Remove(busLineToDelete);
-        //}
 
+        public void deleteBusToTheTrip(int numBus)
+        {
+            if (ExistBus2(lstBusLines, numBus))
+                lstBusLines.Remove(lstBusLines.Find(x => x.GetBusLineNum == numBus));
+            else
+                Console.WriteLine("This Bus Station Number doesn't exist in the system");
+
+        }
     }
 }
+
+

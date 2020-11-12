@@ -50,17 +50,29 @@ namespace dotNet5781_02_8390_1366
 
         
 
-        public void printAll(ListOfBusLines lst)
+        public void printAll()
         {
             foreach (BusStation element in lstBusStation)
             {
                 Console.WriteLine(element.ToString() + "\n");
-                Console.WriteLine();
-                Console.WriteLine(lst.searchAStationInTheList(element.GetBusStationKey));
-
+                element.printTheBusLine();
+                Console.WriteLine("\n");
             }
         }
 
 
-    } 
+
+
+
+        public void deleteStationToTheTrip(int busStationn)
+        {
+            if (ExistStation(busStationn))
+                lstBusStation.Remove(lstBusStation.Find(x => x.GetBusStationKey == busStationn));
+            else
+                Console.WriteLine("This Bus Station Number doesn't exist in the system");
+        }
+
+
+
+    }
 }

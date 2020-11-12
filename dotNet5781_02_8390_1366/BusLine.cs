@@ -22,7 +22,7 @@ namespace dotNet5781_02_8390_1366
 
         public override string ToString()
         {
-            string s = "Bus number #" + busLineNum + " \tArea: " + area;
+            string s = "Bus number #" + busLineNum + " \tArea: " + area + "\nFirst Station: " + FirstStation + "\nLast Station: " + LastStation;
             return s.ToString();
             //+ "\nFirst Station: " + FirstStation + "\nLast Station: " + LastStation
         }
@@ -59,6 +59,17 @@ namespace dotNet5781_02_8390_1366
 
         }
 
+
+        public BusLine(string myArea)
+        {
+            busNum++;
+            busLineNum += busNum;
+            area = myArea;
+            busStationLst = new List<BusStation>();
+
+        }
+
+
         //properties fields
 
         public int GetBusLineNum
@@ -94,6 +105,10 @@ namespace dotNet5781_02_8390_1366
             busStationLst.Add(b2);
             busStationLst.Add(b3);
             busStationLst.Add(b4);
+            b1.addThebusToTheStation(this);
+            b2.addThebusToTheStation(this);
+            b3.addThebusToTheStation(this);
+            b4.addThebusToTheStation(this);
         }
 
         //methods
@@ -106,17 +121,20 @@ namespace dotNet5781_02_8390_1366
          public void addStationToTheEndOfATrip(BusStation myBusStation) //pb qd je la met en static (la func)
         {
             busStationLst.Add(myBusStation);
+            myBusStation.addThebusToTheStation(this);
         }
 
 
         public void addStationToTheBeginningOfATrip(BusStation myBusStation)
         {
             busStationLst.Insert(0, myBusStation);
+            myBusStation.addThebusToTheStation(this);
         }
 
         public void addStationInTheMiddleOfATrip(BusStation myBusStation, int index)
         {
             busStationLst.Insert(index, myBusStation);
+            myBusStation.addThebusToTheStation(this);
         }
 
         
