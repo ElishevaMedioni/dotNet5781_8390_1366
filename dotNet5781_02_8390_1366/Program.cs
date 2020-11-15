@@ -214,10 +214,9 @@ namespace dotNet5781_02_8390_1366
             Console.WriteLine("Enter 4 to exit\n");
         }
 
-        //static public bool ExistBus(List<BusLine> mylstBus, int myBusLineNum)
-        //{
-        //    return mylstBus.Exists(x => x.GetBusLineNum == myBusLineNum);
-        //}
+
+       
+
 
 
         static void Main(string[] args)
@@ -229,8 +228,10 @@ namespace dotNet5781_02_8390_1366
 
             initialyseAddressAndBuses(lstBusStation, lstBus);
 
+
             int choice;
             PrintMenuOption();
+
             do
             {
                 choice = returnChoice();
@@ -238,6 +239,8 @@ namespace dotNet5781_02_8390_1366
                 switch (choice)
                 {
                     case 0:
+
+
                         Console.WriteLine("Enter 0 to add bus to the system\n");
                         Console.WriteLine("Enter 1 to add bus station to the trip\n");
                         int choice2 = returnChoice();
@@ -317,18 +320,18 @@ namespace dotNet5781_02_8390_1366
                         switch (choice3)
                         {
                             case 0:
+
                                 Console.WriteLine("Tap the bus line you want to delete\n");
                                 int busNum;
                                 string str2 = Console.ReadLine();
                                 int.TryParse(str2, out busNum);
 
-                                foreach (ListOfBusLines element in lstBus)
-                                {
-                                    element.deleteBusToTheTrip(busNum);
-                                }
+                                lstBus.FindAndDelete(busNum);
+
 
 
                                 break;
+
 
 
 
@@ -348,14 +351,14 @@ namespace dotNet5781_02_8390_1366
                                     {
                                         if (b1.searchStationInATrip(busStation))
                                         {
-                                            foreach (ListOfBusStation element in lstBus)
-                                            {
-                                                lstBusStation.deleteStationToTheTrip(busStation);
-                                            }
+
+                                            b1.deleteStationToTheTrip(busStation);
+                                            lstBusStation.deleteBusStationFromTheList(busStation);
+
                                         }
                                         else
                                             Console.WriteLine("this station isn't in the route of bus number " + b1.GetBusLineNum + "\n");
-                                        
+
                                     }
                                     else
                                         Console.WriteLine("This station isn't in the system");
@@ -364,7 +367,7 @@ namespace dotNet5781_02_8390_1366
                                     Console.WriteLine("The Bus Line you entered isn't in the system\n ");
 
 
-                                
+
                                 break;
 
 
@@ -385,7 +388,7 @@ namespace dotNet5781_02_8390_1366
 
                     case 2:
                         Console.WriteLine("Enter 0 to search a bus that arrive in your station \n");
-                        Console.WriteLine("Enter 1 to search the best trip\n");
+                        Console.WriteLine("Enter 1 to search the best route\n");
                         int choice4 = returnChoice();
                         switch (choice4)
                         {
@@ -406,7 +409,38 @@ namespace dotNet5781_02_8390_1366
                                 break;
 
                             case 1:
-
+                                Console.WriteLine("Enter the number of the first station\n");
+                                int firstStation = returnChoice();
+                                Console.WriteLine("Enter the number of the last station\n");
+                                int lastStation = returnChoice();
+                                BusStation bs1 = lstBusStation.findAStationInTheList(firstStation);
+                                BusStation bs2 = lstBusStation.findAStationInTheList(lastStation);
+                                List<BusLine> lstBusInCommon = new List<BusLine>();
+                                lstBusInCommon = bs1.findBusesInCommon(bs2);
+                                List<BusStation.DistanceAndTimeBetweenStation> lstD = new List<BusStation.DistanceAndTimeBetweenStation>();
+                                foreach (BusLine element in lstBusInCommon)
+                                {
+                                    var d = new BusStation.DistanceAndTimeBetweenStation(element.SubRoute(firstStation, lastStation));
+                                    lstD.Add(d);
+                                }
+                                lstD.Sort();
+                                foreach (var element in lstD)
+                                    element.print();
+                                //for (int i = 0; i<lstD.Count; i++)
+                                //{
+                                //    int comparaison;
+                                //    BusStation.DistanceAndTimeBetweenStation min;
+                                //    comparaison = lstD[i].CompareTo(lstD[i + 1]);
+                                //    if (comparaison < 0 || comparaison == 0)
+                                //    {
+                                //        min = lstD[i];
+                                //    }
+                                //    else
+                                //    { 
+                                //        min = lstD[i + 1];
+                                      
+                                //    }
+                                //}
                                 break;
 
 
@@ -448,7 +482,9 @@ namespace dotNet5781_02_8390_1366
                 PrintMenuOption();
             }
             while (choice != 4);
+            Console.ReadKey();
         }
     }
+
 }
 

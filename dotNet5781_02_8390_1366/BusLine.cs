@@ -22,7 +22,7 @@ namespace dotNet5781_02_8390_1366
 
         public override string ToString()
         {
-            string s = "Bus number #" + busLineNum + " \tArea: " + area + "\nFirst Station: " + FirstStation + "\nLast Station: " + LastStation;
+            string s = "Bus number #" + busLineNum + " \tArea: " + area;
             return s.ToString();
             //+ "\nFirst Station: " + FirstStation + "\nLast Station: " + LastStation
         }
@@ -98,6 +98,17 @@ namespace dotNet5781_02_8390_1366
                 }
         */
 
+        public List<BusStation> SubRoute(int busSKey1, int busSKey2)
+        {
+            List<BusStation> subRoute = new List<BusStation>();
+            subRoute = busStationLst;
+            int count = subRoute.Count;
+            int index1 = busStationLst.FindIndex(x => x.GetBusStationKey == busSKey1);
+            int index2 = busStationLst.FindIndex(x => x.GetBusStationKey == busSKey2);
+            subRoute.RemoveRange(0, index1);
+            subRoute.RemoveRange(index2+1 , count-index2);
+            return subRoute;
+        }
 
         public void setTheRoute(BusStation b1, BusStation b2, BusStation b3, BusStation b4)
         {
@@ -157,6 +168,9 @@ namespace dotNet5781_02_8390_1366
         {
             return busStationLst.FindIndex(x => x.GetBusStationKey == myBusStationKey);
         }
+
+
+      
 
         //int IComparable.CompareTo(object obj)   // ecrire foncion compare
         //{

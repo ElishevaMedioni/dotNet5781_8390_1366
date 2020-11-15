@@ -75,6 +75,17 @@ namespace dotNet5781_02_8390_1366
                 Console.WriteLine("This Bus Station Number doesn't exist in the system");
 
         }
+
+        public void FindAndDelete(int myBusLineNum)
+        {
+            lstBusLines.Remove(lstBusLines.Find(x => x.GetBusLineNum == myBusLineNum));
+
+
+
+        }
+
+
+
     }
 }
 
