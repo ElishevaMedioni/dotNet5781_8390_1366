@@ -10,18 +10,24 @@ namespace dotNet5781_02_8390_1366
 {
     public class ListOfBusLines:IEnumerable
     {
+        //fields
         private static List<BusLine> lstBusLines;
 
+
+        //properties fields
         public IEnumerator GetEnumerator()
         {
             return lstBusLines.GetEnumerator();
         }
 
+        //constructor
         public ListOfBusLines()
         {
             lstBusLines = new List<BusLine>();
         }
 
+
+        //methods
         public void printAllBuses()
         {
             foreach (BusLine element in lstBusLines)
@@ -33,26 +39,7 @@ namespace dotNet5781_02_8390_1366
             return lstBusLines.Exists(x => x.GetBusLineNum == myBusLineNum);
         }
 
-        public bool ExistBus2(List<BusLine> lstBus, int myBusLineNum)
-        {
-            return lstBusLines.Exists(x => x.GetBusLineNum == myBusLineNum);
-        }
-
-
-        public void initialyseStationInBus(ListOfBusStation myBusStationLst)
-        {
-            BusLine bus;
-
-            for (int i = 0; i < lstBusLines.Count; i++)
-            {
-                bus = lstBusLines[i];
-
-            }
-        }
-
-
-
-
+       
         public void addBusLineToTheList(BusLine myBusLine)
         {
            lstBusLines.Add(myBusLine);       
@@ -65,22 +52,11 @@ namespace dotNet5781_02_8390_1366
             else
                 return null;
         }
-
-
-        public void deleteBusToTheTrip(int numBus)
-        {
-            if (ExistBus2(lstBusLines, numBus))
-                lstBusLines.Remove(lstBusLines.Find(x => x.GetBusLineNum == numBus));
-            else
-                Console.WriteLine("This Bus Station Number doesn't exist in the system");
-
-        }
+ 
 
         public void FindAndDelete(int myBusLineNum)
         {
             lstBusLines.Remove(lstBusLines.Find(x => x.GetBusLineNum == myBusLineNum));
-
-
 
         }
 

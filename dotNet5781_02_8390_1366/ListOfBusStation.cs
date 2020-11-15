@@ -7,15 +7,19 @@ using System.Threading.Tasks;
 
 namespace dotNet5781_02_8390_1366
 {
-    public class ListOfBusStation //: IEnumerable
+    public class ListOfBusStation 
     {
+        //field
         private List<BusStation> lstBusStation;
 
+        //constructor
         public ListOfBusStation()
         {
             lstBusStation = new List<BusStation>();
         }
 
+
+        //methods
         public override string ToString()
         {
             return base.ToString(); 
@@ -49,8 +53,7 @@ namespace dotNet5781_02_8390_1366
         }
 
         
-
-        public void printAll()
+        public void printAllTheBusStations()
         {
             foreach (BusStation element in lstBusStation)
             {
@@ -59,19 +62,6 @@ namespace dotNet5781_02_8390_1366
                 Console.WriteLine("\n");
             }
         }
-
-
-
-
-
-        public void deleteStationToTheTrip(int busStationn)
-        {
-            if (ExistStation(busStationn))
-                lstBusStation.Remove(lstBusStation.Find(x => x.GetBusStationKey == busStationn));
-            else
-                Console.WriteLine("This Bus Station Number doesn't exist in the system");
-        }
-
 
 
     }

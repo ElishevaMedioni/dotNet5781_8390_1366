@@ -11,7 +11,10 @@ namespace dotNet5781_02_8390_1366
     {
         public enum MyEnum { add, delete, search, print, exit };
 
-
+        /// <summary>
+        /// the function convert the string from the user to a int
+        /// </summary>
+        /// <returns>int</returns>
         static public int returnChoice()
         {
             int choice;
@@ -19,7 +22,6 @@ namespace dotNet5781_02_8390_1366
             int.TryParse(str, out choice);
             return choice;
         }
-
 
 
 
@@ -117,18 +119,22 @@ namespace dotNet5781_02_8390_1366
             BusLine b1 = new BusLine("Jerusalem");
             b1.setTheRoute(s1, s2, s3, s4);
             b1.setTheRoute(s6, s9, s10, s13);
+            b1.addStationToTheEndOfATrip(s17);
 
             BusLine b2 = new BusLine("Jerusalem");
             b2.setTheRoute(s5, s6, s7, s8);
             b2.addStationToTheEndOfATrip(s1);
+            b2.setTheRoute(s27, s28, s32, s39);
 
             BusLine b3 = new BusLine("Jerusalem");
             b3.setTheRoute(s9, s10, s11, s12);
             b3.setTheRoute(s15, s17, s16, s23);
+            b3.addStationToTheEndOfATrip(s13);
 
             BusLine b4 = new BusLine("Jerusalem");
             b4.setTheRoute(s13, s14, s15, s16);
             b4.addStationToTheEndOfATrip(s20);
+            b4.setTheRoute(s25, s26, s38, s33);
 
             BusLine b5 = new BusLine("Center");
             b5.setTheRoute(s17, s18, s19, s20);
@@ -136,6 +142,8 @@ namespace dotNet5781_02_8390_1366
 
             BusLine b6 = new BusLine("North");
             b6.setTheRoute(s21, s22, s23, s24);
+            b6.setTheRoute(s2, s3, s4, s7);  
+            b6.addStationToTheEndOfATrip(s14);
 
             BusLine b7 = new BusLine("Center");
             b7.setTheRoute(s25, s26, s27, s28);
@@ -143,12 +151,16 @@ namespace dotNet5781_02_8390_1366
 
             BusLine b8 = new BusLine("North");
             b8.setTheRoute(s29, s30, s31, s32);
+            b8.setTheRoute(s11, s12, s18, s19);
+            b8.addStationToTheEndOfATrip(s1);
 
             BusLine b9 = new BusLine("Center");
             b9.setTheRoute(s33, s34, s35, s36);
+            b9.setTheRoute(s21, s22, s29, s30);
 
             BusLine b10 = new BusLine("South");
             b10.setTheRoute(s37, s38, s39, s40);
+            b10.setTheRoute(s18, s19, s20, s24);
 
             lstBus.addBusLineToTheList(b1);
             lstBus.addBusLineToTheList(b2);
@@ -170,7 +182,7 @@ namespace dotNet5781_02_8390_1366
         /// </summary>
         /// <param name="myStation"></param>
         /// <param name="myBus"></param>
-        static public void addStationInBusRoute(BusStation myStation, BusLine myBus)
+        static public bool addStationInBusRoute(BusStation myStation, BusLine myBus)
         {
             Console.WriteLine("Where do you want to add your station in the route\n");
             //the user has the choice to add his new station, where he wants in the route
@@ -180,23 +192,34 @@ namespace dotNet5781_02_8390_1366
             {
                 case 0: //if the user wants to add the station at the beginning of the route
                     myBus.addStationToTheBeginningOfATrip(myStation);
-                    break;
+                    return true;
+                    
                 case 1: //if the user wants to add the station at the end of the route
                     myBus.addStationToTheEndOfATrip(myStation);
-                    break;
+                    return true;
+                    
                 case 2:  //if the user wants to add the station at the middle of the route
                     Console.WriteLine("TAP the station number that will follow the new station\n");
                     int nextStation = returnChoice();
                     int index = myBus.FindIndexOfAStationInTheRoute(nextStation);
                     if (index == -1)
+                    {
                         Console.WriteLine("This station isn't in the route of the bus\n");
+                        return false;
+                    }
+                        
                     else
+                    {
                         myBus.addStationInTheMiddleOfATrip(myStation, index);
-                    break;
+                        return true;
+                    }
+                       
+                    
 
                 default:
                     Console.WriteLine("\n SORRY, THERE IS NO SUCH OPTION \n");
-                    break;
+                    return false;
+                    
 
             }
         }
@@ -217,12 +240,10 @@ namespace dotNet5781_02_8390_1366
 
        
 
-
-
         static void Main(string[] args)
         {
 
-
+            //We are creating 2 lists, one with all the buses and one with all the stations:
             ListOfBusLines lstBus = new ListOfBusLines();
             ListOfBusStation lstBusStation = new ListOfBusStation();
 
@@ -238,7 +259,7 @@ namespace dotNet5781_02_8390_1366
 
                 switch (choice)
                 {
-                    case 0:
+                    case 0: //CASE ADD
 
 
                         Console.WriteLine("Enter 0 to add bus to the system\n");
@@ -274,8 +295,12 @@ namespace dotNet5781_02_8390_1366
                                             Console.WriteLine("this station is already in the route\n");
                                         else
                                         {
-                                            addStationInBusRoute(myStation, bus2);
-                                            Console.WriteLine("Your station number " + myStation.GetBusStationKey + " has been added successfully :-)\n");
+                                            if(addStationInBusRoute(myStation, bus2))
+                                            {
+                                                Console.WriteLine("Your station number " + myStation.GetBusStationKey + " has been added successfully :-)\n");
+                                            }
+                                           else
+                                                Console.WriteLine("Unfortunately we couldn't add your station :-(\n");
                                         }
                                     }
                                     else //if the user station wants to add a new station
@@ -284,9 +309,12 @@ namespace dotNet5781_02_8390_1366
                                         string str3 = Console.ReadLine();
                                         BusStation newBusStation = new BusStation(stationNum, str3); //creating new station in the system
                                         lstBusStation.addBusStationToTheList(newBusStation); //add the new station in the system
-
-                                        addStationInBusRoute(newBusStation, bus2); //add the new station in the bus route
-                                        Console.WriteLine("Your station number " + newBusStation.GetBusStationKey + " has been added successfully :-)\n");
+                                        
+                                        //add the new station in the bus route
+                                        if (addStationInBusRoute(newBusStation, bus2))
+                                            Console.WriteLine("Your station number " + newBusStation.GetBusStationKey + " has been added successfully :-)\n");
+                                        else
+                                            Console.WriteLine("Unfortunately we couldn't add your station :-(\n");
                                     }
                                 }
                                 else //if the bus line isn't in the system, the user have to add a bus (tap 0)
@@ -302,18 +330,13 @@ namespace dotNet5781_02_8390_1366
                                 break;
                         }
 
-
                         break;
 
 
 
 
 
-
-
-
-
-                    case 1:
+                    case 1: //CASE DELETE
                         Console.WriteLine("Enter 0 to delete bus\n");
                         Console.WriteLine("Enter 1 to delete bus station during a trip\n");
                         int choice3 = returnChoice();
@@ -322,13 +345,17 @@ namespace dotNet5781_02_8390_1366
                             case 0:
 
                                 Console.WriteLine("Tap the bus line you want to delete\n");
-                                int busNum;
-                                string str2 = Console.ReadLine();
-                                int.TryParse(str2, out busNum);
 
-                                lstBus.FindAndDelete(busNum);
+                                int busNum = returnChoice();
+                                
+                                if (lstBus.ExistBus(busNum)) 
+                                {
+                                    lstBus.FindAndDelete(busNum); //deleting the bus from the list with all the buses
+                                    Console.WriteLine("Your bus number #" + busNum + " has been deleted successfully :-)\n");
+                                }
 
-
+                                else //if the bus line isn't in the system
+                                    Console.WriteLine("The Bus Line you entered isn't in the system\n ");
 
                                 break;
 
@@ -338,22 +365,23 @@ namespace dotNet5781_02_8390_1366
                             case 1:
                                 Console.WriteLine("Enter the Bus Line to which you want to delete a station to its route\n");
                                 int busLineNum = returnChoice();
-                                if (lstBus.ExistBus(busLineNum))
+                                if (lstBus.ExistBus(busLineNum)) //checking if the bus exists in the system
                                 {
                                     BusLine b1 = lstBus.findABusInTheList(busLineNum); //we find the bus in the system
 
-                                    Console.WriteLine("Enter number of the station that you want to delete\n");
-                                    int busStation;
-                                    string str3 = Console.ReadLine();
-                                    int.TryParse(str3, out busStation);
+                                    Console.WriteLine("Enter the station number that you want to delete\n");
 
-                                    if (lstBusStation.ExistStation(busStation))
+                                    int busStation = returnChoice();
+                                   
+
+                                    if (lstBusStation.ExistStation(busStation)) //checking if the station exists in the system
                                     {
-                                        if (b1.searchStationInATrip(busStation))
+                                        if (b1.searchStationInATrip(busStation)) //checking if the station is in the route of the bus
                                         {
 
                                             b1.deleteStationToTheTrip(busStation);
                                             lstBusStation.deleteBusStationFromTheList(busStation);
+                                            Console.WriteLine("The station number " + busStation + " has been deleted successfully from bus #" + busLineNum + "'s route :-)\n");
 
                                         }
                                         else
@@ -367,12 +395,7 @@ namespace dotNet5781_02_8390_1366
                                     Console.WriteLine("The Bus Line you entered isn't in the system\n ");
 
 
-
                                 break;
-
-
-
-
 
 
                             default:
@@ -386,7 +409,7 @@ namespace dotNet5781_02_8390_1366
 
 
 
-                    case 2:
+                    case 2: //CASE SEARCH
                         Console.WriteLine("Enter 0 to search a bus that arrive in your station \n");
                         Console.WriteLine("Enter 1 to search the best route\n");
                         int choice4 = returnChoice();
@@ -395,9 +418,9 @@ namespace dotNet5781_02_8390_1366
                             case 0:
                                 Console.WriteLine("Tap the Station Number\n");
                                 int stationNum = returnChoice();
-                                if (lstBusStation.ExistStation(stationNum))
+                                if (lstBusStation.ExistStation(stationNum)) //checking if the station exists in the system
                                 {
-                                    BusStation myStation = lstBusStation.findAStationInTheList(stationNum);
+                                    BusStation myStation = lstBusStation.findAStationInTheList(stationNum); 
                                     myStation.printTheBusLine();
                                     Console.WriteLine("\n");
                                 }
@@ -413,34 +436,45 @@ namespace dotNet5781_02_8390_1366
                                 int firstStation = returnChoice();
                                 Console.WriteLine("Enter the number of the last station\n");
                                 int lastStation = returnChoice();
-                                BusStation bs1 = lstBusStation.findAStationInTheList(firstStation);
-                                BusStation bs2 = lstBusStation.findAStationInTheList(lastStation);
-                                List<BusLine> lstBusInCommon = new List<BusLine>();
-                                lstBusInCommon = bs1.findBusesInCommon(bs2);
-                                List<BusStation.DistanceAndTimeBetweenStation> lstD = new List<BusStation.DistanceAndTimeBetweenStation>();
-                                foreach (BusLine element in lstBusInCommon)
+                                if (lstBusStation.ExistStation(firstStation)) //checking if the station exists in the system
                                 {
-                                    var d = new BusStation.DistanceAndTimeBetweenStation(element.SubRoute(firstStation, lastStation));
-                                    lstD.Add(d);
+                                    if (lstBusStation.ExistStation(lastStation)) //checking if the station exists in the system
+                                    {
+                                        BusStation bs1 = lstBusStation.findAStationInTheList(firstStation);
+                                        BusStation bs2 = lstBusStation.findAStationInTheList(lastStation);
+
+                                        List<BusLine> lstBusInCommon = new List<BusLine>(); 
+                                        lstBusInCommon = bs1.findBusesInCommon(bs2); //checking what are the buses in common between the 2 stations
+                                        
+                                        //creating a list to put all the distances and times of the different routes:
+                                        List<BusStation.DistanceAndTimeBetweenStation> lstD = new List<BusStation.DistanceAndTimeBetweenStation>();
+
+                                        foreach (BusLine element in lstBusInCommon)
+                                        {
+                                            //create a new instance for each bus with the distance and the time of the route:
+                                            var d = new BusStation.DistanceAndTimeBetweenStation(element.SubRoute(bs1, bs2),element);
+
+                                            //adding the new instance to the list:
+                                            lstD.Add(d);
+                                        }
+                                        //sorting the element of the list according to the shortest time:
+                                        lstD.Sort();
+
+                                        //printing the element of the list
+                                        foreach (var element in lstD)
+                                            Console.WriteLine(element.ToString());
+
+                                        
+                                        Console.Write("\nTHE BEST ROUTE FOR YOU IS WITH BUS NUMBER ");
+                                        Console.WriteLine(lstD.First().getTheBestBusNum() + " !!!\n");
+                                    }
+                                    else
+                                        Console.WriteLine("Station number " + lastStation + " isn't in the system\n");
                                 }
-                                lstD.Sort();
-                                foreach (var element in lstD)
-                                    element.print();
-                                //for (int i = 0; i<lstD.Count; i++)
-                                //{
-                                //    int comparaison;
-                                //    BusStation.DistanceAndTimeBetweenStation min;
-                                //    comparaison = lstD[i].CompareTo(lstD[i + 1]);
-                                //    if (comparaison < 0 || comparaison == 0)
-                                //    {
-                                //        min = lstD[i];
-                                //    }
-                                //    else
-                                //    { 
-                                //        min = lstD[i + 1];
-                                      
-                                //    }
-                                //}
+                                else
+                                    Console.WriteLine("Station number " + firstStation + " isn't in the system\n");
+
+
                                 break;
 
 
@@ -452,7 +486,7 @@ namespace dotNet5781_02_8390_1366
 
                         break;
 
-                    case 3:
+                    case 3: //CASE PRINT 
 
                         Console.WriteLine("Enter 0 to to print all the bus lines\n");
                         Console.WriteLine("Enter 1 to print all bus station\n");
@@ -464,7 +498,7 @@ namespace dotNet5781_02_8390_1366
                                 break;
 
                             case 1:
-                                lstBusStation.printAll();
+                                lstBusStation.printAllTheBusStations();
                                 break;
 
                             default:
@@ -482,7 +516,7 @@ namespace dotNet5781_02_8390_1366
                 PrintMenuOption();
             }
             while (choice != 4);
-            Console.ReadKey();
+            
         }
     }
 

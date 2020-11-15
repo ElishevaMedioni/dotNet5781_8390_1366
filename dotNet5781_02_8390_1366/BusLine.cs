@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace dotNet5781_02_8390_1366
 {
-    public class BusLine //: IComparable
+    public class BusLine 
     {
         public enum Area { North = 1, South, Center, Jerusalem };
 
@@ -19,20 +19,15 @@ namespace dotNet5781_02_8390_1366
         private List<BusStation> busStationLst;
         private static int busNum = 0;
 
-
-        public override string ToString()
-        {
-            string s = "Bus number #" + busLineNum + " \tArea: " + area;
-            return s.ToString();
-            //+ "\nFirst Station: " + FirstStation + "\nLast Station: " + LastStation
-        }
-
-        public BusLine()
+        //constructors
+        
+        public BusLine() //constructor for a new bus
         {
             busNum++;
             busLineNum += busNum;
             Console.WriteLine("Please choose an area for your bus");
             Console.WriteLine("Tap 1 for the north, 2 for the south, 3 for the center, 4 for Jerusalem ");
+            //the user can chose in which area he wants his new bus
             string s = Console.ReadLine();
             int choice;
             int.TryParse(s, out choice);
@@ -60,7 +55,7 @@ namespace dotNet5781_02_8390_1366
         }
 
 
-        public BusLine(string myArea)
+        public BusLine(string myArea) //constructor for the buses that we initialyse in the beginning of the program
         {
             busNum++;
             busLineNum += busNum;
@@ -82,34 +77,51 @@ namespace dotNet5781_02_8390_1366
         {
            
             get {return busStationLst.First(); }
-            set { firstStation = null; } //au moment de la bdika on demandera =null? --> la list est vide
+            set { firstStation = busStationLst.First(); } 
         }
 
         public BusStation LastStation
         {
             get { return busStationLst.Last(); }
-            set { lastStation = null; }
+            set { lastStation = busStationLst.Last(); ; }
         }
 
-        /*
-                public IEnumerator GetEnumerator()
-                {
-                   // return 
-                }
-        */
+        //methods
+        public override string ToString()
+        {
+            string s = "Bus number #" + busLineNum + " \tArea: " + area;
+            return s.ToString();
+            //+ "\nFirst Station: " + FirstStation + "\nLast Station: " + LastStation
+        }
 
-        public List<BusStation> SubRoute(int busSKey1, int busSKey2)
+        /// <summary>
+        /// Function that receives 2 Bus Stations and returns the sub route
+        /// </summary>
+        /// <param name="bs1"></param>
+        /// <param name="bs2"></param>
+        /// <returns>List<BusStation></returns>
+        public List<BusStation> SubRoute(BusStation bs1, BusStation bs2)
         {
             List<BusStation> subRoute = new List<BusStation>();
             subRoute = busStationLst;
-            int count = subRoute.Count;
-            int index1 = busStationLst.FindIndex(x => x.GetBusStationKey == busSKey1);
-            int index2 = busStationLst.FindIndex(x => x.GetBusStationKey == busSKey2);
-            subRoute.RemoveRange(0, index1);
-            subRoute.RemoveRange(index2+1 , count-index2);
-            return subRoute;
+           
+            int index1 = subRoute.IndexOf(bs1);
+            int index2 = subRoute.IndexOf(bs2);
+            if (index1<index2)
+                return subRoute.GetRange(index1, (index2 - index1+1));
+            
+            else
+                return subRoute.GetRange(index2, (index1 - index2+1));
+          
         }
 
+        /// <summary>
+        /// function that sets 4 bus stations to the route of a bus
+        /// </summary>
+        /// <param name="b1"></param>
+        /// <param name="b2"></param>
+        /// <param name="b3"></param>
+        /// <param name="b4"></param>
         public void setTheRoute(BusStation b1, BusStation b2, BusStation b3, BusStation b4)
         {
             busStationLst.Add(b1);
@@ -122,14 +134,14 @@ namespace dotNet5781_02_8390_1366
             b4.addThebusToTheStation(this);
         }
 
-        //methods
-        static public bool ExistStation(List<BusStation> myBusStationLst, int myBusStationKey)
+        
+         public bool ExistStation(List<BusStation> myBusStationLst, int myBusStationKey)
         {
             return myBusStationLst.Exists(x => x.GetBusStationKey == myBusStationKey);
         }
 
         
-         public void addStationToTheEndOfATrip(BusStation myBusStation) //pb qd je la met en static (la func)
+         public void addStationToTheEndOfATrip(BusStation myBusStation) 
         {
             busStationLst.Add(myBusStation);
             myBusStation.addThebusToTheStation(this);
@@ -170,13 +182,6 @@ namespace dotNet5781_02_8390_1366
         }
 
 
-      
-
-        //int IComparable.CompareTo(object obj)   // ecrire foncion compare
-        //{
-        //    BusLine c = (BusLine)obj;
-        //    return String.Compare(this.make, c.make);
-        //}
 
     }
    
