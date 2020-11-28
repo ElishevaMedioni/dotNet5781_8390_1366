@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,15 +24,15 @@ namespace dotNet5781_03A_8390_1366
         static Random r = new Random();
         ListOfBusLines busLst = new ListOfBusLines();
         ListOfBusStation stationLst = new ListOfBusStation();
-        
+
         public MainWindow()
         {
-         
+
             Program.initialyseAddressAndBuses(stationLst, busLst);
-        
+
             InitializeComponent();
             cbBusLines.ItemsSource = busLst;
-            cbBusLines.DisplayMemberPath = " BusLineNum ";
+            cbBusLines.DisplayMemberPath = " GetBusLineNum ";
             cbBusLines.SelectedIndex = 0;
         }
 
@@ -44,10 +43,20 @@ namespace dotNet5781_03A_8390_1366
 
         private void ShowBusLine(int index)
         {
-            currentDisplayBusLine = busLst.GetFirstBus();
+            currentDisplayBusLine = busLst[index];
+
             UpGrid.DataContext = currentDisplayBusLine;
             lbBusLineStations.DataContext = currentDisplayBusLine.GetBusStationLst;
         }
 
+        private void tbArea_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void lbBusLineStations_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

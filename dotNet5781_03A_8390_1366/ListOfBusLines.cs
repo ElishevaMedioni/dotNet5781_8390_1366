@@ -60,11 +60,14 @@ namespace dotNet5781_03A_8390_1366
 
         }
 
-        public BusLine this[int index]
+        public BusLine this[int myBusLineNum]
         {
-            get { return lstBusLines[index]; }
-            set { lstBusLines[index] = value; }
+            
+            get { return lstBusLines.Find(x => x.GetBusLineNum == myBusLineNum); }
+            //set { lstBusLines[index] = value; }
         }
+
+
 
         public BusLine GetFirstBus()
         {
