@@ -5,8 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:dotNet5781_03B_8390_1366"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="Bus Program" Height="450" Width="800">
+    <Grid Name="MainGrid" >
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                <GradientStop Color="#FF582F74" Offset="0.061"/>
+                <GradientStop Color="#FFE5A7A7" Offset="0.747"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <ListView Name="myListBox" HorizontalAlignment="Center" Height="359" Margin="50,10,59.333,0" Padding="20,10,50,0" VerticalAlignment="Top" Width="684" ItemsSource="{Binding}" FontWeight="Bold" FontFamily="Century Gothic" FontSize="11"  >
+            <ListView.Background>
+                <ImageBrush ImageSource="backgroundbus.jpg"/>
+            </ListView.Background>
+           
+            <ListView.View>
+                <GridView x:Name="usergridview">
+                    <GridViewColumn Header="Buses" DisplayMemberBinding="{Binding Buses}">
+                      <GridViewColumn.CellTemplate>
+                          
+                <DataTemplate>
+                    <Button Content="Delek" Margin="0" VerticalAlignment="Center" Click="Button_Click"  />
+                </DataTemplate>
+                          
+                       </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Content="Add a Bus" HorizontalAlignment="Center" Height="25" Margin="333,0,326.333,9.667" VerticalAlignment="Bottom" Width="134" Click="Button_Click" FontWeight="Bold" FontFamily="Century Gothic" Background="#FFC3B8C7" FontSize="16" RenderTransformOrigin="-0.265,0.315" />
     </Grid>
 </Window>
