@@ -46,7 +46,7 @@
             </ListView.View>
         </ListView>
         <Button Content="Add a Bus" HorizontalAlignment="Center" Height="25" Margin="333,0,326.333,9.667" VerticalAlignment="Bottom" Width="134" Click="Button_Click" FontWeight="Bold" FontFamily="Century Gothic" Background="#FFC3B8C7" FontSize="16" RenderTransformOrigin="-0.265,0.315" />
-        <Label x:Name="lblTime" Content="" FontSize="30"
-               HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,374,24.333,9.667" Visibility="Visible" Width="187"/>
+        <Label x:Name="lblTime" Content="" FontSize="20"
+               HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,369,26.333,14.667" Visibility="Visible" Width="187"/>
     </Grid>
 </Window>

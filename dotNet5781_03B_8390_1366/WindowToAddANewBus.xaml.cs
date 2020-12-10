@@ -53,7 +53,8 @@ namespace dotNet5781_03B_8390_1366
                 else if (date.Year < 2018 && item1.Length == 7)
                 {
                     Bus b1 = new Bus(myLicenseNum, date);
-                    MainWindow.buses.Add(b1);
+                    MainWindow.myCollection.Add(b1);
+                    //MainWindow.buses.Add(b1);
 
                     //ou vider les textBox ou fermer fenetre this.close()
                     this.txtLicenseNumber.Clear();

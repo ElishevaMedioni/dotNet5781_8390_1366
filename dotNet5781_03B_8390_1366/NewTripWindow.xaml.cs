@@ -27,6 +27,8 @@ namespace dotNet5781_03B_8390_1366
            // kmForTheTrip.KeyDown += new KeyEventHandler(kmForTheTrip_KeyDown);
         }
 
+        
+
         private void kmForTheTrip_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Return)
@@ -63,7 +65,7 @@ namespace dotNet5781_03B_8390_1366
 
                 else
                 {
-                    newTripForThisBus.Status = "On the road again";
+                    newTripForThisBus.Status = "On the road";
                     newTripForThisBus.GetNumTechnicalControl += kmFTT;
                     newTripForThisBus.GetKmNumGas += kmFTT;
                     MessageBox.Show("THE NEW ITINERARY OF THE BUS HAS BEEN UPDATED SUCCESSFULLY FOR " + kmFTT + " kms","Important Message");
@@ -77,6 +79,7 @@ namespace dotNet5781_03B_8390_1366
                 MessageBox.Show("Wrong format for the number of km", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
                 this.Close();
+                
             }
             
         }

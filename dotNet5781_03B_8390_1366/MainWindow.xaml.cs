@@ -30,7 +30,7 @@ namespace dotNet5781_03B_8390_1366
         //public Bus SelectedItem { get; set; }
         public static List<Bus> buses = new List<Bus>();
         //static ListBuses buses = new ListBuses();
-        public ObservableCollection<Bus> myCollection = new ObservableCollection<Bus>(buses);
+        public static ObservableCollection<Bus> myCollection = new ObservableCollection<Bus>(buses);
         private DispatcherTimer timer = new DispatcherTimer();
         //
         public MainWindow()
@@ -49,7 +49,7 @@ namespace dotNet5781_03B_8390_1366
             timer.Start();
         }
 
-
+        
         void timer_Tick(object sender, EventArgs e)
         {
             Thread.Sleep(1);
@@ -57,7 +57,7 @@ namespace dotNet5781_03B_8390_1366
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)//button to add a new bus
         {
             WindowToAddANewBus secondWindow = new WindowToAddANewBus(); 
             secondWindow.Show();

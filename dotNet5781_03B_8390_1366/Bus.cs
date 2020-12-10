@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace dotNet5781_03B_8390_1366
 {
-    public class Bus
+    public class Bus 
+        //: INotifyPropertyChanged
     {
         int licenseNum;
         int kmNumGas = 0;
@@ -15,6 +17,7 @@ namespace dotNet5781_03B_8390_1366
         DateTime dateOfTheLastTechnicalControl;
         string status = null;
 
+       // public event PropertyChangedEventHandler PropertyChanged;
 
         public override string ToString()
         {
