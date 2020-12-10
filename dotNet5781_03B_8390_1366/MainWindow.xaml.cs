@@ -57,12 +57,7 @@ namespace dotNet5781_03B_8390_1366
 
         }
    
-        void timer_Tick(object sender, EventArgs e)
-        {
-            Thread.Sleep(2000);
-            lblTime.Content = DateTime.Now.ToLongTimeString();
-          
-        }
+        
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             WindowToAddANewBus secondWindow = new WindowToAddANewBus();
