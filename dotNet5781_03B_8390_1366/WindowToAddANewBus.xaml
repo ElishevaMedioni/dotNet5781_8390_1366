@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:dotNet5781_03B_8390_1366"
         mc:Ignorable="d"
         Title="WindowToAddANewBus" Height="450" Width="800">
-    <Grid Opacity="0.85">
+    <Grid Opacity="0.9">
         <Grid.OpacityMask>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <GradientStop Color="Black" Offset="0"/>
@@ -15,17 +15,25 @@
         </Grid.OpacityMask>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                <GradientStop Color="#FF582F74" Offset="0.061"/>
-                <GradientStop Color="#FFE5A7A7" Offset="0.747"/>
+                <GradientStop Color="#FFCF8E8E"/>
+                <GradientStop Color="#FFD18787" Offset="0.087"/>
+                <GradientStop Color="#FFE09DA1" Offset="0.512"/>
+                <GradientStop Color="#FFD08989" Offset="0.06"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Label Content="To Add a New Bus to the system: &#10; Enter the license number and the date of activity " HorizontalAlignment="Center" Margin="41,29,21.333,0" VerticalAlignment="Top" Width="731" FontWeight="Bold" FontSize="25" FontFamily="Century Gothic" Height="82"/>
-        <Label Content="License Number:" HorizontalAlignment="Left" Margin="91,129,0,0" VerticalAlignment="Top" Height="39" Width="165" FontWeight="Bold" FontFamily="Century Gothic" FontSize="18"/>
-        <TextBox x:Name="txtLicenseNumber" HorizontalAlignment="Left" Height="39" Margin="261,129,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="184" FontFamily="Century Gothic"/>
-        <Label Content="Date Of Activity: " HorizontalAlignment="Left" Margin="91,186,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" FontFamily="Century Gothic"/>
-        <Button x:Name="BtnAdd" Content="Add" HorizontalAlignment="Left" Margin="294,253,0,0" VerticalAlignment="Top" Width="151" Height="41" FontSize="18" FontWeight="Bold" FontFamily="Century Gothic" Click="Button_Click"/>
-        <DatePicker x:Name="newDate"  HorizontalAlignment="Left" Margin="261,192,0,0" VerticalAlignment="Top" SelectedDate="01/01/2020" Height="29" Width="173"/>
+        <Grid Opacity="0.8">
+            <Grid.Background>
+                <ImageBrush ImageSource="busimg.JPG" Stretch="Uniform" AlignmentX="Right"/>
+            </Grid.Background>
+            <Label Content="To Add a New Bus to the system: &#10;Enter the license number &#x0d;And the date of activity " HorizontalAlignment="Center" Margin="41,29,305.333,0" VerticalAlignment="Top" Width="447" FontWeight="Bold" FontSize="25" FontFamily="Century Gothic" Height="122" >
 
+            </Label>
+            <Label Content="License Number:" HorizontalAlignment="Left" Margin="91,169,0,0" VerticalAlignment="Top" Height="39" Width="165" FontWeight="Bold" FontFamily="Century Gothic" FontSize="18"/>
+            <TextBox x:Name="txtLicenseNumber" HorizontalAlignment="Left" Height="39" Margin="261,169,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="184" FontFamily="Century Gothic"/>
+            <Label Content="Date Of Activity: " HorizontalAlignment="Left" Margin="91,217,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" FontFamily="Century Gothic"/>
+            <Button x:Name="BtnAdd" Content="Add" HorizontalAlignment="Left" Margin="261,286,0,0" VerticalAlignment="Top" Width="151" Height="41" FontSize="18" FontWeight="Bold" FontFamily="Century Gothic" Click="Button_Click" IsEnabled="{Binding ElementName=txtLicenseNumber,Path=Text.Length}" />
+            <DatePicker x:Name="newDate"  HorizontalAlignment="Left" Margin="261,224,0,0" VerticalAlignment="Top" SelectedDate="01/01/2020" Height="26" Width="184"/>
 
+        </Grid>
     </Grid>
 </Window>
