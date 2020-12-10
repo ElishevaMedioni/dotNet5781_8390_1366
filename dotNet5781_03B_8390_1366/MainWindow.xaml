@@ -8,25 +8,18 @@
         
         Title="Bus Program" Height="627.313" Width="1197.612">
     <Grid Name="MainGrid" >
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="401*"/>
-            <ColumnDefinition Width="392*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="165*"/>
-            <RowDefinition Height="256*"/>
-        </Grid.RowDefinitions>
-        
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                 <GradientStop Color="#FF582F74" Offset="0.061"/>
                 <GradientStop Color="#FFE5A7A7" Offset="0.747"/>
             </LinearGradientBrush>
         </Grid.Background>
+
         <ListView Name="myListView" HorizontalAlignment="Center" Height="359" Margin="50,10,59.333,0" Padding="20,10,50,0" VerticalAlignment="Top" Width="684" ItemsSource="{Binding}" FontWeight="Bold" FontFamily="Century Gothic" FontSize="12" MouseDoubleClick="myListView_MouseDoubleClick" >
             <ListView.Background>
                 <ImageBrush ImageSource="backgroundbus.jpg"/>
             </ListView.Background>
+
 
             <ListView.View>
                 <GridView x:Name="usergridview">
@@ -54,11 +47,9 @@
 
                 </GridView>
             </ListView.View>
-            <DatePicker Height="100" Width="100"/>
         </ListView>
         <Button Content="Add a Bus" HorizontalAlignment="Center" Height="25" Margin="333,0,326.333,9.667" VerticalAlignment="Bottom" Width="134" Click="Button_Click" FontWeight="Bold" FontFamily="Century Gothic" Background="#FFC3B8C7" FontSize="16" RenderTransformOrigin="-0.265,0.315" />
-        <Label x:Name="lblTime" Content="" FontSize="20"
-               HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,369,26.333,14.667" Visibility="Visible" Width="187"/>
+        <Label x:Name="lblTime" Content="" FontSize="30"
+               HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,374,24.333,9.667" Visibility="Visible" Width="187"/>
     </Grid>
-    
 </Window>
