@@ -5,8 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:dotNet5781_03B_8390_1366"
         mc:Ignorable="d"
-        Title="Bus Program" Height="450" Width="800">
+        
+        Title="Bus Program" Height="627.313" Width="1197.612">
     <Grid Name="MainGrid" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="401*"/>
+            <ColumnDefinition Width="392*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="165*"/>
+            <RowDefinition Height="256*"/>
+        </Grid.RowDefinitions>
+        
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                 <GradientStop Color="#FF582F74" Offset="0.061"/>
@@ -44,9 +54,11 @@
 
                 </GridView>
             </ListView.View>
+            <DatePicker Height="100" Width="100"/>
         </ListView>
         <Button Content="Add a Bus" HorizontalAlignment="Center" Height="25" Margin="333,0,326.333,9.667" VerticalAlignment="Bottom" Width="134" Click="Button_Click" FontWeight="Bold" FontFamily="Century Gothic" Background="#FFC3B8C7" FontSize="16" RenderTransformOrigin="-0.265,0.315" />
         <Label x:Name="lblTime" Content="" FontSize="20"
                HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,369,26.333,14.667" Visibility="Visible" Width="187"/>
     </Grid>
+    
 </Window>

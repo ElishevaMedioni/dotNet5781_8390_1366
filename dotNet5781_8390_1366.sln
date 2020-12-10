@@ -3,10 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30611.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotNet5781_02_8390_1366", "dotNet5781_02_8390_1366\dotNet5781_02_8390_1366.csproj", "{BA299441-2A50-4A6E-9BBA-BA3DF9CA7B4E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotNet5781_03A_8390_1366", "dotNet5781_03A_8390_1366\dotNet5781_03A_8390_1366.csproj", "{AD2C5C2B-CDAA-468E-9CF2-A346EB1C9CED}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotNet5781_03B_8390_1366", "dotNet5781_03B_8390_1366\dotNet5781_03B_8390_1366.csproj", "{F86E2D25-CC0D-4215-B232-21DD9A9BB70A}"
 EndProject
 Global
@@ -15,14 +11,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{BA299441-2A50-4A6E-9BBA-BA3DF9CA7B4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BA299441-2A50-4A6E-9BBA-BA3DF9CA7B4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BA299441-2A50-4A6E-9BBA-BA3DF9CA7B4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BA299441-2A50-4A6E-9BBA-BA3DF9CA7B4E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AD2C5C2B-CDAA-468E-9CF2-A346EB1C9CED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AD2C5C2B-CDAA-468E-9CF2-A346EB1C9CED}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AD2C5C2B-CDAA-468E-9CF2-A346EB1C9CED}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AD2C5C2B-CDAA-468E-9CF2-A346EB1C9CED}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F86E2D25-CC0D-4215-B232-21DD9A9BB70A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F86E2D25-CC0D-4215-B232-21DD9A9BB70A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F86E2D25-CC0D-4215-B232-21DD9A9BB70A}.Release|Any CPU.ActiveCfg = Release|Any CPU
