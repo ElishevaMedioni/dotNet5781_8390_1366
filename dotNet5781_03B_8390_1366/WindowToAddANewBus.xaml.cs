@@ -26,32 +26,27 @@ namespace dotNet5781_03B_8390_1366
             InitializeComponent();
         }
 
-        //public void myDate(object sender1, SelectionChangedEventArgs e)
-        //{
-        //    DateTime date = dateOfActivity.SelectedDate.Value;
-            
-        //}
+        
 
         public void Button_Click(object sender, RoutedEventArgs e)
         {
             string item1 = this.txtLicenseNumber.Text.ToString();
 
-            // DateTime date = myDate(sender, e);
+           
 
             DateTime date = newDate.SelectedDate.Value;
+            bool flag = int.TryParse(item1, out int myLicenseNum);
 
-            if (item1.Length <= 0)
-                MessageBox.Show("Please fill the TextBox", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            if (flag==false)
+            {
+                MessageBox.Show("The License Number Format Is Wrong", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                this.txtLicenseNumber.Clear();
+            }
+               
             else
             {
                 
-
-                //DateTime date = new DateTime(yearInt, monthInt, dayInt);
-
-                int myLicenseNum = int.Parse(item1);
-
-
-                if (MainWindow.buses.Exists(x => x.GetLicenseNum == myLicenseNum))
+                if (MainWindow.buses.Exists(x => x.LicenseNum == myLicenseNum))
                     MessageBox.Show("This bus is already in the system", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 
 

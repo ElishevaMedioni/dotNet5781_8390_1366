@@ -74,7 +74,7 @@ namespace dotNet5781_03B_8390_1366
 
         static public bool ExistBus(List<Bus> buses, int myLicenseNum)
         {
-            return buses.Exists(x => x.GetLicenseNum == myLicenseNum);
+            return buses.Exists(x => x.LicenseNum == myLicenseNum);
         }
 
 
@@ -95,16 +95,16 @@ namespace dotNet5781_03B_8390_1366
                 foreach (Bus element in buses)
                 {
                     Console.WriteLine("Bus number: ");
-                    int numDigit = element.GetLicenseNum.ToString().Length;
+                    int numDigit = element.LicenseNum.ToString().Length;
 
                     if (numDigit == 7) //if the beginning of the activity is before 2018 then the licenseNum is 7 digits
-                        Console.WriteLine(element.GetLicenseNum / 100000 + "-" + (element.GetLicenseNum % 100000) / 100 + "-" + element.GetLicenseNum % 100);
+                        Console.WriteLine(element.LicenseNum / 100000 + "-" + (element.LicenseNum % 100000) / 100 + "-" + element.LicenseNum % 100);
 
                     else //else the licenseNum is 8 digits
-                        Console.WriteLine(element.GetLicenseNum / 100000 + "-" + (element.GetLicenseNum % 100000) / 1000 + "-" + element.GetLicenseNum % 1000);
+                        Console.WriteLine(element.LicenseNum / 100000 + "-" + (element.LicenseNum % 100000) / 1000 + "-" + element.LicenseNum % 1000);
 
                     Console.WriteLine("Number of km traveled: " + element.GetNumTechnicalControl + "km");
-                    Console.WriteLine("Status: " + element.GetStatus + "\n");
+                    Console.WriteLine("Status: " + element.Status + "\n");
 
 
                 }
@@ -198,7 +198,7 @@ namespace dotNet5781_03B_8390_1366
         {
             foreach (Bus element in buses)
             {
-                if (license == element.GetLicenseNum)
+                if (license == element.LicenseNum)
 
                 {
                     if (element.GetNumTechnicalControl > 20000)
@@ -207,7 +207,7 @@ namespace dotNet5781_03B_8390_1366
                     }
 
                     else
-                        element.dateOfActivity = DateTime.Now;
+                        element.DateOfTheLastTechnicalControl = DateTime.Now;
 
                     Console.WriteLine($"WAIT.....  TECHNICAL CONTROL DONE\n");
 
@@ -229,7 +229,7 @@ namespace dotNet5781_03B_8390_1366
         {
             foreach (Bus element in buses)
             {
-                if (license == element.GetLicenseNum)
+                if (license == element.LicenseNum)
                 {
 
                     element.GetKmNumGas = 0;
@@ -251,12 +251,12 @@ namespace dotNet5781_03B_8390_1366
         {
             foreach (Bus element in buses)
             {
-                if (licenseNumInt == element.GetLicenseNum)
+                if (licenseNumInt == element.LicenseNum)
                 {
 
 
                     DateTime date1 = DateTime.Now;
-                    DateTime date2 = element.dateOfActivity;
+                    DateTime date2 = element.DateOfActivity;
                     TimeSpan t = date1 - date2;
 
 
@@ -265,7 +265,7 @@ namespace dotNet5781_03B_8390_1366
                     if (element.GetKmNumGas + km > 1200)
                     {
                         Console.WriteLine("ERROR YOU NEED TO FILL OIL \n");
-                        element.GetStatus = "On refueling";
+                        element.Status = "On refueling";
 
                         break;
                     }
@@ -274,17 +274,17 @@ namespace dotNet5781_03B_8390_1366
                     else if ((element.GetNumTechnicalControl + km > 20000) | Math.Round(t.TotalDays) > 375)
                     {
                         Console.WriteLine("YOU NEED TO DO TECHNICAL VERIFICATION \n");
-                        element.GetStatus = "in traitement";
+                        element.Status = "in traitement";
                         break;
 
                     }
 
                     if (element.GetKmNumGas + km > 1200 && element.GetNumTechnicalControl + km > 20000)
-                        element.GetStatus = "in traitement";
+                        element.Status = "in traitement";
 
                     else
                     {
-                        element.GetStatus = "On the road again";
+                        element.Status = "On the road again";
                         element.GetNumTechnicalControl += km;
                         element.GetKmNumGas += km;
                         Console.WriteLine($"THE NEW ITINERARY OF THE BUS HAS BEEN UPDATED SUCCESSFULLY FOR ");

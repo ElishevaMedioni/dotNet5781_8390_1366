@@ -58,6 +58,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="NewTripWindow.xaml.cs">
+      <DependentUpon>NewTripWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewItem.xaml.cs">
+      <DependentUpon>ViewItem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WindowToAddANewBus.xaml.cs">
       <DependentUpon>WindowToAddANewBus.xaml</DependentUpon>
     </Compile>
@@ -74,6 +80,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="NewTripWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WindowToAddANewBus.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -111,6 +125,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="backgroundbus.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="girlinthebus.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="busimg.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="newtripimg.JPG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

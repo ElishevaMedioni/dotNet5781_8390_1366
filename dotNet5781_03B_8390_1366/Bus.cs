@@ -12,26 +12,32 @@ namespace dotNet5781_03B_8390_1366
         int licenseNum;
         int kmNumGas = 0;
         int kmNumTechnicalControl = 0;
-        public DateTime dateOfActivity;
+        DateTime dateOfActivity;
+        DateTime dateOfTheLastTechnicalControl;
         string status = null;
 
 
         public override string ToString()
         {
-            string str = "Bus Number: " + licenseNumInTheGoodFormat() + "  Number of km traveled: " + GetNumTechnicalControl + "km" + "  Status: " + GetStatus + "\n";
+            
+            string str = "◎ Bus Number: " + LicenseNumInTheGoodFormat() + " \n◎ Number of km traveled: "
+                + GetNumTechnicalControl + "km" + " \n◎ Status: " + Status 
+                + "\n◎ Date Of Activity: " + DateOfActivity.ToShortDateString() + "\n◎ Date Of The Last Technical Control: "
+                + DateOfTheLastTechnicalControl.ToShortDateString() +
+                "\n";
             
             return str.ToString();
         }
 
-        public string licenseNumInTheGoodFormat()
+        public string LicenseNumInTheGoodFormat()
         {
-            int numDigit = GetLicenseNum.ToString().Length;
+            int numDigit = LicenseNum.ToString().Length;
             string myStr;
             if (numDigit == 7) //if the beginning of the activity is before 2018 then the licenseNum is 7 digits
-                myStr = GetLicenseNum / 100000 + "-" + (GetLicenseNum % 100000) / 100 + "-" + GetLicenseNum % 100;
+                myStr = LicenseNum / 100000 + "-" + (LicenseNum % 100000) / 100 + "-" + LicenseNum % 100;
 
             else //else the licenseNum is 8 digits
-                myStr = GetLicenseNum / 100000 + "-" + (GetLicenseNum % 100000) / 1000 + "-" + GetLicenseNum % 1000;
+                myStr = LicenseNum / 100000 + "-" + (LicenseNum % 100000) / 1000 + "-" + LicenseNum % 1000;
             return myStr;
         }
 
@@ -41,6 +47,7 @@ namespace dotNet5781_03B_8390_1366
             kmNumGas = 0;
             kmNumTechnicalControl = 0;
             dateOfActivity = new DateTime(0, 0, 0);
+            dateOfTheLastTechnicalControl = new DateTime(0, 0, 0);
         }
 
         //Parameterized Constructor
@@ -48,11 +55,13 @@ namespace dotNet5781_03B_8390_1366
         {
             licenseNum = myLicenseNum;
             dateOfActivity = mydateOfActivity;
+            dateOfTheLastTechnicalControl = mydateOfActivity;
         }
         public Bus(int myLicenseNum, DateTime mydateOfActivity, int m_kmNumGas, int m_kmNumTechnicalControl)
         {
             licenseNum = myLicenseNum;
             dateOfActivity = mydateOfActivity;
+            dateOfTheLastTechnicalControl = mydateOfActivity;
             kmNumGas = m_kmNumGas;
             kmNumTechnicalControl = m_kmNumTechnicalControl;
             status = "available";
@@ -61,13 +70,13 @@ namespace dotNet5781_03B_8390_1366
 
         //Properties fields
 
-        public string GetStatus
+        public string Status
         {
             get { return status; }
             set { status = value; }
         }
 
-        public int GetLicenseNum
+        public int LicenseNum
         {
             get { return licenseNum; }
             set { licenseNum = value; }
@@ -84,7 +93,18 @@ namespace dotNet5781_03B_8390_1366
             set { kmNumTechnicalControl = value; }
         }
 
-        
+        public DateTime DateOfActivity
+        {
+            get { return dateOfActivity; }
+            set { dateOfActivity = value; }
+        }
+
+        public DateTime DateOfTheLastTechnicalControl
+        {
+            get { return dateOfTheLastTechnicalControl; }
+            set { dateOfTheLastTechnicalControl = value; }
+        }
+
 
     }
 }
