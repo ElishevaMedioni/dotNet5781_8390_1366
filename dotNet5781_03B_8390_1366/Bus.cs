@@ -14,6 +14,7 @@ namespace dotNet5781_03B_8390_1366
         int licenseNum;
         int kmNumGas = 0;
         int kmNumTechnicalControl = 0;
+        int kmTravelled = 0;
         DateTime dateOfActivity;
         DateTime dateOfTheLastTechnicalControl;
         string status = null;
@@ -88,6 +89,12 @@ namespace dotNet5781_03B_8390_1366
         {
             get { return kmNumGas; }
             set { kmNumGas = value; }
+        }
+
+           public int GetKmTravelled
+        {
+            get { return kmTravelled; }
+            set { kmTravelled = value; }
         }
 
         public int GetNumTechnicalControl
