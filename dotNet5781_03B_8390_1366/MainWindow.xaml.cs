@@ -51,6 +51,11 @@ namespace dotNet5781_03B_8390_1366
             timer.Start();
             
         }
+
+        /// <summary>
+        /// function to initialise 10 buses
+        /// </summary>
+        /// <param name="collection"></param>
         public void InitializeBus(ObservableCollection<Bus> collection)
         {
             DateTime date1 = new DateTime(1993, 06, 01);
@@ -95,15 +100,25 @@ namespace dotNet5781_03B_8390_1366
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)//button to add a new bus
+        /// <summary>
+        /// button to add a new bus
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
             WindowToAddANewBus secondWindow = new WindowToAddANewBus(); 
             secondWindow.Show();
 
         }
 
-       
 
+        /// <summary>
+        /// double click on each bus to see all the details of the bus
+        /// it is open a new window ViewItem
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void myListView_MouseDoubleClick(object sender, MouseButtonEventArgs e) //doubleclick sur chaque bus, affiche fenetre ac pratim du bus
         {
             
@@ -113,21 +128,68 @@ namespace dotNet5781_03B_8390_1366
             myListView.Items.Refresh();
         }
 
+        /// <summary>
+        /// function to checks the status
+        /// </summary>
+        /// <returns></returns>
+        private bool CheckStatus()
+        {
+
+            if ((current.Status == "On refueling"))
+            {
+                MessageBox.Show("You can't travelled, the bus is on refueling");
+                return false;
+            }
 
 
+
+
+            else if ((current.Status == "On Verification"))
+            {
+                MessageBox.Show("You can't travelled, the bus is on verification");
+                return false;
+            }
+
+
+            else if ((current.Status == "On the road"))
+            {
+                MessageBox.Show("You can't travelled, the bus is on the road again");
+                return false;
+
+            }
+            return true;
+        }
+
+
+        /// <summary>
+        /// button New Trip for each bus
+        /// Opens a new window NewTrip if the status of the bus is available
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Button_Click_1(object sender, RoutedEventArgs e) //boutton nouveau trajet a cote de chaque bus
         {
 
             if (sender != null && sender is Button btn)
                 current = (Bus)btn.DataContext;
-            
-            NewTripWindow secondWindow = new NewTripWindow(current);
-            secondWindow.Show();
-            myListView.Items.Refresh();
+
+
+            if (CheckStatus())
+            {
+                NewTripWindow secondWindow = new NewTripWindow(current);
+                secondWindow.Show();
+                myListView.Items.Refresh();
+            }
+
+           
         }
 
 
-
+        /// <summary>
+        /// button refuel to each bus
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 
         private void Button_Click_2(object sender, RoutedEventArgs e) //bouton refuel a cote de chaque bus
         {
