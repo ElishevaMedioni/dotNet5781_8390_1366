@@ -66,7 +66,7 @@ namespace dotNet5781_03B_8390_1366
                 {
 
                     Bus b2 = new Bus(myLicenseNum, date);
-                    MainWindow.buses.Add(b2);
+                    MainWindow.myCollection.Add(b2);
                     this.txtLicenseNumber.Clear();
                     this.txtLicenseNumber.Focus();
                     

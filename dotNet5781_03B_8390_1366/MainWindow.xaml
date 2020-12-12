@@ -15,14 +15,18 @@
             </LinearGradientBrush>
         </Grid.Background>
 
-        <ListView Name="myListView" HorizontalAlignment="Center" Height="359" Margin="50,10,59.333,0" Padding="20,10,50,0" VerticalAlignment="Top" Width="684" ItemsSource="{Binding}" FontWeight="Bold" FontFamily="Century Gothic" FontSize="12" MouseDoubleClick="myListView_MouseDoubleClick" >
+        <ListView Name="myListView" HorizontalAlignment="Center" Height="528" Margin="249,10,216.667,0" Padding="20,10,50,0" VerticalAlignment="Top" Width="725" FontWeight="Bold" FontFamily="Century Gothic" FontSize="12" MouseDoubleClick="myListView_MouseDoubleClick" >
             <ListView.Background>
                 <ImageBrush ImageSource="backgroundbus.jpg"/>
             </ListView.Background>
+            <ListView.ItemBindingGroup>
+                <BindingGroup/>
+            </ListView.ItemBindingGroup>
 
 
             <ListView.View>
                 <GridView x:Name="usergridview">
+
                     <GridViewColumn x:Name="BusesNumberColumn" Header="License Bus Number:" DisplayMemberBinding="{Binding LicenseNum}" Width="150" />
                     <GridViewColumn x:Name="NumberOfKmTraveledColumn" Header="Number of km traveled:" DisplayMemberBinding="{Binding GetNumTechnicalControl}"  Width="150"/>
                     <GridViewColumn x:Name="StatusColumn" Header="Status:" DisplayMemberBinding="{Binding Status}"  Width="100"/>
@@ -47,6 +51,7 @@
 
                 </GridView>
             </ListView.View>
+
         </ListView>
         <Button Content="Add a Bus" HorizontalAlignment="Center" Height="25" Margin="333,0,326.333,9.667" VerticalAlignment="Bottom" Width="134" Click="Button_Click" FontWeight="Bold" FontFamily="Century Gothic" Background="#FFC3B8C7" FontSize="16" RenderTransformOrigin="-0.265,0.315" />
         <Label x:Name="lblTime" Content="" FontSize="30"

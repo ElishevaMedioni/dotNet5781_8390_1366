@@ -36,11 +36,55 @@ namespace dotNet5781_03B_8390_1366
         }
 
 
+        private void CheckStatus()
+        {
+
+            if ((newTripForThisBus.Status == "On refueling"))
+            {
+                MessageBox.Show("You can't travelled, the bus is on refueling");
+            }
+
+
+
+
+            else if ((newTripForThisBus.Status == "On Verification"))
+            {
+                MessageBox.Show("You can't travelled, the bus is on verification");
+            }
+
+
+            else if ((newTripForThisBus.Status == "On the road"))
+            {
+                MessageBox.Show("You can't travelled, the bus is on the road again");
+               
+            }
+
+
+
+
+        }
+
+        private void ChecksVerification()
+        {
+
+            
+
+
+
+
+        }
+
+
+
+
+
 
         private void kmForTheTrip_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Return)
             {
+
+
 
 
                 string item = this.kmForTheTrip.Text.ToString();
@@ -55,8 +99,15 @@ namespace dotNet5781_03B_8390_1366
 
                 if (flag)
                 {
+                   
+                    
+                    this.CheckStatus();
 
-                    if (newTripForThisBus.GetKmNumGas + kmFTT > 1200)
+
+
+
+
+                     if (newTripForThisBus.GetKmNumGas + kmFTT > 1200)
                     {
                         newTripForThisBus.Status = "must refull";
                         MessageBox.Show("ERROR: Must fill the gas tank", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
@@ -69,7 +120,7 @@ namespace dotNet5781_03B_8390_1366
                     else if ((newTripForThisBus.GetNumTechnicalControl + kmFTT > 20000) || Math.Round(t.TotalDays) > 375)
                     {
                         newTripForThisBus.Status = "must technical verification";
-                        MessageBox.Show("YOU NEED TO DO TECHNICAL VERIFICATION", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        MessageBox.Show("ERROR : You need to do Technical Verification", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
 
 
                     }
@@ -77,24 +128,10 @@ namespace dotNet5781_03B_8390_1366
 
                     else if (newTripForThisBus.GetKmNumGas + kmFTT > 1200 && newTripForThisBus.GetNumTechnicalControl + kmFTT > 20000)
                     {
-                        newTripForThisBus.Status = "must technical verification";
+                        newTripForThisBus.Status = " You need to do technical verification";
                     }
 
-
-                    else if ((newTripForThisBus.Status == "On refueling"))
-                    {
-                        MessageBox.Show("You can't travelled, the bus is on refueling");
-                    }
-
-
-
-
-                    else if ((newTripForThisBus.Status == "On Verification"))
-                    {
-                        MessageBox.Show("You can't travelled, the bus is on verification");
-                    }
-
-
+                    
 
                     else
                     {
@@ -116,7 +153,7 @@ namespace dotNet5781_03B_8390_1366
 
                         newTripForThisBus.GetNumTechnicalControl += kmFTT;
                         newTripForThisBus.GetKmNumGas += kmFTT;
-                        MessageBox.Show("THE NEW ITINERARY OF THE BUS HAS BEEN UPDATED SUCCESSFULLY FOR " + kmFTT + " kms", "Important Message");
+                        MessageBox.Show("New Itinary has been uptaded successfully for: " + kmFTT + " kms", "Important Message");
                         kmForTheTrip.Clear();
 
                     }
@@ -133,7 +170,7 @@ namespace dotNet5781_03B_8390_1366
             }
 
         }
-       
-        }
+
     }
-    
+}
+
