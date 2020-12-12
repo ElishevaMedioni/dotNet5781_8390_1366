@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
+using System.Threading;
 
 namespace dotNet5781_03B_8390_1366
 {
@@ -31,20 +33,43 @@ namespace dotNet5781_03B_8390_1366
         private void Button_Click(object sender, RoutedEventArgs e) //event of technical control button
         {
 
-            //ici  on fait fonctionner la fonction pour faire le controle technique
+           
+            myBus.Status = "On Verification";
+            new Thread(() =>
+            {
 
+                MessageBox.Show("On Verification... please wait");
+                Thread.Sleep(24*3600 * 100);// 24hin second*(ms==>s)
+                MessageBox.Show("The Verification fully Completed", "Important Message");
+                myBus.Status = "Available";
+                myBus.DateOfTheLastTechnicalControl = DateTime.Now;
+                myBus.GetNumTechnicalControl = 0;
 
-            //NewTripWindow secondWindow = new NewTripWindow(myBus);
-            //secondWindow.Show();
-            //this.Close();
+            }).Start();
+
+           
+
+            this.Close();
 
 
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)//button refuel
         {
-            myBus.GetKmNumGas = 0;
-            MessageBox.Show("The Refueling Was Successfully Completed", "Important Message");
+            myBus.Status = "On Refueling";
+            new Thread(() =>
+            {
+
+
+                MessageBox.Show("On refueling","Important Message");
+                Thread.Sleep(2 * 3600 * 100);// 2h in second*(ms==>s)
+                MessageBox.Show("The Refueling Was Successfully Completed", "Important Message");
+                myBus.Status = "Available";
+                myBus.GetKmNumGas = 0;
+            }).Start();
+            
+            
+           
             this.Close();
             
         }
