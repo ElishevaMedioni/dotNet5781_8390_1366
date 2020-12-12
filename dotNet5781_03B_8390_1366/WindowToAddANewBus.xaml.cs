@@ -75,7 +75,7 @@ namespace dotNet5781_03B_8390_1366
                 else
                 { //if the license number format is wrong
 
-                    MessageBox.Show("ERROR: License number wrong", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("ERROR: The License Number Format Is Wrong", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 
             }

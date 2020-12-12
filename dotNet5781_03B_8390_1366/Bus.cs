@@ -8,29 +8,37 @@ using System.Windows.Threading;
 
 namespace dotNet5781_03B_8390_1366
 {
-    public class Bus 
-        //: INotifyPropertyChanged
+    public class Bus : INotifyPropertyChanged
+    
     {
         int licenseNum;
+        string licenseNumStr;
         int kmNumGas = 0;
         int kmNumTechnicalControl = 0;
         int kmTravelled = 0;
         DateTime dateOfActivity;
         DateTime dateOfTheLastTechnicalControl;
         string status = null;
-
-       // public event PropertyChangedEventHandler PropertyChanged;
+        int gasolineLevel;
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public override string ToString()
         {
-            
-            string str = "◎ Bus Number: " + LicenseNumInTheGoodFormat() + " \n◎ Number of km traveled: "
-                + GetNumTechnicalControl + "km" + " \n◎ Status: " + Status 
+
+            string str = "◎ Bus Number: " + licenseNumStr + " \n◎ Number of km traveled: "
+                + GetNumTechnicalControl + "km" + " \n◎ Status: " + Status
                 + "\n◎ Date Of Activity: " + DateOfActivity.ToShortDateString() + "\n◎ Date Of The Last Technical Control: "
-                + DateOfTheLastTechnicalControl.ToShortDateString() +
+                + DateOfTheLastTechnicalControl.ToShortDateString() + "\n◎ " + kmNumTechnicalControl + " km traveled since the last technical control"
+                + "\n◎ Gasoline's level: " + GasolineLevel + "%" +
                 "\n";
             
             return str.ToString();
+        }
+
+        public void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
         }
 
         public string LicenseNumInTheGoodFormat()
@@ -45,6 +53,18 @@ namespace dotNet5781_03B_8390_1366
             return myStr;
         }
 
+        public string LicenseNumInTheGoodFormat(int myLicenseNum)
+        {
+            int numDigit = myLicenseNum.ToString().Length;
+            string myStr;
+            if (numDigit == 7) //if the beginning of the activity is before 2018 then the licenseNum is 7 digits
+                myStr = myLicenseNum / 100000 + "-" + (myLicenseNum % 100000) / 100 + "-" + myLicenseNum % 100;
+
+            else //else the licenseNum is 8 digits
+                myStr = myLicenseNum / 100000 + "-" + (myLicenseNum % 100000) / 1000 + "-" + myLicenseNum % 1000;
+            return myStr;
+        }
+
         public Bus()
         { // default constructor, initialyse
             licenseNum = 0;
@@ -52,6 +72,7 @@ namespace dotNet5781_03B_8390_1366
             kmNumTechnicalControl = 0;
             dateOfActivity = new DateTime(0, 0, 0);
             dateOfTheLastTechnicalControl = new DateTime(0, 0, 0);
+            gasolineLevel = 100;
         }
 
         //Parameterized Constructor
@@ -60,6 +81,8 @@ namespace dotNet5781_03B_8390_1366
             licenseNum = myLicenseNum;
             dateOfActivity = mydateOfActivity;
             dateOfTheLastTechnicalControl = mydateOfActivity;
+            licenseNumStr = LicenseNumInTheGoodFormat(licenseNum);
+            gasolineLevel = 100;
         }
         public Bus(int myLicenseNum, DateTime mydateOfActivity, int m_kmNumGas, int m_kmNumTechnicalControl)
         {
@@ -69,6 +92,8 @@ namespace dotNet5781_03B_8390_1366
             kmNumGas = m_kmNumGas;
             kmNumTechnicalControl = m_kmNumTechnicalControl;
             status = "available";
+            licenseNumStr = LicenseNumInTheGoodFormat(licenseNum);
+            gasolineLevel = 100;
         }
 
 
@@ -77,7 +102,9 @@ namespace dotNet5781_03B_8390_1366
         public string Status
         {
             get { return status; }
-            set { status = value; }
+            set { status = value;
+                OnPropertyChanged("Status");
+            }
         }
 
         public int LicenseNum
@@ -85,10 +112,27 @@ namespace dotNet5781_03B_8390_1366
             get { return licenseNum; }
             set { licenseNum = value; }
         }
+
+        public string LicenseNumStr
+        {
+            get { return licenseNumStr; }
+            set { licenseNumStr = value; }
+        }
+
+        public int GasolineLevel
+        {
+            get { return gasolineLevel; }
+            set { gasolineLevel = value;
+                OnPropertyChanged("GasolineLevel");
+            }
+        }
+
         public int GetKmNumGas
         {
             get { return kmNumGas; }
-            set { kmNumGas = value; }
+            set { kmNumGas = value;
+                OnPropertyChanged("GetKmNumGas");
+            }
         }
 
            public int GetKmTravelled
@@ -100,7 +144,11 @@ namespace dotNet5781_03B_8390_1366
         public int GetNumTechnicalControl
         {
             get { return kmNumTechnicalControl; }
-            set { kmNumTechnicalControl = value; }
+            set { 
+                kmNumTechnicalControl = value;
+                OnPropertyChanged("GetNumTechnicalControl");
+                    }
+            
         }
 
         public DateTime DateOfActivity
@@ -112,7 +160,9 @@ namespace dotNet5781_03B_8390_1366
         public DateTime DateOfTheLastTechnicalControl
         {
             get { return dateOfTheLastTechnicalControl; }
-            set { dateOfTheLastTechnicalControl = value; }
+            set { dateOfTheLastTechnicalControl = value;
+                OnPropertyChanged("DateOfTheLastTechnicalControl");
+            }
         }
 
 

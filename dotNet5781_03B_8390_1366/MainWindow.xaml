@@ -27,7 +27,7 @@
             <ListView.View>
                 <GridView x:Name="usergridview">
 
-                    <GridViewColumn x:Name="BusesNumberColumn" Header="License Bus Number:" DisplayMemberBinding="{Binding LicenseNum}" Width="150" />
+                    <GridViewColumn x:Name="BusesNumberColumn" Header="License Bus Number:" DisplayMemberBinding="{Binding LicenseNumStr}" Width="150" />
                     <GridViewColumn x:Name="NumberOfKmTraveledColumn" Header="Number of km traveled:" DisplayMemberBinding="{Binding GetNumTechnicalControl}"  Width="150"/>
                     <GridViewColumn x:Name="StatusColumn" Header="Status:" DisplayMemberBinding="{Binding Status}"  Width="100"/>
                     <GridViewColumn Width="100">

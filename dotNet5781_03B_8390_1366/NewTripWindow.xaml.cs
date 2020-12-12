@@ -28,56 +28,17 @@ namespace dotNet5781_03B_8390_1366
     public partial class NewTripWindow : Window
     {
         Bus newTripForThisBus;
+        
         public NewTripWindow(Bus myBus)
         {
             InitializeComponent();
             newTripForThisBus = myBus;
-
-        }
-
-
-        private void CheckStatus()
-        {
-
-            if ((newTripForThisBus.Status == "On refueling"))
-            {
-                MessageBox.Show("You can't travelled, the bus is on refueling");
-            }
-
-
-
-
-            else if ((newTripForThisBus.Status == "On Verification"))
-            {
-                MessageBox.Show("You can't travelled, the bus is on verification");
-            }
-
-
-            else if ((newTripForThisBus.Status == "On the road"))
-            {
-                MessageBox.Show("You can't travelled, the bus is on the road again");
-               
-            }
-
-
-
-
-        }
-
-        private void ChecksVerification()
-        {
-
             
-
-
-
-
         }
 
 
-
-
-
+       
+       
 
         private void kmForTheTrip_KeyDown(object sender, KeyEventArgs e)
         {
@@ -99,12 +60,9 @@ namespace dotNet5781_03B_8390_1366
 
                 if (flag)
                 {
-                   
+
+
                     
-                    this.CheckStatus();
-
-
-
 
 
                      if (newTripForThisBus.GetKmNumGas + kmFTT > 1200)
@@ -140,12 +98,11 @@ namespace dotNet5781_03B_8390_1366
 
                         new Thread(() =>
                         {
-                            Random rr = new Random();
+                            Random rr = new Random(DateTime.Now.Millisecond);
 
                             int speed = rr.Next(20, 50);
-                            int time = (kmFTT / speed);
-
-                            Thread.Sleep(time * 360000);// *3600 to convert in second, *100 sleep is in ms and we want seconds
+                            int tiime = (kmFTT / speed) * 6000 + (kmFTT % speed) * 100;
+                            Thread.Sleep(tiime * 60);// *3600 to convert in second, *100 sleep is in ms and we want seconds
                             newTripForThisBus.Status = "Available";
 
                         }).Start();
@@ -153,7 +110,9 @@ namespace dotNet5781_03B_8390_1366
 
                         newTripForThisBus.GetNumTechnicalControl += kmFTT;
                         newTripForThisBus.GetKmNumGas += kmFTT;
+                        newTripForThisBus.GasolineLevel = 100 - ((newTripForThisBus.GetKmNumGas) / 12);
                         MessageBox.Show("New Itinary has been uptaded successfully for: " + kmFTT + " kms", "Important Message");
+                        
                         kmForTheTrip.Clear();
 
                     }
@@ -165,6 +124,8 @@ namespace dotNet5781_03B_8390_1366
                 {
                     MessageBox.Show("Wrong format for the number of km", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
+                
+
                 this.Close();
 
             }
