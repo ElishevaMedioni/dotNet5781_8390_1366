@@ -33,22 +33,29 @@ namespace dotNet5781_03B_8390_1366
         private void Button_Click(object sender, RoutedEventArgs e) //event of technical control button
         {
 
-           
-            myBus.Status = "On Verification";
-            new Thread(() =>
+
+
+            if (myBus.Status == "On Verification")
             {
+                MessageBox.Show("ERROR: The bus is already in verification");
+            }
+            else
+            {
+                myBus.Status = "On Verification";
+                new Thread(() =>
+                {
 
-                MessageBox.Show("On Verification... please wait");
-                Thread.Sleep(24*3600 * 100);// 24hin second*(ms==>s)
+                    MessageBox.Show("On Verification... please wait");
+                    Thread.Sleep(24 * 3600 * 100);// 24hin second*(ms==>s)
                 MessageBox.Show("The Verification fully Completed", "Important Message");
-                myBus.Status = "Available";
-                myBus.DateOfTheLastTechnicalControl = DateTime.Now;
-                myBus.GetNumTechnicalControl = 0;
+                    myBus.Status = "Available";
+                    myBus.DateOfTheLastTechnicalControl = DateTime.Now;
+                    myBus.GetNumTechnicalControl = 0;
 
-            }).Start();
+                }).Start();
 
-           
 
+            }
             this.Close();
 
 
@@ -56,19 +63,25 @@ namespace dotNet5781_03B_8390_1366
 
         private void Button_Click_1(object sender, RoutedEventArgs e)//button refuel
         {
-            myBus.Status = "On Refueling";
-            new Thread(() =>
+            if (myBus.Status == "On Refueling")
             {
+                MessageBox.Show("ERROR: The bus is already On Refueling");
+            }
+            else
+            {
+                myBus.Status = "On Refueling";
+                new Thread(() =>
+                {
 
 
-                MessageBox.Show("On refueling","Important Message");
-                Thread.Sleep(2 * 3600 * 100);// 2h in second*(ms==>s)
+                    
+                    Thread.Sleep(2 * 3600 * 100);// 2h in second*(ms==>s)
                 MessageBox.Show("The Refueling Was Successfully Completed", "Important Message");
-                myBus.Status = "Available";
-                myBus.GetKmNumGas = 0;
-            }).Start();
-            
-            
+                    myBus.Status = "Available";
+                    myBus.GetKmNumGas = 0;
+                }).Start();
+
+            }
            
             this.Close();
             

@@ -86,10 +86,7 @@ namespace dotNet5781_03B_8390_1366
             collection.Add(bus9);
             collection.Add(bus10);
         }
-        private void busy()
-        {
-           
-        }
+       
         
         void timer_Tick(object sender, EventArgs e)
         {
@@ -120,9 +117,10 @@ namespace dotNet5781_03B_8390_1366
 
         private void Button_Click_1(object sender, RoutedEventArgs e) //boutton nouveau trajet a cote de chaque bus
         {
+
             if (sender != null && sender is Button btn)
                 current = (Bus)btn.DataContext;
-            //current = (Bus)myListView.SelectedItem;
+            
             NewTripWindow secondWindow = new NewTripWindow(current);
             secondWindow.Show();
             myListView.Items.Refresh();
@@ -136,20 +134,27 @@ namespace dotNet5781_03B_8390_1366
             if (sender != null && sender is Button btn)
                 current = (Bus)btn.DataContext;
 
-            current.Status = "On Refueling";
-            new Thread(() =>
+
+            if (current.Status == "On Refueling")
             {
+                MessageBox.Show("ERROR: The bus is already on refueling");
+            }
+            else
+            {
+                current.Status = "On Refueling";
+                new Thread(() =>
+                {
 
 
-                MessageBox.Show("On refueling", "Important Message");
-                Thread.Sleep(2 * 3600 * 100);// 2h in second*(ms==>s)
+                    
+                    Thread.Sleep(2 * 3600 * 100);// 2h in second*(ms==>s)
                 MessageBox.Show("The Refueling Was Successfully Completed", "Important Message");
-                current.Status = "Available";
-                current.GetKmNumGas = 0;
-            }).Start();
-          
-            myListView.Items.Refresh();
-            
+                    current.Status = "Available";
+                    current.GetKmNumGas = 0;
+                }).Start();
+
+                myListView.Items.Refresh();
+            }
         }
     }
 }
