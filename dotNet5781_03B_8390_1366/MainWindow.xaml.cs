@@ -41,17 +41,16 @@ namespace dotNet5781_03B_8390_1366
             InitializeBus(myCollection);
             InitializeComponent();
             myListView.ItemsSource = myCollection;
-    
+         
+            
+
             myListView.ItemsSource = myCollection;
+           // myListView.ItemsSource = buses;
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += timer_Tick;
             timer.Start();
             
         }
-        /// <summary>
-        /// function to initialise 10 buses
-        /// </summary>
-        /// <param name="collection"></param>
         public void InitializeBus(ObservableCollection<Bus> collection)
         {
             DateTime date1 = new DateTime(1993, 06, 01);
@@ -87,7 +86,7 @@ namespace dotNet5781_03B_8390_1366
             collection.Add(bus9);
             collection.Add(bus10);
         }
-        
+       
         
         void timer_Tick(object sender, EventArgs e)
         {
@@ -96,12 +95,7 @@ namespace dotNet5781_03B_8390_1366
 
         }
 
-        /// <summary>
-        /// button to add a new bus
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)//button to add a new bus
         {
             WindowToAddANewBus secondWindow = new WindowToAddANewBus(); 
             secondWindow.Show();
@@ -109,13 +103,8 @@ namespace dotNet5781_03B_8390_1366
         }
 
        
-        /// <summary>
-        /// double click on each bus to see all the details of the bus
-        /// it is open a new window ViewItem
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void myListView_MouseDoubleClick(object sender, MouseButtonEventArgs e) 
+
+        private void myListView_MouseDoubleClick(object sender, MouseButtonEventArgs e) //doubleclick sur chaque bus, affiche fenetre ac pratim du bus
         {
             
             current = (Bus)myListView.SelectedItem;
@@ -125,77 +114,26 @@ namespace dotNet5781_03B_8390_1366
         }
 
 
-        /// <summary>
-        /// function to checks the status
-        /// </summary>
-        /// <returns></returns>
-        private bool CheckStatus()
+
+        private void Button_Click_1(object sender, RoutedEventArgs e) //boutton nouveau trajet a cote de chaque bus
         {
 
-            if ((current.Status == "On refueling"))
-            {
-                MessageBox.Show("You can't travelled, the bus is on refueling");
-                return false;
-            }
-
-
-
-
-            else if ((current.Status == "On Verification"))
-            {
-                MessageBox.Show("You can't travelled, the bus is on verification");
-                return false;
-            }
-
-
-            else if ((current.Status == "On the road"))
-            {
-                MessageBox.Show("You can't travelled, the bus is on the road again");
-                return false;
-
-            }
-
-            return true;
-
-
-        }
-
-
-        /// <summary>
-        /// button New Trip for each bus
-        /// Opens a new window NewTrip if the status of the bus is available
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Button_Click_1(object sender, RoutedEventArgs e) 
-        {
             if (sender != null && sender is Button btn)
                 current = (Bus)btn.DataContext;
             
-
-
-
-            if (CheckStatus())
-            {
-                NewTripWindow secondWindow = new NewTripWindow(current);
-                secondWindow.Show();
-                myListView.Items.Refresh();
-            }
-            
-
+            NewTripWindow secondWindow = new NewTripWindow(current);
+            secondWindow.Show();
+            myListView.Items.Refresh();
         }
 
 
 
-        /// <summary>
-        /// button refuel to each bus
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+
+        private void Button_Click_2(object sender, RoutedEventArgs e) //bouton refuel a cote de chaque bus
         {
             if (sender != null && sender is Button btn)
                 current = (Bus)btn.DataContext;
+
 
             if (current.Status == "On Refueling")
             {
@@ -206,15 +144,17 @@ namespace dotNet5781_03B_8390_1366
                 current.Status = "On Refueling";
                 new Thread(() =>
                 {
+
+
+                    
                     Thread.Sleep(2 * 3600 * 100);// 2h in second*(ms==>s)
+                MessageBox.Show("The Refueling Was Successfully Completed", "Important Message");
                     current.Status = "Available";
                     current.GetKmNumGas = 0;
                 }).Start();
 
                 myListView.Items.Refresh();
             }
-
-
         }
     }
 }
