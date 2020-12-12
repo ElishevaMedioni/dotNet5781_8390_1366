@@ -70,7 +70,7 @@ namespace dotNet5781_03B_8390_1366
         }
 
 
-
+        //
         private void kmForTheTrip_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Return)
