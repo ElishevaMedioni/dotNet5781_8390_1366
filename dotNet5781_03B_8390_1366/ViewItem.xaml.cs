@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using System.Threading;
+using System.Drawing;
+using System.ComponentModel;
 
 namespace dotNet5781_03B_8390_1366
 {
@@ -22,6 +24,11 @@ namespace dotNet5781_03B_8390_1366
     public partial class ViewItem : Window
     {
         public Bus myBus;
+        private DispatcherTimer tiimer = new DispatcherTimer();
+
+        //tiimer.Interval = TimeSpan.FromSeconds(1);
+        //    tiimer.Tick += timer_Tick;
+        //    tiimer.Start();
         public ViewItem(Bus busClicked)
         {
             InitializeComponent();
@@ -29,9 +36,40 @@ namespace dotNet5781_03B_8390_1366
             BusDetails.Text = busClicked.ToString();
             myBus = busClicked;
             pbStatus.Value = myBus.GasolineLevel;
+            
         }
 
+        private bool CheckStatusForTechnicalVerification()
+        {
 
+            if ((myBus.Status == "On Refueling"))
+            {
+                MessageBox.Show("You can't do a technical verification, the bus is on refueling");
+                return false;
+            }
+
+            else if ((myBus.Status == "must refull"))
+            {
+                MessageBox.Show("You can't do a technical verification, the bus has to be refulled");
+                return false;
+            }
+
+           
+            else if ((myBus.Status == "On Verification"))
+            {
+                MessageBox.Show("You can't do a technical verification, the bus is already on verification");
+                return false;
+            }
+
+
+            else if ((myBus.Status == "On the road"))
+            {
+                MessageBox.Show("You can't do a technical verification, the bus is on the road again");
+                return false;
+
+            }
+            return true;
+        }
         /// <summary>
         /// button technical control
         /// </summary>
@@ -39,11 +77,11 @@ namespace dotNet5781_03B_8390_1366
         /// <param name="e"></param>
         private void Button_Click(object sender, RoutedEventArgs e) 
         {
-
-            if (myBus.Status == "On Verification")
+           if(!CheckStatusForTechnicalVerification())
             {
-                MessageBox.Show("ERROR: The bus is already in verification");
+
             }
+
             else
             {
                 myBus.Status = "On Verification";

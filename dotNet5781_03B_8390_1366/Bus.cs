@@ -18,7 +18,7 @@ namespace dotNet5781_03B_8390_1366
         int kmTravelled = 0;
         DateTime dateOfActivity;
         DateTime dateOfTheLastTechnicalControl;
-        string status = null;
+        string status = "Available";
         int gasolineLevel;
         public event PropertyChangedEventHandler PropertyChanged;
 

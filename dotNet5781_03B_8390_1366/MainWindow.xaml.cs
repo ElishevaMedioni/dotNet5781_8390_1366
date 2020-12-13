@@ -18,7 +18,7 @@ using System.Threading;
 using System.Drawing;
 using System.ComponentModel;
 
-
+//                    <GridViewColumn x:Name="TimerColumn" Header="Timer:"  DisplayMemberBinding="{Binding TargetNullValue}" Width="100"/>
 namespace dotNet5781_03B_8390_1366
 {
 
@@ -33,6 +33,7 @@ namespace dotNet5781_03B_8390_1366
         Bus current;
         public static List<Bus> buses = new List<Bus>();
         private DispatcherTimer timer = new DispatcherTimer();
+        private DispatcherTimer tiimer = new DispatcherTimer();
         public static ObservableCollection<Bus> myCollection { get; set; } = new ObservableCollection<Bus>(buses);
 
 
@@ -49,7 +50,9 @@ namespace dotNet5781_03B_8390_1366
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += timer_Tick;
             timer.Start();
-            
+
+         
+
         }
 
         /// <summary>
@@ -99,6 +102,10 @@ namespace dotNet5781_03B_8390_1366
             lblTime.Content = DateTime.Now.ToLongTimeString();
 
         }
+
+
+
+
 
         /// <summary>
         /// button to add a new bus
@@ -157,6 +164,19 @@ namespace dotNet5781_03B_8390_1366
                 return false;
 
             }
+            
+
+              else if ((current.Status == "must refull"))
+            {
+                MessageBox.Show("You can't travel, the bus has to be refulled");
+                return false;
+            }
+
+            else if ((current.Status == "must technical verification"))
+            {
+                MessageBox.Show("You can't travel, the bus has to do technical verification ");
+                return false;
+            }
             return true;
         }
 
@@ -169,6 +189,11 @@ namespace dotNet5781_03B_8390_1366
                 return false;
             }
 
+            else if ((current.Status == "must technical verification"))
+            {
+                MessageBox.Show("You can't refuel, the bus has to do a technical verification before");
+                return false;
+            }
 
 
 
