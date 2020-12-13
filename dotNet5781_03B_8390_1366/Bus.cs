@@ -91,10 +91,11 @@ namespace dotNet5781_03B_8390_1366
             dateOfTheLastTechnicalControl = mydateOfActivity;
             kmNumGas = m_kmNumGas;
             kmNumTechnicalControl = m_kmNumTechnicalControl;
-            status = "available";
+            status = "Available";
             licenseNumStr = LicenseNumInTheGoodFormat(licenseNum);
-            gasolineLevel = 100;
+            gasolineLevel = ((1200 - m_kmNumGas) * 100) / 1200;
         }
+
 
 
         //Properties fields

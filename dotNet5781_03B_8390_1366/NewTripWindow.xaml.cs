@@ -39,7 +39,11 @@ namespace dotNet5781_03B_8390_1366
 
        
        
-
+        /// <summary>
+        /// event when the user taps a km for the trip and taps enter
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void kmForTheTrip_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Return)
@@ -110,7 +114,7 @@ namespace dotNet5781_03B_8390_1366
 
                         newTripForThisBus.GetNumTechnicalControl += kmFTT;
                         newTripForThisBus.GetKmNumGas += kmFTT;
-                        newTripForThisBus.GasolineLevel = 100 - ((newTripForThisBus.GetKmNumGas) / 12);
+                        newTripForThisBus.GasolineLevel = ((1200 - newTripForThisBus.GetKmNumGas) * 100) / 1200;
                         MessageBox.Show("New Itinary has been uptaded successfully for: " + kmFTT + " kms", "Important Message");
                         
                         kmForTheTrip.Clear();

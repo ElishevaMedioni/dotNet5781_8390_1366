@@ -132,10 +132,10 @@ namespace dotNet5781_03B_8390_1366
         /// function to checks the status
         /// </summary>
         /// <returns></returns>
-        private bool CheckStatus()
+        private bool CheckStatusForTravel()
         {
 
-            if ((current.Status == "On refueling"))
+            if ((current.Status == "On Refueling"))
             {
                 MessageBox.Show("You can't travelled, the bus is on refueling");
                 return false;
@@ -160,6 +160,33 @@ namespace dotNet5781_03B_8390_1366
             return true;
         }
 
+        private bool CheckStatusForRefuel()
+        {
+
+            if ((current.Status == "On Refueling"))
+            {
+                MessageBox.Show("ERROR: The bus is already on refueling");
+                return false;
+            }
+
+
+
+
+            else if ((current.Status == "On Verification"))
+            {
+                MessageBox.Show("You can't refuel, the bus is on verification");
+                return false;
+            }
+
+
+            else if ((current.Status == "On the road"))
+            {
+                MessageBox.Show("You can't refuel, the bus is on the road again");
+                return false;
+
+            }
+            return true;
+        }
 
         /// <summary>
         /// button New Trip for each bus
@@ -174,7 +201,7 @@ namespace dotNet5781_03B_8390_1366
                 current = (Bus)btn.DataContext;
 
 
-            if (CheckStatus())
+            if (CheckStatusForTravel())
             {
                 NewTripWindow secondWindow = new NewTripWindow(current);
                 secondWindow.Show();
@@ -195,28 +222,31 @@ namespace dotNet5781_03B_8390_1366
         {
             if (sender != null && sender is Button btn)
                 current = (Bus)btn.DataContext;
-
-
-            if (current.Status == "On Refueling")
-            {
-                MessageBox.Show("ERROR: The bus is already on refueling");
-            }
-            else
+            
+            
+                
+            if (CheckStatusForRefuel())
             {
                 current.Status = "On Refueling";
                 new Thread(() =>
                 {
 
 
-                    
+
                     Thread.Sleep(2 * 3600 * 100);// 2h in second*(ms==>s)
-                MessageBox.Show("The Refueling Was Successfully Completed", "Important Message");
+                    MessageBox.Show("The Refueling Was Successfully Completed", "Important Message");
                     current.Status = "Available";
                     current.GetKmNumGas = 0;
+
                 }).Start();
+                current.GasolineLevel = 100;
 
                 myListView.Items.Refresh();
             }
+
+
+            
+           
         }
     }
 }

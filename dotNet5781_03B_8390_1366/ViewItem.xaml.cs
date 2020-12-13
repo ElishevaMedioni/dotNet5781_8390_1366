@@ -31,7 +31,13 @@ namespace dotNet5781_03B_8390_1366
             pbStatus.Value = myBus.GasolineLevel;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e) //event of technical control button
+
+        /// <summary>
+        /// button technical control
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_Click(object sender, RoutedEventArgs e) 
         {
 
             if (myBus.Status == "On Verification")
@@ -57,7 +63,12 @@ namespace dotNet5781_03B_8390_1366
 
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)//button refuel
+        /// <summary>
+        /// button refuel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_Click_1(object sender, RoutedEventArgs e)
         {
 
             if (myBus.Status == "On Refueling")
@@ -74,6 +85,8 @@ namespace dotNet5781_03B_8390_1366
                     myBus.Status = "Available";
                     myBus.GetKmNumGas = 0;
                 }).Start();
+
+                myBus.GasolineLevel = 100;
 
             }
             

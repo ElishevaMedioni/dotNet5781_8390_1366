@@ -28,7 +28,11 @@ namespace dotNet5781_03B_8390_1366
         }
 
         
-
+        /// <summary>
+        /// button to add the bus
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void Button_Click(object sender, RoutedEventArgs e)
         {
             string item1 = this.txtLicenseNumber.Text.ToString();
@@ -55,9 +59,8 @@ namespace dotNet5781_03B_8390_1366
                 {
                     Bus b1 = new Bus(myLicenseNum, date);
                     MainWindow.myCollection.Add(b1);
-                    //MainWindow.buses.Add(b1);
+                    
 
-                    //ou vider les textBox ou fermer fenetre this.close()
                     this.txtLicenseNumber.Clear();
                     this.txtLicenseNumber.Focus();
                   
