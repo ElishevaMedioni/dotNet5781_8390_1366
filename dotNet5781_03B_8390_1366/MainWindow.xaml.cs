@@ -45,7 +45,7 @@ namespace dotNet5781_03B_8390_1366
             
 
             myListView.ItemsSource = myCollection;
-           // myListView.ItemsSource = buses;
+           
             timer.Interval = TimeSpan.FromSeconds(1);
             timer.Tick += timer_Tick;
             timer.Start();

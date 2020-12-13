@@ -63,7 +63,8 @@ namespace dotNet5781_03B_8390_1366
 
                     this.txtLicenseNumber.Clear();
                     this.txtLicenseNumber.Focus();
-                  
+                    this.Close();
+
                 }
                 else if (date.Year > 2018 && item1.Length == 8)
                 {
@@ -72,7 +73,7 @@ namespace dotNet5781_03B_8390_1366
                     MainWindow.myCollection.Add(b2);
                     this.txtLicenseNumber.Clear();
                     this.txtLicenseNumber.Focus();
-                    
+                    this.Close();
                 
                 }
                 else

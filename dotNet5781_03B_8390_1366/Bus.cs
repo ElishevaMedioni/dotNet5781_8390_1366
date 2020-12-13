@@ -26,10 +26,11 @@ namespace dotNet5781_03B_8390_1366
         {
 
             string str = "◎ Bus Number: " + licenseNumStr + " \n◎ Number of km traveled: "
-                + GetNumTechnicalControl + "km" + " \n◎ Status: " + Status
+                + GetNumTechnicalControl + "km" 
+                + " \n◎ Status: " + Status
                 + "\n◎ Date Of Activity: " + DateOfActivity.ToShortDateString() + "\n◎ Date Of The Last Technical Control: "
                 + DateOfTheLastTechnicalControl.ToShortDateString() + "\n◎ " + kmNumTechnicalControl + " km traveled since the last technical control"
-                + "\n◎ Gasoline's level: " + GasolineLevel + "%" +
+                + "\n◎ " + kmNumGas + " km traveled since the last refuel" + "\n◎ Gasoline's level: " + GasolineLevel + "%" +
                 "\n";
             
             return str.ToString();
@@ -93,7 +94,11 @@ namespace dotNet5781_03B_8390_1366
             kmNumTechnicalControl = m_kmNumTechnicalControl;
             status = "Available";
             licenseNumStr = LicenseNumInTheGoodFormat(licenseNum);
-            gasolineLevel = ((1200 - m_kmNumGas) * 100) / 1200;
+            if (m_kmNumGas >= 1200)
+                gasolineLevel = 0;
+            else
+                gasolineLevel = ((1200 - m_kmNumGas) * 100) / 1200;
+
         }
 
 

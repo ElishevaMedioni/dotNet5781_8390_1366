@@ -24,8 +24,8 @@
         <Button Content="Refuel" HorizontalAlignment="Center" Margin="54,333,601.333,0" VerticalAlignment="Top" Width="138" Height="50" FontWeight="Bold" FontSize="20" FontFamily="Century Gothic" Click="Button_Click_1"/>
         <Label Content="Time remaining until the bus is ready:" HorizontalAlignment="Left" Margin="54,241,0,0" VerticalAlignment="Top" Width="312" FontWeight="Bold" FontSize="16" Height="32" FontFamily="Century Gothic"/>
         <StackPanel HorizontalAlignment="Left" Height="200" Margin="40,41,0,0" VerticalAlignment="Top" Width="592">
-            <TextBlock x:Name="BusDetails" TextWrapping="Wrap" Height="174" FontSize="20" FontFamily="Century Gothic" FontWeight="Bold" Visibility="Visible" Foreground="Black" Margin="0,0,-141.667,0" />
-            <ProgressBar Height="10" Minimum="0" Maximum="100" x:Name="pbStatus" Width="100" Margin="246,0"/>
+            <TextBlock x:Name="BusDetails" TextWrapping="Wrap" Height="167" FontSize="16" FontFamily="Century Gothic" FontWeight="Bold" Visibility="Visible" Foreground="Black" Margin="0,0,-142,0" />
+            <ProgressBar Height="10" Minimum="0" Maximum="100" x:Name="pbStatus" Width="100" Margin="194,0,0,0" HorizontalAlignment="Left"/>
 
 
         </StackPanel>
