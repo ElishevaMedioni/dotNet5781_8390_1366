@@ -39,6 +39,11 @@ namespace dotNet5781_03B_8390_1366
             
         }
 
+        /// <summary>
+        /// function to checks the status, checks if the bus can travel
+        /// </summary>
+        /// <returns></returns>
+
         private bool CheckStatusForTechnicalVerification()
         {
 
@@ -70,6 +75,46 @@ namespace dotNet5781_03B_8390_1366
             }
             return true;
         }
+
+
+        /// <summary>
+        /// function to checks the status, checks if the bus can refuel
+        /// </summary>
+        /// <returns></returns>
+        public bool CheckStatusForRefuel()
+        {
+
+            if ((myBus.Status == "On Refueling"))
+            {
+                MessageBox.Show("ERROR: The bus is already on refueling");
+                return false;
+            }
+
+            else if ((myBus.Status == "must technical verification"))
+            {
+                MessageBox.Show("You can't refuel, the bus has to do a technical verification before");
+                return false;
+            }
+
+
+
+            else if ((myBus.Status == "On Verification"))
+            {
+                MessageBox.Show("You can't refuel, the bus is on verification");
+                return false;
+            }
+
+
+            else if ((myBus.Status == "On the road"))
+            {
+                MessageBox.Show("You can't refuel, the bus is on the road again");
+                return false;
+
+            }
+            return true;
+        }
+
+
         /// <summary>
         /// button technical control
         /// </summary>
@@ -108,10 +153,10 @@ namespace dotNet5781_03B_8390_1366
         /// <param name="e"></param>
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-
-            if (myBus.Status == "On Refueling")
+            
+            if (!CheckStatusForRefuel())
             {
-                MessageBox.Show("ERROR: The bus is already On Refueling");
+                
             }
             else
             {

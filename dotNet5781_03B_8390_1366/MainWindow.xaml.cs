@@ -18,7 +18,7 @@ using System.Threading;
 using System.Drawing;
 using System.ComponentModel;
 
-//                    <GridViewColumn x:Name="TimerColumn" Header="Timer:"  DisplayMemberBinding="{Binding TargetNullValue}" Width="100"/>
+
 namespace dotNet5781_03B_8390_1366
 {
 
@@ -136,7 +136,7 @@ namespace dotNet5781_03B_8390_1366
         }
 
         /// <summary>
-        /// function to checks the status
+        /// function to checks the status, checks if the bus can travel
         /// </summary>
         /// <returns></returns>
         private bool CheckStatusForTravel()
@@ -180,7 +180,11 @@ namespace dotNet5781_03B_8390_1366
             return true;
         }
 
-        private bool CheckStatusForRefuel()
+        /// <summary>
+        /// function to checks the status, checks if the bus can refuel
+        /// </summary>
+        /// <returns></returns>
+        public bool CheckStatusForRefuel()
         {
 
             if ((current.Status == "On Refueling"))
