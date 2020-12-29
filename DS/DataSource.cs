@@ -14,8 +14,104 @@ namespace DS
         public static List<Line> ListLines = new List<Line>();
         public static List<Bus> Buses = new List<Bus>();
         public static int LineID = 0;
-        
-       
+
+
+        public static void InitLine()
+        {
+            ListLines.Add(new Line
+            {
+                Id  =  LineID++,
+                Code=100,
+                Area=Areas.CENTER,
+                FirstStation=100000,
+                LastStation=100050
+
+            });
+
+            ListLines.Add(new Line
+            {
+                Id = LineID++,
+                Code = 101,
+                Area = Areas.EAST,
+                FirstStation = 100110,
+                LastStation = 100160
+
+            }); ListLines.Add(new Line
+            {
+                Id = LineID++,
+                Code = 102,
+                Area = Areas.NORTH,
+                FirstStation = 100220,
+                LastStation = 1000270
+
+            }); ListLines.Add(new Line
+            {
+                Id = LineID++,
+                Code = 103,
+                Area = Areas.SOUTH,
+                FirstStation = 100300,
+                LastStation = 100350
+
+            });
+            ListLines.Add(new Line
+            {
+                Id = LineID++,
+                Code = 104,
+                Area = Areas.WEST,
+                FirstStation = 100430,
+                LastStation = 100500
+
+            }); 
+            ListLines.Add(new Line
+            {
+                Id = LineID++,
+                Code = 105,
+                Area = Areas.CENTER,
+                FirstStation = 100020,
+                LastStation = 100090
+
+            });
+            ListLines.Add(new Line
+            {
+                Id = LineID++,
+                Code = 106,
+                Area = Areas.EAST,
+                FirstStation = 100120,
+                LastStation = 100180
+
+            }); ListLines.Add(new Line
+            {
+                Id = LineID++,
+                Code = 107,
+                Area = Areas.NORTH,
+                FirstStation = 100210,
+                LastStation = 100260
+
+            });
+            ListLines.Add(new Line
+            {
+                Id = LineID++,
+                Code = 108,
+                Area = Areas.SOUTH,
+                FirstStation = 100320,
+                LastStation = 100390
+
+            });
+            ListLines.Add(new Line
+            {
+                Id = LineID++,
+                Code = 109,
+                Area = Areas.WEST,
+                FirstStation = 100450,
+                LastStation = 1000490
+
+            });
+        }
+        //public int Id { get; set; }
+        //public int Code { get; set; }
+        //public Areas Area { get; set; }
+        //public int FirstStation { get; set; }
+        //public int LastStation { get; set; }
         public static void InitBuses()
         {
             Buses.Add(new Bus
@@ -630,6 +726,8 @@ namespace DS
         static DataSource()
         {
             InitAllStations();
+            InitBuses();
+            InitLine();
         }
 
 
