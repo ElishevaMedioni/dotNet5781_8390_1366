@@ -9,15 +9,14 @@ namespace DS
 {
     public static class DataSource
     {
-        //elisheva
-        public static List<Station> Station = new List<Station>();
-       //Keke
-        private static List<LineTrip> busestravel = new List<LineTrip>();
-        private static List<Bus> buses = new List<Bus>();
-        public static List<Bus> Buses { get => buses; }
-        public static List<LineTrip> BusesTravel { get => busestravel; }
-
-        public static void initBuses()
+        
+        public static List<Station> ListStations = new List<Station>();
+        public static List<Line> ListLines = new List<Line>();
+        public static List<Bus> Buses = new List<Bus>();
+        public static int LineID = 0;
+        
+       
+        public static void InitBuses()
         {
             Buses.Add(new Bus
             {
@@ -37,7 +36,7 @@ namespace DS
             });
             Buses.Add(new Bus
             {
-                License =56765430,
+                License = 56765430,
                 FromDate = DateTime.Today.AddYears(0),
                 TotalTrip = 20000,
                 FuelRemain = 1200,
@@ -172,7 +171,7 @@ namespace DS
                 FuelRemain = 987,
                 Status = BusStatus.READY
             });
-            
+
 
             Buses.Add(new Bus
             {
@@ -210,18 +209,18 @@ namespace DS
 
 
         }
-        public static void InitAllLists()
+        public static void InitAllStations()
         {
 
-            Station.Add(new Station
-                {
-                    Code = 100000,
-                    Name = "Central Station Jerusalem",
-                    Longitude = 34.3,
-                    Latitude = 31,
-                 }) ;
+            ListStations.Add(new Station
+            {
+                Code = 100000,
+                Name = "Central Station Jerusalem",
+                Longitude = 34.3,
+                Latitude = 31,
+            });
 
-            Station.Add(new Station
+            ListStations.Add(new Station
             {
                 Code = 100010,
                 Name = "Mamilla",
@@ -229,7 +228,7 @@ namespace DS
                 Latitude = 31.1,
             });
 
-            Station.Add(new Station
+            ListStations.Add(new Station
             {
                 Code = 100020,
                 Name = "Yafo Center",
@@ -237,7 +236,7 @@ namespace DS
                 Latitude = 31.2,
             });
 
-            Station.Add(new Station
+            ListStations.Add(new Station
             {
                 Code = 100030,
                 Name = "Kyriat Moshe",
@@ -245,7 +244,7 @@ namespace DS
                 Latitude = 31.3,
             });
 
-            Station.Add(new Station
+            ListStations.Add(new Station
             {
                 Code = 100040,
                 Name = "Yefe Nof",
@@ -253,7 +252,7 @@ namespace DS
                 Latitude = 31.4,
             });
 
-            Station.Add(new Station
+            ListStations.Add(new Station
             {
                 Code = 100050,
                 Name = "Mahane Yehouda",
@@ -261,7 +260,7 @@ namespace DS
                 Latitude = 31.5,
             });
 
-            Station.Add(new Station
+            ListStations.Add(new Station
             {
                 Code = 100060,
                 Name = "Hadavidka",
@@ -269,7 +268,7 @@ namespace DS
                 Latitude = 31.6,
             });
 
-            Station.Add(new Station
+            ListStations.Add(new Station
             {
                 Code = 100070,
                 Name = "Hakotel",
@@ -277,7 +276,7 @@ namespace DS
                 Latitude = 31.2,
             });
 
-            Station.Add(new Station
+            ListStations.Add(new Station
             {
                 Code = 100080,
                 Name = "Har Hertsel",
@@ -285,7 +284,7 @@ namespace DS
                 Latitude = 31.7,
             });
 
-            Station.Add(new Station
+            ListStations.Add(new Station
             {
                 Code = 100090,
                 Name = "Cinema City Jerusalem",
@@ -293,7 +292,7 @@ namespace DS
                 Latitude = 31.8,
             });
 
-            Station.Add(new Station
+            ListStations.Add(new Station
             {
                 Code = 100100,
                 Name = "Malha Mall",
@@ -301,7 +300,7 @@ namespace DS
                 Latitude = 31.8,
             });
 
-            Station.Add(new Station
+            ListStations.Add(new Station
             {
                 Code = 100110,
                 Name = "Yemin Moshe",
@@ -309,7 +308,7 @@ namespace DS
                 Latitude = 31.9,
             });
 
-            Station.Add(new Station
+            ListStations.Add(new Station
             {
                 Code = 100120,
                 Name = "Ben Yehuda",
@@ -317,7 +316,7 @@ namespace DS
                 Latitude = 31.8,
             });
 
-            Station.Add(new Station
+            ListStations.Add(new Station
             {
                 Code = 100130,
                 Name = "King George",
@@ -325,7 +324,7 @@ namespace DS
                 Latitude = 31.9,
             });
 
-            Station.Add(new Station
+            ListStations.Add(new Station
             {
                 Code = 100140,
                 Name = "Adar Mall",
@@ -333,7 +332,7 @@ namespace DS
                 Latitude = 32,
             });
 
-            Station.Add(new Station
+            ListStations.Add(new Station
             {
                 Code = 100150,
                 Name = "Hillel Street",
@@ -341,7 +340,7 @@ namespace DS
                 Latitude = 31.7,
             });
 
-            Station.Add(new Station
+            ListStations.Add(new Station
             {
                 Code = 100160,
                 Name = "Shaarei Tsedek Hospital",
@@ -349,7 +348,7 @@ namespace DS
                 Latitude = 31.7,
             });
 
-            Station.Add(new Station
+            ListStations.Add(new Station
             {
                 Code = 100170,
                 Name = "Hadassa Hospital",
@@ -357,7 +356,7 @@ namespace DS
                 Latitude = 31.8,
             });
 
-            Station.Add(new Station
+            ListStations.Add(new Station
             {
                 Code = 100180,
                 Name = "Yad Vashem",
@@ -365,7 +364,7 @@ namespace DS
                 Latitude = 31.9,
             });
 
-            Station.Add(new Station
+            ListStations.Add(new Station
             {
                 Code = 100190,
                 Name = "Museum Israel",
@@ -373,7 +372,7 @@ namespace DS
                 Latitude = 32,
             });
 
-            Station.Add(new Station
+            ListStations.Add(new Station
             {
                 Code = 100200,
                 Name = "Givat Ram University",
@@ -381,7 +380,7 @@ namespace DS
                 Latitude = 31.7,
             });
 
-            Station.Add(new Station
+            ListStations.Add(new Station
             {
                 Code = 100210,
                 Name = "Har Hatsofim",
@@ -389,7 +388,7 @@ namespace DS
                 Latitude = 31.9,
             });
 
-            Station.Add(new Station
+            ListStations.Add(new Station
             {
                 Code = 100220,
                 Name = "Mahon Lev",
@@ -397,7 +396,7 @@ namespace DS
                 Latitude = 32.11,
             });
 
-            Station.Add(new Station
+            ListStations.Add(new Station
             {
                 Code = 100230,
                 Name = "Mahon Tal",
@@ -405,7 +404,7 @@ namespace DS
                 Latitude = 32.12,
             });
 
-            Station.Add(new Station
+            ListStations.Add(new Station
             {
                 Code = 100240,
                 Name = "Frishman Beach",
@@ -413,7 +412,7 @@ namespace DS
                 Latitude = 32.13,
             });
 
-            Station.Add(new Station
+            ListStations.Add(new Station
             {
                 Code = 100250,
                 Name = "Banana Beach",
@@ -421,7 +420,7 @@ namespace DS
                 Latitude = 32.14,
             });
 
-            Station.Add(new Station
+            ListStations.Add(new Station
             {
                 Code = 100260,
                 Name = "Hacarmel Shuk",
@@ -429,7 +428,7 @@ namespace DS
                 Latitude = 32.15,
             });
 
-            Station.Add(new Station
+            ListStations.Add(new Station
             {
                 Code = 100270,
                 Name = "Tel Aviv Port",
@@ -437,7 +436,7 @@ namespace DS
                 Latitude = 32.16,
             });
 
-            Station.Add(new Station
+            ListStations.Add(new Station
             {
                 Code = 100280,
                 Name = "Rotshild Avenue",
@@ -445,7 +444,7 @@ namespace DS
                 Latitude = 32.17,
             });
 
-            Station.Add(new Station
+            ListStations.Add(new Station
             {
                 Code = 100290,
                 Name = "Savidor Center",
@@ -453,7 +452,7 @@ namespace DS
                 Latitude = 32.18,
             });
 
-            Station.Add(new Station
+            ListStations.Add(new Station
             {
                 Code = 100300,
                 Name = "Gordon Beach",
@@ -461,7 +460,7 @@ namespace DS
                 Latitude = 32.19,
             });
 
-            Station.Add(new Station
+            ListStations.Add(new Station
             {
                 Code = 100310,
                 Name = "Marina Hertzlia",
@@ -469,7 +468,7 @@ namespace DS
                 Latitude = 32.2,
             });
 
-            Station.Add(new Station
+            ListStations.Add(new Station
             {
                 Code = 100320,
                 Name = "Bar Ilan University",
@@ -477,7 +476,7 @@ namespace DS
                 Latitude = 32.21,
             });
 
-            Station.Add(new Station
+            ListStations.Add(new Station
             {
                 Code = 100330,
                 Name = "Massada",
@@ -485,7 +484,7 @@ namespace DS
                 Latitude = 32.22,
             });
 
-            Station.Add(new Station
+            ListStations.Add(new Station
             {
                 Code = 100340,
                 Name = "Ein Gedi",
@@ -493,7 +492,7 @@ namespace DS
                 Latitude = 32.24,
             });
 
-            Station.Add(new Station
+            ListStations.Add(new Station
             {
                 Code = 100350,
                 Name = "Meron",
@@ -501,7 +500,7 @@ namespace DS
                 Latitude = 32.24,
             });
 
-            Station.Add(new Station
+            ListStations.Add(new Station
             {
                 Code = 100360,
                 Name = "Technion",
@@ -509,7 +508,7 @@ namespace DS
                 Latitude = 32.25,
             });
 
-            Station.Add(new Station
+            ListStations.Add(new Station
             {
                 Code = 100370,
                 Name = "Beer Sheva",
@@ -517,7 +516,7 @@ namespace DS
                 Latitude = 32.26,
             });
 
-            Station.Add(new Station
+            ListStations.Add(new Station
             {
                 Code = 100380,
                 Name = "Raanana",
@@ -525,7 +524,7 @@ namespace DS
                 Latitude = 32.27,
             });
 
-            Station.Add(new Station
+            ListStations.Add(new Station
             {
                 Code = 100390,
                 Name = "Eilat",
@@ -533,7 +532,7 @@ namespace DS
                 Latitude = 33,
             });
 
-            Station.Add(new Station
+            ListStations.Add(new Station
             {
                 Code = 100400,
                 Name = "Netivot",
@@ -541,7 +540,7 @@ namespace DS
                 Latitude = 33.1,
             });
 
-            Station.Add(new Station
+            ListStations.Add(new Station
             {
                 Code = 100410,
                 Name = "Ashdod",
@@ -549,7 +548,7 @@ namespace DS
                 Latitude = 33.2,
             });
 
-            Station.Add(new Station
+            ListStations.Add(new Station
             {
                 Code = 100420,
                 Name = "Bet Shemesh",
@@ -557,7 +556,7 @@ namespace DS
                 Latitude = 33.12,
             });
 
-            Station.Add(new Station
+            ListStations.Add(new Station
             {
                 Code = 100430,
                 Name = "Modiin",
@@ -565,7 +564,7 @@ namespace DS
                 Latitude = 33.13,
             });
 
-            Station.Add(new Station
+            ListStations.Add(new Station
             {
                 Code = 100440,
                 Name = "Ashkelon",
@@ -573,7 +572,7 @@ namespace DS
                 Latitude = 33.15,
             });
 
-            Station.Add(new Station
+            ListStations.Add(new Station
             {
                 Code = 100450,
                 Name = "Dead Sea",
@@ -581,7 +580,7 @@ namespace DS
                 Latitude = 33.18,
             });
 
-            Station.Add(new Station
+            ListStations.Add(new Station
             {
                 Code = 100460,
                 Name = "Ikea Rishon Letsion",
@@ -589,7 +588,7 @@ namespace DS
                 Latitude = 33.2,
             });
 
-            Station.Add(new Station
+            ListStations.Add(new Station
             {
                 Code = 100470,
                 Name = "Natanya",
@@ -597,7 +596,7 @@ namespace DS
                 Latitude = 33.25,
             });
 
-            Station.Add(new Station
+            ListStations.Add(new Station
             {
                 Code = 100480,
                 Name = "Hadera",
@@ -605,7 +604,7 @@ namespace DS
                 Latitude = 33.27,
             });
 
-            Station.Add(new Station
+            ListStations.Add(new Station
             {
                 Code = 100490,
                 Name = "Haifa",
@@ -613,7 +612,7 @@ namespace DS
                 Latitude = 33.28,
             });
 
-            Station.Add(new Station
+            ListStations.Add(new Station
             {
                 Code = 100500,
                 Name = "Mitspe Ramon",
@@ -628,16 +627,13 @@ namespace DS
 
 
 
-
-
-
         static DataSource()
         {
-            InitAllLists();
+            InitAllStations();
         }
 
 
-    
+
 
 
 
@@ -650,18 +646,6 @@ namespace DS
 
 
     // Kerennnnn 
-
-
-
-   
-
-
-
-
-
-
-
-
 
 
 

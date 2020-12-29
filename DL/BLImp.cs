@@ -9,6 +9,7 @@ namespace BL
 {
     class BLImp:IBL
     {
-        
+       // IDL dl = DLFactory.GetDL();
+
     }
 }

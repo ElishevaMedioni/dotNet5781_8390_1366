@@ -41,4 +41,11 @@ namespace DLAPI
         }
 
     }
+
+    public class DLConfigException : Exception
+    {
+        public DLConfigException(string message) : base(message) { }
+        public DLConfigException(string message, Exception inner) : base(message, inner) { }
+    }
 }
+

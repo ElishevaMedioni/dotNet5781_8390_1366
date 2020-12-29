@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace BO
 {
-    class Class1
+    public enum Areas
     {
+        NORTH, SOUTH, CENTER, WEST, EAST
     }
 }
