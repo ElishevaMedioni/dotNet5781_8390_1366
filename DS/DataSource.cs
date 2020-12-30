@@ -13,9 +13,463 @@ namespace DS
         public static List<Station> ListStations = new List<Station>();
         public static List<Line> ListLines = new List<Line>();
         public static List<Bus> Buses = new List<Bus>();
+        public static List<LineStation> ListLineStations = new List<LineStation>();
+        public static List<AdjacentStations> ListAdjacentStations = new List<AdjacentStations>();
         public static int LineID = 0;
 
+        public static void InitAdjacentStations() { }
+        public static void InitLineStations()
+        {
+            ListLineStations.Add(new LineStation
+            {
+                LineId = 1,
+                Station = 100000,
+                LineStationIndex =0,
+                PrevStation = -1,
+                NextStation = 100010,
+            }) ;
 
+            ListLineStations.Add(new LineStation
+            {
+                LineId = 1,
+                Station = 100010,
+                LineStationIndex = 1,
+                PrevStation = 100000,
+                NextStation = 100020,
+            });
+
+            ListLineStations.Add(new LineStation
+            {
+                LineId = 1,
+                Station = 100020,
+                LineStationIndex = 2,
+                PrevStation = 100010,
+                NextStation = 100030,
+            });
+
+            ListLineStations.Add(new LineStation
+            {
+                LineId = 1,
+                Station = 100030,
+                LineStationIndex = 3,
+                PrevStation = 100020,
+                NextStation = 100040,
+            });
+
+            ListLineStations.Add(new LineStation
+            {
+                LineId = 1,
+                Station = 100040,
+                LineStationIndex = 4,
+                PrevStation = 100030,
+                NextStation = 100050,
+            });
+
+            ListLineStations.Add(new LineStation
+            {
+                LineId = 1,
+                Station = 100050,
+                LineStationIndex = 5,
+                PrevStation = 100040,
+                NextStation = 100060,
+            });
+
+            ListLineStations.Add(new LineStation
+            {
+                LineId = 1,
+                Station = 100060,
+                LineStationIndex = 6,
+                PrevStation = 100050,
+                NextStation = 100070,
+            });
+
+            ListLineStations.Add(new LineStation
+            {
+                LineId = 1,
+                Station = 100070,
+                LineStationIndex = 7,
+                PrevStation = 100060,
+                NextStation = 100080,
+            });
+
+            ListLineStations.Add(new LineStation
+            {
+                LineId = 1,
+                Station = 100080,
+                LineStationIndex = 8,
+                PrevStation = 100070,
+                NextStation = 100090,
+            });
+
+            ListLineStations.Add(new LineStation
+            {
+                LineId = 1,
+                Station = 100090,
+                LineStationIndex = 9,
+                PrevStation = 100080,
+                NextStation = -2,
+            });
+
+            ListLineStations.Add(new LineStation
+            {
+                LineId = 2,
+                Station = 100040,
+                LineStationIndex = 0,
+                PrevStation = -1,
+                NextStation = 100050,
+            });
+
+            ListLineStations.Add(new LineStation
+            {
+                LineId = 2,
+                Station = 100050,
+                LineStationIndex = 1,
+                PrevStation = 100040,
+                NextStation = 100020,
+            });
+
+            ListLineStations.Add(new LineStation
+            {
+                LineId = 2,
+                Station = 100020,
+                LineStationIndex = 2,
+                PrevStation = 100050,
+                NextStation = 100100,
+            });
+
+            ListLineStations.Add(new LineStation
+            {
+                LineId = 2,
+                Station = 100100,
+                LineStationIndex = 3,
+                PrevStation = 100020,
+                NextStation = 100110,
+            });
+
+            ListLineStations.Add(new LineStation
+            {
+                LineId = 2,
+                Station = 100110,
+                LineStationIndex = 4,
+                PrevStation = 100100,
+                NextStation = 100120,
+            });
+
+            ListLineStations.Add(new LineStation
+            {
+                LineId = 2,
+                Station = 100120,
+                LineStationIndex = 5,
+                PrevStation = 100110,
+                NextStation = 100130,
+            });
+
+            ListLineStations.Add(new LineStation
+            {
+                LineId = 2,
+                Station = 100130,
+                LineStationIndex = 6,
+                PrevStation = 100120,
+                NextStation = 100140,
+            });
+
+            ListLineStations.Add(new LineStation
+            {
+                LineId = 2,
+                Station = 100140,
+                LineStationIndex = 7,
+                PrevStation = 100130,
+                NextStation = 100150,
+            });
+
+            ListLineStations.Add(new LineStation
+            {
+                LineId = 2,
+                Station = 100150,
+                LineStationIndex = 8,
+                PrevStation = 100140,
+                NextStation = 100160,
+            });
+
+            ListLineStations.Add(new LineStation
+            {
+                LineId = 2,
+                Station = 100160,
+                LineStationIndex = 9,
+                PrevStation = 100150,
+                NextStation = -2,
+            });
+
+            ListLineStations.Add(new LineStation
+            {
+                LineId = 3,
+                Station = 100000,
+                LineStationIndex = 0,
+                PrevStation = -1,
+                NextStation = 100030,
+            });
+
+            ListLineStations.Add(new LineStation
+            {
+                LineId = 3,
+                Station = 100030,
+                LineStationIndex = 1,
+                PrevStation = 100000,
+                NextStation = 100090,
+            });
+
+            ListLineStations.Add(new LineStation
+            {
+                LineId = 3,
+                Station = 100090,
+                LineStationIndex = 2,
+                PrevStation = 100030,
+                NextStation = 100100,
+            });
+
+            ListLineStations.Add(new LineStation
+            {
+                LineId = 3,
+                Station = 100100,
+                LineStationIndex = 3,
+                PrevStation = 100090,
+                NextStation = 100200,
+            });
+
+            ListLineStations.Add(new LineStation
+            {
+                LineId = 3,
+                Station = 100200,
+                LineStationIndex = 4,
+                PrevStation = 100100,
+                NextStation = 100210,
+            });
+
+            ListLineStations.Add(new LineStation
+            {
+                LineId = 3,
+                Station = 100210,
+                LineStationIndex = 5,
+                PrevStation = 100200,
+                NextStation = 100220,
+            });
+
+            ListLineStations.Add(new LineStation
+            {
+                LineId = 3,
+                Station = 100220,
+                LineStationIndex = 6,
+                PrevStation = 100210,
+                NextStation = 100230,
+            });
+
+            ListLineStations.Add(new LineStation
+            {
+                LineId = 3,
+                Station = 100230,
+                LineStationIndex = 7,
+                PrevStation = 100220,
+                NextStation = 100240,
+            });
+
+            ListLineStations.Add(new LineStation
+            {
+                LineId = 3,
+                Station = 100240,
+                LineStationIndex = 8,
+                PrevStation = 100230,
+                NextStation = 100250,
+            });
+
+            ListLineStations.Add(new LineStation
+            {
+                LineId = 3,
+                Station = 100250,
+                LineStationIndex = 9,
+                PrevStation = 100240,
+                NextStation = -2,
+            });
+
+            ListLineStations.Add(new LineStation
+            {
+                LineId = 4,
+                Station = 100300,
+                LineStationIndex = 0,
+                PrevStation = -1,
+                NextStation = 100030,
+            });
+
+            ListLineStations.Add(new LineStation
+            {
+                LineId = 4,
+                Station = 100030,
+                LineStationIndex = 1,
+                PrevStation = 100300,
+                NextStation = 100320,
+            });
+
+            ListLineStations.Add(new LineStation
+            {
+                LineId = 4,
+                Station = 100320,
+                LineStationIndex = 2,
+                PrevStation = 100030,
+                NextStation = 100330,
+            });
+
+            ListLineStations.Add(new LineStation
+            {
+                LineId = 4,
+                Station = 100330,
+                LineStationIndex = 3,
+                PrevStation = 100320,
+                NextStation = 100210,
+            });
+
+            ListLineStations.Add(new LineStation
+            {
+                LineId = 4,
+                Station = 100210,
+                LineStationIndex = 4,
+                PrevStation = 100330,
+                NextStation = 100340,
+            });
+
+            ListLineStations.Add(new LineStation
+            {
+                LineId = 4,
+                Station = 100340,
+                LineStationIndex = 5,
+                PrevStation = 100210,
+                NextStation = 100350,
+            });
+
+            ListLineStations.Add(new LineStation
+            {
+                LineId = 4,
+                Station = 100350,
+                LineStationIndex = 6,
+                PrevStation = 100340,
+                NextStation = 100360,
+            });
+
+            ListLineStations.Add(new LineStation
+            {
+                LineId = 4,
+                Station = 100360,
+                LineStationIndex = 7,
+                PrevStation = 100350,
+                NextStation = 100370,
+            });
+
+            ListLineStations.Add(new LineStation
+            {
+                LineId = 4,
+                Station = 100370,
+                LineStationIndex = 8,
+                PrevStation = 100360,
+                NextStation = 100380,
+            });
+
+            ListLineStations.Add(new LineStation
+            {
+                LineId = 4,
+                Station = 100380,
+                LineStationIndex = 9,
+                PrevStation = 100370,
+                NextStation = -2,
+            });
+
+            ListLineStations.Add(new LineStation
+            {
+                LineId = 5,
+                Station = 100030,
+                LineStationIndex = 0,
+                PrevStation = -1,
+                NextStation = 100060,
+            });
+
+            ListLineStations.Add(new LineStation
+            {
+                LineId = 5,
+                Station = 100060,
+                LineStationIndex = 1,
+                PrevStation = 100030,
+                NextStation = 100010,
+            });
+
+            ListLineStations.Add(new LineStation
+            {
+                LineId = 5,
+                Station = 100010,
+                LineStationIndex = 2,
+                PrevStation = 100060,
+                NextStation = 100000,
+            });
+
+            ListLineStations.Add(new LineStation
+            {
+                LineId = 5,
+                Station = 100000,
+                LineStationIndex = 3,
+                PrevStation = 100010,
+                NextStation = 100400,
+            });
+
+            ListLineStations.Add(new LineStation
+            {
+                LineId = 5,
+                Station = 100400,
+                LineStationIndex = 4,
+                PrevStation = 100000,
+                NextStation = 100410,
+            });
+
+            ListLineStations.Add(new LineStation
+            {
+                LineId = 5,
+                Station = 100410,
+                LineStationIndex = 5,
+                PrevStation = 100400,
+                NextStation = 100420,
+            });
+
+            ListLineStations.Add(new LineStation
+            {
+                LineId = 5,
+                Station = 100420,
+                LineStationIndex = 6,
+                PrevStation = 100410,
+                NextStation = 100430,
+            });
+
+            ListLineStations.Add(new LineStation
+            {
+                LineId = 5,
+                Station = 100430,
+                LineStationIndex = 7,
+                PrevStation = 100420,
+                NextStation = 100440,
+            });
+
+            ListLineStations.Add(new LineStation
+            {
+                LineId = 5,
+                Station = 100440,
+                LineStationIndex = 8,
+                PrevStation = 100430,
+                NextStation = 100450,
+            });
+
+            ListLineStations.Add(new LineStation
+            {
+                LineId = 5,
+                Station = 100450,
+                LineStationIndex = 9,
+                PrevStation = 100440,
+                NextStation = -2,
+            });
+        }
         public static void InitLine()
         {
             ListLines.Add(new Line
@@ -107,11 +561,7 @@ namespace DS
 
             });
         }
-        //public int Id { get; set; }
-        //public int Code { get; set; }
-        //public Areas Area { get; set; }
-        //public int FirstStation { get; set; }
-        //public int LastStation { get; set; }
+        
         public static void InitBuses()
         {
             Buses.Add(new Bus

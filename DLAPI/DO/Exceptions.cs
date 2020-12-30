@@ -21,13 +21,13 @@ namespace DO
 
     [Serializable]
 
-    public class BadLineIdExeption : Exception
+    public class BadLineIdException : Exception
     {
         public int Id;
-        public BadLineIdExeption(int id) : base() => Id = id;
-        public BadLineIdExeption(int id, string message) :
+        public BadLineIdException(int id) : base() => Id = id;
+        public BadLineIdException(int id, string message) :
             base(message) => Id = id;
-        public BadLineIdExeption(int id, string message, Exception innerException) :
+        public BadLineIdException(int id, string message, Exception innerException) :
             base(message, innerException) => Id = id;
 
         public override string ToString() => base.ToString() + $", bad line id: {Id}";
@@ -36,16 +36,44 @@ namespace DO
 
     [Serializable]
 
-    public class BadLineCodeExeption : Exception
+    public class BadLineCodeException : Exception
     {
         public int LineCode;
-        public BadLineCodeExeption(int code) : base() => LineCode = code;
-        public BadLineCodeExeption(int code, string message) :
+        public BadLineCodeException(int code) : base() => LineCode = code;
+        public BadLineCodeException(int code, string message) :
             base(message) => LineCode = code;
-        public BadLineCodeExeption(int code, string message, Exception innerException) :
+        public BadLineCodeException(int code, string message, Exception innerException) :
             base(message, innerException) => LineCode = code;
 
         public override string ToString() => base.ToString() + $", bad line code: {LineCode}";
+    }
+
+    [Serializable]
+
+    public class BadLineStationIndexException : Exception
+    {
+        public int LineStationIndex;
+        public BadLineStationIndexException(int index) : base() => LineStationIndex = index;
+        public BadLineStationIndexException(int index, string message) :
+            base(message) => LineStationIndex = index;
+        public BadLineStationIndexException(int index, string message, Exception innerException) :
+            base(message, innerException) => LineStationIndex = index;
+
+        public override string ToString() => base.ToString() + $", bad index of the station: {LineStationIndex}";
+    }
+
+    [Serializable]
+
+    public class BadLineStationException : Exception
+    {
+        public int LineId, Station;
+        public BadLineStationException(int station, int lineId) : base() => LineId = lineId;
+        public BadLineStationException(int index, string message) :
+            base(message) => LineId = index;
+        public BadLineStationException(int index, string message, Exception innerException) :
+            base(message, innerException) => LineId = index;
+
+        public override string ToString() => base.ToString() + $", this station {Station} isn't in this line ";
     }
 
 

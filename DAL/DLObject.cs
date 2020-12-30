@@ -95,16 +95,115 @@ namespace DAL
         
         public void DeleteLine(int id)
         {
+    
+
+            DO.Line lin = DataSource.ListLines.Find(p => p.Id== id);
+
+            if(lin!=null)
+            {
+                DataSource.ListLines.Remove(lin);
+            }
+            else
+                throw new DO.BadStationException(id, $"bad Line id: {id}");
 
         }
 
         public void UpdateLine(DO.Line line)
         {
+            DO.Line liine = DataSource.ListLines.Find(p => p.Id == line.Id);
+            if (liine != null)
+            {
+                DataSource.ListLines.Remove(liine);
+                DataSource.ListLines.Add(liine.Clone());
+            }
+            else
+                throw new DO.BadPersonIdException(line.Id $"bad student id: {student.ID}");
+        }
 
+        //public void UpdateStudent(DO.Student student)
+        //{
+        //    DO.Student stu = DataSource.ListStudents.Find(p => p.ID == student.ID);
+        //    if (stu != null)
+        //    {
+        //        DataSource.ListStudents.Remove(stu);
+        //        DataSource.ListStudents.Add(stu.Clone());
+        //    }
+        //    else
+        //        throw new DO.BadPersonIdException(student.ID, $"bad student id: {student.ID}");
+        //}
+
+
+        #endregion
+
+
+        #region LineStation
+        
+
+        public DO.LineStation GetLineStation(int lineId, int station)
+        {
+            DO.LineStation linesta = DataSource.ListLineStations.Find(p => (p.LineId == lineId) && (p.Station == station));
+            if (linesta != null)
+                return linesta.Clone();
+            else
+                throw new DO.BadLineStationException(lineId, $"this station: {station} isn't in this line: {lineId}");
         }
 
 
 
+        public void AddLineStation(DO.LineStation lineStation)
+        {
+            if (DataSource.ListLineStations.Exists(s => (s.LineId == lineStation.LineId && s.Station == lineStation.Station)))
+                throw new DO.BadLineStationException(lineStation.Station, "This station is already in the system");
+
+            DataSource.ListLineStations.Add(lineStation.Clone());
+        }
+
+        public void UpdateLineStation(DO.LineStation lineStation)
+        {
+
+        }
+
+        public void DeleteLineStation(int lineId)
+        {
+
+        }
+
+        #endregion
+
+
+        #region AdjacentStations
+
+        public DO.AdjacentStations GetAdjacentStations(int station1, int station2)
+        {
+            DO.AdjacentStations myAdjacentStations = DataSource.ListAdjacentStations.Find(p => p.Station1 == station1 && p.Station2 == station2);
+           
+            if (myAdjacentStations != null)
+                return myAdjacentStations.Clone();
+            else {  return null; }
+            //    throw new DO.BadStationException(lineId, $"bad station code: {lineId}");
+
+            
+        }
+        void AddAdjacentStations(DO.AdjacentStations lineStation)
+        {
+            int newAdjacentStation = DataSource.LineID++;
+
+            DO.Line newLine = new DO.Line();
+            newLine.Id = newAdjacentStation;
+
+            DataSource.ListLines.Add(newLine.Clone());
+
+        }
+        void UpdateAdjacentStations(DO.AdjacentStations lineStation)
+        {
+
+
+        }
+        void DeleteAdjacentStations(int lineId)
+        {
+
+
+        }
         #endregion
 
     }

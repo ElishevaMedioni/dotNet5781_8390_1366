@@ -31,7 +31,8 @@ namespace DLAPI
         #endregion
 
         #region LineStation
-        DO.LineStation GetLineStation(int lineId);
+        
+        DO.LineStation GetLineStation(int lineId, int station);
         void AddLineStation(DO.LineStation lineStation);
         void UpdateLineStation(DO.LineStation lineStation);
         void DeleteLineStation(int lineId);
@@ -39,6 +40,12 @@ namespace DLAPI
         #endregion
 
         #region AdjacentStations
+
+        DO.AdjacentStations GetAdjacentStations(int station1,int station2);
+        void AddAdjacentStations(DO.AdjacentStations lineStation);
+        void UpdateAdjacentStations(DO.AdjacentStations lineStation);
+        void DeleteAdjacentStations(int lineId);
+
 
         #endregion
 
