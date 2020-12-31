@@ -17,14 +17,280 @@ namespace DS
         public static List<AdjacentStations> ListAdjacentStations = new List<AdjacentStations>();
         public static int LineID = 0;
 
-        public static void InitAdjacentStations() { }
+        public static void InitAdjacentStations()
+        {
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100000,
+                Station2 = 100010,
+            }) ;
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100010,
+                Station2 = 100020,
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100020,
+                Station2 = 100030,
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100030,
+                Station2 = 100040,
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100040,
+                Station2 = 100050,
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100050,
+                Station2 = 100060,
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100060,
+                Station2 = 100070,
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100070,
+                Station2 = 100080,
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100080,
+                Station2 = 100090,
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100050,
+                Station2 = 100020,
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100020,
+                Station2 = 100100,
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100100,
+                Station2 = 100110,
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100110,
+                Station2 = 100120,
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100120,
+                Station2 = 100130,
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100130,
+                Station2 = 100140,
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100140,
+                Station2 = 100150,
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100150,
+                Station2 = 100160,
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100000,
+                Station2 = 100030,
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100030,
+                Station2 = 100090,
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100090,
+                Station2 = 100100,
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100100,
+                Station2 = 100200,
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100200,
+                Station2 = 100210,
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100210,
+                Station2 = 100220,
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100220,
+                Station2 = 100230,
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100230,
+                Station2 = 100240,
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100240,
+                Station2 = 100250,
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100300,
+                Station2 = 100030,
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100030,
+                Station2 = 100320,
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100320,
+                Station2 = 100330,
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100330,
+                Station2 = 100210,
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100210,
+                Station2 = 100340,
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100340,
+                Station2 = 100350,
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100350,
+                Station2 = 100360,
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100360,
+                Station2 = 100370,
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100370,
+                Station2 = 100380,
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100030,
+                Station2 = 100060,
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100060,
+                Station2 = 100010,
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100010,
+                Station2 = 100000,
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100000,
+                Station2 = 100400,
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100400,
+                Station2 = 100410,
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100410,
+                Station2 = 100420,
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100420,
+                Station2 = 100430,
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100430,
+                Station2 = 100440,
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100440,
+                Station2 = 100450,
+            });
+            //6
+        }
         public static void InitLineStations()
         {
             ListLineStations.Add(new LineStation
             {
                 LineId = 1,
                 Station = 100000,
-                LineStationIndex =0,
+                LineStationIndex = 0,
                 PrevStation = -1,
                 NextStation = 100010,
             }) ;
@@ -1626,6 +1892,7 @@ namespace DS
         static DataSource()
         {
             InitAllStations();
+            InitLineStations();
             InitBuses();
             InitLine();
         }

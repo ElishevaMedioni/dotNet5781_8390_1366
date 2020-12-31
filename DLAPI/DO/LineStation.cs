@@ -15,7 +15,7 @@ namespace DO
         public int NextStation { get; set; }
         public override string ToString()
         {
-            return base.ToString();
+            return this.ToStringProperty();
         }
     }
 }

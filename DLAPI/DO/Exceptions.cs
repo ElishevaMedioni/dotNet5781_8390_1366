@@ -70,6 +70,8 @@ namespace DO
         public BadLineStationException(int station, int lineId) : base() => LineId = lineId;
         public BadLineStationException(int index, string message) :
             base(message) => LineId = index;
+        public BadLineStationException(int station, int lineId, string message) :
+            base(message) => LineId = lineId;
         public BadLineStationException(int index, string message, Exception innerException) :
             base(message, innerException) => LineId = index;
 
