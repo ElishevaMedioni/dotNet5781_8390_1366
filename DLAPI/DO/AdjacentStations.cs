@@ -15,8 +15,8 @@ namespace DO
 
         public override string ToString()
         {
-            //return this.ToStringProperty();
-            return base.ToString();
+            return this.ToStringProperty();
+            
             //verifier si on fait pas this.ToStringProperty 
         }
 
