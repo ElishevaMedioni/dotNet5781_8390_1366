@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DO;
+//using DO;
 
 namespace DLAPI
 {
@@ -24,7 +24,7 @@ namespace DLAPI
         DO.Line GetLine(int id);
         IEnumerable<DO.Line> GetAllLines();
        
-        void AddLine(DO.Line line);
+        void AddLine(DO.Line line,int id);
         void UpdateLine(DO.Line line);
         //void UpdateLine(int id, Action<DO.Line> update); //method that knows to updt specific fields in Line
         void DeleteLine(int id);
@@ -42,10 +42,10 @@ namespace DLAPI
 
         #region AdjacentStations
 
-        DO.AdjacentStations GetAdjacentStations(int station1,int station2);
-        void AddAdjacentStations(DO.AdjacentStations lineStation);
-        void UpdateAdjacentStations(DO.AdjacentStations lineStation);
-        void DeleteAdjacentStations(int lineId);
+        DO.AdjacentStations GetAdjacentStations(int Station1, int Station2);
+        void AddAdjacentStations(DO.AdjacentStations Adj, int station1, int station2);
+        void UpdateAdjacentStations(int station1, int station2, DO.AdjacentStations adj);
+        void DeleteAdjacentStations(int station1, int station2, DO.AdjacentStations adj);
 
 
         #endregion

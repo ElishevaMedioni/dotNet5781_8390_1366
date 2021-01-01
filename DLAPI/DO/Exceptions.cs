@@ -77,8 +77,13 @@ namespace DO
 
         public override string ToString() => base.ToString() + $", this station {Station} isn't in this line ";
     }
+    [Serializable]
+    public class BadAdjacentStationsException : Exception
+    {
+        public int StationA, StationB;
+        public BadAdjacentStationsException(int Station1, int Station2, string message) : base(message){ StationA = Station1; StationB = Station2; }
 
 
 
-
+    }
 }
