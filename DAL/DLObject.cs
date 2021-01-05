@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DLAPI;
-using DO;
+//using DO;
 using DS;
 
 
@@ -70,6 +70,7 @@ namespace DAL
                    select station.Clone();
         }
 
+       
 
         #endregion
 
@@ -199,6 +200,19 @@ namespace DAL
             }
             else
                 throw new DO.BadLineStationException(lineId, $"this station: {station} isn't in this line: {lineId} or bad line station");
+        }
+
+        public IEnumerable<DO.LineStation> GetLineStationInLineStationsList(Predicate<DO.LineStation> predicate)
+        {
+            return from ls in DataSource.ListLineStations
+                   where predicate(ls)
+                   select ls.Clone();
+           
+        }
+
+        public void DeleteStationToAllLines(int station)
+        {
+            DataSource.ListLineStations.RemoveAll(p => p.Station == station);
         }
 
         #endregion

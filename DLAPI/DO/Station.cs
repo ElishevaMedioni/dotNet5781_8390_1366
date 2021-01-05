@@ -13,6 +13,8 @@ namespace DO
         public double Longitude { get; set; }
         public double Latitude { get; set; }
 
+        //public static Random R = new Random();
+
         public override string ToString()
         {
             return this.ToStringProperty();

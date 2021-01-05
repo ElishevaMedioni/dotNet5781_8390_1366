@@ -37,6 +37,8 @@ namespace DLAPI
         void AddLineStation(DO.LineStation lineStation);
         void UpdateLineStation(DO.LineStation lineStation);
         void DeleteLineStation(int lineId, int station);
+        void DeleteStationToAllLines(int station);
+        IEnumerable<DO.LineStation> GetLineStationInLineStationsList(Predicate<DO.LineStation> predicate);
 
         #endregion
 

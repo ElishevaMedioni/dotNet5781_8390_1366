@@ -16,6 +16,7 @@ namespace DS
         public static List<LineStation> ListLineStations = new List<LineStation>();
         public static List<AdjacentStations> ListAdjacentStations = new List<AdjacentStations>();
         public static int LineID = 0;
+        
 
         public static void InitAdjacentStations()
         {
