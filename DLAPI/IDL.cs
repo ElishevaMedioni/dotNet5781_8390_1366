@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DLAPI
 {
-    public interface IDAL
+    public interface IDL
     {
         #region Station
         IEnumerable<DO.Station> GetAllStations();

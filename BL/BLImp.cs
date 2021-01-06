@@ -10,7 +10,7 @@ namespace BL
 {
      class BLImp:IBL
     {
-       IDAL dl = DLFactory.GetDL();
+       IDL dl = DLFactory.GetDL();
 
         #region Station
         BO.Station StationDoBoAdapter(DO.Station stationDO)
@@ -47,10 +47,14 @@ namespace BL
             }
             catch (DO.BadStationException ex)
             {
+                //Console.WriteLine("didnt find the station");
                 throw new BO.BadStationException("bad station code", ex);
             }
+            //BO.Station test = StationDoBoAdapter(stationDO);
             return StationDoBoAdapter(stationDO);
-           
+            
+            //return test;
+
         }
 
         public IEnumerable<BO.Station> GetAllStations()
@@ -124,6 +128,7 @@ namespace BL
            BO.Line line = station.LinesPassingAtThisStation.ToList().Find(p => p.Code == lineCode);
             if (line != null)
             {
+                Console.WriteLine("find the line");
                 return line;
             }
             else
@@ -137,19 +142,27 @@ namespace BL
 
         public void AddALinePassingAtThisStation(BO.Station station, BO.Line line)
         {
-            station.LinesPassingAtThisStation.ToList().Add(line);
-            //fonction a utiliser ds region line
+            //var newCo = station.LinesPassingAtThisStation.ToList();
+            //newCo.Add(line);
+            ////station
+            //station.LinesPassingAtThisStation.Add(line);
+            ////fonction a utiliser ds region line
 
         }
 
         public void DeleteALinePassingAtThisStation(BO.Station station, int lineCode)
         {
-            BO.Line line = GetLinePassingAtThisStation(station, lineCode);
-            station.LinesPassingAtThisStation.ToList().Remove(line);
-            //fonction a utiliser ds region line
+            //BO.Line line = GetLinePassingAtThisStation(station, lineCode);
+            //station.LinesPassingAtThisStation.ToList().Remove(line);
+            ////fonction a utiliser ds region line
         }
 
         #endregion
+
+
+
+
+
 
         #region Line
 
@@ -181,6 +194,9 @@ namespace BL
 
             return LineBO;
         }
+       
+        
+        
         public BO.Line GetLine(int id)
         {
             DO.Line lineDO;
@@ -240,8 +256,11 @@ namespace BL
 
 
 
-        public void AddLine(DO.Line line, int id)
+        public void AddLine(BO.Line line, int id)
         {
+            DO.Line LineDO  =  new DO.;
+
+
             //BO.Line LineBO = new BO.Line();
             //LineBO = AdaptLineToBoToDo(line);
             try

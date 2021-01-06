@@ -8,9 +8,9 @@ using DLAPI;
 using DS;
 
 
-namespace DAL
+namespace DL
 {
-    sealed class DLObject : IDAL
+    sealed class DLObject : IDL
     {
         #region singelton
 
