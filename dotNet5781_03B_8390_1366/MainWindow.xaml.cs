@@ -277,5 +277,10 @@ namespace dotNet5781_03B_8390_1366
             
            
         }
+
+        private void myListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

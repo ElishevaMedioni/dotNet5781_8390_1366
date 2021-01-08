@@ -187,16 +187,13 @@ namespace BL
             LineBO.Area = (Areas)LineDO.Area;
             LineBO.FirstStation = LineDO.FirstStation;
             LineBO.LastStation = LineDO.LastStation;
-            //LineBO.ListOfStationsInThisLine = from sic in dl.GetLine(sic => sic. = id)
-            //                                  let course = dl.GetLine(sic.CourseId)
-            //                                  select course.CopyToStudentCourse(sic);
+           
 
 
             return LineBO;
         }
-       
-        
-        
+
+
         public BO.Line GetLine(int id)
         {
             DO.Line lineDO;
@@ -240,15 +237,17 @@ namespace BL
 
 
 
-            //}
+        //}
 
-            //IEnumerable<BO.Line> GetAllLineBy(Predicate<BO.Line> predicate)
-            //{
+        IEnumerable<BO.Line> GetAllLine(Predicate<BO.Line> predicate)
+        {
+
+            return from item in dl.GetAllLines()
+                   select AdaptLineToBoToDo(item);
+        }
 
 
-            //}
-
-         public void UpdateLine(DO.Line line)
+        public void UpdateLine(DO.Line line)
         {
             dl.UpdateLine(line);
 
@@ -258,15 +257,18 @@ namespace BL
 
         public void AddLine(BO.Line line, int id)
         {
-            DO.Line LineDO  =  new DO.;
+            DO.Line LineDO  =  new DO.Line();
+            LineDO.Area = (DO.Areas)line.Area;
+            LineDO.Code = line.Code;
+            LineDO.FirstStation = line.FirstStation;
+            LineDO.LastStation = line.LastStation;
+            LineDO.Id = line.Id;
 
-
-            //BO.Line LineBO = new BO.Line();
-            //LineBO = AdaptLineToBoToDo(line);
             try
             {
 
-                dl.AddLine(line, id);
+                dl.AddLine(LineDO, id);
+                Console.WriteLine("line added successfully");
             }
             catch (DO.BadLineIdException excep)
             {
@@ -274,7 +276,7 @@ namespace BL
             }
 
         }
-
+    
 
 
         public void DeleteLine(int id)
