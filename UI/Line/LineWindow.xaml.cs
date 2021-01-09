@@ -25,12 +25,12 @@ namespace UI
     public partial class LineWindow : Window
     {
         IBL bl = BLFactory.GetBL("1");
-        Line current;
+       // Line current;
         public static List<Line> line = new List<Line>();
         private DispatcherTimer timer = new DispatcherTimer();
         private DispatcherTimer tiimer = new DispatcherTimer();
         public static ObservableCollection<Line> myCollection { get; set; } = new ObservableCollection<Line>(line);
-      
+
         public LineWindow()
         {
             InitializeComponent();
@@ -60,7 +60,7 @@ namespace UI
             void timer_Tick(object sender, EventArgs e)
             {
                 Thread.Sleep(1);
-                lblTime.Content = DateTime.Now.ToLongTimeString();
+                //lblTime.Content = DateTime.Now.ToLongTimeString();
 
             }
 
@@ -82,4 +82,5 @@ namespace UI
 
         }
     }
+}
 

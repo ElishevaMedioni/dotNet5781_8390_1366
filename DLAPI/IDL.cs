@@ -28,7 +28,7 @@ namespace DLAPI
         void UpdateLine(DO.Line line);
         //void UpdateLine(int id, Action<DO.Line> update); //method that knows to updt specific fields in Line
         void DeleteLine(int id);
-        IEnumerable<DO.Line> GetLinee(Predicate<DO.Line> predicate);
+       // IEnumerable<DO.Line> GetLinee(Predicate<DO.Line> predicate);
         #endregion
 
         #region LineStation
