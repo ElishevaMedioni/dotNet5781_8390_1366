@@ -30,7 +30,7 @@ namespace BLAPI
         //IEnumerable<BO.Line> GetAllLineBy(Predicate<BO.Line> predicate);
 
        // void UpdateLine(BO.Line line);  // Update Line 
-        void AddLine(DO.Line line, int id);  // Update Line 
+        //void AddLine(DO.Line line, int id);  // Update Line 
         void DeleteLine(int id); // delete Line
 
 

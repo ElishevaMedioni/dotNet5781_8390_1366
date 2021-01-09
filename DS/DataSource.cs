@@ -1479,16 +1479,17 @@ namespace DS
             {
                 Code = 100000,
                 Name = "Central Station Jerusalem",
-                Longitude = 34.3,
-                Latitude = 31,
+                Longitude = 35.20268,
+                Latitude = 31.78884,
+                
             });
 
             ListStations.Add(new Station
             {
                 Code = 100010,
                 Name = "Mamilla",
-                Longitude = 34.4,
-                Latitude = 31.1,
+                Longitude = 35.22182,
+                Latitude = 31.77842,
             });
 
             ListStations.Add(new Station
@@ -1719,8 +1720,8 @@ namespace DS
             {
                 Code = 100300,
                 Name = "Gordon Beach",
-                Longitude = 35.19,
-                Latitude = 32.19,
+                Longitude = 34.76746,
+                Latitude = 32.08284,
             });
 
             ListStations.Add(new Station

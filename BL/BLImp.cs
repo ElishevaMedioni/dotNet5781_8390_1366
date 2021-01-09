@@ -256,24 +256,24 @@ namespace BL
 
 
 
-        public void AddLine(BO.Line line, int id)
-        {
-            DO.Line LineDO  =  new DO.;
+        //public void AddLine(BO.Line line, int id)
+        //{
+        //    DO.Line LineDO  =  new DO.;
 
 
-            //BO.Line LineBO = new BO.Line();
-            //LineBO = AdaptLineToBoToDo(line);
-            try
-            {
+        //    //BO.Line LineBO = new BO.Line();
+        //    //LineBO = AdaptLineToBoToDo(line);
+        //    try
+        //    {
 
-                dl.AddLine(line, id);
-            }
-            catch (DO.BadLineIdException excep)
-            {
-                throw new BO.BadLineIdException(id,"Line exist", excep);
-            }
+        //        dl.AddLine(line, id);
+        //    }
+        //    catch (DO.BadLineIdException excep)
+        //    {
+        //        throw new BO.BadLineIdException(id,"Line exist", excep);
+        //    }
 
-        }
+        //}
 
 
 

@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace UI
 {
     /// <summary>
-    /// Interaction logic for StationWindow.xaml
+    /// Interaction logic for StationViewWindow.xaml
     /// </summary>
-    public partial class StationWindow : Window
+    public partial class StationViewWindow : Window
     {
-        public StationWindow()
+        public StationViewWindow()
         {
             InitializeComponent();
         }

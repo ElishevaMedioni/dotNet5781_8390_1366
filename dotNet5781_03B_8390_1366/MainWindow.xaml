@@ -15,7 +15,7 @@
             </LinearGradientBrush>
         </Grid.Background>
 
-        <ListView Name="myListView" HorizontalAlignment="Center" Height="528" Margin="249,10,216.667,0" Padding="20,10,50,0" VerticalAlignment="Top" Width="725" FontWeight="Bold" FontFamily="Century Gothic" FontSize="12" MouseDoubleClick="myListView_MouseDoubleClick" >
+        <ListView Name="myListView" HorizontalAlignment="Center" Height="528" Margin="249,10,216.667,0" Padding="20,10,50,0" VerticalAlignment="Top" Width="725" FontWeight="Bold" FontFamily="Century Gothic" FontSize="12" MouseDoubleClick="myListView_MouseDoubleClick" SelectionChanged="myListView_SelectionChanged" >
             <ListView.Background>
                 <ImageBrush ImageSource="backgroundbus.jpg"/>
             </ListView.Background>
