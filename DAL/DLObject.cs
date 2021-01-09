@@ -110,7 +110,6 @@ namespace DL
 
 
 
-
         public IEnumerable<DO.Line> GetAllLines()
         {
             return from line in DataSource.ListLines
@@ -144,7 +143,13 @@ namespace DL
             { throw new DO.BadLineIdException(line.Id, $"bad line id: {liine.Id}"); }
 
         }
+        public IEnumerable<DO.Line> GetLinee(Predicate<DO.Line> predicate)
+        {
+            return from ls in DataSource.ListLines
+                   where predicate(ls)
+                   select ls.Clone();
 
+        }
 
 
 
