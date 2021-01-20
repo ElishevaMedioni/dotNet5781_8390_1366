@@ -26,7 +26,6 @@ namespace UI
         {
             InitializeComponent();
             myStation = station;
-            
 
             StationCode.Text = myStation.Code.ToString();
             StationName.Text = myStation.Name;
@@ -39,9 +38,5 @@ namespace UI
             map.MaxZoom = 100;
             map.Zoom = 15;
         }
-
-        
-
-        
     }
 }

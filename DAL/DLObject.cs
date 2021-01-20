@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DLAPI;
-//using DO;
 using DS;
 
 
@@ -58,7 +57,7 @@ namespace DL
             if (sta != null)
             {
                 DataSource.ListStations.Remove(sta);
-                DataSource.ListStations.Add(sta.Clone());
+                DataSource.ListStations.Add(station.Clone());
             }
             else
                 throw new DO.BadStationException(station.Code, $"bad station code: {station.Code}");
@@ -81,32 +80,26 @@ namespace DL
             if (myLine != null)
                 return myLine.Clone();
             else
-                throw new DO.BadLineIdException(id, $"bad station code: {id}");
+                throw new DO.BadLineIdException(id, $"bad line code: {id}");
 
         }
+  
 
-
-        public void AddLine(DO.Line line, int id)
+        public int AddLine(DO.Line line)
         {
-            if (DataSource.ListLines.FirstOrDefault(p => p.Id == id) != null)
-            {
-                throw new DO.BadLineIdException(line.Id, "Duplicate Adjacent Stations");
-            }
-            else if (DataSource.ListLines.FirstOrDefault(p => p.Id == id) == null)
-            {
-                throw new DO.BadLineIdException(line.Id, "Missing");
-            }
+           
 
             int newId = DataSource.LineID++;
 
-            DO.Line newLine = new DO.Line();
-            newLine.Id = newId;
+            line.Id = newId;
 
-            DataSource.ListLines.Add(newLine.Clone());
+            DataSource.ListLines.Add(line.Clone());
+            return newId;
         }
 
 
 
+  
 
 
 
@@ -115,6 +108,9 @@ namespace DL
             return from line in DataSource.ListLines
                    select line.Clone();
         }
+
+
+
 
         public void DeleteLine(int id)
         {
@@ -137,12 +133,16 @@ namespace DL
             if (liine != null)
             {
                 DataSource.ListLines.Remove(liine);
-                DataSource.ListLines.Add(liine.Clone());
+                DataSource.ListLines.Add(line.Clone());
             }
             else
             { throw new DO.BadLineIdException(line.Id, $"bad line id: {liine.Id}"); }
 
         }
+
+
+
+
         //public IEnumerable<DO.Line> GetLinee(Predicate<DO.Line> predicate)
         //{
         //    return from ls in DataSource.ListLines
@@ -189,10 +189,29 @@ namespace DL
             if (lineSta != null)
             {
                 DataSource.ListLineStations.Remove(lineSta);
-                DataSource.ListLineStations.Add(lineSta.Clone());
+                DataSource.ListLineStations.Add(lineStation.Clone());
             }
             else
                 throw new DO.BadLineStationException(lineStation.Station, lineStation.LineId, $"bad line station");
+        }
+        public DO.LineStation UpdateLineStation2(DO.LineStation lineStation)
+        {
+            DO.LineStation lineSta = DataSource.ListLineStations.Find(s => (s.LineId == lineStation.LineId && s.Station == lineStation.Station));
+
+            if (lineSta != null)
+            {
+                DataSource.ListLineStations.Remove(lineSta);
+                DataSource.ListLineStations.Add(lineStation.Clone());
+                return lineStation.Clone();
+            }
+            else
+            {
+                throw new DO.BadLineStationException(lineStation.Station, lineStation.LineId, $"bad line station");
+                //return null;
+
+            }
+            // throw new DO.BadLineStationException(lineStation.Station, lineStation.LineId, $"bad line station");
+
         }
 
         public void DeleteLineStation(int lineId, int station)
@@ -207,13 +226,41 @@ namespace DL
                 throw new DO.BadLineStationException(lineId, $"this station: {station} isn't in this line: {lineId} or bad line station");
         }
 
+        public void DeleteAllLineStation1line(int lineId)
+        {
+            IEnumerable<DO.LineStation> lineStationslst = from ls in DataSource.ListLineStations
+                                                          where ls.LineId == lineId
+                                                          select ls.Clone();
+            foreach (DO.LineStation item in lineStationslst)
+            {
+                DataSource.ListLineStations.Remove(item);
+            }
+        }
+
+
         public IEnumerable<DO.LineStation> GetLineStationInLineStationsList(Predicate<DO.LineStation> predicate)
         {
-            return from ls in DataSource.ListLineStations
-                   where predicate(ls)
-                   select ls.Clone();
-           
+            IEnumerable<DO.LineStation> lineStationslst = from ls in DataSource.ListLineStations
+                                                           where predicate(ls)
+                                                           select ls.Clone();
+
+            IEnumerable<DO.LineStation> lst = lineStationslst.OrderBy(i => i.LineStationIndex);
+            
+            return lst;
+
+
         }
+
+        //public IEnumerable<DO.LineStation> GetLineStationInLineStationsList(DO.Line line)
+        //{
+        //    IEnumerable<DO.LineStation> lineStationslst = from ls in DataSource.ListLineStations
+        //                                                  where (ls.LineId == line.Id)
+        //                                                  select ls.Clone();
+        //    lineStationslst.OrderBy(i => i.LineStationIndex);
+        //    return lineStationslst;
+
+
+        //}
 
         public void DeleteStationToAllLines(int station)
         {
@@ -224,8 +271,8 @@ namespace DL
 
 
         #region AdjacentStations
-           public DO.AdjacentStations GetAdjacentStations(int Station1, int Station2)
-        {
+          public DO.AdjacentStations GetAdjacentStations(int Station1, int Station2)
+          {
             DO.AdjacentStations Adj = DataSource.ListAdjacentStations.Find(p => p.Station1 == Station1 && p.Station2 == Station2);
 
             if (Adj != null)
@@ -239,7 +286,8 @@ namespace DL
                 throw new DO.BadAdjacentStationsException(Adj.Station1, Adj.Station2, $"bad stations: {Station1},{Station2}");
             }
 
-        }
+          }
+
         public void AddAdjacentStations(DO.AdjacentStations Adj, int station1, int station2)
         {
             if (DataSource.ListAdjacentStations.FirstOrDefault(p => p.Station1 == station1 && p.Station2 == station2) != null)
@@ -261,7 +309,10 @@ namespace DL
 
         }
 
-
+        public void AddAdjacentStations(DO.AdjacentStations adj)
+        {
+            DataSource.ListAdjacentStations.Add(adj.Clone());
+        }
 
         public void UpdateAdjacentStations(int station1, int station2, DO.AdjacentStations adj)
         {
@@ -269,7 +320,7 @@ namespace DL
 
             if (myAdjacentStations != null)
             {
-                DataSource.ListAdjacentStations.Remove(adj);
+                DataSource.ListAdjacentStations.Remove(myAdjacentStations);
                 DataSource.ListAdjacentStations.Add(adj.Clone());
             }
 

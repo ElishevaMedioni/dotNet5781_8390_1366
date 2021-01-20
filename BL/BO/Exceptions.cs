@@ -10,6 +10,12 @@ namespace BO
     public class BadStationException : Exception
     {
         public int Code;
+        public BadStationException(string message, int code) : base()
+        {
+            Code = code;
+        }
+        public BadStationException(int code, string message) :
+          base(message) => Code = code;
         public BadStationException(string message, Exception innerException) :
             base(message, innerException) => Code = ((DO.BadStationException)innerException).Code;
         public override string ToString() => base.ToString() + $", bad station code: {Code}";
@@ -25,6 +31,13 @@ namespace BO
 
     }
 
+
+
+
+
+
+
+    [Serializable]
     public class LinesPassingAtThisStationException : Exception
     {
         public int Line;
@@ -38,15 +51,37 @@ namespace BO
         public override string ToString() => base.ToString() + $", this line {Line} isn't passing at this station ";
     }
 
+    [Serializable]
+    public class StationsInThisLine : Exception
+    {
+        public int stationCode;
+        public StationsInThisLine(string message, int stationcode) : base() => stationCode = stationcode;
+        //public LinesPassingAtThisStationException(int index, string message) :
+        //    base(message) => LineId = index;
+        //public BadStationException(string message, Exception innerException) :
+        //    base(message, innerException) => Code = ((DO.BadStationException)innerException).Code;
+        public StationsInThisLine(int code, string message, Exception innerException) :
+            base(message, innerException) => stationCode = ((DO.BadStationException)innerException).Code;
+
+        public override string ToString() => base.ToString() + $", this station {stationCode} is already in this line ";
+    }
+
+
+
 
     [Serializable]
-    public class BadLineIdException : Exception
+    public class BadLineException : Exception
     {
         public int id;
-        public BadLineIdException(int id, string message, Exception innerException) :
+      
+        public BadLineException( string message, Exception innerException) :
             base(message, innerException) => id = ((DO.BadLineIdException)innerException).Id;
+        public BadLineException(string message) : base(message)
+        { }
+            
 
-
+        //public BadLineIdException(string message, Exception innerException) :
+        // base(message, innerException) => id = ((DO.BadLineIdException)innerException).Id;
 
         //public BadLineIdException(string message, Exception innerException) :
         //  base(message, innerException);

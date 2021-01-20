@@ -66,6 +66,8 @@ namespace UI
                     if ((longitudeDouble < 34.3 || longitudeDouble > 35.5) || (latitudeDouble < 31 || latitudeDouble > 33.3))
                     {
                         MessageBox.Show("The longitude or/and latitude format is wrong 🥺", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        longitudetxt.Clear();
+                        latitudetxt.Clear();
                     }
                     else
                     {
@@ -79,16 +81,14 @@ namespace UI
                         try
                         {
                             bl.AddStation(station);
+                            StationWindow.myCollection.Add(station);
                             MessageBox.Show("Your station number " + codeInt + " has been added successfully 😀");
                             this.Close();
                         }
                         catch (BO.BadStationException ex)
                         {
                             MessageBox.Show(ex.Message, "Operation Failure", MessageBoxButton.OK, MessageBoxImage.Error);
-                            codetxt.Clear();
-                            nametxt.Clear();
-                            longitudetxt.Clear();
-                            latitudetxt.Clear();
+                            
                         }
                     }
                 }

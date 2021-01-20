@@ -11,12 +11,12 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using System.Collections.ObjectModel;
+using BLAPI;
 using System.Windows.Threading;
 using System.Threading;
-using System.Drawing;
-using System.ComponentModel;
-using BLAPI;
+using System.Collections.ObjectModel;
+
+
 namespace UI
 {
     /// <summary>
@@ -24,62 +24,90 @@ namespace UI
     /// </summary>
     public partial class LineWindow : Window
     {
-        IBL bl = BLFactory.GetBL("1");
-       // Line current;
-        public static List<Line> line = new List<Line>();
-        private DispatcherTimer timer = new DispatcherTimer();
-        private DispatcherTimer tiimer = new DispatcherTimer();
-        public static ObservableCollection<Line> myCollection { get; set; } = new ObservableCollection<Line>(line);
+        IBL bl;
+        //BO.Line myLine;
+        public static ObservableCollection<BO.Line> myCollection { get; set; }
 
-        public LineWindow()
+
+        public LineWindow(IBL _bl)
         {
             InitializeComponent();
+            bl = _bl;
+
+            myCollection = new ObservableCollection<BO.Line>(bl.GetAllLine());
+            ListViewLine.ItemsSource = myCollection;
+            
 
 
-            timer.Interval = TimeSpan.FromSeconds(1);
-            timer.Tick += timer_Tick;
-            timer.Start();
-            List<Line> liine = (List<Line>)bl.GetAllLine();
-            foreach (var item in liine)
+
+        }
+        /// <summary>
+        /// button update line
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            BO.Line line = ListViewLine.SelectedItem as BO.Line;
+
+            if (line != null)
             {
-                myCollection.Add(item);
+                LineViewWindow win = new LineViewWindow(bl, line);
+                win.ShowDialog();
+            }
+        }
+
+        /// <summary>
+        /// button delete line
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            BO.Line line = ListViewLine.SelectedItem as BO.Line;
+
+            if (line != null)
+            {
+                try
+                {
+                    bl.DeleteLine(line);
+                    myCollection.Remove(line);
+                }
+                catch (BO.BadLineException ex)
+                {
+                    MessageBox.Show(ex.Message, "Operation Failure", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
 
-            myListView.ItemsSource = myCollection;
+        }
+
+        /// <summary>
+        /// button add line
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            AddLineWindow win = new AddLineWindow(bl);
+            win.Show();
+        }
+
+        /// <summary>
+        /// when you double click on each item, you open a new window 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ListViewLine_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            BO.Line line = ListViewLine.SelectedItem as BO.Line;
 
 
-
-
-
-
-
-
-
-
-
-            void timer_Tick(object sender, EventArgs e)
+            if (line != null)
             {
-                Thread.Sleep(1);
-                //lblTime.Content = DateTime.Now.ToLongTimeString();
-
+                Line.LineDoubleClickWin win = new Line.LineDoubleClickWin(bl, line);
+                win.Show();
             }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+           
         }
     }
 }

@@ -8,10 +8,11 @@
         mc:Ignorable="d"
         Title="mapWindow" Height="450" Width="554">
     <Grid>
-        <TextBlock x:Name="StationName" HorizontalAlignment="Left" Margin="344,10,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="29" Width="150"/>
-        <TextBlock x:Name="StationCode" HorizontalAlignment="Left" Margin="117,10,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="25" Width="115"/>
-        <GridSplitter HorizontalAlignment="Left" Height="322" Margin="33,57,0,0" VerticalAlignment="Top" Width="461"/>
-        <WindowsPresentation:GMapControl x:Name="map" HorizontalAlignment="Left" Height="322" Margin="33,57,0,0" VerticalAlignment="Top" Width="440"/>
+        <TextBlock x:Name="StationName" HorizontalAlignment="Left" Margin="325,18,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="48" Width="150" FontFamily="Lucida Sans" FontSize="16"/>
+        <TextBlock x:Name="StationCode" HorizontalAlignment="Left" Margin="167,18,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="25" Width="115" FontFamily="Lucida Sans" FontSize="16"/>
+        <GridSplitter HorizontalAlignment="Left" Height="331" Margin="30,71,0,0" VerticalAlignment="Top" Width="486"/>
+        <WindowsPresentation:GMapControl x:Name="map" HorizontalAlignment="Left" Height="331" Margin="30,71,0,0" VerticalAlignment="Top" Width="486"/>
+        <Label Content="Station:" HorizontalAlignment="Left" Margin="93,14,0,0" VerticalAlignment="Top" FontFamily="Lucida Sans" FontSize="16"/>
 
     </Grid>
 </Window>

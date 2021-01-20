@@ -1,0 +1,47 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UI.Line"
+        xmlns:BO="clr-namespace:BO;assembly=BL" x:Class="UI.Line.LineDoubleClickWin"
+        mc:Ignorable="d"
+        Title="LineDoubleClickWin" Height="525" Width="800" >
+
+    <Grid>
+
+        <Grid x:Name="grid1" VerticalAlignment="Top" Margin="30,14,0,0" HorizontalAlignment="Left" Height="434" Width="370">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Label VerticalAlignment="Center" Grid.Row="1" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Area:"/>
+            <TextBlock x:Name="areaTextBlock" VerticalAlignment="Center" Text="{Binding Area}" Grid.Row="1" Margin="3" HorizontalAlignment="Left" Grid.Column="1"/>
+
+            <Label VerticalAlignment="Center" Grid.Row="0" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Code:"/>
+            <TextBlock x:Name="codeTextBlock" VerticalAlignment="Center" Text="{Binding Code}" Grid.Row="0" Margin="3" HorizontalAlignment="Left" Grid.Column="1"/>
+
+            <Label VerticalAlignment="Center" Grid.Row="2" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="First Station:"/>
+            <TextBlock x:Name="firstStationTextBlock" VerticalAlignment="Center" Text="{Binding FirstStation}" Grid.Row="2" Margin="3" HorizontalAlignment="Left" Grid.Column="1"/>
+
+            <Label VerticalAlignment="Center" Grid.Row="3" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Last Station:"/>
+            <TextBlock x:Name="lastStationTextBlock" VerticalAlignment="Center" Text="{Binding LastStation}" Grid.Row="3" Margin="3" HorizontalAlignment="Left" Grid.Column="1"/>
+
+            <Label VerticalAlignment="Center" Grid.Row="4" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="List Of Stations In This Line:"/>
+            <ListBox x:Name="listOfStationsInThisLineListBox" Width="196" VerticalAlignment="Center" Grid.Row="4" Margin="3.333,3.333,-94,-188" ItemsSource="{Binding}" Height="294" HorizontalAlignment="Left" Grid.Column="1"/>
+        </Grid>
+        <ListBox x:Name="lstDistance" HorizontalAlignment="Left" Height="303" Margin="389,145,0,0" VerticalAlignment="Top" Width="138"/>
+        <ListBox x:Name="lstTime" HorizontalAlignment="Left" Height="303" Margin="526,145,0,0" VerticalAlignment="Top" Width="147"/>
+        <Label Content="Distance:" HorizontalAlignment="Left" Margin="415,116,0,0" VerticalAlignment="Top" Width="87"/>
+        <Label Content="Time:" HorizontalAlignment="Left" Margin="558,116,0,0" VerticalAlignment="Top" Width="81"/>
+
+    </Grid>
+</Window>

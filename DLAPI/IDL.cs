@@ -14,7 +14,7 @@ namespace DLAPI
         DO.Station GetStation(int code);
         void AddStation(DO.Station station);
         void UpdateStation(DO.Station station);
-        //void UpdateStation(int code, Action<DO.Station> update); //method that knows to updt specific fields in Person
+        
         void DeleteStation(int code);
 
         #endregion
@@ -23,12 +23,15 @@ namespace DLAPI
         #region Line
         DO.Line GetLine(int id);
         IEnumerable<DO.Line> GetAllLines();
-       
-        void AddLine(DO.Line line,int id);
+
+        int AddLine(DO.Line line);
         void UpdateLine(DO.Line line);
-        //void UpdateLine(int id, Action<DO.Line> update); //method that knows to updt specific fields in Line
+        
         void DeleteLine(int id);
-       // IEnumerable<DO.Line> GetLinee(Predicate<DO.Line> predicate);
+        void DeleteAllLineStation1line(int lineId);
+
+
+
         #endregion
 
         #region LineStation
@@ -37,16 +40,18 @@ namespace DLAPI
         IEnumerable<DO.LineStation> GetAllLineStations();
         void AddLineStation(DO.LineStation lineStation);
         void UpdateLineStation(DO.LineStation lineStation);
+        DO.LineStation UpdateLineStation2(DO.LineStation lineStation);
         void DeleteLineStation(int lineId, int station);
         void DeleteStationToAllLines(int station);
         IEnumerable<DO.LineStation> GetLineStationInLineStationsList(Predicate<DO.LineStation> predicate);
-
+       
         #endregion
 
         #region AdjacentStations
 
         DO.AdjacentStations GetAdjacentStations(int Station1, int Station2);
         void AddAdjacentStations(DO.AdjacentStations Adj, int station1, int station2);
+        void AddAdjacentStations(DO.AdjacentStations adj);
         void UpdateAdjacentStations(int station1, int station2, DO.AdjacentStations adj);
         void DeleteAdjacentStations(int station1, int station2, DO.AdjacentStations adj);
 

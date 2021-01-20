@@ -13,25 +13,49 @@ namespace BLAPI
         BO.Station GetStation(int code);
         IEnumerable<BO.Station> GetAllStations();
         void AddStation(BO.Station station);
-        void UpdateStation(int code, string name);
+        void UpdateStation(BO.Station stationBO);
         void DeleteStation(int code);
         BO.Line GetLinePassingAtThisStation(BO.Station station, int lineCode);
-        void AddALinePassingAtThisStation(BO.Station station, BO.Line line);
+        
         IEnumerable<BO.Line> GetAllLinesPassingAtThisStation(BO.Station station);
-        void DeleteALinePassingAtThisStation(BO.Station station, int id);
+        
 
         #endregion
 
         #region Line
         BO.Line GetLine(int id);
         IEnumerable<BO.Line> GetAllLine();
-        //IEnumerable<BO.Line> GetLineIDList();
+        int AddLine(BO.Line lineBO);
+        void UpdateLine(BO.Line line);
+        
+        IEnumerable<BO.Station> GetAllStationsInThisLine(BO.Line line);
 
-        //IEnumerable<BO.Line> GetAllLineBy(Predicate<BO.Line> predicate);
+        void AddFirstAndLastStation(BO.Line line, BO.Station firstS, BO.Station lastS);
 
-       // void UpdateLine(BO.Line line);  // Update Line 
-        //void AddLine(DO.Line line, int id);  // Update Line 
-        void DeleteLine(int id); // delete Line
+       
+        void DeleteLine(BO.Line lineToDel); // delete Line
+
+
+        #endregion
+
+        #region LineStation
+        void AddAStationInALine(BO.Station stationToAdd, BO.Line line, BO.Station stationPrev);
+         void DeleteStationInALine(int code, BO.Line line);
+        void DeleteStationInAllTheLines(int code);
+
+        #endregion
+
+        #region AdjacentStations
+
+        double GetDistanceFromLatLonInKm(double lat1, double lon1, double lat2, double lon2);
+        double Deg2Rad(double deg);
+        
+       // double DistanceBetweenAdjacentStation(DO.Station station1, DO.Station station2);
+        double DistanceBetweenAdjacentStation(BO.Station station1, BO.Station station2);
+        List<double> GetDistanceStationList(IEnumerable<BO.Station> stationList);
+        List<TimeSpan> GetTimeStationList(List<double> distance_stationList);
+
+        TimeSpan TimeBetweenAdjacentStation(double distance);
 
 
 

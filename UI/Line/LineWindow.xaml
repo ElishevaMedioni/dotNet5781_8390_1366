@@ -1,17 +1,114 @@
-﻿<Window x:Class="UI.LineWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI"
+        xmlns:BO="clr-namespace:BO;assembly=BL" x:Class="UI.LineWindow"
         mc:Ignorable="d"
-        Title="LineWindow" Height="450" Width="800">
-    <Grid>
-        <ListView Name="myListView" HorizontalAlignment="Center" Height="528" Margin="249,10,216.667,0" Padding="20,10,50,0" VerticalAlignment="Top" Width="725" FontWeight="Bold" FontFamily="Century Gothic" FontSize="12"   >
-       
+        Title="LineWindow" Height="504" Width="865"  >
+
+
+    <Grid Opacity="0.85" >
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                <GradientStop Color="#FF582F74" Offset="0.061"/>
+                <GradientStop Color="#FFE5A7A7" Offset="0.747"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <ListView Name="ListViewLine" HorizontalAlignment="Left" Height="370" Margin="96,10,0,0" VerticalAlignment="Top" Width="682" FontWeight="Bold" FontFamily="Lucida Sans" FontSize="16" MouseDoubleClick="ListViewLine_MouseDoubleClick">
+            <ListView.Background>
+                <ImageBrush ImageSource="backgroundbus.jpg" Opacity="0.6"/>
+            </ListView.Background>
+
             <ListView.ItemBindingGroup>
                 <BindingGroup/>
             </ListView.ItemBindingGroup>
+            <ListView.View>
+                <GridView >
+
+                    <GridViewColumn x:Name="lineNumber" Header="Line Number:" DisplayMemberBinding="{Binding Code}" Width="140"  />
+                    <GridViewColumn x:Name="area" Header="Area:" DisplayMemberBinding="{Binding Area}"  Width="150"/>
+                    <GridViewColumn x:Name="firstStation" Header="First Station:" DisplayMemberBinding="{Binding FirstStation}"  Width="150"/>
+                    <GridViewColumn x:Name="lastStation" Header="Last Station:" DisplayMemberBinding="{Binding LastStation}"  Width="150"/>
+
+
+
+
+                </GridView>
+            </ListView.View>
         </ListView>
+
+
+
+
+
+
+
+
+
+        <!--<DataGrid x:Name="lineDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" Height="Auto" ItemsSource="{Binding}" Margin="119,12,162.333,77.667" RowDetailsVisibilityMode="VisibleWhenSelected" FontFamily="Lucida Sans" FontSize="16" Width="500" >
+            <DataGrid.Columns>
+                <DataGridTemplateColumn x:Name="codeColumn" Header="Code" Width="85">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Code}" FontFamily="Lucida Sans" FontSize="16"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn x:Name="areaColumn" Header="Area" Width="130">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Area}" FontFamily="Lucida Sans" FontSize="16"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn x:Name="firstStationColumn" Header="First Station" Width="140">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding FirstStation}" FontFamily="Lucida Sans" FontSize="16"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn x:Name="lastStationColumn" Header="Last Station" Width="140">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding LastStation}" FontFamily="Lucida Sans" FontSize="16"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>-->
+
+        <Button Content="Add Line" HorizontalAlignment="Left" Margin="171,409,0,0" VerticalAlignment="Top" Width="139" Height="41" Click="Button_Click_2" FontFamily="Lucida Sans" FontSize="20">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="7"/>
+
+                </Style>
+            </Button.Resources>
+        </Button>
+
+
+        <Button Content="Update Line" HorizontalAlignment="Left" Margin="365,409,0,0" VerticalAlignment="Top" Width="139" Height="41" Click="Button_Click" FontFamily="Lucida Sans" FontSize="20">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="7"/>
+
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button Content="Delete Line" HorizontalAlignment="Left" Margin="565,409,0,0" VerticalAlignment="Top" Width="139" Height="41" Click="Button_Click_1" FontFamily="Lucida Sans" FontSize="20" RenderTransformOrigin="1.074,1.829">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="7"/>
+
+                </Style>
+            </Button.Resources>
+        </Button>
     </Grid>
 </Window>

@@ -11,24 +11,32 @@ namespace BL
         public static BO.Line LineDOtoBO(this DO.Line line, DO.LineStation ls)
         {
             BO.Line lineResult= new BO.Line();
-            lineResult.Id = ls.LineId;
-            lineResult.Code = ls.Station;
+            lineResult.Id = line.Id;  
+            lineResult.Code = line.Code;
             lineResult.Area = (BO.Areas)line.Area;
+            lineResult.FirstStation = line.FirstStation;
+            lineResult.LastStation = line.LastStation;
             return lineResult;
 
         }
 
-        public static BO.Line LineDOtoBO2(this DO.Line line, DO.Line line2)
+
+
+        public static BO.Station LineDOtoBO2(this DO.Station station, DO.LineStation ls)
         {
-            BO.Line lineRes = new BO.Line();
-            lineRes.Id =line2.Id;
-            lineRes.Area = (BO.Areas)line2.Area;
-            lineRes.Code = line2.Code;
-            lineRes.FirstStation = line2.FirstStation;
-            lineRes.LastStation = line2.LastStation;
-            return lineRes;
+            BO.Station stationn = new BO.Station();
+            stationn.Code = station.Code;
+            stationn.Latitude = station.Latitude;
+            stationn.Longitude = station.Longitude;
+            stationn.Name = station.Name;
+
+
+            return stationn;
 
         }
+
+
+
 
 
 

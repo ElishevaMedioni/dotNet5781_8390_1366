@@ -5,25 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
-        Title="AddStationWindow" Height="465.445" Width="465.835" WindowStyle="SingleBorderWindow">
+        Title="AddStationWindow" Height="465.445" Width="458.835" WindowStyle="SingleBorderWindow">
     <Grid Margin="0,0,3.333,0">
         <Grid.Background>
             <SolidColorBrush Color="#FFE0C7DE" Opacity="0.7"/>
         </Grid.Background>
-        <StackPanel HorizontalAlignment="Left" Height="196" Margin="38,230,0,0" VerticalAlignment="Top" Width="374">
+        <StackPanel HorizontalAlignment="Left" Height="172" Margin="75,254,0,0" VerticalAlignment="Top" Width="303">
             <StackPanel.Background>
                 <ImageBrush ImageSource="addstationimg.jpg" Opacity="0.6"/>
             </StackPanel.Background>
         </StackPanel>
-        <Label Content="Code:" HorizontalAlignment="Left" Margin="24,22,0,0" VerticalAlignment="Top" Height="29" Width="69" FontSize="18" FontFamily="Cooper Black"/>
+        <Label Content="Code:" HorizontalAlignment="Left" Margin="24,22,0,0" VerticalAlignment="Top" Height="29" Width="69" FontSize="18" FontFamily="Lucida Sans"/>
         <TextBox x:Name="codetxt" HorizontalAlignment="Left" Height="23" Margin="139,28,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" PreviewTextInput="NumberValidationTextBox"/>
-        <Label  Content="Name:" HorizontalAlignment="Left" Margin="24,53,0,0" VerticalAlignment="Top" Width="82" FontSize="18" FontFamily="Cooper Black" RenderTransformOrigin="0.423,-1.092"/>
+        <Label  Content="Name:" HorizontalAlignment="Left" Margin="24,53,0,0" VerticalAlignment="Top" Width="82" FontSize="18" FontFamily="Lucida Sans" RenderTransformOrigin="0.423,-1.092"/>
         <TextBox x:Name="nametxt" HorizontalAlignment="Left" Height="23" Margin="139,61,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Longitude:" HorizontalAlignment="Left" Margin="20,89,0,0" VerticalAlignment="Top" Width="119" FontSize="18" FontFamily="Cooper Black"/>
-        <Label Content="Latitude:" HorizontalAlignment="Left" Margin="24,126,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Cooper Black"/>
+        <Label Content="Longitude:" HorizontalAlignment="Left" Margin="20,89,0,0" VerticalAlignment="Top" Width="119" FontSize="18" FontFamily="Lucida Sans"/>
+        <Label Content="Latitude:" HorizontalAlignment="Left" Margin="24,126,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Lucida Sans"/>
         <TextBox x:Name="longitudetxt" HorizontalAlignment="Left" Height="23" Margin="139,97,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="latitudetxt" HorizontalAlignment="Left" Height="23" Margin="139,134,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <Button Content="Add" HorizontalAlignment="Left" Margin="330,75,0,0" VerticalAlignment="Top" Width="75" Height="59" Background="SeaShell" FontFamily="Cooper Black" FontSize="18" Click="Button_Click" >
+        <Button Content="Add" HorizontalAlignment="Left" Margin="330,75,0,0" VerticalAlignment="Top" Width="75" Height="59" Background="SeaShell" FontFamily="Lucida Sans" FontSize="18" Click="Button_Click" >
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="7"/>
@@ -31,6 +31,6 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Label Content="The longitude must be between 34.3 and 35.5 &#10; And the latitude between 31 and 33.3 " HorizontalAlignment="Left" Margin="24,176,0,0" VerticalAlignment="Top" Width="374" Height="49" FontSize="14"/>
+        <Label Content="The longitude must be between 34.3 and 35.5 &#10; And the latitude between 31 and 33.3 " HorizontalAlignment="Left" Margin="24,176,0,0" VerticalAlignment="Top" Width="374" Height="49" FontSize="14" FontFamily="Lucida Sans"/>
     </Grid>
 </Window>

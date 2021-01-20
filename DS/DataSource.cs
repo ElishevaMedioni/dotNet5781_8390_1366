@@ -24,266 +24,542 @@ namespace DS
             {
                 Station1 = 100000,
                 Station2 = 100010,
-            }) ;
+                Distance = 2.15,
+                Time = new TimeSpan(0,2,9),
+            }); ;
 
             ListAdjacentStations.Add(new AdjacentStations
             {
                 Station1 = 100010,
                 Station2 = 100020,
+                Distance = 0.62,
+                Time = new TimeSpan(0, 0, 37),
             });
 
             ListAdjacentStations.Add(new AdjacentStations
             {
                 Station1 = 100020,
                 Station2 = 100030,
+                Distance = 1.9,
+                Time = new TimeSpan(0, 1, 54),
             });
 
             ListAdjacentStations.Add(new AdjacentStations
             {
                 Station1 = 100030,
                 Station2 = 100040,
+                Distance = 1,
+                Time = new TimeSpan(0, 4, 0),
             });
 
             ListAdjacentStations.Add(new AdjacentStations
             {
                 Station1 = 100040,
                 Station2 = 100050,
+                Distance = 2,
+                Time = new TimeSpan(0, 10, 0),
             });
 
             ListAdjacentStations.Add(new AdjacentStations
             {
                 Station1 = 100050,
                 Station2 = 100060,
+                Distance = 1,
+                Time = new TimeSpan(0, 9, 0),
             });
 
             ListAdjacentStations.Add(new AdjacentStations
             {
                 Station1 = 100060,
                 Station2 = 100070,
+                Distance = 2,
+                Time = new TimeSpan(0, 9, 0),
             });
 
             ListAdjacentStations.Add(new AdjacentStations
             {
                 Station1 = 100070,
                 Station2 = 100080,
+                Distance = 4,
+                Time = new TimeSpan(0, 14, 0),
             });
 
             ListAdjacentStations.Add(new AdjacentStations
             {
                 Station1 = 100080,
                 Station2 = 100090,
+                Distance = 2,
+                Time = new TimeSpan(0, 9, 0),
             });
 
             ListAdjacentStations.Add(new AdjacentStations
             {
                 Station1 = 100050,
                 Station2 = 100020,
+                Distance = 1,
+                Time = new TimeSpan(0, 2, 0),
             });
 
             ListAdjacentStations.Add(new AdjacentStations
             {
                 Station1 = 100020,
                 Station2 = 100100,
+                Distance = 5,
+                Time = new TimeSpan(0, 16, 0),
             });
 
             ListAdjacentStations.Add(new AdjacentStations
             {
                 Station1 = 100100,
                 Station2 = 100110,
+                Distance = 5,
+                Time = new TimeSpan(0, 18, 0),
             });
 
             ListAdjacentStations.Add(new AdjacentStations
             {
                 Station1 = 100110,
                 Station2 = 100120,
+                Distance = 1,
+                Time = new TimeSpan(0, 5, 0),
             });
 
             ListAdjacentStations.Add(new AdjacentStations
             {
                 Station1 = 100120,
                 Station2 = 100130,
+                Distance = 0.5,
+                Time = new TimeSpan(0, 1, 0),
             });
 
             ListAdjacentStations.Add(new AdjacentStations
             {
                 Station1 = 100130,
                 Station2 = 100140,
+                Distance = 4.5,
+                Time = new TimeSpan(0, 13, 0),
             });
 
             ListAdjacentStations.Add(new AdjacentStations
             {
                 Station1 = 100140,
                 Station2 = 100150,
+                Distance = 4,
+                Time = new TimeSpan(0, 12, 0),
             });
 
             ListAdjacentStations.Add(new AdjacentStations
             {
                 Station1 = 100150,
                 Station2 = 100160,
+                Distance =7,
+                Time = new TimeSpan(0, 22, 21),
             });
 
             ListAdjacentStations.Add(new AdjacentStations
             {
                 Station1 = 100000,
                 Station2 = 100030,
+                Distance = 1,
+                Time = new TimeSpan(0, 3, 0),
             });
 
             ListAdjacentStations.Add(new AdjacentStations
             {
                 Station1 = 100030,
                 Station2 = 100090,
+                Distance = 1.5,
+                Time = new TimeSpan(0, 5, 0),
             });
 
             ListAdjacentStations.Add(new AdjacentStations
             {
                 Station1 = 100090,
                 Station2 = 100100,
+                Distance = 5,
+                Time = new TimeSpan(0, 16, 0),
             });
 
             ListAdjacentStations.Add(new AdjacentStations
             {
                 Station1 = 100100,
                 Station2 = 100200,
+                Distance = 4,
+                Time = new TimeSpan(0, 10, 0),
             });
 
             ListAdjacentStations.Add(new AdjacentStations
             {
                 Station1 = 100200,
                 Station2 = 100210,
+                Distance = 8,
+                Time = new TimeSpan(0, 28, 0),
             });
 
             ListAdjacentStations.Add(new AdjacentStations
             {
                 Station1 = 100210,
                 Station2 = 100220,
+                Distance = 8.5,
+                Time = new TimeSpan(0, 29, 0),
             });
 
             ListAdjacentStations.Add(new AdjacentStations
             {
                 Station1 = 100220,
                 Station2 = 100230,
+                Distance = 5,
+                Time = new TimeSpan(0, 20, 3),
             });
 
             ListAdjacentStations.Add(new AdjacentStations
             {
                 Station1 = 100230,
                 Station2 = 100240,
+                Distance = 66,
+                Time = new TimeSpan(1, 22, 0),
             });
 
             ListAdjacentStations.Add(new AdjacentStations
             {
                 Station1 = 100240,
                 Station2 = 100250,
+                Distance = 1.5,
+                Time = new TimeSpan(0, 5, 0),
             });
 
             ListAdjacentStations.Add(new AdjacentStations
             {
                 Station1 = 100300,
                 Station2 = 100030,
+                Distance = 67,
+                Time = new TimeSpan(1, 29, 0),
             });
 
             ListAdjacentStations.Add(new AdjacentStations
             {
                 Station1 = 100030,
                 Station2 = 100320,
+                Distance = 53,
+                Time = new TimeSpan(1, 3, 0),
             });
 
             ListAdjacentStations.Add(new AdjacentStations
             {
                 Station1 = 100320,
                 Station2 = 100330,
+                Distance = 125,
+                Time = new TimeSpan(2, 28, 0),
             });
 
             ListAdjacentStations.Add(new AdjacentStations
             {
                 Station1 = 100330,
                 Station2 = 100210,
+                Distance = 20,
+                Time = new TimeSpan(0, 28, 0),
             });
 
             ListAdjacentStations.Add(new AdjacentStations
             {
                 Station1 = 100210,
                 Station2 = 100340,
+                Distance = 68,
+                Time = new TimeSpan(1, 15, 0),
             });
 
             ListAdjacentStations.Add(new AdjacentStations
             {
                 Station1 = 100340,
                 Station2 = 100350,
+                Distance = 245,
+                Time = new TimeSpan(4, 48, 0),
             });
 
             ListAdjacentStations.Add(new AdjacentStations
             {
                 Station1 = 100350,
                 Station2 = 100360,
+                Distance = 30,
+                Time = new TimeSpan(0, 44, 27),
             });
 
             ListAdjacentStations.Add(new AdjacentStations
             {
                 Station1 = 100360,
                 Station2 = 100370,
+                Distance = 305,
+                Time = new TimeSpan(5, 58, 0),
             });
 
             ListAdjacentStations.Add(new AdjacentStations
             {
                 Station1 = 100370,
                 Station2 = 100380,
+                Distance = 268,
+                Time = new TimeSpan(4, 25, 0),
             });
 
             ListAdjacentStations.Add(new AdjacentStations
             {
                 Station1 = 100030,
                 Station2 = 100060,
+                Distance = 2,
+                Time = new TimeSpan(0, 8, 0),
             });
 
             ListAdjacentStations.Add(new AdjacentStations
             {
                 Station1 = 100060,
                 Station2 = 100010,
+                Distance = 2,
+                Time = new TimeSpan(0, 15, 0),
             });
 
             ListAdjacentStations.Add(new AdjacentStations
             {
                 Station1 = 100010,
                 Station2 = 100000,
+                Distance = 2.15,
+                Time = new TimeSpan(0, 2, 9),
             });
 
             ListAdjacentStations.Add(new AdjacentStations
             {
                 Station1 = 100000,
                 Station2 = 100400,
+                Distance = 105,
+                Time = new TimeSpan(1, 50, 50),
             });
 
             ListAdjacentStations.Add(new AdjacentStations
             {
                 Station1 = 100400,
                 Station2 = 100410,
+                Distance = 35,
+                Time = new TimeSpan(0, 40, 0),
             });
 
             ListAdjacentStations.Add(new AdjacentStations
             {
                 Station1 = 100410,
                 Station2 = 100420,
+                Distance = 40,
+                Time = new TimeSpan(0, 50, 0),
             });
 
             ListAdjacentStations.Add(new AdjacentStations
             {
                 Station1 = 100420,
                 Station2 = 100430,
+                Distance = 28,
+                Time = new TimeSpan(0, 32, 0),
             });
 
             ListAdjacentStations.Add(new AdjacentStations
             {
                 Station1 = 100430,
                 Station2 = 100440,
+                Distance = 50,
+                Time = new TimeSpan(1, 25, 0),
             });
 
             ListAdjacentStations.Add(new AdjacentStations
             {
                 Station1 = 100440,
                 Station2 = 100450,
+                Distance = 85,
+                Time = new TimeSpan(2, 05, 0),
             });
-            //6
+            
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100450,
+                Station2 = 100460,
+                Distance = 95,
+                Time = new TimeSpan(2, 25, 0),
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100460,
+                Station2 = 100470,
+                Distance = 47,
+                Time = new TimeSpan(0, 55, 0),
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100470,
+                Station2 = 100480,
+                Distance = 15,
+                Time = new TimeSpan(0, 10, 0),
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100480,
+                Station2 = 100490,
+                Distance = 20,
+                Time = new TimeSpan(0, 20, 0),
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100490,
+                Station2 = 100500,
+                Distance = 260,
+                Time = new TimeSpan(4, 5, 0),
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100500,
+                Station2 = 100070,
+                Distance = 105,
+                Time = new TimeSpan(2, 28, 0),
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100050,
+                Station2 = 100020,
+                Distance = 0.5,
+                Time = new TimeSpan(0, 2, 0),
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100020,
+                Station2 = 100300,
+                Distance = 60,
+                Time = new TimeSpan(1, 05, 0),
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100300,
+                Station2 = 100330,
+                Distance = 175,
+                Time = new TimeSpan(03, 20, 0),
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100330,
+                Station2 = 100340,
+                Distance = 25,
+                Time = new TimeSpan(0, 18, 0),
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100000,
+                Station2 = 100200,
+                Distance = 2.6,
+                Time = new TimeSpan(0, 12, 0),
+            });
+          
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100250,
+                Station2 = 100260,
+                Distance = 4,
+                Time = new TimeSpan(0, 17, 0),
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100260,
+                Station2 = 100270,
+                Distance = 8,
+                Time = new TimeSpan(0, 26, 0),
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100270,
+                Station2 = 100280,
+                Distance = 2.8,
+                Time = new TimeSpan(0, 13, 0),
+            });
+            
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100300,
+                Station2 = 100030,
+                Distance = 67,
+                Time = new TimeSpan(1, 29, 0),
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100030,
+                Station2 = 100320,
+                Distance = 50,
+                Time = new TimeSpan(0, 50, 0),
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100320,
+                Station2 = 100110,
+                Distance = 55,
+                Time = new TimeSpan(0, 53, 0),
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100110,
+                Station2 = 100210,
+                Distance = 6,
+                Time = new TimeSpan(0, 28, 0),
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100210,
+                Station2 = 100310,
+                Distance = 80,
+                Time = new TimeSpan(1, 42, 0),
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100310,
+                Station2 = 100410,
+                Distance = 80,
+                Time = new TimeSpan(1, 25, 0),
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100000,
+                Station2 = 100110,
+                Distance = 3.5,
+                Time = new TimeSpan(0, 11, 0),
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100110,
+                Station2 = 100330,
+                Distance = 82,
+                Time = new TimeSpan(2, 10, 0),
+            });
+
+            ListAdjacentStations.Add(new AdjacentStations
+            {
+                Station1 = 100330,
+                Station2 = 100200,
+                Distance = 86,
+                Time = new TimeSpan(2, 21, 0),
+            });
+
+           
+
         }
         public static void InitLineStations()
         {
@@ -1191,90 +1467,99 @@ namespace DS
         {
             ListLines.Add(new Line
             {
-                Id  =  LineID++,
-                Code=100,
-                Area=Areas.CENTER,
-                FirstStation=100000,
-                LastStation=100050
+                Id = LineID++, //1
+                Code = 100,
+                Area = Areas.CENTER,
+                FirstStation = 100000,
+                LastStation = 100090
 
             });
 
             ListLines.Add(new Line
             {
-                Id = LineID++,
+                Id = LineID++, //2
                 Code = 101,
                 Area = Areas.EAST,
-                FirstStation = 100110,
+                FirstStation = 100040,
                 LastStation = 100160
 
             }); ListLines.Add(new Line
             {
-                Id = LineID++,
+                Id = LineID++, //3
                 Code = 102,
                 Area = Areas.NORTH,
-                FirstStation = 100220,
-                LastStation = 1000270
+                FirstStation = 100000,
+                LastStation = 100250
 
             }); ListLines.Add(new Line
             {
-                Id = LineID++,
+                Id = LineID++, //4
                 Code = 103,
                 Area = Areas.SOUTH,
                 FirstStation = 100300,
-                LastStation = 100350
+                LastStation = 100380
 
             });
             ListLines.Add(new Line
             {
-                Id = LineID++,
+                Id = LineID++, //5
                 Code = 104,
                 Area = Areas.WEST,
-                FirstStation = 100430,
-                LastStation = 100500
+                FirstStation = 100030,
+                LastStation = 100450
 
             }); 
             ListLines.Add(new Line
             {
-                Id = LineID++,
+                Id = LineID++, //6
                 Code = 105,
                 Area = Areas.CENTER,
-                FirstStation = 100020,
+                FirstStation = 100440,
                 LastStation = 100090
 
             });
             ListLines.Add(new Line
             {
-                Id = LineID++,
+                Id = LineID++, //7
                 Code = 106,
                 Area = Areas.EAST,
-                FirstStation = 100120,
-                LastStation = 100180
+                FirstStation = 100040,
+                LastStation = 100380
 
             }); ListLines.Add(new Line
             {
-                Id = LineID++,
+                Id = LineID++, //8
                 Code = 107,
                 Area = Areas.NORTH,
-                FirstStation = 100210,
-                LastStation = 100260
+                FirstStation = 100000,
+                LastStation = 100280
 
             });
             ListLines.Add(new Line
             {
-                Id = LineID++,
+                Id = LineID++, //9
                 Code = 108,
                 Area = Areas.SOUTH,
-                FirstStation = 100320,
-                LastStation = 100390
+                FirstStation = 100300,
+                LastStation = 100440
 
             });
             ListLines.Add(new Line
             {
-                Id = LineID++,
+                Id = LineID++, //10
                 Code = 109,
                 Area = Areas.WEST,
                 FirstStation = 100450,
-                LastStation = 1000490
+                LastStation = 100200
+
+            });
+            ListLines.Add(new Line
+            {
+                Id = LineID++, //11
+                Code = 110,
+                Area = Areas.WEST,
+                FirstStation = 100450,
+                LastStation = 100490
 
             });
         }
@@ -1496,392 +1781,393 @@ namespace DS
             {
                 Code = 100020,
                 Name = "Yafo Center",
-                Longitude = 34.5,
-                Latitude = 31.2,
+                Longitude = 35.21816 ,
+                Latitude = 31.78309,
             });
 
             ListStations.Add(new Station
             {
                 Code = 100030,
                 Name = "Kyriat Moshe",
-                Longitude = 34.6,
-                Latitude = 31.3,
+                Longitude = 35.19842 ,
+                Latitude = 31.78669 ,
             });
 
             ListStations.Add(new Station
             {
                 Code = 100040,
                 Name = "Yefe Nof",
-                Longitude = 34.7,
-                Latitude = 31.4,
+                Longitude = 35.18470,
+                Latitude = 31.77680,
             });
 
             ListStations.Add(new Station
             {
                 Code = 100050,
                 Name = "Mahane Yehouda",
-                Longitude = 34.5,
-                Latitude = 31.5,
+                Longitude = 35.21190,
+                Latitude = 31.78439,
             });
 
             ListStations.Add(new Station
             {
                 Code = 100060,
                 Name = "Hadavidka",
-                Longitude = 34.6,
-                Latitude = 31.6,
+                Longitude = 35.21529,
+                Latitude = 31.78460,
             });
 
             ListStations.Add(new Station
             {
                 Code = 100070,
                 Name = "Hakotel",
-                Longitude = 34.7,
-                Latitude = 31.2,
+                Longitude = 35.23323 ,
+                Latitude = 31.77653,
             });
 
             ListStations.Add(new Station
             {
                 Code = 100080,
                 Name = "Har Hertsel",
-                Longitude = 34.5,
-                Latitude = 31.7,
+                Longitude = 35.18161,
+                Latitude = 31.77094,
             });
 
             ListStations.Add(new Station
             {
                 Code = 100090,
                 Name = "Cinema City Jerusalem",
-                Longitude = 34.5,
-                Latitude = 31.8,
+                Longitude = 35.20363,
+                Latitude = 31.78312,
             });
 
             ListStations.Add(new Station
             {
                 Code = 100100,
                 Name = "Malha Mall",
-                Longitude = 34.5,
-                Latitude = 31.8,
+                Longitude = 35.18716,
+                Latitude = 31.75165,
             });
 
             ListStations.Add(new Station
             {
                 Code = 100110,
                 Name = "Yemin Moshe",
-                Longitude = 34.8,
-                Latitude = 31.9,
+                Longitude = 35.22512,
+                Latitude = 31.77364,
             });
 
             ListStations.Add(new Station
             {
                 Code = 100120,
                 Name = "Ben Yehuda",
-                Longitude = 34.6,
-                Latitude = 31.8,
+                Longitude = 35.21658,
+                Latitude = 31.78137,
             });
 
             ListStations.Add(new Station
             {
                 Code = 100130,
                 Name = "King George",
-                Longitude = 34.9,
-                Latitude = 31.9,
+                Longitude = 35.21917,
+                Latitude = 31.77962,
             });
 
             ListStations.Add(new Station
             {
                 Code = 100140,
                 Name = "Adar Mall",
-                Longitude = 35,
-                Latitude = 32,
+                Longitude = 35.21343,
+                Latitude = 31.7537,
             });
 
             ListStations.Add(new Station
             {
                 Code = 100150,
                 Name = "Hillel Street",
-                Longitude = 35,
-                Latitude = 31.7,
+                Longitude = 35.21862,
+                Latitude = 31.7802 ,
             });
 
             ListStations.Add(new Station
             {
                 Code = 100160,
                 Name = "Shaarei Tsedek Hospital",
-                Longitude = 35.1,
-                Latitude = 31.7,
+                Longitude = 35.18527,
+                Latitude = 31.77332,
             });
 
             ListStations.Add(new Station
             {
                 Code = 100170,
                 Name = "Hadassa Hospital",
-                Longitude = 35,
-                Latitude = 31.8,
+                Longitude = 35.24225,
+                Latitude = 31.79755,
             });
 
             ListStations.Add(new Station
             {
                 Code = 100180,
                 Name = "Yad Vashem",
-                Longitude = 35.1,
-                Latitude = 31.9,
+                Longitude = 35.17532,
+                Latitude = 31.77422,
             });
 
             ListStations.Add(new Station
             {
                 Code = 100190,
                 Name = "Museum Israel",
-                Longitude = 35.1,
-                Latitude = 32,
+                Longitude = 35.20409,
+                Latitude = 31.77221,
             });
 
             ListStations.Add(new Station
             {
                 Code = 100200,
                 Name = "Givat Ram University",
-                Longitude = 35.2,
-                Latitude = 31.7,
+                Longitude = 35.24082,
+                Latitude = 31.79464
+,
             });
 
             ListStations.Add(new Station
             {
                 Code = 100210,
                 Name = "Har Hatsofim",
-                Longitude = 35,
-                Latitude = 31.9,
+                Longitude = 35.20955,
+                Latitude = 31.80311,
             });
 
             ListStations.Add(new Station
             {
                 Code = 100220,
                 Name = "Mahon Lev",
-                Longitude = 35.11,
-                Latitude = 32.11,
+                Longitude = 35.19116,
+                Latitude = 31.76507,
             });
 
             ListStations.Add(new Station
             {
                 Code = 100230,
                 Name = "Mahon Tal",
-                Longitude = 35.12,
-                Latitude = 32.12,
+                Longitude = 35.1897,
+                Latitude = 31.7857,
             });
 
             ListStations.Add(new Station
             {
                 Code = 100240,
                 Name = "Frishman Beach",
-                Longitude = 35.13,
-                Latitude = 32.13,
+                Longitude = 34.76678,
+                Latitude = 32.08036,
             });
 
             ListStations.Add(new Station
             {
                 Code = 100250,
                 Name = "Banana Beach",
-                Longitude = 35.14,
-                Latitude = 32.14,
+                Longitude = 34.76325,
+                Latitude = 32.07105,
             });
 
             ListStations.Add(new Station
             {
                 Code = 100260,
                 Name = "Hacarmel Shuk",
-                Longitude = 35.15,
-                Latitude = 32.15,
+                Longitude = 34.77084,
+                Latitude = 32.06891,
             });
 
             ListStations.Add(new Station
             {
                 Code = 100270,
                 Name = "Tel Aviv Port",
-                Longitude = 35.16,
-                Latitude = 32.16,
+                Longitude = 34.77410,
+                Latitude = 32.09878,
             });
 
             ListStations.Add(new Station
             {
                 Code = 100280,
                 Name = "Rotshild Avenue",
-                Longitude = 35.17,
-                Latitude = 32.17,
+                Longitude = 34.77658,
+                Latitude = 32.06570,
             });
 
             ListStations.Add(new Station
             {
                 Code = 100290,
                 Name = "Savidor Center",
-                Longitude = 35.18,
-                Latitude = 32.18,
+                Longitude = 34.79813,
+                Latitude = 32.08366,
             });
 
             ListStations.Add(new Station
             {
                 Code = 100300,
                 Name = "Gordon Beach",
-                Longitude = 34.76746,
-                Latitude = 32.08284,
+                Longitude = 34.76786,
+                Latitude = 32.08288,
             });
 
             ListStations.Add(new Station
             {
                 Code = 100310,
                 Name = "Marina Hertzlia",
-                Longitude = 35.2,
-                Latitude = 32.2,
+                Longitude = 34.79625,
+                Latitude = 32.16312,
             });
 
             ListStations.Add(new Station
             {
                 Code = 100320,
                 Name = "Bar Ilan University",
-                Longitude = 35.21,
-                Latitude = 32.21,
+                Longitude = 34.84319,
+                Latitude = 32.06880,
             });
 
             ListStations.Add(new Station
             {
                 Code = 100330,
                 Name = "Massada",
-                Longitude = 35.22,
-                Latitude = 32.22,
+                Longitude = 35.36298,
+                Latitude = 31.31187,
             });
 
             ListStations.Add(new Station
             {
                 Code = 100340,
                 Name = "Ein Gedi",
-                Longitude = 35.23,
-                Latitude = 32.24,
+                Longitude = 35.38731,
+                Latitude = 31.45330,
             });
 
             ListStations.Add(new Station
             {
                 Code = 100350,
                 Name = "Meron",
-                Longitude = 35.24,
-                Latitude = 32.24,
+                Longitude = 35.44019,
+                Latitude = 32.99068,
             });
 
             ListStations.Add(new Station
             {
                 Code = 100360,
                 Name = "Technion",
-                Longitude = 35.25,
-                Latitude = 32.25,
+                Longitude = 35.02269,
+                Latitude = 32.77652,
             });
 
             ListStations.Add(new Station
             {
                 Code = 100370,
                 Name = "Beer Sheva",
-                Longitude = 35.26,
-                Latitude = 32.26,
+                Longitude = 34.79363,
+                Latitude = 31.24939,
             });
 
             ListStations.Add(new Station
             {
                 Code = 100380,
                 Name = "Raanana",
-                Longitude = 35.28,
-                Latitude = 32.27,
+                Longitude = 34.87645,
+                Latitude = 32.17986,
             });
 
             ListStations.Add(new Station
             {
                 Code = 100390,
                 Name = "Eilat",
-                Longitude = 35.29,
-                Latitude = 33,
+                Longitude = 34.93620,
+                Latitude = 29.55272,
             });
 
             ListStations.Add(new Station
             {
                 Code = 100400,
                 Name = "Netivot",
-                Longitude = 35.3,
-                Latitude = 33.1,
+                Longitude = 34.57231,
+                Latitude = 31.41080,
             });
 
             ListStations.Add(new Station
             {
                 Code = 100410,
                 Name = "Ashdod",
-                Longitude = 35.32,
-                Latitude = 33.2,
+                Longitude = 34.65472,
+                Latitude = 31.81113,
             });
 
             ListStations.Add(new Station
             {
                 Code = 100420,
                 Name = "Bet Shemesh",
-                Longitude = 35.33,
-                Latitude = 33.12,
+                Longitude = 34.98766,
+                Latitude = 31.75784,
             });
 
             ListStations.Add(new Station
             {
                 Code = 100430,
                 Name = "Modiin",
-                Longitude = 35.34,
-                Latitude = 33.13,
+                Longitude = 35.00263,
+                Latitude = 31.90883,
             });
 
             ListStations.Add(new Station
             {
                 Code = 100440,
                 Name = "Ashkelon",
-                Longitude = 35.36,
-                Latitude = 33.15,
+                Longitude = 34.56389,
+                Latitude = 31.65949,
             });
 
             ListStations.Add(new Station
             {
                 Code = 100450,
                 Name = "Dead Sea",
-                Longitude = 35.4,
-                Latitude = 33.18,
+                Longitude = 35.58651,
+                Latitude = 31.71867,
             });
 
             ListStations.Add(new Station
             {
                 Code = 100460,
                 Name = "Ikea Rishon Letsion",
-                Longitude = 35.42,
-                Latitude = 33.2,
+                Longitude = 34.77143,
+                Latitude = 31.95148,
             });
 
             ListStations.Add(new Station
             {
                 Code = 100470,
                 Name = "Natanya",
-                Longitude = 35.44,
-                Latitude = 33.25,
+                Longitude = 34.85054,
+                Latitude = 32.32352,
             });
 
             ListStations.Add(new Station
             {
                 Code = 100480,
                 Name = "Hadera",
-                Longitude = 35.46,
-                Latitude = 33.27,
+                Longitude = 34.88549,
+                Latitude = 32.47199,
             });
 
             ListStations.Add(new Station
             {
                 Code = 100490,
                 Name = "Haifa",
-                Longitude = 35.48,
-                Latitude = 33.28,
+                Longitude = 34.98863,
+                Latitude = 32.82506,
             });
 
             ListStations.Add(new Station
             {
                 Code = 100500,
                 Name = "Mitspe Ramon",
-                Longitude = 35.49,
-                Latitude = 33.29,
+                Longitude = 34.79903,
+                Latitude = 30.60805,
             });
 
         }
@@ -1897,6 +2183,7 @@ namespace DS
             InitLineStations();
             InitBuses();
             InitLine();
+            InitAdjacentStations();
         }
 
 
