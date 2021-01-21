@@ -87,4 +87,15 @@ namespace BO
         //  base(message, innerException);
         //public override string ToString() => base.ToString() + $", bad line id: {id}";
     }
+
+
+    [Serializable]
+    public class BadBusException : Exception
+    {
+        public int BusLicense;
+        public BadBusException(string message, Exception innerException) :
+            base(message, innerException) => BusLicense = ((DO.BadBusException)innerException).Lic;
+        public override string ToString() => base.ToString() + $", bad bus code: {BusLicense}";
+
+    }
 }

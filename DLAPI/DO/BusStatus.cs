@@ -8,6 +8,6 @@ namespace DO
 {
     public enum BusStatus
     {
-        ONTHEROAD, READY,ONREFUELING,INTRAITEMENT
+        OnTheRoad, Ready, OnRefueling, InTraitement, NeedToRefuel, NeedVerification
     }
 }

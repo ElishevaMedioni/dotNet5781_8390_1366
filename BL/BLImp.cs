@@ -490,6 +490,109 @@ namespace BL
 
         #endregion
 
+
+        #region Bus
+        public BO.Bus AdaptBusToBoToDo(DO.Bus BusDO) //PRIVATE
+        {
+            BO.Bus BusBO = new BO.Bus();
+
+
+
+            int license = BusDO.License;
+
+
+            try
+            {
+                BusDO = dl.GetBus(license);
+            }
+            catch (DO.BadBusException ex)
+            {
+                throw new BO.BadBusException("Bad Bus", ex);
+            }
+
+            BusBO.License = BusDO.License;
+            BusBO.Status = (BO.BusStatus)BusDO.Status;
+            BusBO.TotalTrip = BusDO.TotalTrip;
+            BusBO.FromDate = BusDO.FromDate;
+            BusBO.FuelRemain = BusDO.FuelRemain;
+
+
+            return BusBO;
+
+        }
+
+
+
+
+
+        public DO.Bus convertDAO(DO.Bus bus)
+        {
+            DO.Bus busDAO = new DO.Bus
+            {
+                License = bus.License,
+                GasolineLevel = bus.GasolineLevel,
+                TotalTrip = bus.TotalTrip,
+                FuelRemain = 0,
+
+                Status = bus.Status
+            };
+            return busDAO;
+        }
+
+
+        public BO.Bus GetBus(int license)
+        {
+            DO.Bus busDO;
+
+            try
+            {
+                busDO = dl.GetBus(license);
+            }
+
+            catch (DO.BadBusException excep)
+            {
+                throw new BO.BadBusException("Bus licence does not exist", excep);
+            }
+
+            return AdaptBusToBoToDo(busDO);
+
+        }
+
+
+
+
+
+
+        public IEnumerable<BO.Bus> GetAllBus()
+        {
+            return from item in dl.GetAllBuses()
+                   select AdaptBusToBoToDo(item);
+        }
+
+
+
+        public IEnumerable<BO.Bus> GetAllBuses(BO.Bus bus)
+        {
+            return bus.ListOfBus;
+        }
+
+
+        public void UpdateBus(BO.Bus bus)
+        {
+            //Update DO.Person            
+            DO.Bus busDO = new DO.Bus();
+            bus.CopyPropertiesTo(busDO);
+            try
+            {
+                dl.UpdateBus(busDO);
+            }
+            catch (DO.BadBusException ex)
+            {
+                throw new BO.BadBusException("Bus License  is illegal", ex);
+            }
+        }
+
+        #endregion
     }
 
 }

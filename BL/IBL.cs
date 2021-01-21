@@ -60,5 +60,21 @@ namespace BLAPI
 
 
         #endregion
+
+
+        #region Bus
+        IEnumerable<BO.Bus> GetAllBus();
+        BO.Bus AdaptBusToBoToDo(DO.Bus BusDO);
+        BO.Bus GetBus(int license);
+
+        //void UpdateBus(int license, double kmTrip, double kmGas, double gasoil);
+
+        IEnumerable<BO.Bus> GetAllBuses(BO.Bus bus);
+
+
+        void UpdateBus(BO.Bus bus);
+
+
+        #endregion
     }
 }

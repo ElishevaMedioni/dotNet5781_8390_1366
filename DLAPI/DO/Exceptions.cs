@@ -86,4 +86,19 @@ namespace DO
 
 
     }
+
+    [Serializable]
+    public class BadBusException : Exception
+    {
+        public int Lic;
+        public BadBusException(int lic) : base() => Lic = lic;
+        public BadBusException(int lic, string message) :
+            base(message) => Lic = lic;
+        public BadBusException(int lic, string message, Exception innerException) :
+            base(message, innerException) => Lic = lic;
+
+        public override string ToString() => base.ToString() + $", bad bus license: {Lic}";
+
+
+    }
 }

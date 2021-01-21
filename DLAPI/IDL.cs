@@ -59,6 +59,16 @@ namespace DLAPI
         #endregion
 
 
+        #region Bus
+
+
+        IEnumerable<DO.Bus> GetAllBuses();
+        DO.Bus GetBus(int license);
+
+        void UpdateBus(DO.Bus buses);
+
+
+        #endregion
 
     }
 }

@@ -1,0 +1,92 @@
+﻿<Window x:Class="UI.BusWindow1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UI"
+        mc:Ignorable="d"
+        Title="BusWindow1" Height="450" Width="800">
+    <Grid Background="#FFEEDEBD" Margin="0,0,0.333,-0.333">
+
+        <ListView Name="ListViewBus" ItemsSource="{Binding}" IsSynchronizedWithCurrentItem="True" HorizontalAlignment="Left" Height="382" Margin="10,0,0,0" VerticalAlignment="Top" Width="773" MouseDoubleClick="ListViewBus_MouseDoubleClick" FontWeight="Bold" FontFamily="Luciana Sans" TextOptions.TextHintingMode="Animated" >
+            <ListView.Background>
+                <ImageBrush ImageSource="buswinimg.jpeg" Opacity="0.7" Stretch="None"/>
+            </ListView.Background>
+
+            <ListView.ItemBindingGroup>
+                <BindingGroup/>
+            </ListView.ItemBindingGroup>
+            <ListView.View>
+                <GridView >
+
+                    <GridViewColumn x:Name="BusLine" Header="License " DisplayMemberBinding="{Binding License}" Width="120"   />
+                    <GridViewColumn x:Name="Status" Header="Status " DisplayMemberBinding="{Binding Status}"  Width="120"/>
+                    <GridViewColumn x:Name="Travelled" Header="Kilometres travelled" DisplayMemberBinding="{Binding TotalTrip}"  Width="120"/>
+
+
+
+
+
+                    <GridViewColumn Width="120">
+                        <GridViewColumn.CellTemplate>
+
+                            <DataTemplate>
+
+                                <Button Content="Let's start " Margin="0" VerticalAlignment="Center" Width="80" Click="Button_Click_3" FontWeight="Normal"  FontFamily="Luciana Sans" FontSize="12" >
+
+                                    <Button.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="7"/>
+
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+                            </DataTemplate>
+
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Width="120">
+                        <GridViewColumn.CellTemplate>
+
+                            <DataTemplate>
+                                <Button Content="Refuel" Margin="0" VerticalAlignment="Center" Width="80" Click="Button_Click_1" FontWeight="Normal"  FontFamily="Luciana Sans" FontSize="12" >
+
+                                    <Button.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="7"/>
+
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+
+                            </DataTemplate>
+
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+
+
+
+                    <GridViewColumn Width="120">
+                        <GridViewColumn.CellTemplate>
+
+                            <DataTemplate>
+                                <Button Content="Verification" Margin="0" VerticalAlignment="Center" Width="80" Click="Button_Click_2" FontWeight="Normal"  FontFamily="Luciana Sans" FontSize="12" >
+
+                                    <Button.Resources>
+                                        <Style TargetType="{x:Type Border}">
+                                            <Setter Property="CornerRadius" Value="7"/>
+
+                                        </Style>
+                                    </Button.Resources>
+                                </Button>
+                            </DataTemplate>
+
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+    </Grid>
+</Window>

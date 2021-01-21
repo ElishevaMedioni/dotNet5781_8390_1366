@@ -8,6 +8,6 @@ namespace BO
 {
     public enum BusStatus
     {
-        ONTHEROAD, READY
+        OnTheRoad, Ready, OnRefueling, InTraitement, NeedToRefuel, NeedVerification
     }
 }

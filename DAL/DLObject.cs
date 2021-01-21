@@ -353,5 +353,49 @@ namespace DL
 
         #endregion
 
+        #region Bus
+        public IEnumerable<DO.Bus> GetAllBuses()
+        {
+
+            return from bus in DataSource.ListBuses
+                   select bus.Clone();
+
+        }
+
+
+
+        public DO.Bus GetBus(int license)
+        {
+            DO.Bus bus = DataSource.ListBuses.Find(p => p.License == license);
+            if (bus != null)
+                return bus.Clone();
+            else
+                throw new DO.BadBusException(license, $"bad bus license: {license}");
+
+
+
+        }
+
+
+        public void UpdateBus(DO.Bus buses)
+        {
+            DO.Bus bus = DataSource.ListBuses.Find(p => p.License == buses.License);
+
+            if (bus != null)
+            {
+                DataSource.ListBuses.Remove(bus);
+                DataSource.ListBuses.Add(buses.Clone());
+            }
+            else
+                throw new DO.BadBusException(buses.License, $"bad bus license: {buses.License}");
+        }
+
+
+
+
+
+        #endregion
+
+
     }
 }

@@ -12,7 +12,8 @@ namespace DS
         
         public static List<Station> ListStations = new List<Station>();
         public static List<Line> ListLines = new List<Line>();
-        public static List<Bus> Buses = new List<Bus>();
+     
+        public static List<Bus> ListBuses = new List<Bus>();
         public static List<LineStation> ListLineStations = new List<LineStation>();
         public static List<AdjacentStations> ListAdjacentStations = new List<AdjacentStations>();
         public static int LineID = 0;
@@ -1563,201 +1564,202 @@ namespace DS
 
             });
         }
-        
+
+
+
+
         public static void InitBuses()
         {
-            Buses.Add(new Bus
+            ListBuses.Add(new Bus
             {
                 License = 4349870,
                 FromDate = DateTime.Today.AddYears(-3),
                 TotalTrip = 5555,
                 FuelRemain = 1200,
-                Status = BusStatus.READY
+                Status = BusStatus.Ready
             });
-            Buses.Add(new Bus
+            ListBuses.Add(new Bus
             {
                 License = 4349875,
                 FromDate = DateTime.Today.AddYears(-3),
                 TotalTrip = 1018,
                 FuelRemain = 15,
-                Status = BusStatus.READY
+                Status = BusStatus.Ready
             });
-            Buses.Add(new Bus
+            ListBuses.Add(new Bus
             {
                 License = 56765430,
                 FromDate = DateTime.Today.AddYears(0),
                 TotalTrip = 20000,
                 FuelRemain = 1200,
-                Status = BusStatus.INTRAITEMENT
-            });
+                Status = BusStatus.NeedVerification
+            }); ;
 
-            Buses.Add(new Bus
+            ListBuses.Add(new Bus
             {
                 License = 1001985,
                 FromDate = DateTime.Today.AddYears(-7),
                 TotalTrip = 7899,
                 FuelRemain = 0,
-                Status = BusStatus.ONREFUELING
+                Status = BusStatus.NeedToRefuel
             });
 
-            Buses.Add(new Bus
+            ListBuses.Add(new Bus
             {
                 License = 56765435,
                 FromDate = DateTime.Today.AddYears(0),
                 TotalTrip = 20000,
                 FuelRemain = 1200,
-                Status = BusStatus.INTRAITEMENT
+                Status = BusStatus.NeedVerification
             });
 
-            Buses.Add(new Bus
+            ListBuses.Add(new Bus
             {
                 License = 4005435,
                 FromDate = DateTime.Today.AddYears(-4),
                 TotalTrip = 9076,
                 FuelRemain = 555,
-                Status = BusStatus.READY
+                Status = BusStatus.Ready
             });
 
 
-            Buses.Add(new Bus
+            ListBuses.Add(new Bus
             {
                 License = 1000435,
                 FromDate = DateTime.Today.AddYears(-8),
                 TotalTrip = 12987,
                 FuelRemain = 0,
-                Status = BusStatus.ONREFUELING
+                Status = BusStatus.NeedToRefuel
             });
 
 
-            Buses.Add(new Bus
+            ListBuses.Add(new Bus
             {
                 License = 4085430,
                 FromDate = DateTime.Today.AddYears(-5),
                 TotalTrip = 19076,
                 FuelRemain = 554,
-                Status = BusStatus.READY
+                Status = BusStatus.Ready
             });
 
 
-            Buses.Add(new Bus
+            ListBuses.Add(new Bus
             {
                 License = 58785830,
                 FromDate = DateTime.Today.AddYears(0),
                 TotalTrip = 12,
                 FuelRemain = 1200,
-                Status = BusStatus.READY
+                Status = BusStatus.Ready
             });
 
-            Buses.Add(new Bus
+            ListBuses.Add(new Bus
             {
-                License = 0000035,
+                License = 11112335,
                 FromDate = DateTime.Today.AddYears(-10),
                 TotalTrip = 17654,
                 FuelRemain = 1099,
-                Status = BusStatus.READY
+                Status = BusStatus.Ready
             });
 
-            Buses.Add(new Bus
+            ListBuses.Add(new Bus
             {
                 License = 40987800,
                 FromDate = DateTime.Today.AddYears(-1),
                 TotalTrip = 6543,
                 FuelRemain = 989,
-                Status = BusStatus.READY
+                Status = BusStatus.Ready
             });
 
-            Buses.Add(new Bus
+            ListBuses.Add(new Bus
             {
                 License = 58900090,
                 FromDate = DateTime.Today.AddYears(-2),
                 TotalTrip = 128,
                 FuelRemain = 1000,
-                Status = BusStatus.READY
+                Status = BusStatus.Ready
             });
 
-            Buses.Add(new Bus
+            ListBuses.Add(new Bus
             {
                 License = 1000007,
                 FromDate = DateTime.Today.AddYears(-9),
                 TotalTrip = 21000,
                 FuelRemain = 1200,
-                Status = BusStatus.INTRAITEMENT
+                Status = BusStatus.NeedVerification
             });
 
-            Buses.Add(new Bus
+            ListBuses.Add(new Bus
             {
                 License = 4885800,
                 FromDate = DateTime.Today.AddYears(-3),
                 TotalTrip = 12987,
                 FuelRemain = 0,
-                Status = BusStatus.ONREFUELING
+                Status = BusStatus.Ready
             });
 
-            Buses.Add(new Bus
+            ListBuses.Add(new Bus
             {
                 License = 1098900,
                 FromDate = DateTime.Today.AddYears(-9),
                 TotalTrip = 16909,
                 FuelRemain = 565,
-                Status = BusStatus.READY
+                Status = BusStatus.Ready
             });
 
-            Buses.Add(new Bus
+            ListBuses.Add(new Bus
             {
                 License = 59898780,
                 FromDate = DateTime.Today.AddYears(0),
                 TotalTrip = 50,
                 FuelRemain = 1148,
-                Status = BusStatus.READY
+                Status = BusStatus.Ready
             });
 
-            Buses.Add(new Bus
+            ListBuses.Add(new Bus
             {
                 License = 59897785,
                 FromDate = DateTime.Today.AddYears(0),
                 TotalTrip = 178,
                 FuelRemain = 987,
-                Status = BusStatus.READY
+                Status = BusStatus.Ready
             });
 
 
-            Buses.Add(new Bus
+            ListBuses.Add(new Bus
             {
                 License = 4565000,
                 FromDate = DateTime.Today.AddYears(-6),
                 TotalTrip = 17098,
                 FuelRemain = 734,
-                Status = BusStatus.READY
+                Status = BusStatus.Ready
             });
 
-            Buses.Add(new Bus
+            ListBuses.Add(new Bus
             {
                 License = 59008000,
                 FromDate = DateTime.Today.AddYears(-1),
                 TotalTrip = 156,
                 FuelRemain = 111,
-                Status = BusStatus.READY
+                Status = BusStatus.Ready
             });
 
-            Buses.Add(new Bus
+            ListBuses.Add(new Bus
             {
                 License = 60000000,
                 FromDate = DateTime.Today.AddYears(0),
                 TotalTrip = 0,
                 FuelRemain = 1200,
-                Status = BusStatus.READY
+                Status = BusStatus.Ready
             });
 
 
+                }
 
 
 
 
 
-
-
-        }
-        public static void InitAllStations()
+            public static void InitAllStations()
         {
 
             ListStations.Add(new Station

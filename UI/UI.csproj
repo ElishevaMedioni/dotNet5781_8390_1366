@@ -90,6 +90,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Bus\AddBus.xaml.cs">
+      <DependentUpon>AddBus.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Bus\BusWindow1.xaml.cs">
+      <DependentUpon>BusWindow1.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Line\AddLineWindow.xaml.cs">
       <DependentUpon>AddLineWindow.xaml</DependentUpon>
     </Compile>
@@ -102,7 +108,7 @@
     <Compile Include="Line\LineViewWindow.xaml.cs">
       <DependentUpon>LineViewWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="mapWindow.xaml.cs">
+    <Compile Include="MapWin\mapWindow.xaml.cs">
       <DependentUpon>mapWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Station\StationViewWindow.xaml.cs">
@@ -120,6 +126,14 @@
     <Compile Include="Station\UpdateStationWin.xaml.cs">
       <DependentUpon>UpdateStationWin.xaml</DependentUpon>
     </Compile>
+    <Page Include="Bus\AddBus.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Bus\BusWindow1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Line\AddLineWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -136,7 +150,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="mapWindow.xaml">
+    <Page Include="MapWin\mapWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -152,7 +166,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="MainWin\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -160,7 +174,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="MainWin\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
@@ -224,10 +238,7 @@
     <Resource Include="Station\stationview.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Bus\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="mainwindowimg.jpeg" />
+    <Resource Include="Bus\buswinimg.jpeg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="FirstWindow\userimg.jpeg" />
@@ -237,6 +248,24 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Line\backgroundbus.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="MainWin\mainwinimg.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="MainWin\linkedinimg.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="MainWin\playimg.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="MainWin\pauseimg.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="MainWin\bustlv.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Bus\busimg.jpeg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
