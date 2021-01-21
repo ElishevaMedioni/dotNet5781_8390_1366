@@ -6,9 +6,12 @@
         xmlns:local="clr-namespace:UI"
         xmlns:BO="clr-namespace:BO;assembly=BL" x:Class="UI.LineViewWindow"
         mc:Ignorable="d"
-        Title="LineViewWindow" Height="511.334" Width="814.667">
+        Title="LineViewWindow" Height="511.334" Width="862">
 
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="paysage.jpg"/>
+        </Grid.Background>
 
         <Grid x:Name="grid1Line" VerticalAlignment="Top" Margin="19,10,0,0" HorizontalAlignment="Left" Height="372" Width="500" >
             <Grid.RowDefinitions>
@@ -23,11 +26,17 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
 
-            <Label VerticalAlignment="Center" Grid.Row="0" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Code:"/>
-            <TextBox x:Name="codeTextBox" Width="113" VerticalAlignment="Center" Text="{Binding Code, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="0" Margin="3.333,5,0,5.333" Height="23" HorizontalAlignment="Left" Grid.Column="1"/>
+            <Label VerticalAlignment="Center" Grid.Row="0" Margin="3,9,3,3" HorizontalAlignment="Left" Grid.Column="0" Content="Code:" FontSize="14" FontWeight="Bold" FontFamily="Lucida Sans" Foreground="White"/>
+            <TextBox x:Name="codeTextBox" Width="113" VerticalAlignment="Center" Text="{Binding Code, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="0" Margin="18.667,9,0,7.333" Height="23" HorizontalAlignment="Left" Grid.Column="1" FontFamily="Lucida Sans" FontWeight="Bold"/>
 
-            <Label VerticalAlignment="Center" Grid.Row="1" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Area:"/>
-            <ComboBox x:Name="areaComboBox" Width="113" VerticalAlignment="Center" Grid.Row="1" Margin="3.333,5.667,0,5.667" SelectedItem="{Binding Area}" Height="Auto" HorizontalAlignment="Left" Grid.Column="1">
+            <Label VerticalAlignment="Center" Grid.Row="1" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Area:" FontSize="14" Foreground="White" FontFamily="Lucida Sans" FontWeight="Bold"/>
+            <ComboBox x:Name="areaComboBox" Width="113" VerticalAlignment="Center" Grid.Row="1" Margin="18.667,3.667,0,8.333" SelectedItem="{Binding Area}" Height="Auto" HorizontalAlignment="Left" Grid.Column="1" BorderBrush="#FFFBF1F1" FontFamily="Lucida Sans" FontWeight="Bold">
+                <ComboBox.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                        <GradientStop Color="#FFFBF1F1" Offset="1"/>
+                    </LinearGradientBrush>
+                </ComboBox.Background>
                 <ComboBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <VirtualizingStackPanel/>
@@ -35,8 +44,8 @@
                 </ComboBox.ItemsPanel>
             </ComboBox>
 
-            <Label VerticalAlignment="Center" Grid.Row="2" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="First Station:"/>
-            <ComboBox x:Name="firstStationComboBox" Width="223" VerticalAlignment="Center" Grid.Row="2" Margin="3.333,5.667,-54.333,6.333" ItemsSource="{Binding}" Height="Auto" HorizontalAlignment="Left" Grid.Column="1" >
+            <Label VerticalAlignment="Center" Grid.Row="2" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="First Station:" FontSize="14" FontFamily="Lucida Sans" FontWeight="Bold" Foreground="White"/>
+            <ComboBox x:Name="firstStationComboBox" Width="242" VerticalAlignment="Center" Grid.Row="2" Margin="18.667,10.333,-86.667,4.333" ItemsSource="{Binding}" Height="Auto" HorizontalAlignment="Left" Grid.Column="1" BorderBrush="#FFFFFDFD" FontFamily="Lucida Sans" FontWeight="Bold" >
                 <ComboBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <VirtualizingStackPanel/>
@@ -44,8 +53,14 @@
                 </ComboBox.ItemsPanel>
             </ComboBox>
 
-            <Label VerticalAlignment="Center" Grid.Row="3" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Last Station:"/>
-            <ComboBox x:Name="lastStationComboBox" Width="223" VerticalAlignment="Center" Grid.Row="3" Margin="3.333,6,-53.667,6" ItemsSource="{Binding}" Height="Auto" HorizontalAlignment="Left"  Grid.Column="1">
+            <Label VerticalAlignment="Center" Grid.Row="3" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Last Station:" FontSize="14" Foreground="White" FontWeight="Bold" FontFamily="Lucida Sans"/>
+            <ComboBox x:Name="lastStationComboBox" Width="242" VerticalAlignment="Center" Grid.Row="3" Margin="18.667,10,-86,4.667" ItemsSource="{Binding}" Height="Auto" HorizontalAlignment="Left"  Grid.Column="1" Foreground="#FF080000" BorderBrush="#FFE8E8E8" FontFamily="Lucida Sans" FontWeight="Bold">
+                <ComboBox.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </ComboBox.Background>
                 <ComboBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <VirtualizingStackPanel/>
@@ -53,11 +68,11 @@
                 </ComboBox.ItemsPanel>
             </ComboBox>
 
-            <Label VerticalAlignment="Center" Grid.Row="4" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="List Of Stations In This Line:"/>
-            <ListBox x:Name="listOfStationsInThisLineListBox" Width="222" VerticalAlignment="Center" Grid.Row="4" Margin="4.333,10.333,-58.333,-69.667" Height="216" HorizontalAlignment="Left" Grid.Column="1" ItemsSource="{Binding}" SelectedItem="{Binding Name}" >
+            <Label VerticalAlignment="Center" Grid.Row="4" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="List Of Stations In This Line:" FontFamily="Lucida Sans" FontSize="14" FontWeight="Bold" Foreground="White"/>
+            <ListBox x:Name="listOfStationsInThisLineListBox" Width="214" VerticalAlignment="Center" Grid.Row="4" Margin="18.667,10.667,-57.333,-68" Height="216" HorizontalAlignment="Left" Grid.Column="1" ItemsSource="{Binding}" SelectedItem="{Binding Name}" FontFamily="Lucida Sans" FontWeight="Bold" Background="#FFFFFDFD" BorderBrush="#FFFFFDFD" >
 
             </ListBox>
-            <Button x:Name="updateLine" Content="Update Line" Grid.Column="1" HorizontalAlignment="Left" Margin="237.333,26.667,-148.667,0" Grid.Row="4" VerticalAlignment="Top" Width="82" Height="34" Click="updateLine_Click">
+            <Button x:Name="updateLine" Content="Update Line" Grid.Column="1" HorizontalAlignment="Left" Margin="237.333,26.667,-148.667,0" Grid.Row="4" VerticalAlignment="Top" Width="82" Height="34" Click="updateLine_Click" Background="#FF272264" Foreground="#FFFEF2F2" BorderBrush="#FF272264">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="7"/>
@@ -65,7 +80,7 @@
                     </Style>
                 </Button.Resources>
             </Button>
-            <Button x:Name="addStation" Content="Add Station" Grid.Column="1" HorizontalAlignment="Left" Margin="237.333,81.667,-148,0" Grid.Row="4" VerticalAlignment="Top" Width="82" Height="34" Click="addStation_Click">
+            <Button x:Name="addStation" Content="Add Station" Grid.Column="1" HorizontalAlignment="Left" Margin="237.333,81.667,-148,0" Grid.Row="4" VerticalAlignment="Top" Width="82" Height="34" Click="addStation_Click" Foreground="#FFF6F5FB" Background="#FF272264" BorderBrush="#FF272264">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="7"/>
@@ -73,7 +88,7 @@
                     </Style>
                 </Button.Resources>
             </Button>
-            <Button x:Name="deleteStation" Content="Delete Station" Grid.Column="1" HorizontalAlignment="Left" Margin="237.333,137.333,-158,-20.667" Grid.Row="4" VerticalAlignment="Top" Width="82" Height="34" Click="deleteStation_Click">
+            <Button x:Name="deleteStation" Content="Delete Station" Grid.Column="1" HorizontalAlignment="Left" Margin="237.333,137.333,-158,-20.667" Grid.Row="4" VerticalAlignment="Top" Width="82" Height="34" Click="deleteStation_Click" Background="#FF272264" Foreground="#FFF8F4F4" BorderBrush="#FF272264">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="7"/>
@@ -82,9 +97,9 @@
                 </Button.Resources>
             </Button>
         </Grid>
-        <ListBox x:Name="listBoxStation" HorizontalAlignment="Left" Height="240" Margin="524,81,0,0" VerticalAlignment="Top" Width="255" ItemsSource="{Binding}" Visibility="Hidden"/>
-        <Label x:Name="lblHide" Content="Select the station you want to add to the route &#10; and click on Add This Station" HorizontalAlignment="Left" Margin="497,27,0,0" VerticalAlignment="Top" Width="288" Visibility="Hidden" Height="49"/>
-        <Button x:Name="btnAddThisStation" Content="Add This Station" HorizontalAlignment="Left" Margin="606,348,0,0" VerticalAlignment="Top" Width="93" Height="33" Click="Button_Click_1" Visibility="Hidden" >
+        <ListBox x:Name="listBoxStation" HorizontalAlignment="Left" Height="240" Margin="590,76,0,0" VerticalAlignment="Top" Width="255" ItemsSource="{Binding}" Visibility="Hidden" FontFamily="Lucida Sans" FontWeight="Bold"/>
+        <Label x:Name="lblHide" Content="Select the station you want to add to the route &#10; and click on Add This Station" HorizontalAlignment="Left" Margin="497,27,0,0" VerticalAlignment="Top" Width="288" Visibility="Hidden" Height="49" FontFamily="Lucida Sans" FontWeight="Bold" FontStyle="Italic" Foreground="White"/>
+        <Button x:Name="btnAddThisStation" Content="Add This Station" HorizontalAlignment="Left" Margin="606,348,0,0" VerticalAlignment="Top" Width="93" Height="33" Click="Button_Click_1" Visibility="Hidden" Foreground="White" BorderBrush="#FF272264" Background="#FF272264" >
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="7"/>
@@ -92,8 +107,8 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Label Content="If you want to delete a station, select a station in the list and click on Delete Station" HorizontalAlignment="Left" Margin="42,398,0,0" VerticalAlignment="Top" Width="514"/>
-        <Label Content="If you want to add a station, select the station which will be the previous one of the new station and click on Add Station" HorizontalAlignment="Left" Margin="42,429,0,0" VerticalAlignment="Top" Width="659"/>
+        <Label Content="If you want to delete a station, select a station in the list and click on Delete Station" HorizontalAlignment="Left" Margin="42,398,0,0" VerticalAlignment="Top" Width="537" Foreground="White" FontFamily="Lucida Sans" FontWeight="Bold" FontStyle="Italic"/>
+        <Label Content="If you want to add a station, select the station which will be the previous one of the new station and click on Add Station" HorizontalAlignment="Left" Margin="42,429,0,0" VerticalAlignment="Top" Width="659" Foreground="White" FontWeight="Bold" FontFamily="Lucida Sans" FontStyle="Italic"/>
 
     </Grid>
 </Window>

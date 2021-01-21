@@ -85,5 +85,10 @@ namespace UI
             }
 
         }
+
+        private void areaComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

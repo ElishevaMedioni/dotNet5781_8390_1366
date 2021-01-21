@@ -267,6 +267,36 @@
   <ItemGroup>
     <Resource Include="Bus\busimg.jpeg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Station\beHappy.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Station\panneau.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Station\route.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Station\girl.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Line\route.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Line\InTheBus.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Line\clock.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Line\paysage.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Line\END.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Line\sam.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

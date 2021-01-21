@@ -143,5 +143,10 @@ namespace UI
 
             
         }
+
+        private void ListViewStation_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

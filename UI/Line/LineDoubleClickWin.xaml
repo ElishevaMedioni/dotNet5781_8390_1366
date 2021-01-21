@@ -8,40 +8,45 @@
         mc:Ignorable="d"
         Title="LineDoubleClickWin" Height="525" Width="800" >
 
-    <Grid>
+    <Grid Background="#FFFBD0BD">
 
-        <Grid x:Name="grid1" VerticalAlignment="Top" Margin="30,14,0,0" HorizontalAlignment="Left" Height="434" Width="370">
+        <Grid x:Name="grid1" VerticalAlignment="Top" Margin="10,14,0,0" HorizontalAlignment="Left" Height="434" Width="326" Background="#FFFBD0BD">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
 
-            <Label VerticalAlignment="Center" Grid.Row="1" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Area:"/>
-            <TextBlock x:Name="areaTextBlock" VerticalAlignment="Center" Text="{Binding Area}" Grid.Row="1" Margin="3" HorizontalAlignment="Left" Grid.Column="1"/>
+            <Label VerticalAlignment="Center" Grid.Row="1" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Area:" FontFamily="Lucida Sans" FontWeight="Bold" Foreground="#FFA93611"/>
+            <TextBlock x:Name="areaTextBlock" VerticalAlignment="Center" Text="{Binding Area}" Grid.Row="1" Margin="3" HorizontalAlignment="Left" Grid.Column="1" FontSize="14" FontFamily="David" FontWeight="Bold"/>
 
-            <Label VerticalAlignment="Center" Grid.Row="0" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Code:"/>
-            <TextBlock x:Name="codeTextBlock" VerticalAlignment="Center" Text="{Binding Code}" Grid.Row="0" Margin="3" HorizontalAlignment="Left" Grid.Column="1"/>
+            <Label VerticalAlignment="Center" Grid.Row="0" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Code:" FontFamily="Lucida Sans" FontWeight="Bold" Foreground="#FFA93611"/>
+            <TextBlock x:Name="codeTextBlock" VerticalAlignment="Center" Text="{Binding Code}" Grid.Row="0" Margin="3" HorizontalAlignment="Left" Grid.Column="1" FontFamily="David" FontSize="14" FontWeight="Bold"/>
 
-            <Label VerticalAlignment="Center" Grid.Row="2" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="First Station:"/>
-            <TextBlock x:Name="firstStationTextBlock" VerticalAlignment="Center" Text="{Binding FirstStation}" Grid.Row="2" Margin="3" HorizontalAlignment="Left" Grid.Column="1"/>
+            <Label VerticalAlignment="Center" Grid.Row="2" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="First Station:" FontFamily="Lucida Sans" FontWeight="Bold" Foreground="#FFA93611"/>
+            <TextBlock x:Name="firstStationTextBlock" VerticalAlignment="Center" Text="{Binding FirstStation}" Grid.Row="2" Margin="3" HorizontalAlignment="Left" Grid.Column="1" FontFamily="David" FontSize="14"/>
 
-            <Label VerticalAlignment="Center" Grid.Row="3" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Last Station:"/>
-            <TextBlock x:Name="lastStationTextBlock" VerticalAlignment="Center" Text="{Binding LastStation}" Grid.Row="3" Margin="3" HorizontalAlignment="Left" Grid.Column="1"/>
+            <Label VerticalAlignment="Center" Grid.Row="3" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="Last Station:" FontFamily="Lucida Sans" FontWeight="Bold" Foreground="#FFA93611"/>
+            <TextBlock x:Name="lastStationTextBlock" VerticalAlignment="Center" Text="{Binding LastStation}" Grid.Row="3" Margin="3" HorizontalAlignment="Left" Grid.Column="1" FontFamily="David" FontSize="14" FontWeight="Bold"/>
 
-            <Label VerticalAlignment="Center" Grid.Row="4" Margin="3" HorizontalAlignment="Left" Grid.Column="0" Content="List Of Stations In This Line:"/>
-            <ListBox x:Name="listOfStationsInThisLineListBox" Width="196" VerticalAlignment="Center" Grid.Row="4" Margin="3.333,3.333,-94,-188" ItemsSource="{Binding}" Height="294" HorizontalAlignment="Left" Grid.Column="1"/>
+            <Label VerticalAlignment="Center" Margin="200.333,3.667,-213.333,1.333" HorizontalAlignment="Left" Grid.Column="1" Content="List Of Stations In This Line:" FontFamily="Lucida Sans" FontWeight="Bold" FontSize="11" Height="25" Foreground="#FFA93611" Grid.Row="2"/>
+            <ListBox x:Name="listOfStationsInThisLineListBox" Width="215" VerticalAlignment="Center" Grid.Row="4" Margin="0,0.333,-247.667,24" ItemsSource="{Binding}" Height="289" HorizontalAlignment="Right" Grid.Column="1" Background="#FFFBD0BD" BorderBrush="#FFFBD0BD" SelectionChanged="listOfStationsInThisLineListBox_SelectionChanged" FontWeight="Bold" FontFamily="David" FontSize="14"/>
+            <Grid HorizontalAlignment="Left" Height="268" Margin="10,32.667,0,-188" Grid.Row="4" VerticalAlignment="Top" Width="231" Grid.ColumnSpan="2">
+                <Grid.Background>
+                    <ImageBrush ImageSource="route.jpg"/>
+                </Grid.Background>
+            </Grid>
         </Grid>
-        <ListBox x:Name="lstDistance" HorizontalAlignment="Left" Height="303" Margin="389,145,0,0" VerticalAlignment="Top" Width="138"/>
-        <ListBox x:Name="lstTime" HorizontalAlignment="Left" Height="303" Margin="526,145,0,0" VerticalAlignment="Top" Width="147"/>
-        <Label Content="Distance:" HorizontalAlignment="Left" Margin="415,116,0,0" VerticalAlignment="Top" Width="87"/>
-        <Label Content="Time:" HorizontalAlignment="Left" Margin="558,116,0,0" VerticalAlignment="Top" Width="81"/>
+        <ListBox x:Name="lstDistance" HorizontalAlignment="Left" Height="295" Margin="513,134,0,0" VerticalAlignment="Top" Width="140" Background="#FFFBD0BD" BorderBrush="#FFFBD0BD" FontFamily="David" FontSize="14" FontWeight="Bold"/>
+        <ListBox x:Name="lstTime" HorizontalAlignment="Left" Height="295" Margin="658,134,-1.667,0" VerticalAlignment="Top" Width="137" Background="#FFFBD0BD" BorderBrush="#FFFBD0BD" FontFamily="David" FontSize="14" FontWeight="Bold"/>
+        <Label Content="Distance:" HorizontalAlignment="Left" Margin="533,78,0,0" VerticalAlignment="Top" Width="87" FontFamily="Lucida Sans" FontWeight="Bold" Foreground="#FFA93611"/>
+        <Label Content="Time:" HorizontalAlignment="Left" Margin="678,78,0,0" VerticalAlignment="Top" Width="81" FontFamily="Lucida Sans" FontWeight="Bold" Foreground="#FFA93611"/>
 
     </Grid>
 </Window>

@@ -8,22 +8,22 @@
         Title="AddStationWindow" Height="465.445" Width="458.835" WindowStyle="SingleBorderWindow">
     <Grid Margin="0,0,3.333,0">
         <Grid.Background>
-            <SolidColorBrush Color="#FFE0C7DE" Opacity="0.7"/>
+            <SolidColorBrush Color="#FFFDF8E7" Opacity="0.7"/>
         </Grid.Background>
-        <StackPanel HorizontalAlignment="Left" Height="172" Margin="75,254,0,0" VerticalAlignment="Top" Width="303">
+        <StackPanel HorizontalAlignment="Left" Height="172" Margin="42,254,0,0" VerticalAlignment="Top" Width="316">
             <StackPanel.Background>
                 <ImageBrush ImageSource="addstationimg.jpg" Opacity="0.6"/>
             </StackPanel.Background>
         </StackPanel>
-        <Label Content="Code:" HorizontalAlignment="Left" Margin="24,22,0,0" VerticalAlignment="Top" Height="29" Width="69" FontSize="18" FontFamily="Lucida Sans"/>
-        <TextBox x:Name="codetxt" HorizontalAlignment="Left" Height="23" Margin="139,28,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" PreviewTextInput="NumberValidationTextBox"/>
-        <Label  Content="Name:" HorizontalAlignment="Left" Margin="24,53,0,0" VerticalAlignment="Top" Width="82" FontSize="18" FontFamily="Lucida Sans" RenderTransformOrigin="0.423,-1.092"/>
-        <TextBox x:Name="nametxt" HorizontalAlignment="Left" Height="23" Margin="139,61,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Longitude:" HorizontalAlignment="Left" Margin="20,89,0,0" VerticalAlignment="Top" Width="119" FontSize="18" FontFamily="Lucida Sans"/>
-        <Label Content="Latitude:" HorizontalAlignment="Left" Margin="24,126,0,0" VerticalAlignment="Top" FontSize="18" FontFamily="Lucida Sans"/>
-        <TextBox x:Name="longitudetxt" HorizontalAlignment="Left" Height="23" Margin="139,97,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="latitudetxt" HorizontalAlignment="Left" Height="23" Margin="139,134,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <Button Content="Add" HorizontalAlignment="Left" Margin="330,75,0,0" VerticalAlignment="Top" Width="75" Height="59" Background="SeaShell" FontFamily="Lucida Sans" FontSize="18" Click="Button_Click" >
+        <Label Content="Code:" HorizontalAlignment="Left" Margin="24,28,0,0" VerticalAlignment="Top" Height="29" Width="69" FontFamily="Lucida Sans" FontSize="14" FontWeight="Bold"/>
+        <TextBox x:Name="codetxt" HorizontalAlignment="Left" Height="23" Margin="155,34,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" PreviewTextInput="NumberValidationTextBox" BorderBrush="#FF000205" Background="#FFECAEAA"/>
+        <Label  Content="Name:" HorizontalAlignment="Left" Margin="24,78,0,0" VerticalAlignment="Top" Width="82" FontSize="14" FontFamily="Lucida Sans" RenderTransformOrigin="0.423,-1.092" FontWeight="Bold"/>
+        <TextBox x:Name="nametxt" HorizontalAlignment="Left" Height="23" Margin="155,78,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" BorderBrush="#FF000205" Background="#FFECAEAA"/>
+        <Label Content="Longitude:" HorizontalAlignment="Left" Margin="24,141,0,0" VerticalAlignment="Top" Width="119" FontSize="14" FontFamily="Lucida Sans" FontWeight="Bold"/>
+        <Label Content="Latitude:" HorizontalAlignment="Left" Margin="24,186,0,0" VerticalAlignment="Top" FontSize="14" FontFamily="Lucida Sans" FontWeight="Bold"/>
+        <TextBox x:Name="longitudetxt" HorizontalAlignment="Left" Height="23" Margin="155,141,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" BorderBrush="#FF000205" Background="#FFECAEAA"/>
+        <TextBox x:Name="latitudetxt" HorizontalAlignment="Left" Height="23" Margin="155,190,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" BorderBrush="#FF000205" Background="#FFECAEAA"/>
+        <Button Content="Add" HorizontalAlignment="Left" Margin="330,75,0,0" VerticalAlignment="Top" Width="75" Height="59" Background="#FFECAEAA" FontFamily="Lucida Sans" FontSize="18" Click="Button_Click" BorderBrush="#FF000205" >
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="7"/>
@@ -31,6 +31,6 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Label Content="The longitude must be between 34.3 and 35.5 &#10; And the latitude between 31 and 33.3 " HorizontalAlignment="Left" Margin="24,176,0,0" VerticalAlignment="Top" Width="374" Height="49" FontSize="14" FontFamily="Lucida Sans"/>
+        <Label Content=" The longitude must be between 34.3 and 35.5 &#xA; And the latitude between 31 and 33.3 " HorizontalAlignment="Left" Margin="51,227,0,0" VerticalAlignment="Top" Width="374" Height="36" FontFamily="Lucida Sans" FontStyle="Italic" FontWeight="Bold"/>
     </Grid>
 </Window>

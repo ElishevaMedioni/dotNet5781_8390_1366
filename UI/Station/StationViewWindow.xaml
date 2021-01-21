@@ -10,7 +10,7 @@
         Title="StationViewWindow" Height="485.587" Width="706.766"  >
 
 
-    <Grid Margin="0,0,-7,1.333">
+    <Grid Margin="0,0,-7,1.333" Background="#FFFFEFEF">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="379*"/>
             <ColumnDefinition Width="231*"/>
@@ -21,22 +21,11 @@
                 <GradientStop Color="White" Offset="1"/>
             </LinearGradientBrush>
         </Grid.OpacityMask>
-        <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="#FFD8B0D3" Offset="0.352"/>
-                <GradientStop Color="#FFD062B3" Offset="0.779"/>
-            </LinearGradientBrush>
-        </Grid.Background>
-        <StackPanel HorizontalAlignment="Left" Height="232" Margin="378,205,0,0" VerticalAlignment="Top" Width="302" Grid.ColumnSpan="2">
-            <StackPanel.Background>
-                <ImageBrush ImageSource="stationview.jpg" Opacity="0.8"/>
-            </StackPanel.Background>
-        </StackPanel>
-        <GridSplitter HorizontalAlignment="Left" Height="235" Margin="23,205,0,0" VerticalAlignment="Top" Width="333"/>
-        <WindowsPresentation:GMapControl x:Name="map" HorizontalAlignment="Left" Height="201" Margin="45,222,0,0" VerticalAlignment="Top" Width="292"/>
+        <GridSplitter HorizontalAlignment="Left" Height="185" Margin="50,222,0,0" VerticalAlignment="Top" Width="310"/>
+        <WindowsPresentation:GMapControl x:Name="map" HorizontalAlignment="Left" Height="185" Margin="50,222,0,0" VerticalAlignment="Top" Width="310" RenderTransformOrigin="0.433,0.483"/>
 
 
-        <Grid x:Name="grid1" HorizontalAlignment="Left" Margin="341,18,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="131" Width="357">
+        <Grid x:Name="grid1" HorizontalAlignment="Left" Margin="173,10,0,0" VerticalAlignment="Top" Height="131" Width="266">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -44,8 +33,8 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Label Content="Lines Passing At This Station:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontFamily="Lucida Sans" FontSize="18"/>
-            <ListBox x:Name="linesPassingAtThisStationListBox" Grid.Column="1" HorizontalAlignment="Left" Height="100" ItemsSource="{Binding}" Margin="3.333,3,-4.667,5" Grid.Row="0" VerticalAlignment="Center" Width="64" SelectedItem="{Binding Code}" FontFamily="Lucida Sans" FontSize="18"/>
+            <Label Content="                         Lines :" Grid.Column="1" HorizontalAlignment="Left" Margin="0.333,43,0,49.667" Grid.Row="0" VerticalAlignment="Center" FontFamily="Lucida Sans" Width="161" FontWeight="Bold"/>
+            <ListBox x:Name="linesPassingAtThisStationListBox" Grid.Column="1" HorizontalAlignment="Left" Height="96" ItemsSource="{Binding}" Margin="146.333,13,-42,10.333" Grid.Row="0" VerticalAlignment="Center" Width="71" SelectedItem="{Binding Code}" FontFamily="Lucida Sans" FontSize="14" Background="#FF753C69" Foreground="White"/>
         </Grid>
         <Grid x:Name="grid2" HorizontalAlignment="Left" Margin="30,15,0,0" VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
@@ -55,8 +44,8 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Label Content="Code:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontFamily="Lucida Sans" FontSize="18"/>
-            <TextBlock x:Name="codeTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="0" Text="{Binding Code}" VerticalAlignment="Center" FontFamily="Lucida Sans" FontSize="18"/>
+            <Label Content="Code:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontFamily="Lucida Sans" FontSize="14" FontWeight="Bold"/>
+            <TextBlock x:Name="codeTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="0" Text="{Binding Code}" VerticalAlignment="Center" FontFamily="Lucida Sans" FontSize="12"/>
         </Grid>
         <Grid x:Name="grid3" HorizontalAlignment="Left" Margin="25,96,0,0" VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
@@ -66,8 +55,8 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Label Content="Latitude:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontFamily="Lucida Sans" FontSize="18"/>
-            <TextBlock x:Name="latitudeTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="0" Text="{Binding Latitude}" VerticalAlignment="Center" FontFamily="Lucida Sans" FontSize="18"/>
+            <Label Content="Latitude:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontFamily="Lucida Sans" FontSize="14" FontWeight="Bold"/>
+            <TextBlock x:Name="latitudeTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="0" Text="{Binding Latitude}" VerticalAlignment="Center" FontFamily="Lucida Sans" FontSize="12"/>
         </Grid>
         <Grid x:Name="grid4"  HorizontalAlignment="Left" Margin="25,139,0,0" VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
@@ -77,8 +66,8 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Label Content="Longitude:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontFamily="Lucida Sans" FontSize="18"/>
-            <TextBlock x:Name="longitudeTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="0" Text="{Binding Longitude}" VerticalAlignment="Center" FontFamily="Lucida Sans" FontSize="18"/>
+            <Label Content="Longitude:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontFamily="Lucida Sans" FontWeight="Bold" FontSize="14"/>
+            <TextBlock x:Name="longitudeTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="0" Text="{Binding Longitude}" VerticalAlignment="Center" FontFamily="Lucida Sans" FontSize="12"/>
         </Grid>
         <Grid x:Name="grid5" HorizontalAlignment="Left" Margin="28,57,0,0" VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
@@ -88,8 +77,13 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Label Content="Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"  FontFamily="Lucida Sans" FontSize="18"/>
-            <TextBlock x:Name="nameTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="0" Text="{Binding Name}" VerticalAlignment="Center" FontFamily="Lucida Sans" FontSize="18"/>
+            <Label Content="Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"  FontFamily="Lucida Sans" FontSize="14" FontWeight="Bold"/>
+            <TextBlock x:Name="nameTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="0" Text="{Binding Name}" VerticalAlignment="Center" FontFamily="Lucida Sans" FontSize="12"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="445" Margin="411,0,0,0" VerticalAlignment="Top" Width="295" Grid.ColumnSpan="2">
+            <Grid.Background>
+                <ImageBrush ImageSource="girl.jpg"/>
+            </Grid.Background>
         </Grid>
 
 

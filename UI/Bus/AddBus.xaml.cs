@@ -25,7 +25,6 @@ namespace UI
     public partial class AddBus : Window
     {
         private BO.Bus myBus2;
-        // private BusWindow1 myBus3;//LAA
         private readonly IBL bl;
 
         public AddBus(IBL _bl, BO.Bus baba)
@@ -33,33 +32,14 @@ namespace UI
             InitializeComponent();
             bl = _bl;
             myBus2 = baba;
-
-
-
-
-
-
-
-
-
-
-
-
         }
 
         private void kmForTheTrip_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
+        {}
 
         private void kmForTheTrip_KeyDown(object sender, KeyEventArgs e)
         {
-
-
-
-
-
-            myBus2 = bl.GetBus(myBus2.License);
+           myBus2 = bl.GetBus(myBus2.License);
 
 
 
@@ -73,8 +53,7 @@ namespace UI
 
                 DateTime date1 = DateTime.Now;
                 DateTime date2 = myBus2.FromDate;
-                // DateTime date2 = kmForTheTrip.DateOfTheLastTechnicalControl;
-                TimeSpan t = date1 - date2;
+                 TimeSpan t = date1 - date2;
 
                 if (String.IsNullOrEmpty(kilometer)) // si l'entree est false
                 {
@@ -121,28 +100,22 @@ namespace UI
 
                             int speed = rr.Next(20, 50);
                             int tiime = (kmFTT / speed) * 6000 + (kmFTT % speed) * 100;
-                            Thread.Sleep(5000 / tiime * 60 );// *3600 to convert in second, *100 sleep is in ms and we want seconds
-                                                              //  myBus.Status = "Available";
-
+                            Thread.Sleep(5000 / tiime * 60 );
                         }).Start();
 
 
 
-                        myBus2.TotalTrip = myBus2.TotalTrip + kmFTT; // rajouter des kilometres a total trip 
+                        myBus2.TotalTrip = myBus2.TotalTrip + kmFTT; 
 
 
 
 
-                        //MessageBox.Show(myBus.FuelRemain + "km", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                         myBus2.GasolineLevel = ((1200 - myBus2.FuelRemain) * 100) / 1200;
                         MessageBox.Show("New Itinary has been uptaded successfully for: " + kmFTT + " kms", "Important Message");
 
                         kmForTheTrip.Clear();
                         bl.UpdateBus(myBus2);
 
-
-
-                        // myBus3.RefreshListOfBus();
 
                     }
 

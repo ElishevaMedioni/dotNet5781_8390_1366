@@ -9,16 +9,20 @@
         Title="AddLineWindow" Height="484.118" Width="545.882" >
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="181*"/>
+            <RowDefinition Height="274*"/>
+        </Grid.RowDefinitions>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <GradientStop Color="#FFD1C1AE" Offset="0.207"/>
                 <GradientStop Color="#FFD7CB7F" Offset="0.573"/>
-                <GradientStop Color="#FFDB8013" Offset="0.901"/>
+                <GradientStop Color="#FF606060" Offset="0.901"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Image HorizontalAlignment="Left" Height="196" Margin="116,249,0,0" VerticalAlignment="Top" Width="324" Source="addlineimg.jpg" Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Height="445" VerticalAlignment="Top" Width="539" Source="addlineimg.jpg" Stretch="Fill" OpacityMask="#FFEDEDD3" Grid.RowSpan="2"/>
 
-        <Grid x:Name="grid1"  HorizontalAlignment="Left" Margin="134,19,0,0" VerticalAlignment="Top" Height="176" Width="285">
+        <Grid x:Name="grid1"  HorizontalAlignment="Left" Margin="25,28,0,0" VerticalAlignment="Top" Height="187" Width="296" Grid.RowSpan="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
@@ -30,11 +34,11 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <Label Content="Code:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="18" FontFamily="Lucida Sans"/>
-            <TextBox x:Name="codeTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding Code, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" FontSize="18" FontFamily="Lucida Sans" PreviewTextInput="NumberValidationTextBox"/>
+            <Label Content="Code:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" FontSize="14" FontFamily="Lucida Sans" FontWeight="Bold"/>
+            <TextBox x:Name="codeTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="20" Margin="2.667,7,0,10.333" Grid.Row="0" Text="{Binding Code, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="94" FontSize="18" FontFamily="Lucida Sans" PreviewTextInput="NumberValidationTextBox"/>
 
-            <Label Content="Area:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center" FontSize="18" FontFamily="Lucida Sans"/>
-            <ComboBox x:Name="areaComboBox" Grid.Column="1" HorizontalAlignment="Left" Height="Auto"  SelectedItem="{Binding Area}" Margin="3" Grid.Row="1" VerticalAlignment="Center" Width="120" FontSize="18" FontFamily="Lucida Sans">
+            <Label Content="Area:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center" FontSize="14" FontFamily="Lucida Sans" FontWeight="Bold"/>
+            <ComboBox x:Name="areaComboBox" Grid.Column="1" HorizontalAlignment="Left" Height="23"  SelectedItem="{Binding Area}" Margin="2.667,4.667,0,9.667" Grid.Row="1" VerticalAlignment="Center" Width="94" FontSize="14" FontFamily="Lucida Sans" SelectionChanged="areaComboBox_SelectionChanged">
                 <ComboBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <VirtualizingStackPanel/>
@@ -42,8 +46,8 @@
                 </ComboBox.ItemsPanel>
             </ComboBox>
 
-            <Label Content="First Station:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center" FontSize="18" FontFamily="Lucida Sans"/>
-            <ComboBox x:Name="firstStationComboBox" Grid.Column="1" HorizontalAlignment="Left" Height="Auto" ItemsSource="{Binding}" Margin="3.333,5,-21.667,5" Grid.Row="2" VerticalAlignment="Center" Width="145" FontSize="18" FontFamily="Lucida Sans">
+            <Label Content="First Station:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center" FontSize="14" FontFamily="Lucida Sans" FontWeight="Bold"/>
+            <ComboBox x:Name="firstStationComboBox" Grid.Column="1" HorizontalAlignment="Left" Height="22" ItemsSource="{Binding}" Margin="3.667,5.333,0,10" Grid.Row="2" VerticalAlignment="Center" Width="93" FontSize="14" FontFamily="Lucida Sans">
                 <ComboBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <VirtualizingStackPanel/>
@@ -53,15 +57,15 @@
 
 
 
-            <Label Content="Last Station:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center" FontSize="18" FontFamily="Lucida Sans"/>
-            <ComboBox x:Name="lastStationComboBox" Grid.Column="1" HorizontalAlignment="Left" Height="Auto" ItemsSource="{Binding}" Margin="3.333,5,-21,5" Grid.Row="3" VerticalAlignment="Center" Width="145" FontSize="18" FontFamily="Lucida Sans">
+            <Label Content="Last Station:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,10,0,18.333" Grid.Row="3" VerticalAlignment="Center" FontFamily="Lucida Sans" FontWeight="Bold" FontSize="14" RenderTransformOrigin="0.52,0.2" Height="35"/>
+            <ComboBox x:Name="lastStationComboBox" Grid.Column="1" HorizontalAlignment="Left" Height="22" ItemsSource="{Binding}" Margin="3.667,10,0,31.333" Grid.Row="3" VerticalAlignment="Center" Width="93" FontSize="14" FontFamily="Lucida Sans" RenderTransformOrigin="0.52,-0.296">
                 <ComboBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <VirtualizingStackPanel/>
                     </ItemsPanelTemplate>
                 </ComboBox.ItemsPanel>
             </ComboBox>
-            <Button Content="Add" HorizontalAlignment="Left" Margin="102,71.333,0,-45" Grid.Row="3" VerticalAlignment="Top" Width="82" Grid.ColumnSpan="2" FontSize="16" FontFamily="Lucida Sans" Height="37" Click="Button_Click">
+            <Button Content="Add" HorizontalAlignment="Left" Margin="112.667,39,-84,0" Grid.Row="3" VerticalAlignment="Top" Width="74" FontSize="18" FontFamily="Lucida Sans" Height="25" Click="Button_Click" Background="#FFE1924F" FontWeight="Bold" Grid.Column="1" Visibility="Visible">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="7"/>

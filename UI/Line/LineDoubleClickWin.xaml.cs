@@ -43,10 +43,9 @@ namespace UI.Line
             
         }
 
+        private void listOfStationsInThisLineListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
 
-
-
-
-
+        }
     }
 }

@@ -43,15 +43,7 @@ namespace UI
             ListViewBus.ItemsSource = myCollection;
             DataContext = ListViewBus;
 
-
-
-
-
-
-
-
-
-        }
+         }
 
 
         private void Button_Click_1(object sender, RoutedEventArgs e)//refuel
@@ -152,16 +144,7 @@ namespace UI
                 ListViewBus.Items.Refresh();
             }
 
-            //for (int i = 0; i < 50; i++)
-            //{
-            //    new Thread(() =>
-            //    {
-
-            //        Thread.Sleep(500);
-
-            //    }).Start();
-            //    ListViewBus.Items.Refresh();
-            //}
+       
 
 
         }
@@ -196,10 +179,7 @@ namespace UI
 
         private void ListViewBus_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            //myBus2 = (Bus)ListViewBus.SelectedItem;
-            //ViewItem secondWindow = new ViewItem(current);
-            //secondWindow.Show();
-            //myListView.Items.Refresh();
+            
         }
 
         public bool CheckStatusForRefuel()
@@ -312,14 +292,6 @@ namespace UI
         }
 
 
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-
-            System.Windows.Data.CollectionViewSource busViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("busViewSource")));
-            // Load data by setting the CollectionViewSource.Source property:
-            // busViewSource.Source = [generic data source]
-        }
 
 
 

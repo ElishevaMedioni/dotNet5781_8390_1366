@@ -25,12 +25,12 @@ namespace UI
     public partial class MainWindow : Window
     {
         private readonly IBL bl = BLFactory.GetBL("1");
-        //readonly System.Media.SoundPlayer player = new System.Media.SoundPlayer();
+        readonly System.Media.SoundPlayer player = new System.Media.SoundPlayer();
         public MainWindow()
         {
 
             InitializeComponent();
-            //player.SoundLocation = @"C:\Users\keren\source\repos\ElishevaMedioni\dotNet5781_8390_1366\UI\Assets\Aluph2.wav"; 
+            player.SoundLocation = @"C:\Users\keren\source\repos\ElishevaMedioni\dotNet5781_8390_1366\UI\MainWin\Aluph3.wav"; 
 
 
         }
@@ -84,11 +84,11 @@ namespace UI
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //player.Play();
+            player.Play();
         }
         private void Button_Click10(object sender, RoutedEventArgs e)
         {
-            //player.Stop();
+            player.Stop();
         }
 
         private void Button_Click11(object sender, RoutedEventArgs e)
