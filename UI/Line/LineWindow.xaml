@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:UI"
         xmlns:BO="clr-namespace:BO;assembly=BL" x:Class="UI.LineWindow"
         mc:Ignorable="d"
-        Title="LineWindow" Height="504" Width="865"  >
-
+        Title="LineWindow" Height="504" Width="865"   >
+   
 
     <Grid Opacity="0.85" Background="#FFED9569" >
 
@@ -101,10 +101,24 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Grid HorizontalAlignment="Left" Height="475" Margin="454,0,-0.333,-0.333" VerticalAlignment="Top" Width="405">
-            <Grid.Background>
-                <ImageBrush ImageSource="sam.jpg"/>
-            </Grid.Background>
+        <Grid x:Name="grid1" HorizontalAlignment="Left" Margin="520,23,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Area:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+            <ComboBox x:Name="areaComboBox" Grid.Column="1"  HorizontalAlignment="Left" Height="Auto" SelectedItem="{Binding Area}" Margin="3" Grid.Row="0" VerticalAlignment="Center" Width="120" SelectionChanged="areaComboBox_SelectionChanged" ItemsSource="{Binding}">
+                <ComboBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <VirtualizingStackPanel/>
+                    </ItemsPanelTemplate>
+                </ComboBox.ItemsPanel>
+            </ComboBox>
         </Grid>
+
+
     </Grid>
 </Window>

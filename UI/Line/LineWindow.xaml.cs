@@ -36,9 +36,9 @@ namespace UI
 
             myCollection = new ObservableCollection<BO.Line>(bl.GetAllLine());
             ListViewLine.ItemsSource = myCollection;
-            
 
-
+            areaComboBox.ItemsSource = Enum.GetValues(typeof(BO.Areas));
+           // areaComboBox.DataContext = myCollection;
 
         }
         /// <summary>
@@ -108,6 +108,12 @@ namespace UI
                 win.Show();
             }
            
+        }
+
+        private void areaComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            BO.Areas area = (BO.Areas)areaComboBox.SelectedItem;
+            ListViewLine.ItemsSource = bl.ReturnTheLineByArea(area);
         }
     }
 }

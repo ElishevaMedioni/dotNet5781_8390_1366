@@ -16,7 +16,9 @@ namespace DS
         public static List<Bus> ListBuses = new List<Bus>();
         public static List<LineStation> ListLineStations = new List<LineStation>();
         public static List<AdjacentStations> ListAdjacentStations = new List<AdjacentStations>();
+        public static List<LineTrip> ListLineTrips = new List<LineTrip>();
         public static int LineID = 0;
+        public static int LineTripID = 0;
         
 
         public static void InitAdjacentStations()
@@ -27,7 +29,7 @@ namespace DS
                 Station2 = 100010,
                 Distance = 2.15,
                 Time = new TimeSpan(0,2,9),
-            }); ;
+            }); 
 
             ListAdjacentStations.Add(new AdjacentStations
             {
@@ -1566,8 +1568,6 @@ namespace DS
         }
 
 
-
-
         public static void InitBuses()
         {
             ListBuses.Add(new Bus
@@ -1757,9 +1757,7 @@ namespace DS
 
 
 
-
-
-            public static void InitAllStations()
+        public static void InitAllStations()
         {
 
             ListStations.Add(new Station
@@ -2175,7 +2173,37 @@ namespace DS
         }
 
 
+        public static void InitLineTrips()
+        {
+            ListLineTrips.Add(new LineTrip
+            {
+                ID = LineTripID++,
+                LineId = 2,
+                StartAt = new TimeSpan(9, 0, 0),
+            }) ;
 
+            ListLineTrips.Add(new LineTrip
+            {
+                ID = LineTripID++,
+                LineId = 2,
+                StartAt = new TimeSpan(9, 30, 0),
+            });
+
+            ListLineTrips.Add(new LineTrip
+            {
+                ID = LineTripID++,
+                LineId = 2,
+                StartAt = new TimeSpan(9, 40, 0),
+            });
+
+            ListLineTrips.Add(new LineTrip
+            {
+                ID = LineTripID++,
+                LineId = 2,
+                StartAt = new TimeSpan(9, 50, 0),
+            });
+        }
+            
 
 
 
@@ -2199,9 +2227,6 @@ namespace DS
 
 
 
-
-
-    // Kerennnnn 
 
 
 

@@ -28,7 +28,7 @@
                 </ImageBrush.RelativeTransform>
             </ImageBrush>
         </Grid.Background>
-        <ListView Name="ListViewStation" HorizontalAlignment="Right" Width="591" MouseDoubleClick="ListViewStation_MouseDoubleClick" FontWeight="Bold" FontFamily="David" BorderBrush="#FFF4DDCB" Foreground="#FF010308" SelectionChanged="ListViewStation_SelectionChanged" Background="#FFF4DDCB" Grid.RowSpan="3" Margin="0,0,0,52" FontSize="14" >
+        <ListView Name="ListViewStation" HorizontalAlignment="Right" Width="640" MouseDoubleClick="ListViewStation_MouseDoubleClick" FontWeight="Bold" FontFamily="David" BorderBrush="#FFF4DDCB" Foreground="#FF010308" SelectionChanged="ListViewStation_SelectionChanged" Background="#FFF4DDCB" Grid.RowSpan="3" Margin="0,0,0,52" FontSize="14" >
             <ListView.ItemBindingGroup>
                 <BindingGroup/>
             </ListView.ItemBindingGroup>
@@ -62,7 +62,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Content="Add Station" HorizontalAlignment="Left" Margin="738,236.667,0,0" VerticalAlignment="Top" Width="141" Height="44" FontSize="18" Click="Button_Click" FontFamily="Lucida Sans" Grid.Row="2" Background="#FFC4797D" FontWeight="Bold">
+        <Button Content="Add Station" HorizontalAlignment="Left" Margin="738,236.667,0,0" VerticalAlignment="Top" Width="151" Height="44" FontSize="18" Click="Button_Click" FontFamily="Lucida Sans" Grid.Row="2" Background="#FFC4797D" FontWeight="Bold">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="7"/>
@@ -70,7 +70,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="btnUpdateS" Content="Update Station" FontFamily="Lucida Sans" Width="151" Height="44" FontSize="18" HorizontalAlignment="Left" Margin="405,237.667,0,0" VerticalAlignment="Top" Click="btnUpdateS_Click" Grid.Row="2" Background="#FFC4797D" FontWeight="Bold">
+        <Button x:Name="btnUpdateS" Content="Update Station" FontFamily="Lucida Sans" Width="151" Height="44" FontSize="18" HorizontalAlignment="Left" Margin="395,237.667,0,0" VerticalAlignment="Top" Click="btnUpdateS_Click" Grid.Row="2" Background="#FFC4797D" FontWeight="Bold">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="7"/>
@@ -78,7 +78,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="btnDelS" Content="Delete Station" FontFamily="Lucida Sans" Width="131" Height="44" FontSize="18" HorizontalAlignment="Left" Margin="579,238.667,0,0" VerticalAlignment="Top" Click="btnDelS_Click" Grid.Row="2" FontWeight="Bold" Background="#FFC4797D" BorderBrush="#FFF4DDCB">
+        <Button x:Name="btnDelS" Content="Delete Station" FontFamily="Lucida Sans" Width="151" Height="44" FontSize="18" HorizontalAlignment="Left" Margin="567,238.667,0,0" VerticalAlignment="Top" Click="btnDelS_Click" Grid.Row="2" FontWeight="Bold" Background="#FFC4797D" BorderBrush="#FFF4DDCB">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="7"/>
@@ -86,7 +86,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Grid HorizontalAlignment="Left" Height="489" Margin="10,10,0,-3" Grid.RowSpan="3" VerticalAlignment="Top" Width="335">
+        <Grid HorizontalAlignment="Left" Height="489" Margin="10,10,0,-3" Grid.RowSpan="3" VerticalAlignment="Top" Width="286">
             <Grid.Background>
                 <ImageBrush ImageSource="panneau.jpg"/>
             </Grid.Background>

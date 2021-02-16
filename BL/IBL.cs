@@ -32,10 +32,13 @@ namespace BLAPI
 
         void AddFirstAndLastStation(BO.Line line, BO.Station firstS, BO.Station lastS);
 
-       
+        void UpdateFirstStation(BO.Line line, BO.Station firstS);
+        void UpdateLastStation(BO.Line line, BO.Station lastS);
         void DeleteLine(BO.Line lineToDel); // delete Line
 
-
+        
+        IEnumerable<BO.Line> ReturnTheLineByArea(BO.Areas area);
+        IEnumerable<IGrouping<BO.Areas, BO.Line>> GroupingFunction();
         #endregion
 
         #region LineStation
@@ -61,6 +64,15 @@ namespace BLAPI
 
         #endregion
 
+        #region LineTiming
+        //BO.LineTiming GetLineTiming(int id);
+        //IEnumerable<BO.LineTiming> GetAllLineTiming();
+
+        //void UpdateLineTiming(BO.LineTiming lineT);
+
+        //void DeleteLineTiming(BO.LineTiming lineT);
+
+        #endregion
 
         #region Bus
         IEnumerable<BO.Bus> GetAllBus();

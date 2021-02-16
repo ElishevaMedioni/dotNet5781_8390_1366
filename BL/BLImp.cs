@@ -315,6 +315,90 @@ namespace BL
             line.ListOfStationsInThisLine = GetAllStationsInThisLine(line);
         }
 
+
+        public void UpdateFirstStation(BO.Line line, BO.Station firstS)
+        {
+            
+            DO.LineStation lineStation1 = dl.GetAllLineStations().ToList().Find(p => p.Station == firstS.Code && p.LineId == line.Id);
+            int indexLS1 = lineStation1.LineStationIndex;
+
+            IEnumerable<DO.LineStation> lineStations = from item in dl.GetLineStationInLineStationsList(p => p.LineId == line.Id && p.LineStationIndex < indexLS1)
+                                                       select dl.UpdateLineStation2(new DO.LineStation
+                                                       {
+                                                           LineId = item.LineId,
+                                                           Station = item.Station,
+                                                           LineStationIndex = item.LineStationIndex + 1
+                                                       });
+
+
+
+            DO.LineStation newFS = new DO.LineStation
+            {
+                LineId = line.Id,
+                Station = firstS.Code,
+                LineStationIndex = 0
+            };
+
+            
+            dl.UpdateLineStation(newFS);
+
+            line.ListOfStationsInThisLine = GetAllStationsInThisLine(line);
+        }
+
+        public void UpdateLastStation(BO.Line line, BO.Station lastS)
+        {
+            DO.LineStation lineStation1 = dl.GetAllLineStations().ToList().Find(p => p.Station == lastS.Code && p.LineId == line.Id);
+            int indexLS1 = lineStation1.LineStationIndex;
+            
+            DO.LineStation lineStation2 = dl.GetAllLineStations().ToList().Find(p => p.Station == line.LastStation && p.LineId == line.Id);
+
+            IEnumerable<DO.LineStation> lineStations = from item in dl.GetLineStationInLineStationsList(p => p.LineId == line.Id && p.LineStationIndex > indexLS1)
+                                                       select dl.UpdateLineStation2(new DO.LineStation
+                                                       {
+                                                           LineId = item.LineId,
+                                                           Station = item.Station,
+                                                           LineStationIndex = item.LineStationIndex - 1
+                                                       });
+
+            DO.LineStation newLS = new DO.LineStation
+            {
+                LineId = line.Id,
+                Station = lastS.Code,
+                LineStationIndex = lineStation2.LineStationIndex
+            };
+
+            dl.UpdateLineStation(newLS);
+            //line.ListOfStationsInThisLine = GetAllStationsInThisLine(line);
+        }
+
+        public IEnumerable<IGrouping<BO.Areas, BO.Line>> GroupingFunction()
+        {
+            List<BO.Line> lines = new List<BO.Line>();
+            lines = GetAllLine().ToList();
+            var linequery = from item in lines
+                            group item by item.Area into g
+                            select g;
+            return linequery;
+        }
+      
+        public IEnumerable<BO.Line> ReturnTheLineByArea(BO.Areas area)
+        {
+            IEnumerable<IGrouping<BO.Areas, BO.Line>> groupedData = GroupingFunction();
+            foreach (var group in groupedData)
+            {
+                if (group.Key == area)
+                    return group;
+               
+
+            }
+            return null;
+            //foreach (var group in groupedData)
+            //{
+            //    var groupKey = group.Key;
+            //    foreach (var groupedItem in group)
+            //        DoSomethingWith(groupKey, groupedItem);
+            //}
+        }
         #endregion
 
 
@@ -383,8 +467,7 @@ namespace BL
 
                     // step 2 delete LineStation
                     dl.DeleteLineStation(line.Id, code);
-
-                   
+     
 
                 }
                 else
@@ -449,6 +532,10 @@ namespace BL
                 result.Add(result[i - 1] + DistanceBetweenAdjacentStation(myList[i-1], myList[i]));
 
             }
+            for (int i=1; i<size; i++)
+            {
+                result[i] = Math.Round(result[i], 2);
+            }
             return result;
 
 
@@ -490,6 +577,18 @@ namespace BL
 
         #endregion
 
+
+        #region LineTiming 
+        //public BO.LineTiming GetLineTiming(int id)
+        //{
+
+        //}
+        //IEnumerable<BO.LineTiming> GetAllLineTiming();
+
+        //void UpdateLineTiming(BO.LineTiming lineT);
+
+        //void DeleteLineTiming(BO.LineTiming lineT);
+        #endregion
 
         #region Bus
         public BO.Bus AdaptBusToBoToDo(DO.Bus BusDO) //PRIVATE

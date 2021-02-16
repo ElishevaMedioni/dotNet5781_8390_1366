@@ -50,9 +50,10 @@ namespace UI
         }
 
 
-        void RefreshListOfStationInThisLine()
+        void RefreshListOfStationInThisLine(BO.Line line)
         {
-            listOfStationsInThisLineListBox.ItemsSource = bl.GetAllStationsInThisLine(myLine);
+            
+            listOfStationsInThisLineListBox.ItemsSource = bl.GetAllStationsInThisLine(line);
         }
 
         private void addStation_Click(object sender, RoutedEventArgs e)
@@ -70,8 +71,8 @@ namespace UI
             try
             {
                 bl.DeleteStationInALine(stationToDel.Code, myLine);
-                myCollection.Remove(stationToDel);
-               
+                
+                RefreshListOfStationInThisLine(myLine);
             }
             catch (BO.BadStationException ex)
             {
@@ -83,10 +84,7 @@ namespace UI
             }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+       
         /// <summary>
         /// add a station
         /// </summary>
@@ -108,7 +106,7 @@ namespace UI
                 {
                     bl.AddAStationInALine(myStation, myLine, stationPrev);
                     
-                    RefreshListOfStationInThisLine();
+                    RefreshListOfStationInThisLine(myLine);
 
 
                     listBoxStation.Visibility = Visibility.Hidden;
@@ -152,13 +150,17 @@ namespace UI
                     Area = (BO.Areas)areaComboBox.SelectedItem,
                     FirstStation = fS.Code,
                     LastStation = lS.Code,
-                    ListOfStationsInThisLine = myLine.ListOfStationsInThisLine
+                   // ListOfStationsInThisLine = myLine.ListOfStationsInThisLine
                 };
+
+                myLine = lineToUpdate;
 
                 try
                 {
-                    bl.UpdateLine(lineToUpdate);
-                    this.Close();
+                    bl.UpdateLine(myLine);
+                    bl.UpdateFirstStation(myLine, fS);
+
+                    RefreshListOfStationInThisLine(myLine);
                 }
                 catch (BO.BadLineException ex)
                 {

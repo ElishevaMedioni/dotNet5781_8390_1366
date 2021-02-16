@@ -58,6 +58,12 @@ namespace DLAPI
 
         #endregion
 
+        #region LineTrip
+        DO.LineTrip GetLineTrip(int id);
+        void AddLineTrip(DO.LineTrip lineTrip);
+        void UpdateLineTrip(DO.LineTrip lineTrip);
+        void DeleteLineTrip(DO.LineTrip lineTrip);
+        #endregion
 
         #region Bus
 

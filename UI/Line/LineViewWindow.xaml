@@ -108,7 +108,7 @@
             </Button.Resources>
         </Button>
         <Label Content="If you want to delete a station, select a station in the list and click on Delete Station" HorizontalAlignment="Left" Margin="42,398,0,0" VerticalAlignment="Top" Width="537" Foreground="White" FontFamily="Lucida Sans" FontWeight="Bold" FontStyle="Italic"/>
-        <Label Content="If you want to add a station, select the station which will be the previous one of the new station and click on Add Station" HorizontalAlignment="Left" Margin="42,429,0,0" VerticalAlignment="Top" Width="659" Foreground="White" FontWeight="Bold" FontFamily="Lucida Sans" FontStyle="Italic"/>
+        <Label Content="If you want to add a station, select the station which will be the previous one of the new station and click on Add Station" HorizontalAlignment="Left" Margin="42,429,0,0" VerticalAlignment="Top" Width="757" Foreground="White" FontWeight="Bold" FontFamily="Lucida Sans" FontStyle="Italic"/>
 
     </Grid>
 </Window>

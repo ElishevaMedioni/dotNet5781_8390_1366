@@ -10,7 +10,8 @@
         Title="StationViewWindow" Height="485.587" Width="706.766"  >
 
 
-    <Grid Margin="0,0,-7,1.333" Background="#FFFFEFEF">
+
+    <Grid Margin="0,0,-7,1.333" Background="#FFFFEFEF" >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="379*"/>
             <ColumnDefinition Width="231*"/>
@@ -80,11 +81,46 @@
             <Label Content="Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"  FontFamily="Lucida Sans" FontSize="14" FontWeight="Bold"/>
             <TextBlock x:Name="nameTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="0" Text="{Binding Name}" VerticalAlignment="Center" FontFamily="Lucida Sans" FontSize="12"/>
         </Grid>
-        <Grid HorizontalAlignment="Left" Height="445" Margin="411,0,0,0" VerticalAlignment="Top" Width="295" Grid.ColumnSpan="2">
-            <Grid.Background>
-                <ImageBrush ImageSource="girl.jpg"/>
-            </Grid.Background>
-        </Grid>
+        <DataGrid x:Name="lineTimingDataGrid" AutoGenerateColumns="False" Grid.Column="0" EnableRowVirtualization="True" Height="Auto" ItemsSource="{Binding}" Margin="436,17,18.667,304.667" RowDetailsVisibilityMode="VisibleWhenSelected" Width="Auto" Grid.ColumnSpan="2">
+            <DataGrid.Columns>
+               
+                <DataGridTemplateColumn x:Name="lineCodeColumn" Header="Line Code" Width="SizeToHeader">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding LineCode}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                
+
+                <DataGridTemplateColumn x:Name="timingColumn" Header="Timing" Width="SizeToHeader">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Timing}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                
+                
+                <DataGridTemplateColumn x:Name="tripStartColumn" Header="Trip Start" Width="SizeToHeader">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding TripStart}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn x:Name="lastStationColumn" Header="Last Station" Width="SizeToHeader">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding LastStation}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
 
 
 

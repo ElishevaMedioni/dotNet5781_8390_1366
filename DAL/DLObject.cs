@@ -353,6 +353,59 @@ namespace DL
 
         #endregion
 
+
+
+        #region LineTrip
+       public DO.LineTrip GetLineTrip(int id)
+        {
+
+            DO.LineTrip lineT = DataSource.ListLineTrips.Find(p => p.ID == id);
+            if (lineT != null)
+                return lineT.Clone();
+            else
+                throw new DO.BadLineIdException(id, $"bad line code: {id}");
+            
+        }
+
+        public void AddLineTrip(DO.LineTrip lineTrip)
+        {
+
+            int newId = DataSource.LineTripID++;
+            lineTrip.ID = newId;
+            DataSource.ListLineTrips.Add(lineTrip.Clone());
+
+        }
+
+
+        public void UpdateLineTrip(DO.LineTrip lineTrip)
+        {
+            
+            DO.LineTrip lineT = DataSource.ListLineTrips.Find(p => p.ID == lineTrip.ID);
+            if (lineT != null)
+            {
+                DataSource.ListLineTrips.Remove(lineT);
+                DataSource.ListLineTrips.Add(lineTrip.Clone());
+            }
+            else 
+                throw new DO.BadLineIdException(lineTrip.LineId, $"bad line code: {lineTrip.LineId}");
+        }
+
+        public void DeleteLineTrip(DO.LineTrip lineTrip)
+        {
+            
+
+            DO.LineTrip lineT = DataSource.ListLineTrips.Find(p => p.ID == lineTrip.ID);
+
+            if (lineT != null)
+            {
+                DataSource.ListLineTrips.Remove(lineT);
+            }
+            else
+                throw new DO.BadLineIdException(lineTrip.LineId, $"bad line code: {lineTrip.LineId}");
+        }
+
+        #endregion
+
         #region Bus
         public IEnumerable<DO.Bus> GetAllBuses()
         {
