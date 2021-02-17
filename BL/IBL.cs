@@ -65,12 +65,7 @@ namespace BLAPI
         #endregion
 
         #region LineTiming
-        //BO.LineTiming GetLineTiming(int id);
-        //IEnumerable<BO.LineTiming> GetAllLineTiming();
-
-        //void UpdateLineTiming(BO.LineTiming lineT);
-
-        //void DeleteLineTiming(BO.LineTiming lineT);
+    
 
         #endregion
 

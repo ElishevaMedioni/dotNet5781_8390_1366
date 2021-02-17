@@ -1,1 +1,428 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfLineStation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<LineStation>
+		<LineId>1</LineId>
+		<Station>100000</Station>
+		<LineStationIndex>0</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>1</LineId>
+		<Station>100010</Station>
+		<LineStationIndex>1</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>1</LineId>
+		<Station>100020</Station>
+		<LineStationIndex>2</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>1</LineId>
+		<Station>100030</Station>
+		<LineStationIndex>3</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>1</LineId>
+		<Station>100040</Station>
+		<LineStationIndex>4</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>1</LineId>
+		<Station>100050</Station>
+		<LineStationIndex>5</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>1</LineId>
+		<Station>100060</Station>
+		<LineStationIndex>6</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>1</LineId>
+		<Station>100070</Station>
+		<LineStationIndex>7</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>1</LineId>
+		<Station>100080</Station>
+		<LineStationIndex>8</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>1</LineId>
+		<Station>100090</Station>
+		<LineStationIndex>9</LineStationIndex>
+	</LineStation>
+
+
+	<LineStation>
+		<LineId>2</LineId>
+		<Station>100040</Station>
+		<LineStationIndex>0</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>2</LineId>
+		<Station>100050</Station>
+		<LineStationIndex>1</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>2</LineId>
+		<Station>100020</Station>
+		<LineStationIndex>2</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>2</LineId>
+		<Station>100100</Station>
+		<LineStationIndex>3</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>2</LineId>
+		<Station>100110</Station>
+		<LineStationIndex>4</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>2</LineId>
+		<Station>100120</Station>
+		<LineStationIndex>5</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>2</LineId>
+		<Station>100130</Station>
+		<LineStationIndex>6</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>2</LineId>
+		<Station>100140</Station>
+		<LineStationIndex>7</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>2</LineId>
+		<Station>100150</Station>
+		<LineStationIndex>8</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>2</LineId>
+		<Station>100160</Station>
+		<LineStationIndex>9</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>3</LineId>
+		<Station>100000</Station>
+		<LineStationIndex>0</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>3</LineId>
+		<Station>100030</Station>
+		<LineStationIndex>1</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>3</LineId>
+		<Station>100090</Station>
+		<LineStationIndex>2</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>3</LineId>
+		<Station>100100</Station>
+		<LineStationIndex>3</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>3</LineId>
+		<Station>100200</Station>
+		<LineStationIndex>4</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>3</LineId>
+		<Station>100210</Station>
+		<LineStationIndex>5</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>3</LineId>
+		<Station>100220</Station>
+		<LineStationIndex>6</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>3</LineId>
+		<Station>100230</Station>
+		<LineStationIndex>7</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>3</LineId>
+		<Station>100240</Station>
+		<LineStationIndex>8</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>3</LineId>
+		<Station>100250</Station>
+		<LineStationIndex>9</LineStationIndex>
+	</LineStation>
+
+
+	<LineStation>
+		<LineId>4</LineId>
+		<Station>100300</Station>
+		<LineStationIndex>0</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>4</LineId>
+		<Station>100030</Station>
+		<LineStationIndex>1</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>4</LineId>
+		<Station>100320</Station>
+		<LineStationIndex>2</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>4</LineId>
+		<Station>100330</Station>
+		<LineStationIndex>3</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>4</LineId>
+		<Station>100210</Station>
+		<LineStationIndex>4</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>4</LineId>
+		<Station>100340</Station>
+		<LineStationIndex>5</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>4</LineId>
+		<Station>100350</Station>
+		<LineStationIndex>6</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>4</LineId>
+		<Station>100360</Station>
+		<LineStationIndex>7</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>4</LineId>
+		<Station>100370</Station>
+		<LineStationIndex>8</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>4</LineId>
+		<Station>100380</Station>
+		<LineStationIndex>9</LineStationIndex>
+	</LineStation>
+
+
+	<LineStation>
+		<LineId>5</LineId>
+		<Station>100030</Station>
+		<LineStationIndex>0</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>5</LineId>
+		<Station>100060</Station>
+		<LineStationIndex>1</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>5</LineId>
+		<Station>100010</Station>
+		<LineStationIndex>2</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>5</LineId>
+		<Station>100000</Station>
+		<LineStationIndex>3</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>5</LineId>
+		<Station>100400</Station>
+		<LineStationIndex>4</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>5</LineId>
+		<Station>100410</Station>
+		<LineStationIndex>5</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>5</LineId>
+		<Station>100420</Station>
+		<LineStationIndex>6</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>5</LineId>
+		<Station>100430</Station>
+		<LineStationIndex>7</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>5</LineId>
+		<Station>100440</Station>
+		<LineStationIndex>8</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>5</LineId>
+		<Station>100450</Station>
+		<LineStationIndex>9</LineStationIndex>
+	</LineStation>
+
+
+	<LineStation>
+		<LineId>6</LineId>
+		<Station>100440</Station>
+		<LineStationIndex>0</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>6</LineId>
+		<Station>100450</Station>
+		<LineStationIndex>1</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>6</LineId>
+		<Station>100460</Station>
+		<LineStationIndex>2</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>6</LineId>
+		<Station>100470</Station>
+		<LineStationIndex>3</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>6</LineId>
+		<Station>100480</Station>
+		<LineStationIndex>4</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>6</LineId>
+		<Station>100490</Station>
+		<LineStationIndex>5</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>6</LineId>
+		<Station>100500</Station>
+		<LineStationIndex>6</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>6</LineId>
+		<Station>100070</Station>
+		<LineStationIndex>7</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>6</LineId>
+		<Station>100080</Station>
+		<LineStationIndex>8</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>6</LineId>
+		<Station>100090</Station>
+		<LineStationIndex>9</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>7</LineId>
+		<Station>100040</Station>
+		<LineStationIndex>0</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>7</LineId>
+		<Station>100050</Station>
+		<LineStationIndex>1</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>7</LineId>
+		<Station>100020</Station>
+		<LineStationIndex>2</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>7</LineId>
+		<Station>100300</Station>
+		<LineStationIndex>3</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>7</LineId>
+		<Station>100330</Station>
+		<LineStationIndex>4</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>7</LineId>
+		<Station>100340</Station>
+		<LineStationIndex>5</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>7</LineId>
+		<Station>100350</Station>
+		<LineStationIndex>6</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>7</LineId>
+		<Station>100360</Station>
+		<LineStationIndex>7</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>7</LineId>
+		<Station>100370</Station>
+		<LineStationIndex>8</LineStationIndex>
+	</LineStation>
+
+	<LineStation>
+		<LineId>7</LineId>
+		<Station>100380</Station>
+		<LineStationIndex>9</LineStationIndex>
+	</LineStation>
+	
+</ArrayOfLineStation>

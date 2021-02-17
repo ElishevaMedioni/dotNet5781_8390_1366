@@ -159,7 +159,7 @@ namespace UI
                 {
                     bl.UpdateLine(myLine);
                     bl.UpdateFirstStation(myLine, fS);
-
+                    bl.UpdateLastStation(myLine, lS);
                     RefreshListOfStationInThisLine(myLine);
                 }
                 catch (BO.BadLineException ex)

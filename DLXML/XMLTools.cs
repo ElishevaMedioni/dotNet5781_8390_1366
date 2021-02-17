@@ -8,7 +8,7 @@ using System.Xml.Linq;
 using System.Xml.Serialization;
 using DO;
 
-namespace DLXML
+namespace DL
 {
     
         class XMLTools

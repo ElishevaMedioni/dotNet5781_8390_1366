@@ -28,7 +28,7 @@ namespace DLAPI
         void UpdateLine(DO.Line line);
         
         void DeleteLine(int id);
-        void DeleteAllLineStation1line(int lineId);
+        
 
 
 
@@ -49,20 +49,20 @@ namespace DLAPI
 
         #region AdjacentStations
 
-        DO.AdjacentStations GetAdjacentStations(int Station1, int Station2);
-        void AddAdjacentStations(DO.AdjacentStations Adj, int station1, int station2);
-        void AddAdjacentStations(DO.AdjacentStations adj);
-        void UpdateAdjacentStations(int station1, int station2, DO.AdjacentStations adj);
-        void DeleteAdjacentStations(int station1, int station2, DO.AdjacentStations adj);
+        //DO.AdjacentStations GetAdjacentStations(int Station1, int Station2);
+        //void AddAdjacentStations(DO.AdjacentStations Adj, int station1, int station2);
+        //void AddAdjacentStations(DO.AdjacentStations adj);
+        //void UpdateAdjacentStations(int station1, int station2, DO.AdjacentStations adj);
+        //void DeleteAdjacentStations(int station1, int station2, DO.AdjacentStations adj);
 
 
         #endregion
 
         #region LineTrip
-        DO.LineTrip GetLineTrip(int id);
-        void AddLineTrip(DO.LineTrip lineTrip);
-        void UpdateLineTrip(DO.LineTrip lineTrip);
-        void DeleteLineTrip(DO.LineTrip lineTrip);
+        //DO.LineTrip GetLineTrip(int id);
+        //void AddLineTrip(DO.LineTrip lineTrip);
+        //void UpdateLineTrip(DO.LineTrip lineTrip);
+        //void DeleteLineTrip(DO.LineTrip lineTrip);
         #endregion
 
         #region Bus

@@ -22,7 +22,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BL", "BL\BL.csproj", "{A6D7
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "UI\UI.csproj", "{10FD5C22-7008-4787-B393-E86918947BE8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DLXML", "DLXML\DLXML.csproj", "{D74151F8-F1EA-4711-975A-E27CED47F2CF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DLXML2", "DLXML2\DLXML2.csproj", "{99DB9CA7-0F40-4021-A53D-90AAFBD04B0C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -50,10 +50,10 @@ Global
 		{10FD5C22-7008-4787-B393-E86918947BE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10FD5C22-7008-4787-B393-E86918947BE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10FD5C22-7008-4787-B393-E86918947BE8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D74151F8-F1EA-4711-975A-E27CED47F2CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D74151F8-F1EA-4711-975A-E27CED47F2CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D74151F8-F1EA-4711-975A-E27CED47F2CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D74151F8-F1EA-4711-975A-E27CED47F2CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99DB9CA7-0F40-4021-A53D-90AAFBD04B0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99DB9CA7-0F40-4021-A53D-90AAFBD04B0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99DB9CA7-0F40-4021-A53D-90AAFBD04B0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99DB9CA7-0F40-4021-A53D-90AAFBD04B0C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

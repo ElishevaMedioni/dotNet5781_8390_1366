@@ -143,15 +143,6 @@ namespace DL
 
 
 
-        //public IEnumerable<DO.Line> GetLinee(Predicate<DO.Line> predicate)
-        //{
-        //    return from ls in DataSource.ListLines
-        //           where predicate(ls)
-        //           select ls.Clone();
-
-        //}
-
-
 
         #endregion
 
@@ -226,16 +217,7 @@ namespace DL
                 throw new DO.BadLineStationException(lineId, $"this station: {station} isn't in this line: {lineId} or bad line station");
         }
 
-        public void DeleteAllLineStation1line(int lineId)
-        {
-            IEnumerable<DO.LineStation> lineStationslst = from ls in DataSource.ListLineStations
-                                                          where ls.LineId == lineId
-                                                          select ls.Clone();
-            foreach (DO.LineStation item in lineStationslst)
-            {
-                DataSource.ListLineStations.Remove(item);
-            }
-        }
+     
 
 
         public IEnumerable<DO.LineStation> GetLineStationInLineStationsList(Predicate<DO.LineStation> predicate)

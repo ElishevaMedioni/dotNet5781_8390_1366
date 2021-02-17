@@ -4,16 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A6D7364F-DA8A-4A57-A786-6E8C16632228}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BL</RootNamespace>
-    <AssemblyName>BL</AssemblyName>
+    <ProjectGuid>{D74151F8-F1EA-4711-975A-E27CED47F2CF}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>DL</RootNamespace>
+    <AssemblyName>DLXML1</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -41,26 +43,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BO\Areas.cs" />
-    <Compile Include="BO\Bus.cs" />
-    <Compile Include="BO\BusStatus.cs" />
-    <Compile Include="BO\Line.cs" />
-    <Compile Include="BO\LineTrip.cs" />
-    <Compile Include="BO\Station.cs" />
-    <Compile Include="BLImp.cs" />
-    <Compile Include="BLFactory.cs" />
-    <Compile Include="BO\Exceptions.cs" />
-    <Compile Include="BO\LineTiming.cs" />
-    <Compile Include="DeepCopy.cs" />
-    <Compile Include="IBL.cs" />
+    <Compile Include="DLXML1.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="XMLTools.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DAL\DLObject.csproj">
+      <Project>{77c57957-a6cc-4ef8-89bb-5322d6b6232a}</Project>
+      <Name>DLObject</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DLAPI\DLAPI.csproj">
       <Project>{d2a3dbc6-56dd-492b-b0c7-1a11d61df281}</Project>
       <Name>DLAPI</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

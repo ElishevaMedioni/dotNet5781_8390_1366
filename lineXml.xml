@@ -1,1 +1,103 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfLine>
+
+	<Line>
+		<Id>1</Id>
+		<Code>100</Code>
+		<Area>CENTER</Area>
+		<FirstStation>100000</FirstStation>
+		<LastStation>100090</LastStation>
+	</Line>
+
+
+	<Line>
+		<Id>2</Id>
+		<Code>101</Code>
+		<Area>EAST</Area>
+		<FirstStation>100040</FirstStation>
+		<LastStation>100160</LastStation>
+	</Line>
+
+
+	<Line>
+		<Id>3</Id>
+		<Code>102</Code>
+		<Area>NORTH</Area>
+		<FirstStation>100000</FirstStation>
+		<LastStation>100250</LastStation>
+	</Line>
+
+
+	<Line>
+		<Id>4</Id>
+		<Code>103</Code>
+		<Area>SOUTH</Area>
+		<FirstStation>100300</FirstStation>
+		<LastStation>100380</LastStation>
+	</Line>
+
+
+	<Line>
+		<Id>5</Id>
+		<Code>104</Code>
+		<Area>WEST</Area>
+		<FirstStation>100030</FirstStation>
+		<LastStation>100450</LastStation>
+	</Line>
+
+
+	<Line>
+		<Id>6</Id>
+		<Code>105</Code>
+		<Area>CENTER</Area>
+		<FirstStation>100440</FirstStation>
+		<LastStation>100090</LastStation>
+	</Line>
+
+
+	<Line>
+		<Id>7</Id>
+		<Code>106</Code>
+		<Area>EAST</Area>
+		<FirstStation>100040</FirstStation>
+		<LastStation>100380</LastStation>
+	</Line>
+
+
+	<Line>
+		<Id>8</Id>
+		<Code>107</Code>
+		<Area>NORTH</Area>
+		<FirstStation>100000</FirstStation>
+		<LastStation>100280</LastStation>
+	</Line>
+
+
+	<Line>
+		<Id>9</Id>
+		<Code>108</Code>
+		<Area>SOUTH</Area>
+		<FirstStation>100300</FirstStation>
+		<LastStation>100440</LastStation>
+	</Line>
+
+
+	<Line>
+		<Id>10</Id>
+		<Code>109</Code>
+		<Area>WEST</Area>
+		<FirstStation>100450</FirstStation>
+		<LastStation>100200</LastStation>
+	</Line>
+
+
+	<Line>
+		<Id>11</Id>
+		<Code>110</Code>
+		<Area>WEST</Area>
+		<FirstStation>100450</FirstStation>
+		<LastStation>100490</LastStation>
+	</Line>
+	
+	
+</ArrayOfLine>
