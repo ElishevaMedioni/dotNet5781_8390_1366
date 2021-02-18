@@ -150,7 +150,7 @@ namespace UI
                     Area = (BO.Areas)areaComboBox.SelectedItem,
                     FirstStation = fS.Code,
                     LastStation = lS.Code,
-                   // ListOfStationsInThisLine = myLine.ListOfStationsInThisLine
+                   
                 };
 
                 myLine = lineToUpdate;

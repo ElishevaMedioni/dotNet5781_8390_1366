@@ -37,12 +37,6 @@ namespace BL
         }
 
 
-        public static object CopyPropertiesToNew<S>(this S from, Type type)
-        {
-            object to = Activator.CreateInstance(type); // new object of Type
-            from.CopyPropertiesTo(to);
-            return to;
-        }
 
         public static void CopyPropertiesTo<T, S>(this S from, T to)
         {

@@ -136,7 +136,7 @@ namespace UI
                 }
                 else if (dialogResult == MessageBoxResult.No)
                 {
-                    //do something else
+                    
                 }
                
             }

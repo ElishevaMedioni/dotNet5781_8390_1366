@@ -34,7 +34,7 @@ namespace BLAPI
 
         void UpdateFirstStation(BO.Line line, BO.Station firstS);
         void UpdateLastStation(BO.Line line, BO.Station lastS);
-        void DeleteLine(BO.Line lineToDel); // delete Line
+        void DeleteLine(BO.Line lineToDel); 
 
         
         IEnumerable<BO.Line> ReturnTheLineByArea(BO.Areas area);
@@ -64,17 +64,13 @@ namespace BLAPI
 
         #endregion
 
-        #region LineTiming
-    
-
-        #endregion
+       
 
         #region Bus
         IEnumerable<BO.Bus> GetAllBus();
         BO.Bus AdaptBusToBoToDo(DO.Bus BusDO);
         BO.Bus GetBus(int license);
 
-        //void UpdateBus(int license, double kmTrip, double kmGas, double gasoil);
 
         IEnumerable<BO.Bus> GetAllBuses(BO.Bus bus);
 

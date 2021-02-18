@@ -20,9 +20,11 @@ namespace DL
         public static DLXML2 Instance { get => instance; }
         #endregion
 
-
+        /// <summary>
+        /// save paths in variables
+        /// </summary>
         #region DS XML Files
-
+        
         string linePath1 = @"lineXml.xml";
 
         string lineStationPath = @"lineStationXml.xml"; 
@@ -35,7 +37,14 @@ namespace DL
         #endregion
 
 
-
+        /// <summary>
+        /// load path 
+        ///  search if exist same code 
+        ///  if yes, select 
+        ///  if no exception
+        /// </summary>
+        /// <param name="code"></param>
+        /// <returns></returns>
         #region Station
         public DO.Station GetStation(int code)//ok
         {
@@ -55,7 +64,7 @@ namespace DL
                         ).FirstOrDefault();
 
             if (p == null)
-                throw new DO.BadStationException(code, $"bad person id: {code}");
+                throw new DO.BadStationException(code, $"bad station code: {code}");
 
             return p;
         }
@@ -111,7 +120,7 @@ namespace DL
 
 
 
-        public void DeleteStation(int code) //OK
+        public void DeleteStation(int code)
         {
             XElement stationRootElem = XMLTools.LoadListFromXMLElement(stationPath);
 
@@ -125,7 +134,7 @@ namespace DL
                 XMLTools.SaveListToXMLElement(stationRootElem, stationPath);
             }
             else
-                throw new DO.BadStationException(code, $"bad person id: {code}");
+                throw new DO.BadStationException(code, $"bad station code: {code}");
         }
 
 
@@ -220,7 +229,7 @@ namespace DL
 
 
 
-        public int AddLine(DO.Line line)  //PB IL FAUT QUE CA SOIT INT
+        public int AddLine(DO.Line line)  
         {
             XElement dlConfig = XElement.Load(@"config.xml");
              int LineBusId = int.Parse(dlConfig.Element("LineBusID").Value);
@@ -259,7 +268,7 @@ namespace DL
 
 
 
-        public void DeleteLine(int id) //OK
+        public void DeleteLine(int id)
         {
             XElement lineRootElem = XMLTools.LoadListFromXMLElement(linePath1);
 
@@ -273,7 +282,7 @@ namespace DL
                 XMLTools.SaveListToXMLElement(lineRootElem, linePath1);
             }
             else
-                throw new DO.BadLineIdException(id, $"bad person id: {id}");
+                throw new DO.BadLineIdException(id, $"bad line id: {id}");
         }
 
 
@@ -389,7 +398,7 @@ namespace DL
 
             }
             else
-                throw new DO.BadBusException(bus.License, $"bad line code: {bus.License}");
+                throw new DO.BadBusException(bus.License, $"bad bus license: {bus.License}");
         }
 
 

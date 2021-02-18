@@ -579,85 +579,8 @@ namespace BL
 
 
         #region LineTiming 
-        //public IEnumerable<BO.LineTiming> GetLineTimingForSimulator(TimeSpan startTime, BO.Station stationCode)
-        //{
-        //    return (from lineTiming in ListOfLineTiming(startTime, stationCode).ToList().FindAll(l => l.MinutesTillArrival)
-        //            select lineTiming).Take(5);
-        //}
+        
 
-
-        //public IEnumerable<BO.LineTiming> ListOfLineTiming(TimeSpan startTime, BO.Station stationCode)
-        //{
-        //    List<BO.LineTiming> listOfLineTiming = new List<BO.LineTiming>();
-        //    IEnumerable<BO.Line> lines = GetAllLinesPassingAtThisStation(stationCode);
-        //    if (lines.Count() == 0)
-        //        throw new BO.BadStationException(stationCode.Code, "bad code");
-        //    using (var li = lines.GetEnumerator())
-        //    {
-        //        while (li.MoveNext())
-        //        {
-        //            IEnumerable<BO.LineTrip> linesTrips = GetLineTripForLine(li.Current.Id);
-        //            using (var st = linesTrips.GetEnumerator())
-        //            {
-        //                while (st.MoveNext())
-        //                {
-        //                    BO.LineTiming lineTime = new BO.LineTiming();
-        //                    lineTime.Id = li.Current.Code;
-        //                    lineTime.LineCode = stationCode.Code;
-        //                    lineTime.Arrival = ArrivalTime(li.Current.Id, stationCode.Code, st.Current.StartAt);
-        //                    lineTime.MinutesTillArrival = (int)(lineTime.Arrival.Subtract(startTime).TotalMinutes);
-        //                    if (lineTime.MinutesTillArrival<0)
-        //                    {
-        //                        lineTime.Arrival = lineTime.Arrival.Add(new TimeSpan(1, 0, 0));
-        //                        lineTime.MinutesTillArrival = (int)(lineTime.Arrival.Subtract(startTime).TotalMinutes);
-        //                    }
-        //                    listOfLineTiming.Add(lineTime);
-        //                }
-        //            }
-        //        }
-        //    }
-
-
-        //    return from LineTiming in listOfLineTiming.
-        //           OrderByDescending(l => l.Arrival)
-        //           select LineTiming;
-
-
-        //}
-
-
-
-        //public int LastBusInStation(TimeSpan startTime, BO.Station station)
-        //{
-        //    IEnumerable<BO.LineTiming> listOfLineTime = ListOfLineTiming(startTime, station);
-        //    TimeSpan Hour = new TimeSpan(1, 0, 0);
-        //    BO.LineTiming li = listOfLineTime.ToList().Find(l => l.Arrival == startTime);
-
-        //    if (li == null)
-        //    {
-        //        li = listOfLineTime.ToList().Find(l => l.Arrival < startTime);
-        //        if ( li == null)
-        //        {
-        //            startTime = startTime.Add(Hour);
-        //            li = listOfLineTime.ToList().Find(l => l.Arrival < startTime);
-        //        }
-        //    }
-        //}
-
-        //public TimeSpan ArrivalTime(BO.Line line, int code, TimeSpan time)
-        //{
-        //    IEnumerable<BO.Station> stations = GetAllStationsInThisLine(line);
-        //    using (var st = stations.GetEnumerator())
-        //    {
-        //        while (st.MoveNext())
-        //        {
-        //            if(!(st.Current.Code == code))
-        //            {
-        //                time += TimeSpan.FromMinutes(st.Current.Time);
-        //            }
-        //        }
-        //    }
-        //}
 
         #endregion
 
@@ -695,19 +618,7 @@ namespace BL
 
 
 
-        public DO.Bus convertDAO(DO.Bus bus)
-        {
-            DO.Bus busDAO = new DO.Bus
-            {
-                License = bus.License,
-                GasolineLevel = bus.GasolineLevel,
-                TotalTrip = bus.TotalTrip,
-                FuelRemain = 0,
-
-                Status = bus.Status
-            };
-            return busDAO;
-        }
+ 
 
 
         public BO.Bus GetBus(int license)

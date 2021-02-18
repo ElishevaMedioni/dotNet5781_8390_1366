@@ -99,9 +99,6 @@
     <Compile Include="Line\AddLineWindow.xaml.cs">
       <DependentUpon>AddLineWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="FirstWindow\FirstWindow.xaml.cs">
-      <DependentUpon>FirstWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Line\LineDoubleClickWin.xaml.cs">
       <DependentUpon>LineDoubleClickWin.xaml</DependentUpon>
     </Compile>
@@ -135,10 +132,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Line\AddLineWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="FirstWindow\FirstWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -240,9 +233,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Bus\buswinimg.jpeg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="FirstWindow\userimg.jpeg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Line\addlineimg.jpg" />

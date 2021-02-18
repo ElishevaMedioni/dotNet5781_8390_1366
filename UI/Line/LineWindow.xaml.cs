@@ -38,7 +38,7 @@ namespace UI
             ListViewLine.ItemsSource = myCollection;
 
             areaComboBox.ItemsSource = Enum.GetValues(typeof(BO.Areas));
-           // areaComboBox.DataContext = myCollection;
+           
 
         }
         /// <summary>
