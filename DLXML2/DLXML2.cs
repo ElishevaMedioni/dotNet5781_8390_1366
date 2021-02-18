@@ -3,9 +3,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Reflection;
 using System.Xml.Linq;
-
 using DO;
-
 using System.Linq;
 using DLAPI;
 using System.Collections.Generic;
@@ -25,10 +23,10 @@ namespace DL
 
         #region DS XML Files
 
-        string linePath1 = @"lineXml.xml"; //XElement
+        string linePath1 = @"lineXml.xml";
 
-        string lineStationPath = @"lineStationXml.xml"; //XMLSerializer
-        string busPath = @"busXml.xml"; //XMLSerializer
+        string lineStationPath = @"lineStationXml.xml"; 
+        string busPath = @"busXml.xml"; 
 
 
 
@@ -49,8 +47,8 @@ namespace DL
                          {
                              Code = Int32.Parse(per.Element("Code").Value),
                              Name = per.Element("Name").Value,
-                             Longitude = Int32.Parse(per.Element("Longitude").Value),
-                             Latitude = Int32.Parse(per.Element("Latitude").Value),
+                             Longitude = double.Parse(per.Element("Longitude").Value),
+                             Latitude = double.Parse(per.Element("Latitude").Value),
 
 
                          }
@@ -76,8 +74,8 @@ namespace DL
                     {
                         Code = Int32.Parse(p.Element("Code").Value),
                         Name = p.Element("Name").Value,
-                        Longitude = Int32.Parse(p.Element("Longitude").Value),
-                        Latitude = Int32.Parse(p.Element("Latitude").Value),
+                        Longitude = double.Parse(p.Element("Longitude").Value),
+                        Latitude = double.Parse(p.Element("Latitude").Value),
                     }
                    );
         }
@@ -99,7 +97,8 @@ namespace DL
             if (per1 != null)
                 throw new DO.BadStationException(station.Code, "Duplicate station code");
 
-            XElement stationElem = new XElement("Station",
+            XElement stationElem = 
+                new XElement("Station",
                                    new XElement("Code", station.Code),
                                    new XElement("Name", station.Name),
                                    new XElement("Longitude", station.Longitude),
@@ -117,7 +116,7 @@ namespace DL
             XElement stationRootElem = XMLTools.LoadListFromXMLElement(stationPath);
 
             XElement per = (from p in stationRootElem.Elements()
-                            where int.Parse(p.Element("ID").Value) == code
+                            where int.Parse(p.Element("Code").Value) == code
                             select p).FirstOrDefault();
 
             if (per != null)
@@ -137,7 +136,7 @@ namespace DL
             XElement stationRootElem = XMLTools.LoadListFromXMLElement(stationPath);
 
             XElement per = (from p in stationRootElem.Elements()
-                            where int.Parse(p.Element("ID").Value) == station.Code
+                            where int.Parse(p.Element("Code").Value) == station.Code
                             select p).FirstOrDefault();
 
             if (per != null)
@@ -178,15 +177,15 @@ namespace DL
                       {
                           Id = Int32.Parse(per.Element("Id").Value),
                           Code = Int32.Parse(per.Element("Code").Value),
-                          FirstStation = Int32.Parse(per.Element(" FirtStation").Value),
+                          FirstStation = Int32.Parse(per.Element("FirstStation").Value),
                           LastStation = Int32.Parse(per.Element("LastStation").Value),
-                          Area = (Areas)Enum.Parse(typeof(Areas), per.Element("Areas").Value)
+                          Area = (Areas)Enum.Parse(typeof(Areas), per.Element("Area").Value)
 
                       }
                         ).FirstOrDefault();
 
             if (p == null)
-                throw new DO.BadLineIdException(id, $"bad person id: {id}");
+                throw new DO.BadLineIdException(id, $"bad id: {id}");
 
             return p;
         }
@@ -198,16 +197,19 @@ namespace DL
 
         public IEnumerable<DO.Line> GetAllLines()
         {
+            
             XElement lineRootElem = XMLTools.LoadListFromXMLElement(linePath1);
+
+          
 
             return (from per in lineRootElem.Elements()
                     select new Line()
                     {
                         Id = Int32.Parse(per.Element("Id").Value),
                         Code = Int32.Parse(per.Element("Code").Value),
-                        FirstStation = Int32.Parse(per.Element(" FirtStation").Value),
+                        FirstStation = Int32.Parse(per.Element("FirstStation").Value),
                         LastStation = Int32.Parse(per.Element("LastStation").Value),
-                        Area = (Areas)Enum.Parse(typeof(Areas), per.Element("Areas").Value)
+                        Area = (Areas)Enum.Parse(typeof(Areas), per.Element("Area").Value)
                     }
                    );
         }
@@ -221,7 +223,7 @@ namespace DL
         public int AddLine(DO.Line line)  //PB IL FAUT QUE CA SOIT INT
         {
             XElement dlConfig = XElement.Load(@"config.xml");
-            int LineBusId = int.Parse(dlConfig.Element("LineID").Value);
+             int LineBusId = int.Parse(dlConfig.Element("LineBusID").Value);
 
 
 
@@ -236,11 +238,16 @@ namespace DL
 
 
             line.Id = LineBusId++;
-            XElement lineElem = new XElement("Id",
+
+            dlConfig.Element("LineBusID").Value = LineBusId.ToString();
+            dlConfig.Save(@"config.xml");
+
+            XElement lineElem = new XElement("Line",
+                                    new XElement("Id",line.Id),
                                    new XElement("Code", line.Code),
-                                   new XElement("FirtStation", line.FirstStation),
+                                   new XElement("FirstStation", line.FirstStation),
                                    new XElement("LastStation", line.LastStation),
-                                   new XElement("Areas", line.Area));
+                                   new XElement("Area", line.Area));
 
             lineRootElem.Add(lineElem);
 
@@ -257,7 +264,7 @@ namespace DL
             XElement lineRootElem = XMLTools.LoadListFromXMLElement(linePath1);
 
             XElement per = (from p in lineRootElem.Elements()
-                            where int.Parse(p.Element("ID").Value) == id
+                            where int.Parse(p.Element("Id").Value) == id
                             select p).FirstOrDefault();
 
             if (per != null)
@@ -277,13 +284,13 @@ namespace DL
             XElement lineRootElem = XMLTools.LoadListFromXMLElement(linePath1);
 
             XElement per = (from p in lineRootElem.Elements()
-                            where int.Parse(p.Element("ID").Value) == line.Code
+                            where int.Parse(p.Element("Id").Value) == line.Id
                             select p).FirstOrDefault();
 
             if (per != null)
             {
-                per.Element(" Id").Value = line.Id.ToString();
-                per.Element(" Code").Value = line.Code.ToString();
+                per.Element("Id").Value = line.Id.ToString();
+                per.Element("Code").Value = line.Code.ToString();
                 per.Element("Area").Value = line.Area.ToString();
                 per.Element("FirstStation").Value = line.FirstStation.ToString();
                 per.Element("LastStation").Value = line.LastStation.ToString();
@@ -320,11 +327,13 @@ namespace DL
                     select new Bus()
                     {
                         License = Int32.Parse(per.Element("License").Value),
+                        FromDate = DateTime.Parse(per.Element("FromDate").Value),
                         TotalTrip = Int32.Parse(per.Element("TotalTrip").Value),
                         FuelRemain = Int32.Parse(per.Element("FuelRemain").Value),
-                        GasolineLevel = Int32.Parse(per.Element("GasolineLevel").Value),
-                        Status = (BusStatus)Enum.Parse(typeof(Areas), per.Element("Areas").Value),
-                        FromDate = DateTime.Parse(per.Element("FromDate").Value)
+                        Status = (BusStatus)Enum.Parse(typeof(BusStatus), per.Element("Status").Value),
+                        
+                       
+                        
                     }
                    );
         }
@@ -339,11 +348,13 @@ namespace DL
                      select new Bus()
                      {
                          License = Int32.Parse(per.Element("License").Value),
+                         FromDate = DateTime.Parse(per.Element("FromDate").Value),
                          TotalTrip = Int32.Parse(per.Element("TotalTrip").Value),
                          FuelRemain = Int32.Parse(per.Element("FuelRemain").Value),
-                         GasolineLevel = Int32.Parse(per.Element("GasolineLevel").Value),
-                         Status = (BusStatus)Enum.Parse(typeof(Areas), per.Element("Areas").Value),
-                         FromDate = DateTime.Parse(per.Element("FromDate").Value)
+                         Status = (BusStatus)Enum.Parse(typeof(BusStatus), per.Element("Status").Value),
+                         
+                         
+                         
 
                      }
                         ).FirstOrDefault();
@@ -369,7 +380,7 @@ namespace DL
                 per.Element("License").Value = bus.License.ToString();
                 per.Element("TotalTrip").Value = bus.TotalTrip.ToString();
                 per.Element("FuelRemain").Value = bus.FuelRemain.ToString();
-                per.Element("GasolineLevel").Value = bus.GasolineLevel.ToString();
+               
                 per.Element("Status").Value = bus.Status.ToString();
                 per.Element("FromDate").Value = bus.FromDate.ToString();
 
@@ -408,7 +419,7 @@ namespace DL
             XElement lineStationRootElem = XMLTools.LoadListFromXMLElement(lineStationPath);
 
             LineStation p = (from per in lineStationRootElem.Elements()
-                             where int.Parse(per.Element("lineId").Value) == lineId && int.Parse(per.Element("station").Value) == station
+                             where int.Parse(per.Element("LineId").Value) == lineId && int.Parse(per.Element("station").Value) == station
                              select new LineStation()
                              {
                                  LineId = Int32.Parse(per.Element("LineId").Value),
@@ -450,14 +461,15 @@ namespace DL
             XElement lineStationRootElem = XMLTools.LoadListFromXMLElement(lineStationPath);
 
             XElement per1 = (from per in lineStationRootElem.Elements()
-                             where int.Parse(per.Element("lineId").Value) == lineStation.LineId && int.Parse(per.Element("station").Value) == lineStation.Station
+                             where int.Parse(per.Element("LineId").Value) == lineStation.LineId && int.Parse(per.Element("Station").Value) == lineStation.Station
                              select per).FirstOrDefault();
 
             if (per1 != null)
                 throw new DO.BadLineStationException(lineStation.LineId, "Duplicate LineStation code");
 
 
-            XElement lineStationElem = new XElement("LineId",
+            XElement lineStationElem = new XElement("LineStation",
+                                   new XElement("LineId", lineStation.LineId),
                                    new XElement("Station", lineStation.Station),
                                    new XElement("LineStationIndex", lineStation.LineStationIndex));
 
@@ -477,7 +489,7 @@ namespace DL
 
 
             XElement per = (from p in lineStationRootElem.Elements()
-                            where int.Parse(p.Element("lineId").Value) == lineStation.LineId && int.Parse(p.Element("station").Value) == lineStation.Station
+                            where int.Parse(p.Element("LineId").Value) == lineStation.LineId && int.Parse(p.Element("Station").Value) == lineStation.Station
                             select p).FirstOrDefault();
 
             if (per != null)
@@ -495,11 +507,21 @@ namespace DL
 
         public DO.LineStation UpdateLineStation2(DO.LineStation lineStation)
         {
+            List<LineStation> lineSL = XMLTools.LoadListFromXMLSerializer<LineStation>(lineStationPath);
+            DO.LineStation lineS = lineSL.Find(s => (s.LineId == lineStation.LineId && s.Station == lineStation.Station));
 
-
-            return null;
-
-            //tu veux je ten
+            if (lineS != null)
+            {
+                lineSL.Remove(lineS);
+                lineSL.Add(lineStation);
+                XMLTools.SaveListToXMLSerializer(lineSL, lineStationPath);
+                return lineStation;
+            }
+            else
+            {
+                throw new DO.BadLineStationException(lineStation.LineId, "Duplicate LineStation code");
+            }
+            
         }
 
 
@@ -509,7 +531,7 @@ namespace DL
             XElement lineStationRootElem = XMLTools.LoadListFromXMLElement(lineStationPath);
 
             XElement per = (from p in lineStationRootElem.Elements()
-                            where int.Parse(p.Element("LineID").Value) == lineId && int.Parse(p.Element("Station").Value) == station
+                            where int.Parse(p.Element("LineId").Value) == lineId && int.Parse(p.Element("Station").Value) == station
                             select p).FirstOrDefault();
 
             if (per != null)
@@ -518,7 +540,7 @@ namespace DL
                 XMLTools.SaveListToXMLElement(lineStationRootElem, lineStationPath);
             }
             else
-                throw new DO.BadLineStationException(lineId, $"bad person id: {lineId}");
+                throw new DO.BadLineStationException(lineId, $"bad station id: {lineId}");
         }
 
         public void DeleteStationToAllLines(int station)
@@ -534,6 +556,9 @@ namespace DL
         public IEnumerable<DO.LineStation> GetLineStationInLineStationsList(Predicate<DO.LineStation> predicate)
         {
             XElement lineStationRootElem = XMLTools.LoadListFromXMLElement(lineStationPath);
+
+            
+
 
             IEnumerable<LineStation> enumerable = from p in lineStationRootElem.Elements()
 

@@ -30,7 +30,7 @@ namespace UI
         {
 
             InitializeComponent();
-            player.SoundLocation = @"C:\Users\keren\source\repos\ElishevaMedioni\dotNet5781_8390_1366\UI\MainWin\Aluph3.wav"; 
+            player.SoundLocation = @"C:\Users\elish\source\repos\dotNet5781_8390_1366\UI\player"; 
 
 
         }

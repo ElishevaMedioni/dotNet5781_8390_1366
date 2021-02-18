@@ -161,6 +161,8 @@ namespace UI
                     bl.UpdateFirstStation(myLine, fS);
                     bl.UpdateLastStation(myLine, lS);
                     RefreshListOfStationInThisLine(myLine);
+                    MessageBox.Show("Line number " + codeInt + " has been updated successfully!!");
+                    this.Close();
                 }
                 catch (BO.BadLineException ex)
                 {

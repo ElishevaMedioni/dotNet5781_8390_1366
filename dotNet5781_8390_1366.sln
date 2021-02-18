@@ -11,11 +11,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DS", "DS\DS.csproj", "{D39F
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E2AF00E6-8CBC-4A73-8243-1F4C25F82626}"
 	ProjectSection(SolutionItems) = preProject
-		busXml.xml = busXml.xml
+		bin\xml\busXml.xml = bin\xml\busXml.xml
 		bin\config.xml = bin\config.xml
-		lineStationXml.xml = lineStationXml.xml
-		lineXml.xml = lineXml.xml
-		stationXml.xml = stationXml.xml
+		bin\xml\lineStationXml.xml = bin\xml\lineStationXml.xml
+		bin\xml\lineXml.xml = bin\xml\lineXml.xml
+		bin\xml\stationXml.xml = bin\xml\stationXml.xml
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BL", "BL\BL.csproj", "{A6D7364F-DA8A-4A57-A786-6E8C16632228}"

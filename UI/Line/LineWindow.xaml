@@ -6,12 +6,23 @@
         xmlns:local="clr-namespace:UI"
         xmlns:BO="clr-namespace:BO;assembly=BL" x:Class="UI.LineWindow"
         mc:Ignorable="d"
-        Title="LineWindow" Height="504" Width="865"   >
-   
+        Title="LineWindow" Height="431.333" Width="768.333"   >
 
-    <Grid Opacity="0.85" Background="#FFED9569" >
 
-        <ListView Name="ListViewLine" HorizontalAlignment="Left" Height="373" Margin="10,10,0,0" VerticalAlignment="Top" Width="467" FontFamily="David" MouseDoubleClick="ListViewLine_MouseDoubleClick" Foreground="#FF441825" FontWeight="Bold" Opacity="0.9" Background="#FFED9569" FontSize="13">
+    <Grid Opacity="0.85" >
+
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                <GradientStop Color="#FF582F74" Offset="0.061"/>
+                <GradientStop Color="#FFE5A7A7" Offset="0.747"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+
+        <ListView Name="ListViewLine" HorizontalAlignment="Left" Height="364" Margin="10,10,0,0" VerticalAlignment="Top" Width="558" FontFamily="David" MouseDoubleClick="ListViewLine_MouseDoubleClick" Foreground="#FF441825" FontWeight="Bold" Opacity="0.9" FontSize="16">
+            <ListView.Background>
+                <ImageBrush ImageSource="backgroundbus.jpg"/>
+            </ListView.Background>
 
             <ListView.ItemBindingGroup>
                 <BindingGroup/>
@@ -19,8 +30,8 @@
             <ListView.View>
                 <GridView >
 
-                    <GridViewColumn x:Name="lineNumber" Header="Line:" DisplayMemberBinding="{Binding Code}" Width="70"  />
-                    <GridViewColumn x:Name="area" Header="Area:" DisplayMemberBinding="{Binding Area}"  Width="70"/>
+                    <GridViewColumn x:Name="lineNumber" Header="Line:" DisplayMemberBinding="{Binding Code}" Width="70"   />
+                    <GridViewColumn x:Name="area" Header="Area:" DisplayMemberBinding="{Binding Area}"  Width="100"/>
                     <GridViewColumn x:Name="firstStation" Header="First Station:" DisplayMemberBinding="{Binding FirstStation}"  Width="150"/>
                     <GridViewColumn x:Name="lastStation" Header="Last Station:" DisplayMemberBinding="{Binding LastStation}"  Width="150"/>
 
@@ -75,7 +86,7 @@
             </DataGrid.Columns>
         </DataGrid>-->
 
-        <Button Content="Add Line" HorizontalAlignment="Left" Margin="327,406,0,0" VerticalAlignment="Top" Width="93" Height="35" Click="Button_Click_2" FontFamily="Lucida Sans" FontSize="16" FontWeight="Bold" Background="#FF653B4D" BorderBrush="#FFFFA992" Foreground="White">
+        <Button Content="Add Line" HorizontalAlignment="Left" Margin="607,276,0,0" VerticalAlignment="Top" Width="110" Height="35" Click="Button_Click_2" FontFamily="Lucida Sans" FontSize="16" FontWeight="Bold" Background="#FF653B4D" BorderBrush="#FFFFA992" Foreground="White">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="7"/>
@@ -85,7 +96,7 @@
         </Button>
 
 
-        <Button Content="Update Line" HorizontalAlignment="Left" Margin="199,406,0,0" VerticalAlignment="Top" Width="101" Height="35" Click="Button_Click" FontFamily="Lucida Sans" FontSize="16" FontWeight="Bold" Background="#FF7C5868" BorderBrush="#FFFFE592" RenderTransformOrigin="0.413,0.429" Foreground="White">
+        <Button Content="Update Line" HorizontalAlignment="Left" Margin="606,217,0,0" VerticalAlignment="Top" Width="110" Height="35" Click="Button_Click" FontFamily="Lucida Sans" FontSize="16" FontWeight="Bold" Background="#FF7C5868" BorderBrush="#FFFFA992" RenderTransformOrigin="0.413,0.429" Foreground="White">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="7"/>
@@ -93,7 +104,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button Content="Delete Line" HorizontalAlignment="Left" Margin="50,406,0,0" VerticalAlignment="Top" Width="100" Height="35" Click="Button_Click_1" FontFamily="Lucida Sans" FontSize="16" RenderTransformOrigin="1.074,1.829" FontWeight="Bold" Background="#FF7C5868" BorderBrush="#FFFFE592" Foreground="White">
+        <Button Content="Delete Line" HorizontalAlignment="Left" Margin="607,162,0,0" VerticalAlignment="Top" Width="110" Height="35" Click="Button_Click_1" FontFamily="Lucida Sans" FontSize="16" RenderTransformOrigin="1.074,1.829" FontWeight="Bold" Background="#FF7C5868" BorderBrush="#FFFFA992" Foreground="White">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="7"/>
@@ -101,7 +112,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Grid x:Name="grid1" HorizontalAlignment="Left" Margin="520,23,0,0" VerticalAlignment="Top">
+        <Grid x:Name="grid1" HorizontalAlignment="Left" Margin="573,9,0,0" VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
