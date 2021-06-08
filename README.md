@@ -1,5 +1,5 @@
 
-# Bus Management System
+# Bus Management System &#128652;
 
 In this project we wrote a system for managing an information system for public transportation.
 
@@ -7,32 +7,32 @@ The underlying idea is that the passenger can book bus rides to bus stops from a
 
 The system was built as described:
 
-• Managing information about the maintenance of transportation vehicles (buses) used for travel
+&#9981; Managing information about the maintenance of transportation vehicles (buses) used for travel
 
-• Managing information about the different lines the company must operate
+&#128653; Managing information about the different lines the company must operate
+
+&#128655; Managing information about the different stations
 
 
 The project involved practice and implementation of:
 
-• Language Principles of C#
+&#128187; Language Principles of C#
 
-• Software design templates:
+:gem: Software design templates:
 
   - Architecture (Layer Model, Contract Design))
   - Manufacturers (Singleton, Simple Factory)
   - Behavioral (Observer, Iterator))
   
-• Create a user interface using the modern open infrastructure WPF
+:art: Create a user interface using the modern open infrastructure WPF
 
-• Create databases of lines and stations
+:bookmark_tabs: Create databases of lines and stations
 
-• Threads
+&#128194; Work with external files (in XML).
 
-• Work with external files (in XML).
+:busts_in_silhouette: Teamwork
 
-• Teamwork
-
-• Programmatic thinking and self-learning
+:brain: Programmatic thinking and self-learning
 
 <br />
 Pattern of the layer model:
